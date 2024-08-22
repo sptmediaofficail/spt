@@ -1,6 +1,7 @@
 const { nextui } = require('@nextui-org/theme');
 const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');
 const { join } = require('path');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -10,19 +11,26 @@ module.exports = {
       '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
     ),
     ...createGlobPatternsForDependencies(__dirname),
-    '../../node_modules/@nextui-org/theme/dist/components/(button|ripple|spinner).js',
+    '../../node_modules/@nextui-org/theme/dist/components/*.js',
   ],
-  darkMode: 'class',
+  theme: {
+    extend: {},
+  },
   plugins: [
     nextui({
+      darkMode: 'class',
       addCommonColors: true,
       themes: {
         light: {
           colors: {
-            primary: '#0070f3',
+            primary: {
+              DEFAULT: '#28478A',
+              foreground: '#2E2E2E',
+            },
           },
         },
       },
+      defaultTheme: 'light',
     }),
   ],
 };

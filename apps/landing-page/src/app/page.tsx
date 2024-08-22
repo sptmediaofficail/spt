@@ -1,9 +1,11 @@
-import {Button} from "@nextui-org/button";
+import { Navbar } from '../navbar';
+import Hero from '../hero';
 
 export default function Index() {
   return (
-    <div>
-      <Button>Click me</Button>
-    </div>
+    <>
+      <Navbar />
+      <Hero />
+    </>
   );
 }
