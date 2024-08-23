@@ -46,7 +46,7 @@ export const PartnersSection = () => {
         شركاؤنا
       </h2>
 
-      <div className="flex flex-wrap justify-around gap-8 mt-16">
+      <div className="flex flex-wrap justify-around gap-8 mt-12">
         {partners.map((partner, index) => (
           <div key={index} className="flex items-center justify-center">
             <Image
