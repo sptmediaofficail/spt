@@ -27,10 +27,15 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <NextUiNavbar shouldHideOnScroll onMenuOpenChange={setIsMenuOpen}>
+    <NextUiNavbar
+      className="h-20"
+      shouldHideOnScroll
+      onMenuOpenChange={setIsMenuOpen}
+      maxWidth={'xl'}
+    >
       <NavbarContent
         justify="start"
-        className="flex flex-row-reverse justify-between w-full"
+        className="flex flex-row-reverse justify-between"
       >
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
@@ -41,7 +46,7 @@ export const Navbar = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden md:flex gap-4" justify="center">
+      <NavbarContent className="hidden md:flex gap-8" justify="center">
         {navbarItems.map((item, index) => (
           <NavbarItem key={index} isActive={item.isActive}>
             <Link

@@ -1,21 +1,17 @@
 import React from 'react';
-import MainSection from './main';
 import Image from 'next/image';
-import StatMask from '../../assets/svg/stat-mask.svg';
 import StatCar from '../../assets/svg/stat-car.svg';
 import StatUser from '../../assets/svg/stat-users.svg';
+import StatMask from '../../assets/svg/stat-mask.svg';
+import MainSection from './main';
 
 export const HeroSection = () => {
   return (
-    <div className="relative">
+    <div className="flex flex-row md:flex-col justify-around bg-primary relative overflow-hidden">
       <MainSection />
-      <div className="relative z-20">
-        <Image
-          className="md:absolute right-0 bottom-0  w-full"
-          src={StatMask}
-          alt="Statistics"
-        />
-        <div className="block md:absolute right-0 bottom-0 w-full md:w-[70%]">
+      <div className="relative pt-28">
+        <Image className="absolute bottom-0" src={StatMask} alt="Statistics" />
+        <div className="absolute bottom-0 w-8/12 2xl:w-6/12">
           <StatisticsSection />
         </div>
       </div>
@@ -23,9 +19,9 @@ export const HeroSection = () => {
   );
 };
 
-export const StatisticsSection = async () => {
+export const StatisticsSection = () => {
   return (
-    <section className="flex flex-row justify-around content-center text-center flex-wrap p-4">
+    <section className="flex flex-row justify-around content-center text-center flex-wrap">
       <div className="text-center flex flex-col md:flex-row gap-4 items-center mb-6 md:mb-0">
         <div className="flex flex-col justify-around">
           <p className="text-2xl font-bold text-primary">56</p>
