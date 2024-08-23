@@ -1,11 +1,11 @@
 import { Navbar } from '../navbar';
-import Hero from '../hero';
+import { HeroSection } from '../components/hero';
 
 export default function Index() {
   return (
     <>
       <Navbar />
-      <Hero />
+      <HeroSection />
     </>
   );
 }

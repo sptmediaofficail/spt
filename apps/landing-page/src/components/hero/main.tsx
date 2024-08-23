@@ -1,8 +1,9 @@
-import { cn } from '@nextui-org/theme';
+import React from 'react';
 import Image from 'next/image';
-import HeroImg from './assets/images/hero.png';
+import HeroImg from '../../assets/images/hero.png';
+import { cn } from '@nextui-org/theme';
 
-export const HeroSection = async () => {
+const MainSection = async () => {
   // const data = await fetch('https://api.example.com/data');
 
   const data = {
@@ -10,11 +11,10 @@ export const HeroSection = async () => {
     description:
       'مرحبا بك في SPT وجهتك المثالية لتجعل العثور على قطع غيار السيارات التي تحتاجها بسرعة وكفاءة سواء كنت تبحث عن قطع أصلية، مستعملة أو مستهلكة أخيرا، كل ما يلزم لتلبية احتياجات سيارتك.',
   };
-
   return (
-    <div className="bg-primary relative">
+    <section className="flex flex-col md:flex-row items-center justify-between p-8 text-white bg-primary">
       <div className="container py-20 mx-auto flex">
-        <div className="md:basis-4/12 text-white lead">
+        <div className="md:basis-4/12 leading-loose">
           <h1
             className={cn(
               'text-3xl text-center font-bold mb-4 leading-loose',
@@ -27,10 +27,12 @@ export const HeroSection = async () => {
             {data.description}
           </p>
         </div>
-        <div className="basis-8/12 hidden md:block absolute -left-60">
-          <Image src={HeroImg} alt="Hero" />
-        </div>
       </div>
-    </div>
+      <div className="relative mt-8 md:mt-0">
+        <Image src={HeroImg} alt="SPT on Mobile" width={200} height={200} />
+      </div>
+    </section>
   );
 };
+
+export default MainSection;
