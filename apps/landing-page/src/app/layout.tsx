@@ -33,7 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${shubakFont.className}`} dir="rtl">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <main className="w-full">{children}</main>
+        </Providers>
       </body>
     </html>
   );
