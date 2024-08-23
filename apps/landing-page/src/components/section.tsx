@@ -5,7 +5,10 @@ export const Section = (props: HTMLProps<any>) => {
   return (
     <section
       {...props}
-      className={cn('pt-24 max-w-screen-2xl mx-4 2xl:mx-auto', props.className)}
+      className={cn(
+        'pt-24 max-w-screen-2xl px-4 xl:mx-auto 2xl:px-0',
+        props.className
+      )}
     >
       {props.children}
     </section>

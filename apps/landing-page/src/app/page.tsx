@@ -1,7 +1,7 @@
 import { Navbar } from '../navbar';
-import { HeroSection } from '../components/hero';
 import { PartnersSection } from '../sections/partners';
 import { ServicesSection } from '../sections/services';
+import { HeroSection } from '../sections/hero';
 
 export default function Index() {
   return (
