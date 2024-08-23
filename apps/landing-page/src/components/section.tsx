@@ -6,7 +6,7 @@ export const Section = (props: HTMLProps<any>) => {
     <section
       {...props}
       className={cn(
-        'pt-24 max-w-screen-2xl px-4 xl:mx-auto 2xl:px-0',
+        'pt-24 max-w-screen-xl px-4 xl:mx-auto xl:px-0',
         props.className
       )}
     >
