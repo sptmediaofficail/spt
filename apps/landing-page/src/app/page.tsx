@@ -1,6 +1,7 @@
 import { Navbar } from '../navbar';
 import { HeroSection } from '../components/hero';
 import { PartnersSection } from '../sections/partners';
+import { ServicesSection } from '../sections/services';
 
 export default function Index() {
   return (
@@ -8,6 +9,7 @@ export default function Index() {
       <Navbar />
       <HeroSection />
       <PartnersSection />
+      <ServicesSection />
     </>
   );
 }

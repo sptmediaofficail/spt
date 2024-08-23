@@ -20,6 +20,11 @@ const shubakFont = localFont({
       style: 'normal',
       weight: '700',
     },
+    {
+      path: '../assets/fonts/Shubbak-SemiBold.woff2',
+      style: 'normal',
+      weight: '600',
+    },
   ],
   preload: true,
   variable: '--font-shubak',

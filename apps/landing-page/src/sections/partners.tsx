@@ -41,12 +41,12 @@ export const PartnersSection = () => {
   ];
 
   return (
-    <section className="py-24 max-w-screen-2xl mx-auto">
+    <section className="pt-24 max-w-screen-2xl mx-auto">
       <h2 className="text-2xl font-bold text-center bg-primary text-white px-3 py-2 rounded-full w-fit mx-auto">
         شركاؤنا
       </h2>
 
-      <div className="flex flex-wrap justify-around gap-8 mt-12">
+      <div className="flex flex-wrap justify-between gap-8 mt-12">
         {partners.map((partner, index) => (
           <div key={index} className="flex items-center justify-center">
             <Image
