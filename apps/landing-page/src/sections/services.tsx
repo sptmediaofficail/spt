@@ -18,7 +18,7 @@ export const ServicesSection = () => {
       </h2>
       <h3 className="text-4xl font-semibold mt-12">ماذا يمكن أن نقدم لك</h3>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6 lg:mt-8 lg:gap-8">
         <div className="col-span-2">
           <ServiceCard
             title="التوصيل"
@@ -39,13 +39,13 @@ export const ServicesSection = () => {
             bg={
               <Image
                 src={Service1Bg}
-                className="left-0 absolute"
+                className="left-0 absolute w-1/2  fill-black"
                 alt="Service 1 Icon"
               />
             }
           />
         </div>
-        <div className="col-span-1">
+        <div className="col-span-2 lg:col-span-1">
           <ServiceCard
             title="بيع سيارات تشليح"
             description="هل تبحث عن قطع غيار موثوقة وبأسعار مناسبة لسيارتك؟ مع تطبيق SPT، يمكنك الآن العثور على كل ما تحتاجه لتصليح وصيانة سيارتك بلمسة واحدة!"
