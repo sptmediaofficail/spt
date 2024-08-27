@@ -1,0 +1,43 @@
+{
+  "name": "api-sdk",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/api-sdk/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "dependsOn": [
+        {
+          "target": "generate"
+        }
+      ],
+      "executor": "@nx/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api-sdk",
+        "main": "libs/api-sdk/src/index.ts",
+        "tsConfig": "libs/api-sdk/tsconfig.lib.json",
+        "assets": ["libs/api-sdk/*.md"]
+      }
+    },
+    "convert": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "p2o {projectRoot}/postman-spec.json -f {projectRoot}/openapi-spec.yml",
+        "color": true
+      }
+    },
+    "generate": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "target": "convert"
+        }
+      ],
+      "options": {
+        "command": "openapi-ts --input {projectRoot}/openapi-spec.yml --output {projectRoot}/gen --name TrolleyClient --client axios",
+        "color": true
+      }
+    }
+  }
+}
