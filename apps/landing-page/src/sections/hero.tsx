@@ -30,8 +30,8 @@ const MainSection = () => {
       'مرحبا بك في SPT وجهتك المثالية لتجعل العثور على قطع غيار السيارات التي تحتاجها بسرعة وكفاءة سواء كنت تبحث عن قطع أصلية، مستعملة أو مستهلكة أخيرا، كل ما يلزم لتلبية احتياجات سيارتك.',
   };
   return (
-    <Section className="flex flex-col-reverse md:flex-row items-center justify-between pt-8 md:py-24 text-white">
-      <div className="md:basis-4/12 leading-loose">
+    <Section className="flex flex-col-reverse lg:flex-row items-center justify-between pt-8 md:py-24 text-white">
+      <div className="md:basis-4/12 leading-loose  ml-auto">
         <h1
           className={cn(
             'text-3xl text-center font-bold mb-4 leading-loose',
@@ -41,7 +41,6 @@ const MainSection = () => {
         >
           {data.title}
         </h1>
-        {/*<p className="text-sm text-center mb-8 leading-relaxed text-slate-300 md:text-md md:text-right lea">*/}
         <p
           className={cn(
             'text-sm text-center mb-8 leading-loose opacity-90 text-slate-300',
