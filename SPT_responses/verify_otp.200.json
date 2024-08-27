@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "message": "تمت العمليه بنجاح",
+  "data": {
+    "user": {
+      "id": "5911e4d4-8d37-4832-9096-5f13e2afa66b",
+      "first_name": "Osama",
+      "last_name": "Fawzy",
+      "phone": "+9680002153521",
+      "avatar": "http://127.0.0.1:8000/uploads/user/169935112431302.jpg",
+      "fcm_token": null,
+      "is_active": true,
+      "roles": [
+        "CLIENT"
+      ],
+      "created_at": "2023-11-07T09:58:46.000000Z",
+      "updated_at": "2023-11-07T09:58:46.000000Z"
+    },
+    "token": {
+      "token": "1|7QbmC65QUkGipVmB4oCCLYm1xIwEQg2IGxYm5ss754f3e1e1"
+    }
+  }
+}

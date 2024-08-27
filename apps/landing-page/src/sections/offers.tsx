@@ -1,9 +1,8 @@
 'use client';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import Image from 'next/image';
 import { Section } from '../components/section';
+import { CarouselArrows } from '../components/carousel-arrows';
 
 export const OffersSection = () => {
   return (
@@ -52,16 +51,8 @@ export const OffersSection = () => {
             </div>
           </div>
         </SwiperSlide>
-        {/* Add more SwiperSlides as needed */}
+        <CarouselArrows />
       </Swiper>
-
-      {/* Navigation Buttons */}
-      <div className="swiper-button-prev absolute left-0 top-1/2 transform -translate-y-1/2">
-        <FaArrowLeft className="text-[#30326C] w-10 h-10" />
-      </div>
-      <div className="swiper-button-next absolute right-0 top-1/2 transform -translate-y-1/2">
-        <FaArrowRight className="text-[#30326C] w-10 h-10" />
-      </div>
     </Section>
   );
 };
