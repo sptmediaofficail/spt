@@ -3,20 +3,22 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import Image from 'next/image';
+import { Section } from '../components/section';
 
 export const OffersSection = () => {
   return (
-    <div className="relative bg-gray-100 py-8 px-4 md:px-16 lg:px-32">
-      <h2 className="text-3xl font-bold text-center text-[#30326C] mb-6">
-        تعرف على أبرز عروض المنصة
-      </h2>
+    <Section
+      position={'right'}
+      title={'العروض'}
+      heading={'تعرف على أبرز عروض المنصة'}
+    >
       <Swiper
         spaceBetween={30}
         navigation={{
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         }}
-        className="relative"
+        className="relative mt-6"
       >
         <SwiperSlide>
           <div className="bg-[#1F2A48] text-white rounded-lg shadow-lg flex flex-col md:flex-row p-6 md:p-12">
@@ -60,6 +62,6 @@ export const OffersSection = () => {
       <div className="swiper-button-next absolute right-0 top-1/2 transform -translate-y-1/2">
         <FaArrowRight className="text-[#30326C] w-10 h-10" />
       </div>
-    </div>
+    </Section>
   );
 };

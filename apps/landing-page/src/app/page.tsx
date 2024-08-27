@@ -3,6 +3,7 @@ import { PartnersSection } from '../sections/partners';
 import { ServicesSection } from '../sections/services';
 import { HeroSection } from '../sections/hero';
 import { TopSellingSection } from '../sections/top-selling/top-selling';
+import { OffersSection } from '../sections/offers';
 
 export default function Index() {
   return (
@@ -12,7 +13,7 @@ export default function Index() {
       <PartnersSection />
       <ServicesSection />
       <TopSellingSection />
-      {/*<OffersSection />*/}
+      <OffersSection />
     </>
   );
 }

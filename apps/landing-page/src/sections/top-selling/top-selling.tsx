@@ -23,6 +23,7 @@ export const TopSellingSection = () => {
         'اختيار المتاجر المناسب لقطع الغيار يمكن أن يكون له تأثير كبير على جودة وصيانة المنتجات التي تستخدمها'
       }
       position={'center'}
+      className={'overflow-visible max-w-full'}
     >
       <Tabs color="primary" aria-label="Tabs" className={'mt-6'}>
         {tabs.map((tab) => (
@@ -35,7 +36,7 @@ export const TopSellingSection = () => {
         ))}
       </Tabs>
 
-      <div className="w-full mt-6 h-72 absolute left-0">
+      <div className={'mt-6 w-full overflow-visible'}>
         <StoresCarousel />
       </div>
     </Section>
