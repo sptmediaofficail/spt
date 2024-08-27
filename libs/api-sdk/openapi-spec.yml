@@ -1,0 +1,5154 @@
+openapi: 3.0.0
+info:
+  title: SPT
+  version: 1.0.0
+servers:
+  - url: http://{{local}}
+  - url: http://{{url}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+    noauthAuth:
+      type: http
+      scheme: noauth
+tags:
+  - name: Authentication
+  - name: Brand
+  - name: site offers
+  - name: Cities
+  - name: Brand Models
+  - name: Order spare part
+  - name: Vin
+  - name: Chat
+  - name: Ticket
+  - name: Call
+  - name: notification
+  - name: Admin
+  - name: Admin > Admin Orders
+  - name: Admin > Setting
+  - name: Admin > Cities
+  - name: Admin > ProviderProfiles
+  - name: Admin > Users
+  - name: Admin > Message Templates
+  - name: Admin > Services
+  - name: Admin > Commissions
+  - name: Admin > platform-reviews
+  - name: Admin > Pages
+  - name: Admin > Provider subscription plans
+  - name: Admin > cityService
+  - name: Admin > Auth
+  - name: Admin > Custom notification
+  - name: Admin > PermissionGroups
+  - name: Admin > Permissions
+  - name: Admin > Messages
+  - name: Admin > Landing
+  - name: Admin > Landing > Sliders
+  - name: Admin > Landing > How Help
+  - name: Admin > Landing > About Sections
+  - name: Admin > Landing > Download Section
+  - name: Admin > Landing > About
+  - name: Admin > Landing > Site Offer
+  - name: Admin > Landing > Guarantee Right
+  - name: Admin > Landing > Partners
+  - name: Admin > Tickets
+  - name: Client
+  - name: Client > Client Orders
+  - name: Client > Client Offer
+  - name: Client > Services
+  - name: Provider
+  - name: Provider > Provider Subscription
+  - name: Provider > Provider profile
+  - name: Provider > Provider Orders
+  - name: Provider > Provider Offer
+  - name: Pages
+  - name: platform-reviews
+  - name: Settings
+  - name: Messages
+  - name: Landing
+paths:
+  /shared/auth/me:
+    get:
+      tags:
+        - Authentication
+      summary: me
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /shared/auth/register:
+    post:
+      tags:
+        - Authentication
+      summary: Register
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Osama Fawzyasd
+                phone:
+                  type: number
+                  example: '+9680002153529'
+                avatar:
+                  type: string
+                  format: binary
+                city_id:
+                  type: string
+                  example: 3ec43f6d-50cb-4424-b32d-895b545b012b
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: OK
+          headers:
+            Host:
+              schema:
+                type: string
+                example: 127.0.0.1:8000
+            Date:
+              schema:
+                type: string
+                example: Tue, 07 Nov 2023 09:19:18 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.1.12
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                example: '60'
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                example: '59'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: تمت العمليه بنجاح
+                data: null
+  /shared/auth/send-otp:
+    post:
+      tags:
+        - Authentication
+      summary: Send OTP
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                recipient: '+9680002153529'
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: OK
+          headers:
+            Host:
+              schema:
+                type: string
+                example: 127.0.0.1:8000
+            Date:
+              schema:
+                type: string
+                example: Tue, 07 Nov 2023 09:44:38 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.1.12
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                example: '60'
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                example: '59'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: تمت العمليه بنجاح
+                data:
+                  recipient: '+9680002153521'
+                  code: 1234
+                  expires_at: '2023-11-07T09:49:38.000000Z'
+                  id: 3f9bc200-593f-4af7-b97a-fd77333e40ce
+                  updated_at: '2023-11-07T09:44:38.000000Z'
+                  created_at: '2023-11-07T09:44:38.000000Z'
+  /shared/auth/verify-otp:
+    post:
+      tags:
+        - Authentication
+      summary: Verify OTP
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                recipient: '+9680002153529'
+                code: '1234'
+                fcm_token: qweqweqweqeqweqwew
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: OK
+          headers:
+            Host:
+              schema:
+                type: string
+                example: 127.0.0.1:8000
+            Date:
+              schema:
+                type: string
+                example: Tue, 07 Nov 2023 09:59:09 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.1.12
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                example: '60'
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                example: '57'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: تمت العمليه بنجاح
+                data:
+                  user:
+                    id: 5911e4d4-8d37-4832-9096-5f13e2afa66b
+                    first_name: Osama
+                    last_name: Fawzy
+                    phone: '+9680002153521'
+                    avatar: http://127.0.0.1:8000/uploads/user/169935112431302.jpg
+                    fcm_token: null
+                    is_active: true
+                    roles:
+                      - CLIENT
+                    created_at: '2023-11-07T09:58:46.000000Z'
+                    updated_at: '2023-11-07T09:58:46.000000Z'
+                  token:
+                    token: 1|7QbmC65QUkGipVmB4oCCLYm1xIwEQg2IGxYm5ss754f3e1e1
+  /shared/auth/logout:
+    post:
+      tags:
+        - Authentication
+      summary: logout
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: OK
+          headers:
+            Host:
+              schema:
+                type: string
+                example: 127.0.0.1:8000
+            Date:
+              schema:
+                type: string
+                example: Mon, 27 Nov 2023 13:34:39 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.1.12
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                example: '60'
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                example: '58'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: تمت العمليه بنجاح
+                data: null
+  /shared/auth/edit-profile:
+    post:
+      tags:
+        - Authentication
+      summary: Edit profile
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Mohamed
+                city_id:
+                  type: integer
+                  example: '11'
+                avatar:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /shared/auth/change-phone:
+    post:
+      tags:
+        - Authentication
+      summary: Change phone
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                new_phone: '+96651235123'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /shared/auth/verify-change-phone:
+    post:
+      tags:
+        - Authentication
+      summary: Verify Change phone
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                new_phone: '+96651235123'
+                code: '1234'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /shared/auth/update-settings:
+    put:
+      tags:
+        - Authentication
+      summary: Update Settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                lang: ar
+                has_push_notifications: true
+                has_sms_notifications: true
+                has_ability_to_visually_contact_with_client: true
+                has_ability_to_vocally_contact_with_client: true
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /brands:
+    get:
+      tags:
+        - Brand
+      summary: index
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '50'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /site_offers:
+    get:
+      tags:
+        - site offers
+      summary: index
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cities:
+    get:
+      tags:
+        - Cities
+      summary: index
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '50'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /brands/Alfa_Romeo/models:
+    get:
+      tags:
+        - Brand Models
+      summary: index
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/order_spare_part:
+    post:
+      tags:
+        - Order spare part
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                year:
+                  type: integer
+                  description: valid year
+                  example: '2022'
+                brand:
+                  type: string
+                  description: required | exists in brands
+                  example: Alfa_Romeo
+                model:
+                  type: string
+                  description: required | exists in brand_models
+                  example: Alfa_Romeo-Stelvio
+                address:
+                  type: string
+                  description: required if no lat , lng
+                  example: test test test
+                latitude:
+                  type: number
+                  description: required if no address
+                  example: '25.232111'
+                longitude:
+                  type: number
+                  description: required if no address
+                  example: '26.2354'
+                is_delivery:
+                  type: integer
+                  description: 1 or 0
+                  example: '1'
+                delivery_date:
+                  type: string
+                  description: valid date
+                  example: 2023/11/27
+                parts[0][name]:
+                  type: string
+                  description: required
+                  example: test
+                parts[0][quantity]:
+                  type: integer
+                  description: required
+                  example: '2'
+                parts[0][condition_new]:
+                  type: integer
+                  description: new or used
+                  example: '0'
+                parts[0][condition_used]:
+                  type: integer
+                  example: '1'
+                parts[0][condition_both]:
+                  type: integer
+                  example: '0'
+                parts[0][notes]:
+                  type: string
+                  description: optional
+                  example: test
+                parts[1][name]:
+                  type: string
+                  description: optional
+                  example: test
+                parts[1][quantity]:
+                  type: integer
+                  example: '2'
+                parts[1][condition_new]:
+                  type: integer
+                  example: '1'
+                parts[1][condition_used]:
+                  type: integer
+                  example: '0'
+                parts[1][condition_both]:
+                  type: integer
+                  example: '0'
+                parts[1][notes]:
+                  type: string
+                  example: test
+                agent_code:
+                  type: integer
+                  example: '12'
+                vin_serial:
+                  type: string
+                  example: ZPBUA1ZL9KLA00848
+                provider_id:
+                  type: string
+                  description: optional
+                  example: 02b915a7-5a56-4711-8b4a-eb110408a090
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /vin/JN8AT3MM3PW009894:
+    get:
+      tags:
+        - Vin
+      summary: Get Data
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /chat:
+    post:
+      tags:
+        - Chat
+      summary: Chat
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                order_id:
+                  type: string
+                  example: 0900380e-a651-42ee-9602-945b2dfa954a
+                receiver_id:
+                  type: string
+                  example: 9963b88c-70a2-42a0-b287-7f340ff4241d
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /chat/message:
+    post:
+      tags:
+        - Chat
+      summary: message
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  type: string
+                  example: 3e0e14ab-af73-43aa-84f4-bd84ae352fbb
+                content:
+                  type: string
+                  example: test message
+                type:
+                  type: string
+                  example: text
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /tickets:
+    get:
+      tags:
+        - Ticket
+      summary: index
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '2'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /ticket/b33c269e-b489-415e-842f-65472771a0f3:
+    get:
+      tags:
+        - Ticket
+      summary: details
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /ticket:
+    post:
+      tags:
+        - Ticket
+      summary: ticket
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: test ticket
+                content:
+                  type: string
+                  example: test ticket test ticket test ticket test ticket
+                image:
+                  type: string
+                  description: optional
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /ticket/message:
+    post:
+      tags:
+        - Ticket
+      summary: message
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                ticket_id:
+                  type: string
+                  example: b33c269e-b489-415e-842f-65472771a0f3
+                content:
+                  type: string
+                  example: test message
+                type:
+                  type: string
+                  description: text or image
+                  example: text
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /call/make:
+    post:
+      tags:
+        - Call
+      summary: make a call
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                order_id:
+                  type: string
+                  example: c5ad5169-f88d-4acc-8d4f-6c985706b224
+                receiver_id:
+                  type: string
+                  example: 9c70e2cb-1415-46ff-8871-ff688767c2e4
+                call_type:
+                  type: string
+                  example: video
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /call/accept:
+    post:
+      tags:
+        - Call
+      summary: accept
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: e8c20782-a3e4-4613-ae70-b6791bc7c226
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /call/refuse:
+    post:
+      tags:
+        - Call
+      summary: refuse
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: e8c20782-a3e4-4613-ae70-b6791bc7c226
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /call/end:
+    post:
+      tags:
+        - Call
+      summary: end
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: e8c20782-a3e4-4613-ae70-b6791bc7c226
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /notification/index:
+    get:
+      tags:
+        - notification
+      summary: index
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '5'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /notification/unread_count:
+    get:
+      tags:
+        - notification
+      summary: unReadCount
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /notification/mark_as_read:
+    post:
+      tags:
+        - notification
+      summary: mark as read
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                notification_ids[0]:
+                  type: string
+                  example: 0bb84149-77ed-4556-9bb8-bb1efb21a035
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/orders:
+    get:
+      tags:
+        - Admin > Admin Orders
+      summary: index
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+        - name: search
+          in: query
+          schema:
+            type: string
+          example: ygy
+        - name: status
+          in: query
+          schema:
+            type: string
+          description: '''receiving_offer'',''accepted'',''completed'''
+          example: receiving_offer
+        - name: type
+          in: query
+          schema:
+            type: string
+          description: '''spare_parts'',''towing'',''junkyard_sale'''
+          example: spare_parts
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/orders/1d9de514-c4e1-4987-8eb9-0909556c7186:
+    get:
+      tags:
+        - Admin > Admin Orders
+      summary: details
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/orders/1d9de514-c4e1-4987-8eb9-0909556c7186/offers:
+    get:
+      tags:
+        - Admin > Admin Orders
+      summary: offers
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/orders/89572a05-e77b-48dc-8e1b-645fe0c82b6a/chat:
+    get:
+      tags:
+        - Admin > Admin Orders
+      summary: chat
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /setting/calls:
+    get:
+      tags:
+        - Settings
+      summary: calls
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/setting:
+    post:
+      tags:
+        - Admin > Setting
+      summary: update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                sms_notification: 1
+                whats_app_notification: 1
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/cities:
+    get:
+      tags:
+        - Admin > Cities
+      summary: index
+      parameters:
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '100'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: search
+          in: query
+          schema:
+            type: string
+          example: Zulfi
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Cities
+      summary: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name_en: alexandria
+                name_ar: الاسكندرية
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/cities/81a53c06-4069-4120-b9ae-6a4314cd4ada:
+    put:
+      tags:
+        - Admin > Cities
+      summary: update
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name_en:
+                  type: string
+                  example: ' alexandria'
+                name_ar:
+                  type: string
+                  example: ' مدينة الاسكندرية'
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/cities/b4a07276-1baf-43b0-8068-c03fdabf2626:
+    delete:
+      tags:
+        - Admin > Cities
+      summary: delete
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/cities/0e368569-8d07-4efb-a367-182dd5e2db42/stop:
+    post:
+      tags:
+        - Admin > Cities
+      summary: stop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/cities/0e368569-8d07-4efb-a367-182dd5e2db42/restore:
+    post:
+      tags:
+        - Admin > Cities
+      summary: restore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/provider-profiles:
+    get:
+      tags:
+        - Admin > ProviderProfiles
+      summary: index
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '100'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/provider-profiles/verify/09d88c1d-fd8a-424d-9e7c-a5d2391cdbd3:
+    post:
+      tags:
+        - Admin > ProviderProfiles
+      summary: verify
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/provider-profiles/decline/02b915a7-5a56-4711-8b4a-eb110408a090:
+    post:
+      tags:
+        - Admin > ProviderProfiles
+      summary: decline
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/provider-profiles/stop/02b915a7-5a56-4711-8b4a-eb110408a090:
+    post:
+      tags:
+        - Admin > ProviderProfiles
+      summary: stop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/provider-profiles/restore/02b915a7-5a56-4711-8b4a-eb110408a090:
+    post:
+      tags:
+        - Admin > ProviderProfiles
+      summary: restore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/users:
+    get:
+      tags:
+        - Admin > Users
+      summary: index
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: role
+          in: query
+          schema:
+            type: string
+          description: ADMIN BUSINESS CLIENT
+          example: BUSINESS
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Users
+      summary: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: mohamed
+                phone: '+966585858589'
+                email: mohamed@example.com
+                password: secret
+                permission_group_id: 6f118b5d-e6bc-4018-8fa4-6a6b42825eea
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/users/72d5778f-b67b-4e97-b4e2-f98f695162a7:
+    get:
+      tags:
+        - Admin > Users
+      summary: single
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/users/b2ef1c4f-918a-4f34-9d2f-97ce28c2772f:
+    put:
+      tags:
+        - Admin > Users
+      summary: update
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\r\n    \"name\": \"mohamed\",\r\n    \"phone\":
+                \"+966585858589\",\r\n    \"email\":
+                \"mohamed@example.com\",\r\n    \"password\": \"secret\",\r\n   
+                \"permission_group_id\":
+                \"6f118b5d-e6bc-4018-8fa4-6a6b42825eea\"\r\n}"
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/users/b4a07276-1baf-43b0-8068-c03fdabf2626:
+    delete:
+      tags:
+        - Admin > Users
+      summary: delete
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/users/0e368569-8d07-4efb-a367-182dd5e2db42/stop:
+    post:
+      tags:
+        - Admin > Users
+      summary: stop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/users/0e368569-8d07-4efb-a367-182dd5e2db42/restore:
+    post:
+      tags:
+        - Admin > Users
+      summary: restore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/message-templates:
+    get:
+      tags:
+        - Admin > Message Templates
+      summary: GET All Message Templates
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '100'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/message-templates/2:
+    get:
+      tags:
+        - Admin > Message Templates
+      summary: GET Specific Message Template
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/message-templates/5:
+    post:
+      tags:
+        - Admin > Message Templates
+      summary: Update Exist Message Template
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title_ar: رسالة
+                message_ar: اهلاَ
+                title_en: Message
+                message_en: Hi
+                recipients: moderator
+                send_via: sms
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/services:
+    get:
+      tags:
+        - Admin > Services
+      summary: index
+      parameters:
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Services
+      summary: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name_en: spare parts
+                name_ar: قطع غيار سيارات
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/services/b11d171d-eec1-4474-a3d2-6ef6881023ae:
+    post:
+      tags:
+        - Admin > Services
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name_en:
+                  type: string
+                  example: ' spare parts'
+                name_ar:
+                  type: string
+                  example: قطع غيار سيارات
+                description_ar:
+                  type: string
+                  example: اختبار
+                description_en:
+                  type: string
+                  example: test
+                image:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/services/b4a07276-1baf-43b0-8068-c03fdabf2626:
+    delete:
+      tags:
+        - Admin > Services
+      summary: delete
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/services/d48c07f9-b8b8-46d9-8b3c-3ba8fcdbe611/stop:
+    post:
+      tags:
+        - Admin > Services
+      summary: stop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/services/d48c07f9-b8b8-46d9-8b3c-3ba8fcdbe611/restore:
+    post:
+      tags:
+        - Admin > Services
+      summary: restore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/commissions:
+    get:
+      tags:
+        - Admin > Commissions
+      summary: index
+      parameters:
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Commissions
+      summary: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                service_id: 07f2ba24-d6a6-41d8-aa4f-16f4a5ab4091
+                for_plateform: '1'
+                on_plateform: '2'
+                type: REGULAR
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/commissions/51a7447f-3bfd-4e89-a7f3-1969c8fb9330:
+    put:
+      tags:
+        - Admin > Commissions
+      summary: update
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\r\n    \"service_id\":
+                \"07f2ba24-d6a6-41d8-aa4f-16f4a5ab4091\",\r\n   
+                \"for_plateform\": \"1\",\r\n    \"on_plateform\": \"2\",\r\n   
+                \"type\":\"MERCHANT\"\r\n}"
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Commissions
+      summary: delete
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/commissions/d48c07f9-b8b8-46d9-8b3c-3ba8fcdbe611/stop:
+    post:
+      tags:
+        - Admin > Commissions
+      summary: stop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/commissions/d48c07f9-b8b8-46d9-8b3c-3ba8fcdbe611/restore:
+    post:
+      tags:
+        - Admin > Commissions
+      summary: restore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/platform-reviews:
+    get:
+      tags:
+        - Admin > platform-reviews
+      summary: list
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > platform-reviews
+      summary: create
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                phone_image:
+                  type: string
+                  format: binary
+                web_image:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/platform-reviews/5:
+    post:
+      tags:
+        - Admin > platform-reviews
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                phone_image:
+                  type: string
+                  format: binary
+                web_image:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/platform-reviews/51a7447f-3bfd-4e89-a7f3-1969c8fb9330:
+    delete:
+      tags:
+        - Admin > platform-reviews
+      summary: delete
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/platform-reviews/51a7447f-3bfd-4e89-a7f3-1969c8fb9330/stop:
+    post:
+      tags:
+        - Admin > platform-reviews
+      summary: stop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/platform-reviews/51a7447f-3bfd-4e89-a7f3-1969c8fb9330/restore:
+    post:
+      tags:
+        - Admin > platform-reviews
+      summary: restore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/pages/rights:
+    get:
+      tags:
+        - Admin > Pages
+      summary: get page by type
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/pages/rights/paginated:
+    get:
+      tags:
+        - Admin > Pages
+      summary: get page by type paginated
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/pages:
+    post:
+      tags:
+        - Admin > Pages
+      summary: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title_ar: test
+                title_en: test
+                content_ar: test
+                content_en: test
+                order: '5'
+                type: rights
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/pages/5:
+    post:
+      tags:
+        - Admin > Pages
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                content_ar:
+                  type: string
+                  example: ' test'
+                content_en:
+                  type: string
+                  example: ' test'
+                video:
+                  type: string
+                  description: optional
+                  format: binary
+                image:
+                  type: string
+                  description: optional
+                  format: binary
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/pages/51a7447f-3bfd-4e89-a7f3-1969c8fb9330:
+    delete:
+      tags:
+        - Admin > Pages
+      summary: delete
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/provider-subscription-plans:
+    get:
+      tags:
+        - Admin > Provider subscription plans
+      summary: index
+      parameters:
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Provider subscription plans
+      summary: create
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name_en:
+                  type: string
+                  example: test4
+                name_ar:
+                  type: string
+                  example: test4
+                description_en:
+                  type: string
+                  example: test
+                description_ar:
+                  type: string
+                  example: test
+                summary_en:
+                  type: string
+                  example: test
+                summary_ar:
+                  type: string
+                  example: test
+                image:
+                  type: string
+                  format: binary
+                price:
+                  type: integer
+                  example: '25'
+                duration:
+                  type: integer
+                  description: months
+                  example: '25'
+                free_duration:
+                  type: integer
+                  description: months
+                  example: '1'
+                currency_en:
+                  type: string
+                  example: test
+                currency_ar:
+                  type: string
+                  example: test
+                start_date:
+                  type: string
+                  example: 2022-2-02
+                end_date:
+                  type: string
+                  example: '2025-02-02'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/provider-subscription-plans/945b42fc-a279-4ac5-8c00-77e635c87704:
+    post:
+      tags:
+        - Admin > Provider subscription plans
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name_en:
+                  type: string
+                  example: test
+                name_ar:
+                  type: string
+                  example: test
+                description_en:
+                  type: string
+                  example: test
+                description_ar:
+                  type: string
+                  example: test
+                summary_en:
+                  type: string
+                  example: test
+                summary_ar:
+                  type: string
+                  example: test
+                price:
+                  type: integer
+                  example: '25'
+                days_count:
+                  type: integer
+                  example: '25'
+                currency_en:
+                  type: string
+                  example: test
+                currency_ar:
+                  type: string
+                  example: test
+                start_date:
+                  type: string
+                  example: 2022-2-02
+                end_date:
+                  type: string
+                  example: '2025-02-02'
+                image:
+                  type: string
+                  format: binary
+                duration:
+                  type: integer
+                  example: '2'
+                free_duration:
+                  type: integer
+                  example: '0'
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Provider subscription plans
+      summary: delete
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/provider-subscription-plans/945b42fc-a279-4ac5-8c00-77e635c87704/stop:
+    post:
+      tags:
+        - Admin > Provider subscription plans
+      summary: stop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/provider-subscription-plans/945b42fc-a279-4ac5-8c00-77e635c87704/restore:
+    post:
+      tags:
+        - Admin > Provider subscription plans
+      summary: restore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/city-services:
+    get:
+      tags:
+        - Admin > cityService
+      summary: city-services
+      parameters:
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '100'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: search
+          in: query
+          schema:
+            type: string
+          example: حائل
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/city-services/13:
+    put:
+      tags:
+        - Admin > cityService
+      summary: update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                city_id: f733f986-734a-428c-bce5-32eca52cc0a4
+                service_id: a15b97d7-1ca6-4d4a-8058-f7250aa9ea34
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/city-services/attach:
+    post:
+      tags:
+        - Admin > cityService
+      summary: attach-service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                city_id: 693c63f3-d1ea-4692-829e-ff392a8fc87e
+                service_id: 07f2ba24-d6a6-41d8-aa4f-16f4a5ab4091
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/city-services/detach:
+    post:
+      tags:
+        - Admin > cityService
+      summary: detach-service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                city_id: 693c63f3-d1ea-4692-829e-ff392a8fc87e
+                service_id: 9c9b3554-0eb7-474c-a4af-41a1496166eb
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/city-services/0e368569-8d07-4efb-a367-182dd5e2db42/stop:
+    post:
+      tags:
+        - Admin > cityService
+      summary: stop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/city-services/0e368569-8d07-4efb-a367-182dd5e2db42/restore:
+    post:
+      tags:
+        - Admin > cityService
+      summary: restore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/auth/login:
+    post:
+      tags:
+        - Admin > Auth
+      summary: Login
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: integer
+                  example: '123456787'
+                password:
+                  type: string
+                  example: secret
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/auth/logout:
+    post:
+      tags:
+        - Admin > Auth
+      summary: Logout
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: admin@example.com
+                password:
+                  type: string
+                  example: secret
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/custom-notification:
+    post:
+      tags:
+        - Admin > Custom notification
+      summary: Send
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                type: FCM
+                title_ar: FCM
+                title_en: FCM
+                body_ar: FCM
+                body_en: FCM
+                send_to: CLIENT
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/permission-groups:
+    get:
+      tags:
+        - Admin > PermissionGroups
+      summary: index
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > PermissionGroups
+      summary: create
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name_en:
+                  type: string
+                  example: test2
+                name_ar:
+                  type: string
+                  example: تست2
+                permissions[]:
+                  type: string
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/permission-groups/8e0ea4e1-b136-45ad-aa91-f4d0b47dcfaf:
+    get:
+      tags:
+        - Admin > PermissionGroups
+      summary: single
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/permission-groups/d814419d-7555-4710-8e26-efeb66fc8fc2:
+    post:
+      tags:
+        - Admin > PermissionGroups
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name_en:
+                  type: string
+                  example: test2
+                name_ar:
+                  type: string
+                  example: تست2
+                permissions[]:
+                  type: string
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/permission-groups/0e368569-8d07-4efb-a367-182dd5e2db42/stop:
+    post:
+      tags:
+        - Admin > PermissionGroups
+      summary: stop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/permission-groups/0e368569-8d07-4efb-a367-182dd5e2db42/restore:
+    post:
+      tags:
+        - Admin > PermissionGroups
+      summary: restore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/permission-groups/51a7447f-3bfd-4e89-a7f3-1969c8fb9330:
+    delete:
+      tags:
+        - Admin > PermissionGroups
+      summary: delete
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/permissions:
+    get:
+      tags:
+        - Admin > Permissions
+      summary: index
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/messages:
+    get:
+      tags:
+        - Admin > Messages
+      summary: Get All Unreplied Messages
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/messages/8899eddd-2567-40b6-bcaa-85ed7d53d226:
+    get:
+      tags:
+        - Admin > Messages
+      summary: Get a specific Unreplied Messages
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/messages/reply/8899eddd-2567-40b6-bcaa-85ed7d53d226:
+    post:
+      tags:
+        - Admin > Messages
+      summary: Reply to a specific message
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                reply_title: تم قبول طلب محمد
+                reply_content: تهانياَ , تم قبول طلبك
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/messages/delete/6aa8ddfc-861c-4c42-b7c4-06dbb20627ad:
+    post:
+      tags:
+        - Admin > Messages
+      summary: Delete a specific message
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/sliders:
+    get:
+      tags:
+        - Admin > Landing > Sliders
+      summary: list
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Landing > Sliders
+      summary: create
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title_ar:
+                  type: string
+                  example: اختبار
+                title_en:
+                  type: string
+                  example: test
+                image:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/sliders/726a81ec-d9b5-43ad-946b-b77470b071f4:
+    post:
+      tags:
+        - Admin > Landing > Sliders
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title_ar:
+                  type: string
+                  example: شسيشسيش
+                title_en:
+                  type: string
+                  example: asdasdads
+                image:
+                  type: string
+                  format: binary
+                description_ar:
+                  type: string
+                  example: شسيشسيشسسي
+                description_en:
+                  type: string
+                  example: asdasdasdasd
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/sliders/6193d4cd-ce8e-4b79-ba46-7e3c086206f3:
+    delete:
+      tags:
+        - Admin > Landing > Sliders
+      summary: delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/sliders/726a81ec-d9b5-43ad-946b-b77470b071f4/stop:
+    post:
+      tags:
+        - Admin > Landing > Sliders
+      summary: stop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/sliders/726a81ec-d9b5-43ad-946b-b77470b071f4/restore:
+    post:
+      tags:
+        - Admin > Landing > Sliders
+      summary: restore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/how_help:
+    get:
+      tags:
+        - Admin > Landing > How Help
+      summary: list
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Landing > How Help
+      summary: create
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title_ar:
+                  type: string
+                  example: اختبار
+                title_en:
+                  type: string
+                  example: test
+                image:
+                  type: string
+                  format: binary
+                description_ar:
+                  type: string
+                  example: اختبار
+                description_en:
+                  type: string
+                  example: test
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/how_help/c0e70442-f191-4f3c-bb31-7ca396d574cd:
+    post:
+      tags:
+        - Admin > Landing > How Help
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title_ar:
+                  type: string
+                  example: شسيشسيش
+                title_en:
+                  type: string
+                  example: asdasdads
+                image:
+                  type: string
+                  format: binary
+                description_ar:
+                  type: string
+                  example: اختبار
+                description_en:
+                  type: string
+                  example: testeee
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Landing > How Help
+      summary: delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/how_help/c0e70442-f191-4f3c-bb31-7ca396d574cd/stop:
+    post:
+      tags:
+        - Admin > Landing > How Help
+      summary: stop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/how_help/c0e70442-f191-4f3c-bb31-7ca396d574cd/restore:
+    post:
+      tags:
+        - Admin > Landing > How Help
+      summary: restore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/about_sections:
+    get:
+      tags:
+        - Admin > Landing > About Sections
+      summary: list
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Landing > About Sections
+      summary: create
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title_ar:
+                  type: string
+                  example: اختبار
+                title_en:
+                  type: string
+                  example: test
+                image:
+                  type: string
+                  format: binary
+                description_ar:
+                  type: string
+                  example: اختبار
+                description_en:
+                  type: string
+                  example: test
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/about_sections/c0e70442-f191-4f3c-bb31-7ca396d574cd:
+    post:
+      tags:
+        - Admin > Landing > About Sections
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title_ar:
+                  type: string
+                  example: شسيشسيش
+                title_en:
+                  type: string
+                  example: asdasdads
+                image:
+                  type: string
+                  format: binary
+                description_ar:
+                  type: string
+                  example: اختبار
+                description_en:
+                  type: string
+                  example: testeee
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Landing > About Sections
+      summary: delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/about_sections/c0e70442-f191-4f3c-bb31-7ca396d574cd/stop:
+    post:
+      tags:
+        - Admin > Landing > About Sections
+      summary: stop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/about_sections/c0e70442-f191-4f3c-bb31-7ca396d574cd/restore:
+    post:
+      tags:
+        - Admin > Landing > About Sections
+      summary: restore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/download_section:
+    get:
+      tags:
+        - Admin > Landing > Download Section
+      summary: list
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Landing > Download Section
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title_ar:
+                  type: string
+                  example: شسيشسيش
+                title_en:
+                  type: string
+                  example: asdasdads
+                image:
+                  type: string
+                  format: binary
+                description_ar:
+                  type: string
+                  example: اختبار
+                description_en:
+                  type: string
+                  example: testeee
+                google_play_link:
+                  type: string
+                  example: https://play.google.com/store/apps/details?id=com.spt.sptsa
+                apple_store_link:
+                  type: string
+                  example: https://play.google.com/store/apps/details?id=com.spt.sptsa
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/about:
+    get:
+      tags:
+        - Admin > Landing > About
+      summary: list
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/about/store_about:
+    post:
+      tags:
+        - Admin > Landing > About
+      summary: create or update about
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title_ar:
+                  type: string
+                  example: اختبار
+                title_en:
+                  type: string
+                  example: test
+                image:
+                  type: string
+                  format: binary
+                description_ar:
+                  type: string
+                  example: اختبار
+                description_en:
+                  type: string
+                  example: test
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/about/store_how_order:
+    post:
+      tags:
+        - Admin > Landing > About
+      summary: create or update how order
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title_ar:
+                  type: string
+                  example: اختبار
+                title_en:
+                  type: string
+                  example: test
+                description_ar:
+                  type: string
+                  example: اختبار
+                description_en:
+                  type: string
+                  example: test
+                link:
+                  type: string
+                  example: https://www.youtube.com/
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/about/7ad421cd-9075-4a74-b2e1-e4298a1dc2b5:
+    delete:
+      tags:
+        - Admin > Landing > About
+      summary: delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/about/7ad421cd-9075-4a74-b2e1-e4298a1dc2b5/stop:
+    post:
+      tags:
+        - Admin > Landing > About
+      summary: stop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/about/7ad421cd-9075-4a74-b2e1-e4298a1dc2b5/restore:
+    post:
+      tags:
+        - Admin > Landing > About
+      summary: restore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/site_offers:
+    get:
+      tags:
+        - Admin > Landing > Site Offer
+      summary: list
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Landing > Site Offer
+      summary: create
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title_ar:
+                  type: string
+                  example: اختبار
+                title_en:
+                  type: string
+                  example: test
+                image:
+                  type: string
+                  format: binary
+                description_ar:
+                  type: string
+                  example: اختبار
+                description_en:
+                  type: string
+                  example: test
+                price_before_discount:
+                  type: integer
+                  example: '100'
+                price_after_discount:
+                  type: integer
+                  example: '50'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210:
+    post:
+      tags:
+        - Admin > Landing > Site Offer
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title_ar:
+                  type: string
+                  example: شسيشسيش
+                title_en:
+                  type: string
+                  example: asdasdads
+                image:
+                  type: string
+                  format: binary
+                description_ar:
+                  type: string
+                  example: اختبار
+                description_en:
+                  type: string
+                  example: testeee
+                price_before_discount:
+                  type: integer
+                  example: '80'
+                price_after_discount:
+                  type: integer
+                  example: '40'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Landing > Site Offer
+      summary: delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210/stop:
+    post:
+      tags:
+        - Admin > Landing > Site Offer
+      summary: stop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210/restore:
+    post:
+      tags:
+        - Admin > Landing > Site Offer
+      summary: restore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/guarantee_right:
+    get:
+      tags:
+        - Admin > Landing > Guarantee Right
+      summary: list
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Landing > Guarantee Right
+      summary: create
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title_ar:
+                  type: string
+                  example: اختبار
+                title_en:
+                  type: string
+                  example: test
+                image:
+                  type: string
+                  format: binary
+                description_ar:
+                  type: string
+                  example: اختبار
+                description_en:
+                  type: string
+                  example: test
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/guarantee_right/716ae479-a414-4e1a-80a9-de253b560d33:
+    post:
+      tags:
+        - Admin > Landing > Guarantee Right
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title_ar:
+                  type: string
+                  example: شسيشسيش
+                title_en:
+                  type: string
+                  example: asdasdads
+                image:
+                  type: string
+                  format: binary
+                description_ar:
+                  type: string
+                  example: اختبار
+                description_en:
+                  type: string
+                  example: testeee
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Landing > Guarantee Right
+      summary: delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/guarantee_right/716ae479-a414-4e1a-80a9-de253b560d33/stop:
+    post:
+      tags:
+        - Admin > Landing > Guarantee Right
+      summary: stop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/guarantee_right/716ae479-a414-4e1a-80a9-de253b560d33/restore:
+    post:
+      tags:
+        - Admin > Landing > Guarantee Right
+      summary: restore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/partners:
+    get:
+      tags:
+        - Admin > Landing > Partners
+      summary: list
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Landing > Partners
+      summary: create
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/partners/862cfc1a-4563-4ac3-8bb8-5f75eeddd6e7:
+    post:
+      tags:
+        - Admin > Landing > Partners
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Landing > Partners
+      summary: delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/partners/862cfc1a-4563-4ac3-8bb8-5f75eeddd6e7/stop:
+    post:
+      tags:
+        - Admin > Landing > Partners
+      summary: stop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/partners/862cfc1a-4563-4ac3-8bb8-5f75eeddd6e7/restore:
+    post:
+      tags:
+        - Admin > Landing > Partners
+      summary: restore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/tickets:
+    get:
+      tags:
+        - Admin > Tickets
+      summary: index
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '100'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/tickets/fd3a3d51-755b-4fec-ba9a-a162b21188ce/messages:
+    get:
+      tags:
+        - Admin > Tickets
+      summary: messages
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '100'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/tickets/send_message:
+    post:
+      tags:
+        - Admin > Tickets
+      summary: send messages
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                ticket_id:
+                  type: string
+                  example: b33c269e-b489-415e-842f-65472771a0f3
+                content:
+                  type: string
+                  example: from admin
+                type:
+                  type: string
+                  example: text
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/orders:
+    get:
+      tags:
+        - Client > Client Orders
+      summary: index
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+        - name: status[]
+          in: query
+          schema:
+            type: string
+          description: receiving_offer - accepted - completed
+          example: accepted
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224:
+    get:
+      tags:
+        - Client > Client Orders
+      summary: details
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224/confirm-delivery:
+    post:
+      tags:
+        - Client > Client Orders
+      summary: confirm delivery
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: integer
+                  example: '1234'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/order/rate:
+    post:
+      tags:
+        - Client > Client Orders
+      summary: rate
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                order_id:
+                  type: string
+                  example: a7844595-45a7-4821-9cff-547ff046bf90
+                rate:
+                  type: integer
+                  example: '4'
+                comment:
+                  type: string
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/offer/96be9e84-956a-4298-89bd-9bd3c58e251e/accept:
+    post:
+      tags:
+        - Client > Client Offer
+      summary: Accept
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/services:
+    get:
+      tags:
+        - Client > Services
+      summary: list
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /provider/subscription/plans:
+    get:
+      tags:
+        - Provider > Provider Subscription
+      summary: plans
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '50'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /provider/subscription/subscribe:
+    post:
+      tags:
+        - Provider > Provider Subscription
+      summary: subscribe
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                plan_id:
+                  type: string
+                  example: 82cf5c8f-4adb-4bb3-a33f-e9e3db9cf4e9
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /provider/subscription/check:
+    get:
+      tags:
+        - Provider > Provider Subscription
+      summary: check
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /provider/profile:
+    get:
+      tags:
+        - Provider > Provider profile
+      summary: show
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Provider > Provider profile
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: ahmed
+                owner_name:
+                  type: string
+                  example: ali
+                mobile:
+                  type: number
+                  example: '+9680002153523'
+                phone:
+                  type: number
+                  example: '+9680002153523'
+                latitude:
+                  type: number
+                  example: '24.54646456'
+                longitude:
+                  type: number
+                  example: '25.2155642645'
+                address:
+                  type: string
+                  example: test
+                branches:
+                  type: string
+                  example: 'test branch '
+                services:
+                  type: string
+                  description: spare_parts or towing or maintenance
+                  example: spare_parts
+                spare_part_brands[]:
+                  type: string
+                  example: Audi
+                is_delivery_available:
+                  type: integer
+                  example: '1'
+                is_video_call_available:
+                  type: integer
+                  example: '1'
+                is_voice_call_available:
+                  type: integer
+                  example: '1'
+                terms_and_conditions_accepted:
+                  type: integer
+                  example: '1'
+                part_condition:
+                  type: string
+                  description: new,used,both
+                  example: both
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - Provider > Provider profile
+      summary: update
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: osama
+                owner_name:
+                  type: string
+                  example: fawzy
+                mobile:
+                  type: number
+                  example: '+9680002153521'
+                phone:
+                  type: number
+                  example: '+9680002153522'
+                latitude:
+                  type: number
+                  example: '24.54646456'
+                longitude:
+                  type: number
+                  example: '25.2155642645'
+                address:
+                  type: string
+                  example: test
+                branches:
+                  type: string
+                  example: test -test ing
+                services:
+                  type: string
+                  example: spare_parts
+                spare_part_brands[]:
+                  type: string
+                  example: Audi
+                is_delivery_available:
+                  type: integer
+                  example: '1'
+                is_video_call_available:
+                  type: integer
+                  example: '1'
+                is_voice_call_available:
+                  type: integer
+                  example: '1'
+                terms_and_conditions_accepted:
+                  type: integer
+                  example: '1'
+                part_condition:
+                  type: string
+                  example: used
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /provider/me:
+    get:
+      tags:
+        - Provider > Provider profile
+      summary: me
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /provider/f84fd319-30e5-4ea4-9c28-81b822045ebc:
+    get:
+      tags:
+        - Provider > Provider profile
+      summary: single provider
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /provider/search:
+    get:
+      tags:
+        - Provider > Provider profile
+      summary: search
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+        - name: type
+          in: query
+          schema:
+            type: string
+          description: spare_parts,towing,maintenance
+          example: spare_parts
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+        - name: lat
+          in: query
+          schema:
+            type: number
+          example: '25.222264'
+        - name: lng
+          in: query
+          schema:
+            type: number
+          example: '24.225563'
+        - name: sort
+          in: query
+          schema:
+            type: string
+          example: most_rated
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /provider/orders:
+    get:
+      tags:
+        - Provider > Provider Orders
+      summary: index
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+        - name: status
+          in: query
+          schema:
+            type: string
+          description: can_submit - already_submit - accepted - finished
+          example: can_submit
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /provider/orders/1d9de514-c4e1-4987-8eb9-0909556c7186:
+    get:
+      tags:
+        - Provider > Provider Orders
+      summary: details
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /provider/order/rate:
+    post:
+      tags:
+        - Provider > Provider Orders
+      summary: rate
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                order_id:
+                  type: string
+                  example: a7844595-45a7-4821-9cff-547ff046bf90
+                rate:
+                  type: integer
+                  example: '4'
+                comment:
+                  type: string
+                  example: asdasdsd
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /provider/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224/confirm-delivery:
+    post:
+      tags:
+        - Provider > Provider Orders
+      summary: confirm delivery
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /provider/offer:
+    post:
+      tags:
+        - Provider > Provider Offer
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                order_id:
+                  type: string
+                  example: 9aa7b15b-9fe7-4326-ad31-cf48caee747d
+                price:
+                  type: number
+                  example: '10.0'
+                delivery_fee:
+                  type: integer
+                  example: '5'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /pages/how_we_help:
+    get:
+      tags:
+        - Pages
+      summary: get page by type
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /pages/rights/paginated:
+    get:
+      tags:
+        - Pages
+      summary: get page by type paginated
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /platform-reviews:
+    get:
+      tags:
+        - platform-reviews
+      summary: list
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /setting:
+    get:
+      tags:
+        - Settings
+      summary: get by section
+      parameters:
+        - name: section
+          in: query
+          schema:
+            type: string
+          description: contact,social_media,notification
+          example: notification
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /messages/:
+    get:
+      tags:
+        - Messages
+      summary: Get All Messages of the Logged In User
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /messages/send:
+    post:
+      tags:
+        - Messages
+      summary: Send Message
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: اريد الانضمام كتاجر
+                content: مرحباَ, انا خالد واريد الانضمام كتاجر
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /landing/sliders:
+    get:
+      tags:
+        - Landing
+      summary: sliders
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /landing/services:
+    get:
+      tags:
+        - Landing
+      summary: services
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /landing/site_offers:
+    get:
+      tags:
+        - Landing
+      summary: site_offers
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /landing/plans:
+    get:
+      tags:
+        - Landing
+      summary: plans
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /landing/how_help:
+    get:
+      tags:
+        - Landing
+      summary: how_help
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /landing/about_sections:
+    get:
+      tags:
+        - Landing
+      summary: about sections
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /landing/download_section:
+    get:
+      tags:
+        - Landing
+      summary: download section
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /landing/guarantee_rights:
+    get:
+      tags:
+        - Landing
+      summary: guarantee_rights
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /landing/platform_reviews:
+    get:
+      tags:
+        - Landing
+      summary: platform_reviews
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /landing/partners:
+    get:
+      tags:
+        - Landing
+      summary: partners
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /landing/most_rated_providers:
+    get:
+      tags:
+        - Landing
+      summary: most_rated_providers
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /landing/orders_numbers:
+    get:
+      tags:
+        - Landing
+      summary: orders_numbers
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /landing/contact:
+    get:
+      tags:
+        - Landing
+      summary: contact
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /landing/about:
+    get:
+      tags:
+        - Landing
+      summary: about
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /landing/how_order:
+    get:
+      tags:
+        - Landing
+      summary: how_order
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

@@ -12,12 +12,16 @@
         }
       ],
       "executor": "@nx/js:swc",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/libs/api-sdk",
         "main": "libs/api-sdk/src/index.ts",
         "tsConfig": "libs/api-sdk/tsconfig.lib.json",
-        "assets": ["libs/api-sdk/*.md"]
+        "assets": [
+          "libs/api-sdk/*.md"
+        ]
       }
     },
     "convert": {
@@ -35,7 +39,7 @@
         }
       ],
       "options": {
-        "command": "openapi-ts --input {projectRoot}/openapi-spec.yml --output {projectRoot}/gen --name TrolleyClient --client axios",
+        "command": "kubb generate --config {projectRoot}/kubb.config.ts",
         "color": true
       }
     }
