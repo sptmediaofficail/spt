@@ -13,7 +13,7 @@ export const Section = (
     <section
       {...props}
       className={cn(
-        'pt-24 max-w-screen-xl px-4 xl:mx-auto xl:px-0',
+        'pt-12 lg:pt-24 max-w-screen-xl px-4 xl:mx-auto xl:px-0',
         props.position === 'center' && 'text-center',
         props.className
       )}

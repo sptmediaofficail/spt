@@ -6,6 +6,7 @@ import StatMask from '../assets/svg/stat-mask.svg';
 import { cn } from '@nextui-org/theme';
 import HeroImg from '../assets/images/hero.png';
 import { Section } from '../components/section';
+import { sptClient } from '../service/spt-client/spt-client';
 
 export const HeroSection = () => {
   return (
@@ -61,12 +62,16 @@ const MainSection = () => {
   );
 };
 
-const StatisticsSection = () => {
+const StatisticsSection = async () => {
+  const stats = await sptClient.getStats();
+
   return (
     <section className="flex flex-row justify-around content-center text-center flex-wrap">
       <div className="text-center flex flex-col md:flex-row gap-4 items-center mb-6 md:mb-0">
         <div className="flex flex-col justify-around">
-          <p className="text-2xl font-bold text-primary">56</p>
+          <p className="text-2xl font-bold text-primary">
+            {stats.junkyard_sale_orders}
+          </p>
           <p className="text-xs">طلبات التشاليح</p>
         </div>
         <div className="bg-gray-100 rounded-2xl p-4">
@@ -76,7 +81,7 @@ const StatisticsSection = () => {
 
       <div className="text-center flex flex-col md:flex-row gap-4 items-center mb-6 md:mb-0">
         <div className="flex flex-col justify-around">
-          <p className="text-2xl font-bold text-primary">15K+</p>
+          <p className="text-2xl font-bold text-primary">{stats.clients}</p>
           <p className="text-xs">عميل راضي</p>
         </div>
         <div className="bg-gray-100 rounded-2xl p-4">
@@ -86,7 +91,9 @@ const StatisticsSection = () => {
 
       <div className="text-center flex flex-col md:flex-row gap-4 items-center">
         <div className="flex flex-col justify-around">
-          <p className="text-2xl font-bold text-primary">1K+</p>
+          <p className="text-2xl font-bold text-primary">
+            {stats.spare_part_orders}
+          </p>
           <p className="text-xs">طلبات قطع الغيار</p>
         </div>
         <div className="bg-gray-100 rounded-2xl p-4">

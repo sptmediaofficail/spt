@@ -1,4 +1,5 @@
 'use client';
+
 import { Section } from '../../components/section';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { StoresCarousel } from './stores/stores-carousel';

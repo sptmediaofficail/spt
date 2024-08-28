@@ -1,3 +1,4 @@
+'use client';
 import ReactStars from 'react-stars';
 import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/card';
 import Image from 'next/image';
