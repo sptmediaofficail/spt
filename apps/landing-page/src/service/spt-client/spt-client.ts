@@ -1,4 +1,4 @@
-import { Offer, Partner, Stats, TopRated } from './types';
+import { DownloadData, Offer, Partner, Stats, TopRated } from './types';
 
 export class SptClient {
   private baseURL = 'https://api.spt.sa/api/v1';
@@ -42,6 +42,12 @@ export class SptClient {
     const url = `${this.baseURL}/landing/site_offers`;
     const response = await this.fetch(url);
     return response.data.data as Offer[];
+  }
+
+  async getDownloadData() {
+    const url = `${this.baseURL}/landing/download_section`;
+    const response = await this.fetch(url);
+    return response.data as DownloadData;
   }
 }
 

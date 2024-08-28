@@ -6,10 +6,13 @@ import { ServicesSection } from '../sections/services';
 import { PartnersSection } from '../sections/partners/partners';
 import { TopSellingSection } from '../sections/top-selling/top-selling';
 import { sptClient } from '../service/spt-client/spt-client';
+import { AboutSection } from '../sections/about';
+import { DownloadSection } from '../sections/download';
 
 export default async function Index() {
   const topRated = await sptClient.topRated();
   const offers = await sptClient.getOffers();
+  const downloadData = await sptClient.getDownloadData();
 
   return (
     <>
@@ -19,6 +22,8 @@ export default async function Index() {
       <ServicesSection />
       <TopSellingSection topRated={topRated} />
       <OffersSection offers={offers} />
+      <AboutSection />
+      <DownloadSection downloadData={downloadData} />
     </>
   );
 }
