@@ -1,0 +1,10 @@
+/**
+ * @description Successful response
+*/
+export type PostAdminPermissionGroups0e3685698d074efbA367182dd5e2db42Restore200 = any;
+export type PostAdminPermissionGroups0e3685698d074efbA367182dd5e2db42RestoreMutationRequest = object;
+export type PostAdminPermissionGroups0e3685698d074efbA367182dd5e2db42RestoreMutationResponse = any;
+export type PostAdminPermissionGroups0e3685698d074efbA367182dd5e2db42RestoreMutation = {
+    Response: PostAdminPermissionGroups0e3685698d074efbA367182dd5e2db42RestoreMutationResponse;
+    Request: PostAdminPermissionGroups0e3685698d074efbA367182dd5e2db42RestoreMutationRequest;
+};

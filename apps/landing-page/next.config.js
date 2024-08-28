@@ -13,7 +13,7 @@ const nextConfig = {
     svgr: false,
   },
   images: {
-    domains: ['i.pinimg.com'],
+    domains: ['i.pinimg.com', 'api.spt.sa'],
   },
 };
 

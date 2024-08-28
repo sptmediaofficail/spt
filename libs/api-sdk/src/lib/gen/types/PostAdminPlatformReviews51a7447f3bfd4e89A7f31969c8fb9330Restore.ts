@@ -1,0 +1,10 @@
+/**
+ * @description Successful response
+*/
+export type PostAdminPlatformReviews51a7447f3bfd4e89A7f31969c8fb9330Restore200 = any;
+export type PostAdminPlatformReviews51a7447f3bfd4e89A7f31969c8fb9330RestoreMutationRequest = object;
+export type PostAdminPlatformReviews51a7447f3bfd4e89A7f31969c8fb9330RestoreMutationResponse = any;
+export type PostAdminPlatformReviews51a7447f3bfd4e89A7f31969c8fb9330RestoreMutation = {
+    Response: PostAdminPlatformReviews51a7447f3bfd4e89A7f31969c8fb9330RestoreMutationResponse;
+    Request: PostAdminPlatformReviews51a7447f3bfd4e89A7f31969c8fb9330RestoreMutationRequest;
+};

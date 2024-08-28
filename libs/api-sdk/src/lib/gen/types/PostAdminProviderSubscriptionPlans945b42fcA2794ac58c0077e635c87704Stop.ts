@@ -1,0 +1,10 @@
+/**
+ * @description Successful response
+*/
+export type PostAdminProviderSubscriptionPlans945b42fcA2794ac58c0077e635c87704Stop200 = any;
+export type PostAdminProviderSubscriptionPlans945b42fcA2794ac58c0077e635c87704StopMutationRequest = object;
+export type PostAdminProviderSubscriptionPlans945b42fcA2794ac58c0077e635c87704StopMutationResponse = any;
+export type PostAdminProviderSubscriptionPlans945b42fcA2794ac58c0077e635c87704StopMutation = {
+    Response: PostAdminProviderSubscriptionPlans945b42fcA2794ac58c0077e635c87704StopMutationResponse;
+    Request: PostAdminProviderSubscriptionPlans945b42fcA2794ac58c0077e635c87704StopMutationRequest;
+};
