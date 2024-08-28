@@ -8,6 +8,7 @@ import Background from '../assets/images/offers-bg.jpg';
 import Gear from '../assets/svg/gear.svg';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 import { cn } from '@nextui-org/theme';
+import { Navigation } from 'swiper/modules';
 
 export const OffersSection = ({ offers }: { offers: Offer[] }) => {
   return (
@@ -32,11 +33,17 @@ export const OffersSection = ({ offers }: { offers: Offer[] }) => {
       }
     >
       <Swiper
-        spaceBetween={30}
-        navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+        modules={[Navigation]}
+        spaceBetween={32}
+        navigation={{ nextEl: '.arrow-left', prevEl: '.arrow-right' }}
+        centeredSlides={true}
+        centeredSlidesBounds={true}
+        autoplay={{
+          delay: 5000,
+          pauseOnMouseEnter: true,
         }}
+        loop={true}
+        slidesPerView={'auto'}
         className="mt-6"
       >
         {offers.map((offer) => (
