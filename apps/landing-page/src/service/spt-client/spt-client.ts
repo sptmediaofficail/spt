@@ -1,4 +1,4 @@
-import { Partner, Stats } from './types';
+import { Partner, Stats, TopRated } from './types';
 
 export class SptClient {
   private baseURL = 'https://api.spt.sa/api/v1';
@@ -23,6 +23,12 @@ export class SptClient {
     const url = `${this.baseURL}/landing/orders_numbers`;
     const response = await this.fetch(url);
     return response.data as Stats;
+  }
+
+  async topRated() {
+    const url = `${this.baseURL}/landing/most_rated_providers`;
+    const response = await this.fetch(url);
+    return response.data as TopRated;
   }
 }
 

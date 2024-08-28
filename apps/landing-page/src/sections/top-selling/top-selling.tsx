@@ -1,18 +1,119 @@
 'use client';
-
 import { Section } from '../../components/section';
 import { Tab, Tabs } from '@nextui-org/tabs';
-import { StoresCarousel } from './stores/stores-carousel';
+import { ProvidersCarousel } from './stores/providers-carousel';
+import { TopRated } from '../../service/spt-client/types';
 
-export const TopSellingSection = () => {
+const stores = [
+  {
+    avatar:
+      'https://i.pinimg.com/originals/99/cd/f6/99cdf63cf38419fa5e1aa25645a6776b.png',
+    name: 'اسم المتجر',
+    description:
+      'لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور',
+    rating: 4,
+  },
+  {
+    avatar:
+      'https://i.pinimg.com/originals/99/cd/f6/99cdf63cf38419fa5e1aa25645a6776b.png',
+    name: 'اسم المتجر',
+    description:
+      'لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور',
+    rating: 4,
+  },
+  {
+    avatar:
+      'https://i.pinimg.com/originals/99/cd/f6/99cdf63cf38419fa5e1aa25645a6776b.png',
+    name: 'اسم المتجر',
+    description:
+      'لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور',
+    rating: 4,
+  },
+  {
+    avatar:
+      'https://i.pinimg.com/originals/99/cd/f6/99cdf63cf38419fa5e1aa25645a6776b.png',
+    name: 'اسم المتجر',
+    description:
+      'لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور',
+    rating: 4,
+  },
+  {
+    avatar:
+      'https://i.pinimg.com/originals/99/cd/f6/99cdf63cf38419fa5e1aa25645a6776b.png',
+    name: 'اسم المتجر',
+    description:
+      'لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور',
+    rating: 4,
+  },
+  {
+    avatar:
+      'https://i.pinimg.com/originals/99/cd/f6/99cdf63cf38419fa5e1aa25645a6776b.png',
+    name: 'اسم المتجر',
+    description:
+      'لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور',
+    rating: 4,
+  },
+  {
+    avatar:
+      'https://i.pinimg.com/originals/99/cd/f6/99cdf63cf38419fa5e1aa25645a6776b.png',
+    name: 'اسم المتجر',
+    description:
+      'لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور',
+    rating: 4,
+  },
+  {
+    avatar:
+      'https://i.pinimg.com/originals/99/cd/f6/99cdf63cf38419fa5e1aa25645a6776b.png',
+    name: 'اسم المتجر',
+    description:
+      'لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور',
+    rating: 4,
+  },
+  {
+    avatar:
+      'https://i.pinimg.com/originals/99/cd/f6/99cdf63cf38419fa5e1aa25645a6776b.png',
+    name: 'اسم المتجر',
+    description:
+      'لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور',
+    rating: 4,
+  },
+  {
+    avatar:
+      'https://i.pinimg.com/originals/99/cd/f6/99cdf63cf38419fa5e1aa25645a6776b.png',
+    name: 'اسم المتجر',
+    description:
+      'لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور',
+    rating: 4,
+  },
+  {
+    avatar:
+      'https://i.pinimg.com/originals/99/cd/f6/99cdf63cf38419fa5e1aa25645a6776b.png',
+    name: 'اسم المتجر',
+    description:
+      'لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور',
+    rating: 4,
+  },
+  {
+    avatar:
+      'https://i.pinimg.com/originals/99/cd/f6/99cdf63cf38419fa5e1aa25645a6776b.png',
+    name: 'اسم المتجر',
+    description:
+      'لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور',
+    rating: 4,
+  },
+];
+
+export const TopSellingSection = ({ topRated }: { topRated: TopRated }) => {
   const tabs = [
     {
-      id: 'first',
+      id: 'spare_part_providers',
       title: 'متاجر قطع الغيار',
+      providers: stores,
     },
     {
       id: 'second',
       title: 'متاجر تشاليح',
+      providers: topRated.junkyard_sale_providers,
     },
   ];
 
@@ -24,22 +125,17 @@ export const TopSellingSection = () => {
         'اختيار المتاجر المناسب لقطع الغيار يمكن أن يكون له تأثير كبير على جودة وصيانة المنتجات التي تستخدمها'
       }
       position={'center'}
-      className={'overflow-visible max-w-full'}
+      className={'w-screen max-w-max overflow-visible'}
     >
       <Tabs color="primary" aria-label="Tabs" className={'mt-6'}>
         {tabs.map((tab) => (
-          <Tab
-            className="lg:px-24 px-12"
-            key={tab.id}
-            value={tab.id}
-            title={tab.title}
-          />
+          <Tab key={tab.id} value={tab.id} title={tab.title}>
+            <div className={'mt-6'}>
+              <ProvidersCarousel providers={tab.providers} />
+            </div>
+          </Tab>
         ))}
       </Tabs>
-
-      <div className={'mt-6 w-full overflow-visible'}>
-        <StoresCarousel />
-      </div>
     </Section>
   );
 };
