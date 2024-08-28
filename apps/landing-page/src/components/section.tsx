@@ -1,10 +1,10 @@
-import { HTMLProps } from 'react';
+import { HTMLProps, ReactNode } from 'react';
 import { cn } from '@nextui-org/theme';
 
 export const Section = (
   props: HTMLProps<any> & {
     title?: string;
-    heading?: string;
+    heading?: string | ReactNode;
     description?: string;
     position?: 'center' | 'right';
   }
@@ -22,15 +22,19 @@ export const Section = (
         {props.title && (
           <h2
             className={cn(
-              'text-xl font-bold bg-primary text-white px-3 py-2 rounded-full w-fit',
+              'text-lg lg:text-xl font-bold bg-primary text-white px-3 py-2 rounded-full w-fit',
               props.position === 'center' && 'mx-auto'
             )}
           >
             {props.title}
           </h2>
         )}
-        {props.heading && (
-          <h3 className={cn('text-4xl font-semibold')}>{props.heading}</h3>
+        {props.heading && typeof props.heading === 'string' ? (
+          <h3 className={cn('text-3xl lg:text-4xl font-semibold')}>
+            {props.heading}
+          </h3>
+        ) : (
+          props.heading
         )}
 
         {props.description && (

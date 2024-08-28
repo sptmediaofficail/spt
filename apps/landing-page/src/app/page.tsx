@@ -9,6 +9,7 @@ import { sptClient } from '../service/spt-client/spt-client';
 
 export default async function Index() {
   const topRated = await sptClient.topRated();
+  const offers = await sptClient.getOffers();
 
   return (
     <>
@@ -17,7 +18,7 @@ export default async function Index() {
       <PartnersSection />
       <ServicesSection />
       <TopSellingSection topRated={topRated} />
-      <OffersSection />
+      <OffersSection offers={offers} />
     </>
   );
 }
