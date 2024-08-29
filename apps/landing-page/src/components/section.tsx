@@ -18,7 +18,12 @@ export const Section = (
         props.className
       )}
     >
-      <div className="flex flex-col gap-6">
+      <div
+        className={cn(
+          'flex flex-col gap-6 max-w-screen-md',
+          props.position === 'center' && 'mx-auto'
+        )}
+      >
         {props.title && (
           <h2
             className={cn(
@@ -38,7 +43,7 @@ export const Section = (
         )}
 
         {props.description && (
-          <p className="text-xs text-secondaryText">{props.description}</p>
+          <p className="text-lg text-secondaryText">{props.description}</p>
         )}
       </div>
 

@@ -10,12 +10,14 @@ import { AboutSection } from '../sections/about';
 import { DownloadSection } from '../sections/download';
 import { HowOrderSection } from '../sections/how-order';
 import { Footer } from '../footer';
+import { RightsSection } from '../sections/rights';
 
 export default async function Index() {
   const topRated = await sptClient.topRated();
   const offers = await sptClient.getOffers();
   const downloadData = await sptClient.getDownloadData();
   const howOrderData = await sptClient.getHowOrderData();
+  const rights = await sptClient.getRights();
   return (
     <>
       <Navbar />
@@ -26,6 +28,7 @@ export default async function Index() {
       <OffersSection offers={offers} />
       <AboutSection />
       <HowOrderSection howOrderData={howOrderData[0]} />
+      <RightsSection rights={rights} />
       <DownloadSection downloadData={downloadData} />
       <Footer />
     </>

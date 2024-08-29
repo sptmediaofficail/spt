@@ -3,6 +3,7 @@ import {
   HowOrderData,
   Offer,
   Partner,
+  Right,
   Stats,
   TopRated,
 } from './types';
@@ -61,6 +62,12 @@ export class SptClient {
     const url = `${this.baseURL}/landing/how_order`;
     const response = await this.fetch(url);
     return response.data.data as HowOrderData[];
+  }
+
+  async getRights() {
+    const url = `${this.baseURL}/landing/guarantee_rights`;
+    const response = await this.fetch(url);
+    return response.data.data as Right[];
   }
 }
 
