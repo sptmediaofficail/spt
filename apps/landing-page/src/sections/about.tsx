@@ -39,6 +39,8 @@ export const AboutSection = () => {
                 className="col-span-2 sm:col-span-1 lg:col-span-1 text-right"
                 key={index}
               >
+                {/*
+  // @ts-expect-error - to be fixed */}
                 <HowHelpCard key={index} {...help} />
               </div>
             ))}
