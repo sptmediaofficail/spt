@@ -17,6 +17,9 @@ export class SptClient {
       headers: {
         'Accept-Language': 'ar',
       },
+      next: {
+        revalidate: 60,
+      },
     }
   ) {
     const response = await fetch(url, options);
