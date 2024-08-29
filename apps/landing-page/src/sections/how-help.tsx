@@ -63,7 +63,7 @@ export const HowHelpSection = ({
   );
 };
 
-const HowHelpCard = ({
+export const HowHelpCard = ({
   icon,
   title,
   description,
