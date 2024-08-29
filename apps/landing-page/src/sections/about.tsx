@@ -3,6 +3,7 @@ import { Section } from '../components/section';
 export const AboutSection = () => {
   return (
     <Section
+      id={'about'}
       position={'center'}
       title={'عن SPT'}
       heading={'سهلة وبسيطة وبأسعار معقولة'}

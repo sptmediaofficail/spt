@@ -6,6 +6,7 @@ export const PartnersSection = async () => {
   const partners = await sptClient.getPartners();
   return (
     <Section
+      id={'partners'}
       title={'شركاؤنا'}
       className={'overflow-visible max-w-full'}
       position={'center'}

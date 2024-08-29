@@ -119,13 +119,14 @@ export const TopSellingSection = ({ topRated }: { topRated: TopRated }) => {
 
   return (
     <Section
+      id={'top-selling'}
       title={'الاكثر نشاطا وتقييما'}
       heading={'تعرف علي المتاجر الاكثر نشاطا وتقييما'}
       description={
         'اختيار المتاجر المناسب لقطع الغيار يمكن أن يكون له تأثير كبير على جودة وصيانة المنتجات التي تستخدمها'
       }
       position={'center'}
-      className={'w-screen max-w-max overflow-visible'}
+      className={'max-w-max overflow-visible'}
     >
       <Tabs color="primary" aria-label="Tabs" className={'mt-6'}>
         {tabs.map((tab) => (

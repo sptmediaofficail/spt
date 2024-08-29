@@ -10,7 +10,7 @@ import { SecondButton } from '../components/second-button';
 
 export const ServicesSection = () => {
   return (
-    <Section title={'خدماتنا'} heading={'ماذا يمكن أن نقدم لك'}>
+    <Section id={'services'} title={'خدماتنا'} heading={'ماذا يمكن أن نقدم لك'}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6 lg:mt-8 lg:gap-8">
         <div className="col-span-2">
           <ServiceCard

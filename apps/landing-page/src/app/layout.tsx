@@ -26,7 +26,6 @@ const shubakFont = localFont({
       weight: '600',
     },
   ],
-  preload: true,
   variable: '--font-shubak',
 });
 

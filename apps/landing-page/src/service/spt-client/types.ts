@@ -85,3 +85,15 @@ export type HowOrderData = {
   section: string;
   deleted_at: any;
 };
+
+export type Right = {
+  id: string;
+  image: string;
+  title: string;
+  title_ar: string;
+  title_en: string;
+  description: string;
+  description_ar: string;
+  description_en: string;
+  deleted_at: any;
+};

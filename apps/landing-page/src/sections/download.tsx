@@ -11,7 +11,7 @@ export const DownloadSection = ({
   downloadData: DownloadData;
 }) => {
   return (
-    <Section>
+    <Section id={'download'}>
       <div
         className="bg-secondary
         lg:px-24

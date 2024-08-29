@@ -13,6 +13,7 @@ import { Navigation } from 'swiper/modules';
 export const OffersSection = ({ offers }: { offers: Offer[] }) => {
   return (
     <Section
+      id={'offers'}
       position={'right'}
       title={'العروض'}
       heading={

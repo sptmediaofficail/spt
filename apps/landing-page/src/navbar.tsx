@@ -16,11 +16,11 @@ import Logo from './assets/svg/logo.svg';
 
 const navbarItems = [
   { label: 'الرئيسية', href: '#', isActive: true },
-  { label: 'الشركاء', href: '#', isActive: false },
-  { label: 'خدماتنا', href: '#', isActive: false },
-  { label: 'العروض', href: '#', isActive: false },
-  { label: 'عن SPT', href: '#', isActive: false },
-  { label: 'كيف تضمن حقوقك', href: '#', isActive: false },
+  { label: 'الشركاء', href: '#partners', isActive: false },
+  { label: 'خدماتنا', href: '#services', isActive: false },
+  { label: 'العروض', href: '#offers', isActive: false },
+  { label: 'عن SPT', href: '#about', isActive: false },
+  { label: 'كيف تضمن حقوقك', href: '#rights', isActive: false },
 ];
 
 export const Navbar = () => {
