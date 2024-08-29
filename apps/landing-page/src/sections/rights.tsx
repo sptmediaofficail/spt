@@ -13,7 +13,7 @@ export const RightsSection = ({ rights }: { rights: Right[] }) => {
       description="نحرص على ضمان حقوقك من خلال تطبيق إجراءات أمان متقدمة، توفير سياسات خصوصية شفافة، وتقديم دعم فني متواصل، مما يضمن حماية بياناتك الشخصية، وضمان الشفافية في استخدام المعلومات"
       className="max-w-full"
     >
-      <div className="mt-8">
+      <div className="mt-16">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {rights.map((right, index) => (
             <RightCard key={index} right={right} flip={index % 2 === 0} />
