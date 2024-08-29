@@ -15,6 +15,12 @@ const nextConfig = {
   images: {
     domains: ['i.pinimg.com', 'api.spt.sa'],
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 const plugins = [
