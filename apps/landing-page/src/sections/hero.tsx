@@ -12,9 +12,9 @@ export const HeroSection = () => {
   return (
     <div className="flex flex-row md:flex-col justify-around bg-primary relative overflow-hidden">
       <MainSection />
-      <div className="relative pt-28">
+      <div className="pt-28">
         <Image
-          className="absolute bottom-0"
+          className="absolute bottom-0 pointer-events-none"
           src={StatMask}
           alt="Statistics"
           priority
@@ -62,7 +62,7 @@ const MainSection = () => {
       <Image
         src={HeroImg}
         alt="SPT on Mobile"
-        className="lg:absolute lg:-left-24 lg:top-10 w-[80%] h-[80%] object-contain"
+        className="lg:absolute lg:-left-24 lg:top-10 w-[80%] h-[80%] object-contain pointer-events-none"
         priority
       />
     </Section>
