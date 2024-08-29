@@ -1,4 +1,11 @@
-import { DownloadData, Offer, Partner, Stats, TopRated } from './types';
+import {
+  DownloadData,
+  HowOrderData,
+  Offer,
+  Partner,
+  Stats,
+  TopRated,
+} from './types';
 
 export class SptClient {
   private baseURL = 'https://api.spt.sa/api/v1';
@@ -48,6 +55,12 @@ export class SptClient {
     const url = `${this.baseURL}/landing/download_section`;
     const response = await this.fetch(url);
     return response.data as DownloadData;
+  }
+
+  async getHowOrderData() {
+    const url = `${this.baseURL}/landing/how_order`;
+    const response = await this.fetch(url);
+    return response.data.data as HowOrderData[];
   }
 }
 

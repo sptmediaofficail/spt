@@ -72,3 +72,16 @@ export type DownloadData = {
   apple_store_link: string;
   deleted_at: any;
 };
+
+export type HowOrderData = {
+  id: string;
+  link: string;
+  title: string;
+  title_ar: string;
+  title_en: string;
+  description: string;
+  description_ar: string;
+  description_en: string;
+  section: string;
+  deleted_at: any;
+};
