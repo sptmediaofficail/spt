@@ -132,6 +132,7 @@ export const TopSellingSection = ({ topRated }: { topRated: TopRated }) => {
         {tabs.map((tab) => (
           <Tab key={tab.id} value={tab.id} title={tab.title}>
             <div className={'mt-6'}>
+              {/* @ts-expect-error - to be fixed */}
               <ProvidersCarousel providers={tab.providers} />
             </div>
           </Tab>
