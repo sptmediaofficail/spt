@@ -29,10 +29,18 @@ export const DownloadSection = ({
           <p className="text-secondaryText">{downloadData.description}</p>
           <div className="flex gap-4">
             <a href={downloadData.google_play_link} target="_blank">
-              <Image src={GooglePlay} alt="Google Play" />
+              <Image
+                className="pointer-events-none"
+                src={GooglePlay}
+                alt="Google Play"
+              />
             </a>
             <a href={downloadData.apple_store_link} target="_blank">
-              <Image src={AppStore} alt="App Store" />
+              <Image
+                className="pointer-events-none"
+                src={AppStore}
+                alt="App Store"
+              />
             </a>
           </div>
         </div>
@@ -42,7 +50,7 @@ export const DownloadSection = ({
           alt="App on phone"
           width={400}
           height={400}
-          className="lg:absolute block left-10 -top-5"
+          className="lg:absolute block left-10 -top-5 pointer-events-none"
         />
       </div>
     </Section>

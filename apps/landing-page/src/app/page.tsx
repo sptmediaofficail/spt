@@ -9,6 +9,7 @@ import { sptClient } from '../service/spt-client/spt-client';
 import { AboutSection } from '../sections/about';
 import { DownloadSection } from '../sections/download';
 import { HowOrderSection } from '../sections/how-order';
+import { Footer } from '../footer';
 
 export default async function Index() {
   const topRated = await sptClient.topRated();
@@ -26,6 +27,7 @@ export default async function Index() {
       <AboutSection />
       <HowOrderSection howOrderData={howOrderData[0]} />
       <DownloadSection downloadData={downloadData} />
+      <Footer />
     </>
   );
 }
