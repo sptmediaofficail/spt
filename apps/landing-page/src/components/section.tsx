@@ -20,8 +20,8 @@ export const Section = (
     >
       <div
         className={cn(
-          'flex flex-col gap-6 max-w-screen-md',
-          props.position === 'center' && 'mx-auto'
+          'flex flex-col gap-6',
+          props.position === 'center' && 'mx-auto max-w-screen-md'
         )}
       >
         {props.title && (
@@ -43,7 +43,9 @@ export const Section = (
         )}
 
         {props.description && (
-          <p className="text-lg text-secondaryText">{props.description}</p>
+          <p className="text-sm lg:text-lg text-secondaryText max-w-screen-md">
+            {props.description}
+          </p>
         )}
       </div>
 

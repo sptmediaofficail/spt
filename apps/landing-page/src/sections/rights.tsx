@@ -2,6 +2,7 @@ import { Right } from '../service/spt-client/types';
 import { Section } from '../components/section';
 import Image from 'next/image';
 import { cn } from '@nextui-org/theme';
+import RightWrench from '../assets/svg/right-wrench.svg';
 
 export const RightsSection = ({ rights }: { rights: Right[] }) => {
   return (
@@ -13,6 +14,13 @@ export const RightsSection = ({ rights }: { rights: Right[] }) => {
       description="نحرص على ضمان حقوقك من خلال تطبيق إجراءات أمان متقدمة، توفير سياسات خصوصية شفافة، وتقديم دعم فني متواصل، مما يضمن حماية بياناتك الشخصية، وضمان الشفافية في استخدام المعلومات"
       className="max-w-full"
     >
+      <Image
+        src={RightWrench}
+        className="absolute right-0"
+        alt="right-wrench"
+        width={70}
+        height={70}
+      />
       <div className="mt-16">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {rights.map((right, index) => (

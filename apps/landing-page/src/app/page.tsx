@@ -11,6 +11,7 @@ import { DownloadSection } from '../sections/download';
 import { HowOrderSection } from '../sections/how-order';
 import { Footer } from '../footer';
 import { RightsSection } from '../sections/rights';
+import { HowHelpSection } from '../sections/how-help';
 
 export default async function Index() {
   const topRated = await sptClient.topRated();
@@ -28,6 +29,7 @@ export default async function Index() {
       <OffersSection offers={offers} />
       <AboutSection />
       <HowOrderSection howOrderData={howOrderData[0]} />
+      <HowHelpSection />
       <RightsSection rights={rights} />
       <DownloadSection downloadData={downloadData} />
       <Footer />
