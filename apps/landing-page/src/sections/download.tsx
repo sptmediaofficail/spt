@@ -46,11 +46,11 @@ export const DownloadSection = ({
         </div>
 
         <Image
-          src={Phone}
+          src={downloadData.image || Phone}
           alt="App on phone"
           width={400}
           height={400}
-          className="lg:absolute block left-10 -top-5 pointer-events-none"
+          className="lg:absolute block left-10 -top-8 pointer-events-none"
         />
       </div>
     </Section>

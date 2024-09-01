@@ -18,7 +18,7 @@ export class SptClient {
         'Accept-Language': 'ar',
       },
       next: {
-        revalidate: 60,
+        revalidate: 5,
       },
     }
   ) {
