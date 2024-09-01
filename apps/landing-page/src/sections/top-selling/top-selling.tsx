@@ -121,9 +121,9 @@ export const TopSellingSection = ({ topRated }: { topRated: TopRated }) => {
     <Section
       id={'top-selling'}
       title={'الاكثر نشاطا وتقييما'}
-      heading={'تعرف علي المتاجر الاكثر نشاطا وتقييما'}
+      heading={'تعرف علي المتجر الاكثر نشاطا وتقييما'}
       description={
-        'اختيار المتاجر المناسب لقطع الغيار يمكن أن يكون له تأثير كبير على جودة وصيانة المنتجات التي تستخدمها'
+        'اختيار المتجر المناسب لقطع الغيار يمكن أن يكون له تأثير كبير على جودة وصيانة المنتجات التي تستخدمها'
       }
       position={'center'}
       className={'max-w-max overflow-visible'}

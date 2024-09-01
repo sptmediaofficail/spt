@@ -47,7 +47,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="text-white mt-16 relative bg-[#001E5F] p-12 px-8 md:p-16">
+    <footer className="text-white mt-16 relative bg-[#001E5F] p-8 lg:p-10">
       <Image
         src={FooterBg}
         alt="Footer Background"
