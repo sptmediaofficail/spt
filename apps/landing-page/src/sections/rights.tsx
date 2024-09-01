@@ -42,7 +42,7 @@ export const RightCard = ({ right, flip }: { right: Right; flip: boolean }) => {
     >
       <Image
         className={cn(
-          'shadow-xl rounded-t-full',
+          'shadow-xl rounded-t-full lg:rounded-t-none lg:rounded-b-none',
           flip ? 'lg:rounded-t-full' : 'lg:rounded-b-full'
         )}
         src={right.image}
