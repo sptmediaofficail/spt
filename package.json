@@ -40,6 +40,7 @@
     "@nx/jest": "19.6.2",
     "@nx/js": "19.6.2",
     "@nx/next": "19.6.2",
+    "@nx/react": "19.6.2",
     "@nx/workspace": "19.6.2",
     "@swc-node/register": "~1.9.1",
     "@swc/cli": "~0.3.12",
