@@ -12,6 +12,7 @@ import { HowOrderSection } from '../sections/how-order';
 import { Footer } from '../footer';
 import { RightsSection } from '../sections/rights';
 import { HowHelpSection } from '../sections/how-help';
+import Banner from '../components/banner';
 
 export default async function Index() {
   const topRated = await sptClient.topRated();
@@ -21,6 +22,7 @@ export default async function Index() {
   const rights = await sptClient.getRights();
   return (
     <>
+      <Banner />
       <Navbar />
       <HeroSection />
       <PartnersSection />
