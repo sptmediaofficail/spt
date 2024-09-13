@@ -5,9 +5,11 @@ import Service1Bg from '../assets/svg/services/service-1-bg.svg';
 import Service2Bg from '../assets/svg/services/service-2-bg.svg';
 import Service1Icon from '../assets/svg/services/service-1-icon.svg';
 import Service2Icon from '../assets/svg/services/service-2-icon.svg';
-import { HTMLProps, ReactNode, useState } from 'react';
+import Service2top from '../assets/svg/services/service-2-top.svg';
+import { HTMLProps, useState } from 'react';
 import { cn } from '@nextui-org/theme';
 import { SecondButton } from '../components/second-button';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 const data = [
   {
@@ -16,13 +18,8 @@ const data = [
     description:
       'هل تبحث عن قطع غيار موثوقة وبأسعار مناسبة لسيارتك؟ مع تطبيق SPT، يمكنك الآن العثور على كل ما تحتاجه لتصليح وصيانة سيارتك بلمسة واحدة!',
     icon: Service1Icon,
-    bg: (
-      <Image
-        src={Service1Bg}
-        className="left-0 absolute w-1/2  fill-black pointer-events-none"
-        alt="Service 1 Icon"
-      />
-    ),
+    bg: Service1Bg,
+    image: Service2Bg,
   },
   {
     id: 2,
@@ -30,13 +27,9 @@ const data = [
     description:
       'هل تبحث عن قطع غيار موثوقة وبأسعار مناسبة لسيارتك؟ مع تطبيق SPT، يمكنك الآن العثور على كل ما تحتاجه لتصليح وصيانة سيارتك بلمسة واحدة!',
     icon: Service2Icon,
-    bg: (
-      <Image
-        src={Service2Bg}
-        className="left-0 -bottom-20 absolute fill-black pointer-events-none"
-        alt="Service 1 Icon"
-      />
-    ),
+    bg: Service2top,
+    bgClassNames: '-left-20',
+    image: Service2Bg,
   },
 ];
 
@@ -85,15 +78,11 @@ export const ServicesSection = () => {
             description={service.description}
             icon={service.icon}
             bg={service.bg}
+            bgClassNames={service.bgClassNames}
+            image={service.image}
             theme={openedCard === service.id ? 'light' : 'dark'}
-            className={cn(
-              'transition-all duration-300 ease-in-out',
-              openedCard === service.id
-                ? 'lg:w-8/12 shadow-lg'
-                : 'lg:w-4/12 shadow',
-              'w-full'
-            )}
-            onMouseEnter={() => setOpenedCard(service.id)}
+            onClick={() => setOpenedCard(service.id)}
+            isOpened={openedCard === service.id}
           />
         ))}
       </div>
@@ -101,39 +90,76 @@ export const ServicesSection = () => {
   );
 };
 
-const ServiceCard = (
+export const ServiceCard = (
   props: HTMLProps<any> & {
     title: string;
     description: string;
     icon: string;
-    bg: ReactNode;
+    bg?: StaticImport | string;
+    bgClassNames?: string;
+    image: StaticImport | string;
     theme: 'light' | 'dark';
+    isOpened?: boolean;
+    onClick?: () => void;
   }
 ) => {
-  const { title, description, icon, bg } = props;
+  const { title, description, icon, bg, image, isOpened } = props;
   return (
     <div
       {...props}
       className={cn(
+        'w-full',
         'bg-secondary rounded-3xl h-72 relative overflow-hidden',
-        'shadow hover:shadow-lg transition-shadow duration-300',
-        props.theme === 'light' ? 'text-secondaryText' : 'text-white',
-
+        'shadow hover:shadow-xl transition-shadow duration-300',
+        isOpened ? 'text-secondaryText' : 'text-white',
+        isOpened ? 'cursor-default' : 'cursor-pointer',
+        isOpened ? 'lg:w-8/12 shadow-lg' : 'lg:w-4/12 shadow',
+        'transition-all duration-300 ease-in-out',
+        'transform-gpu',
         props.className
       )}
+      onClick={() => props.onClick && props.onClick()}
     >
-      {bg}
+      {bg && (
+        <Image
+          src={bg}
+          className={cn(
+            'left-0 absolute w-1/2 fill-black pointer-events-none',
+            isOpened ? 'opacity-100' : 'opacity-0',
+            'transition-opacity duration-300 ease-in-out',
+            props.bgClassNames
+          )}
+          alt="Service 1 Icon"
+        />
+      )}
+
+      {image && (
+        <Image
+          src={image}
+          className={cn(
+            'left-0 -bottom-20 absolute fill-black pointer-events-none',
+            isOpened ? 'opacity-0' : 'opacity-100',
+            'transition-opacity duration-300 ease-in-out'
+          )}
+          alt="Service 1 Icon"
+        />
+      )}
       <div
         className={cn(
           'flex flex-col gap-4 p-6',
           props.theme === 'dark' && 'bg-primary'
         )}
       >
-        <Image className={cn('w-16 h-16')} src={icon} alt="Service 1" />
+        <Image
+          // className={cn('w-16 h-16 invert grayscale')}
+          src={icon}
+          alt="Service 1"
+        />
         <h4 className="text-2xl font-semibold">{title}</h4>
         <p className={cn('text-md max-w-sm')}>{description}</p>
         <SecondButton
           color={props.theme === 'light' ? 'primary' : 'secondary'}
+          className="font-semibold text-lg tracking-wide"
           text={'اطلب الآن'}
         />
       </div>
