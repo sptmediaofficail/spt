@@ -8,6 +8,7 @@ import { Section } from '../components/section';
 import { sptClient } from '../service/spt-client/spt-client';
 import { cn } from '@nextui-org/theme';
 import HeroLine from '../assets/svg/hero-line.svg';
+import HeroBg from '../assets/svg/hero-bg.svg';
 
 export const HeroSection = () => {
   return (
@@ -37,10 +38,9 @@ const MainSection = () => {
     }),
     []
   );
-
   return (
-    <Section className="flex flex-col-reverse lg:flex-row items-center justify-between pt-8 md:py-24 text-white">
-      <div className="md:basis-4/12 leading-loose ml-auto">
+    <Section className="flex flex-col-reverse lg:flex-row items-center justify-between pt-8 md:pt-24 md:pb-12 text-white relative">
+      <div className="md:basis-5/12 leading-loose ml-auto z-20">
         <h1
           className={cn(
             'text-3xl text-center font-bold mb-8 leading-loose',
@@ -68,17 +68,29 @@ const MainSection = () => {
           {data.description}
         </p>
       </div>
-      <Image
-        src={HeroImg}
-        alt="SPT on Mobile"
-        className="lg:absolute lg:-left-24 lg:top-10 w-[80%] h-[80%] object-contain pointer-events-none"
-        priority
-      />
+
+      {/* Hero image and background section */}
+
+      <div className="relative w-full h-full">
+        <div className="lg:absolute lg:-top-64 lg:-left-[5%] lg:scale-150 lg:-translate-x-1/2 w-full h-full">
+          <Image
+            src={HeroBg}
+            alt="Hero Background"
+            className="absolute w-0 lg:w-1/2 -top-20 left-[70%] scale-125 lg:scale-150 z-10"
+            priority
+          />
+          <Image
+            src={HeroImg}
+            alt="Hero Image"
+            className="relative z-20 w-full lg:w-[60%] h-auto object-contain"
+            priority
+          />
+        </div>
+      </div>
     </Section>
   );
 };
 
-// Moved StatisticsSection to its own file for clarity and separation of concerns
 const StatisticsSection = async () => {
   const stats = await sptClient.getStats();
 
