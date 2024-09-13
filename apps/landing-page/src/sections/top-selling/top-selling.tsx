@@ -108,12 +108,18 @@ export const TopSellingSection = ({ topRated }: { topRated: TopRated }) => {
     {
       id: 'spare_part_providers',
       title: 'متاجر قطع الغيار',
-      providers: stores,
+      providers: [
+        ...topRated.spare_part_providers,
+        ...topRated.spare_part_providers,
+      ],
     },
     {
       id: 'second',
       title: 'متاجر تشاليح',
-      providers: topRated.junkyard_sale_providers,
+      providers: [
+        ...topRated.junkyard_sale_providers,
+        ...topRated.junkyard_sale_providers,
+      ],
     },
   ];
 
@@ -132,7 +138,6 @@ export const TopSellingSection = ({ topRated }: { topRated: TopRated }) => {
         {tabs.map((tab) => (
           <Tab key={tab.id} value={tab.id} title={tab.title}>
             <div className={'mt-6'}>
-              {/* @ts-expect-error - to be fixed */}
               <ProvidersCarousel providers={tab.providers} />
             </div>
           </Tab>
