@@ -21,7 +21,7 @@ export const HeroSection = () => {
           alt="Statistics"
           priority
         />
-        <div className="absolute bottom-0 w-8/12 2xl:w-6/12">
+        <div className="absolute bottom-0 2xl:w-[75rem] xl:w-[60rem] lg:w-[50rem] md:w-[40rem] sm:w-[30rem] w-[20rem]">
           <StatisticsSection />
         </div>
       </div>
@@ -39,7 +39,7 @@ const MainSection = () => {
     []
   );
   return (
-    <Section className="flex flex-col-reverse lg:flex-row items-center justify-between pt-8 md:pt-24 md:pb-12 text-white relative">
+    <Section className="flex flex-col-reverse lg:flex-row items-center justify-between pt-8 md:pt-24 md:pb-12 2xl:pb-24 text-white relative">
       <div className="md:basis-5/12 leading-loose ml-auto z-20">
         <h1
           className={cn(
@@ -96,7 +96,11 @@ const StatisticsSection = async () => {
   const stats = await sptClient.getStats();
 
   return (
-    <section className="flex flex-row justify-around content-center text-center flex-wrap">
+    <section
+      className="flex
+      2xl:h-[10rem] 2xl:scale-110
+    w-full flex-row justify-around content-center text-center flex-wrap"
+    >
       <StatisticItem
         value={stats.junkyard_sale_orders}
         label="طلبات التشاليح"

@@ -19,6 +19,7 @@ const data = [
       'هل تبحث عن قطع غيار موثوقة وبأسعار مناسبة لسيارتك؟ مع تطبيق SPT، يمكنك الآن العثور على كل ما تحتاجه لتصليح وصيانة سيارتك بلمسة واحدة!',
     icon: Service1Icon,
     bg: Service1Bg,
+    // bgClassNames: 'scale-105 -left-10',
     image: Service2Bg,
   },
   {
@@ -109,13 +110,14 @@ export const ServiceCard = (
       {...props}
       className={cn(
         'w-full',
-        'bg-secondary rounded-3xl h-72 relative overflow-hidden',
+        'bg-secondary rounded-3xl h-80 lg:h-72 relative overflow-hidden',
         'shadow hover:shadow-xl transition-shadow duration-300',
         isOpened ? 'text-secondaryText' : 'text-white',
         isOpened ? 'cursor-default' : 'cursor-pointer',
         isOpened ? 'lg:w-8/12 shadow-lg' : 'lg:w-4/12 shadow',
         'transition-all duration-300 ease-in-out',
         'transform-gpu',
+        isOpened ? '' : 'bg-primary',
         props.className
       )}
       onClick={() => props.onClick && props.onClick()}
@@ -144,12 +146,7 @@ export const ServiceCard = (
           alt="Service 1 Icon"
         />
       )}
-      <div
-        className={cn(
-          'flex flex-col gap-4 p-6',
-          props.theme === 'dark' && 'bg-primary'
-        )}
-      >
+      <div className={cn('flex flex-col gap-4 p-6')}>
         <Image
           // className={cn('w-16 h-16 invert grayscale')}
           src={icon}

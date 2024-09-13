@@ -30,7 +30,7 @@ export const HowHelpSection = ({
   // @ts-expect-error - to be fixed
   data = helps,
 }: {
-  data: { icon: string; title: string; description: string }[];
+  data?: { icon: string; title: string; description: string }[];
 }) => {
   return (
     <Section
