@@ -9,7 +9,7 @@ export const RightsSection = ({ rights }: { rights: Right[] }) => {
     <Section
       position="center"
       id={'rights'}
-      title="كيف تضمن حقوقك"
+      title={'كيف نضمن حقوقك'}
       heading={'كيف نضمن حقوقك في SPT بكل احترافية'}
       description="نحرص على ضمان حقوقك من خلال تطبيق إجراءات أمان متقدمة، توفير سياسات خصوصية شفافة، وتقديم دعم فني متواصل، مما يضمن حماية بياناتك الشخصية، وضمان الشفافية في استخدام المعلومات"
       className="max-w-full"

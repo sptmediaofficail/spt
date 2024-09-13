@@ -14,7 +14,7 @@ import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 const data = [
   {
     id: 1,
-    title: 'التوصيل',
+    title: 'قطع غيار',
     description:
       'هل تبحث عن قطع غيار موثوقة وبأسعار مناسبة لسيارتك؟ مع تطبيق SPT، يمكنك الآن العثور على كل ما تحتاجه لتصليح وصيانة سيارتك بلمسة واحدة!',
     icon: Service1Icon,
