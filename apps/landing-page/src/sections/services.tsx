@@ -159,7 +159,7 @@ export const ServiceCard = (
         <p className={cn('text-md max-w-sm')}>{description}</p>
         <SecondButton
           color={props.theme === 'light' ? 'primary' : 'secondary'}
-          className="font-semibold text-lg tracking-wide"
+          className="font-semibold text-lg tracking-wide w-fit"
           text={'اطلب الآن'}
         />
       </div>
