@@ -13,7 +13,7 @@ export const metadata = {
     description: 'اطلب قطع غيار سيارتك بكل سهولة مع SPT!',
     images: [
       {
-        url: 'https://spt.sa/car.svg',
+        url: 'https://spt.sa/phone.png',
         alt: 'SPT - لقطع غيار السيارات',
       },
     ],
@@ -24,7 +24,7 @@ export const metadata = {
     description: 'اطلب قطع غيار سيارتك بكل سهولة مع SPT!',
     images: [
       {
-        url: 'https://spt.sa/car.svg',
+        url: 'https://spt.sa/phone.png',
         alt: 'SPT - لقطع غيار السيارات',
       },
     ],
