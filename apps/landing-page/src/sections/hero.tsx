@@ -7,10 +7,11 @@ import HeroImg from '../assets/images/hero.png';
 import { Section } from '../components/section';
 import { sptClient } from '../service/spt-client/spt-client';
 import { cn } from '@nextui-org/theme';
+import HeroLine from '../assets/svg/hero-line.svg';
 
 export const HeroSection = () => {
   return (
-    <div className="flex flex-row md:flex-col justify-around bg-primary relative overflow-hidden">
+    <div className="flex flex-row md:flex-col justify-around bg-[#012167] relative overflow-hidden">
       <MainSection />
       <div className="pt-28">
         <Image
@@ -30,7 +31,7 @@ export const HeroSection = () => {
 const MainSection = () => {
   const data = useMemo(
     () => ({
-      title: 'اطلب قطع غيار سيارتك بكل سهولة مع SPT!',
+      title: 'اطلب قطع غيار سيارتك بكل سهولة مع',
       description:
         'مرحبا بك في SPT وجهتك المثالية لتجعل العثور على قطع غيار السيارات التي تحتاجها بسرعة وكفاءة سواء كنت تبحث عن قطع أصلية، مستعملة أو مستهلكة أخيرا، كل ما يلزم لتلبية احتياجات سيارتك.',
     }),
@@ -42,18 +43,26 @@ const MainSection = () => {
       <div className="md:basis-4/12 leading-loose ml-auto">
         <h1
           className={cn(
-            'text-3xl text-center font-bold mb-4 leading-loose',
+            'text-3xl text-center font-bold mb-8 leading-loose',
             'md:text-4xl md:text-right',
-            'lg:text-5xl lg:text-right lg:leading-normal'
+            'lg:text-5xl lg:text-center lg:leading-normal'
           )}
         >
-          {data.title}
+          {data.title}{' '}
+          <span className="relative">
+            SPT!
+            <Image
+              src={HeroLine}
+              alt="Hero Line"
+              className="absolute inset-0 transform scale-[170%] top-[3rem] lg:top-[4.5rem] lg:right-[20%]"
+            />
+          </span>
         </h1>
         <p
           className={cn(
             'text-sm text-center mb-8 leading-loose opacity-90 text-slate-300',
             'md:text-md md:text-right',
-            'lg:text-lg lg:text-right lg:leading-relaxed'
+            'lg:text-lg lg:text-center lg:leading-relaxed'
           )}
         >
           {data.description}
