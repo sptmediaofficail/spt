@@ -76,7 +76,8 @@ const MainSection = () => {
           <Image
             src={HeroBg}
             alt="Hero Background"
-            className="absolute w-0 lg:w-1/2 -top-20 left-[70%] scale-125 lg:scale-150 z-10"
+            className="absolute w-2/3 rotate-[95deg] top-12
+            lg:rotate-0 lg:w-1/2 lg:-top-20 lg:left-[70%] scale-125 lg:scale-150 z-10"
             priority
           />
           <Image
