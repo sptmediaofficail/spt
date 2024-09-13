@@ -126,7 +126,7 @@ export const TopSellingSection = ({ topRated }: { topRated: TopRated }) => {
         'اختيار المتجر المناسب لقطع الغيار يمكن أن يكون له تأثير كبير على جودة وصيانة المنتجات التي تستخدمها'
       }
       position={'center'}
-      className={'max-w-max overflow-visible'}
+      className={'max-w-max overflow-visible px-0'}
     >
       <Tabs color="primary" aria-label="Tabs" className={'mt-6'}>
         {tabs.map((tab) => (
