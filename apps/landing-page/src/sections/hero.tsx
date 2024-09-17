@@ -21,7 +21,7 @@ export const HeroSection = () => {
           alt="Statistics"
           priority
         />
-        <div className="absolute bottom-0 2xl:w-[75rem] xl:w-[60rem] lg:w-[50rem] md:w-[40rem] sm:w-[30rem] w-[20rem]">
+        <div className="absolute bottom-0 w-[65vw]">
           <StatisticsSection />
         </div>
       </div>
@@ -54,7 +54,7 @@ const MainSection = () => {
             <Image
               src={HeroLine}
               alt="Hero Line"
-              className="absolute inset-0 transform scale-[170%] top-[3rem] lg:top-[4.5rem] lg:right-[20%]"
+              className="absolute inset-0 transform scale-[170%] top-[3rem] lg:top-[4.5rem] lg:right-[20%] pointer-events-none"
             />
           </span>
         </h1>
