@@ -93,6 +93,7 @@ export const Navbar = () => {
               <Link
                 href={item.href}
                 color={item.isActive ? 'primary' : 'foreground'}
+                onClick={() => setIsMenuOpen(false)} // Close menu on item click
               >
                 {item.label}
               </Link>
