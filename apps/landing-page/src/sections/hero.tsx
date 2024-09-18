@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import Image from 'next/image';
 import StatCar from '../assets/svg/stat-car.svg';
 import StatUser from '../assets/svg/stat-users.svg';
+import StatWrench from '../assets/svg/stat-wrench.svg';
 import StatMask from '../assets/svg/stat-mask.svg';
 import HeroImg from '../assets/images/hero.png';
 import { Section } from '../components/section';
@@ -103,13 +104,14 @@ const StatisticsSection = async () => {
     >
       <StatisticItem value={stats.clients} label="عميل راضي" icon={StatUser} />
       <StatisticItem
-        value={stats.junkyard_sale_orders}
-        label="طلبات التشاليح"
-        icon={StatCar}
-      />
-      <StatisticItem
         value={stats.spare_part_orders}
         label="طلبات قطع الغيار"
+        icon={StatWrench}
+        className={'bg-[#fdf7f7]'}
+      />
+      <StatisticItem
+        value={stats.junkyard_sale_orders}
+        label="طلبات التشاليح"
         icon={StatCar}
       />
     </section>
@@ -120,17 +122,19 @@ const StatisticItem = ({
   value,
   label,
   icon,
+  className,
 }: {
   value: number;
   label: string;
   icon: string;
+  className?: string;
 }) => (
   <div className="text-center flex flex-col md:flex-row gap-4 items-center mb-6 md:mb-0">
     <div className="flex flex-col justify-around">
       <p className="text-2xl font-bold text-primary">{value}</p>
       <p className="text-xs">{label}</p>
     </div>
-    <div className="bg-gray-100 rounded-2xl p-4">
+    <div className={`bg-gray-100 rounded-2xl p-4 ${className}`}>
       <Image src={icon} width={32} height={32} alt={label} />
     </div>
   </div>
