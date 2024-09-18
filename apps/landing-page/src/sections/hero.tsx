@@ -107,7 +107,7 @@ const StatisticsSection = async () => {
         value={stats.spare_part_orders}
         label="طلبات قطع الغيار"
         icon={StatWrench}
-        className={'bg-[#fdf7f7]'}
+        className={'!bg-[#fdf7f7]'}
       />
       <StatisticItem
         value={stats.junkyard_sale_orders}
