@@ -101,12 +101,12 @@ const StatisticsSection = async () => {
       2xl:h-[10rem] 2xl:scale-110
     w-full flex-row justify-around content-center text-center flex-wrap"
     >
+      <StatisticItem value={stats.clients} label="عميل راضي" icon={StatUser} />
       <StatisticItem
         value={stats.junkyard_sale_orders}
         label="طلبات التشاليح"
         icon={StatCar}
       />
-      <StatisticItem value={stats.clients} label="عميل راضي" icon={StatUser} />
       <StatisticItem
         value={stats.spare_part_orders}
         label="طلبات قطع الغيار"
