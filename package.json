@@ -20,6 +20,8 @@
     "@nextui-org/tabs": "^2.0.35",
     "@nextui-org/theme": "^2.2.9",
     "@types/react-stars": "^2.2.4",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.3.29",
     "next": "14.2.3",
     "postman-to-openapi": "^3.0.1",
@@ -32,6 +34,8 @@
     "sharp": "^0.33.5",
     "swiper": "^11.1.10",
     "swr": "^2.2.5",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
