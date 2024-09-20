@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@spt/api-sdk": ["libs/api-sdk/src/index.ts"]
+      "@spt/api-sdk": ["libs/api-sdk/src/index.ts"],
+      "@spt/common": ["libs/common/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
