@@ -1,1 +1,1 @@
-export * from './lib/spt-client';
+export * from './lib/gen';
