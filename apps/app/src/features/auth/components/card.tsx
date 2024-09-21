@@ -24,13 +24,13 @@ export const AuthCard = ({
   ...props
 }: AuthCardProps) => {
   return (
-    <Card {...props}>
+    <Card {...props} className={cn('max-w-lg px-4 md:px-12', props.className)}>
       <CardHeader className="flex flex-col text-center gap-4">
         {icon && <div>{icon}</div>}
         <h2 className={cn('text-[#28478A] font-semibold text-2xl')}>{title}</h2>
         <h3 className={cn('text-[#6E7887] text-sm')}>{description}</h3>
       </CardHeader>
-      <CardBody>{children}</CardBody>
+      <CardBody className={'px-0'}>{children}</CardBody>
       <CardFooter>{/*<p>Card Footer</p>*/}</CardFooter>
     </Card>
   );
