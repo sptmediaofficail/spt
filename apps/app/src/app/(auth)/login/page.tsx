@@ -1,16 +1,16 @@
-import { Card } from '../../../features/auth/components/card';
+import { AuthCard } from '../../../features/auth/components/card';
 import { useTranslations } from 'next-intl';
 
 export default function LoginPage() {
   const t = useTranslations();
   return (
     <>
-      <Card
+      <AuthCard
         title={t('login.card.title')}
         description={t('login.card.description')}
       >
         asd
-      </Card>
+      </AuthCard>
     </>
   );
 }

@@ -1,41 +1,37 @@
 import * as React from 'react';
 import { ReactNode } from 'react';
+import { cn } from '@nextui-org/theme';
 import {
-  CardContent,
-  CardDescription,
+  Card,
+  CardBody,
   CardFooter,
   CardHeader,
-  CardTitle,
-} from '../../../ui/card';
-import { cn } from '@nextui-org/theme';
+  CardProps,
+} from '@nextui-org/card';
 
-type CardProps = React.HTMLAttributes<HTMLDivElement> & {
+type AuthCardProps = CardProps & {
   icon?: ReactNode;
   title: string;
   description: string;
   children: ReactNode;
 };
 
-export const Card = ({
+export const AuthCard = ({
   icon,
   title,
   description,
   children,
   ...props
-}: CardProps) => {
+}: AuthCardProps) => {
   return (
-    <div {...props}>
-      <CardHeader className="text-center gap-4">
+    <Card {...props}>
+      <CardHeader className="flex flex-col text-center gap-4">
         {icon && <div>{icon}</div>}
-        <CardTitle className={cn('text-[#28478A] font-semibold text-2xl')}>
-          {title}
-        </CardTitle>
-        <CardDescription className={cn('text-[#6E7887] text-sm')}>
-          {description}
-        </CardDescription>
+        <h2 className={cn('text-[#28478A] font-semibold text-2xl')}>{title}</h2>
+        <h3 className={cn('text-[#6E7887] text-sm')}>{description}</h3>
       </CardHeader>
-      <CardContent>{children}</CardContent>
+      <CardBody>{children}</CardBody>
       <CardFooter>{/*<p>Card Footer</p>*/}</CardFooter>
-    </div>
+    </Card>
   );
 };
