@@ -1,14 +1,15 @@
 import { Card } from '../../../features/auth/components/card';
+import { useTranslations } from 'next-intl';
 
 export default function LoginPage() {
+  const t = useTranslations();
   return (
     <>
-      <Card title={'Login'} description={'Please enter your credentials'}>
-        <form>
-          <input type="text" placeholder="Username" />
-          <input type="password" placeholder="Password" />
-          <button type="submit">Login</button>
-        </form>
+      <Card
+        title={t('login.card.title')}
+        description={t('login.card.description')}
+      >
+        asd
       </Card>
     </>
   );
