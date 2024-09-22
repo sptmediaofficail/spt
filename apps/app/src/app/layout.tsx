@@ -2,12 +2,14 @@ import './global.css';
 import { layoutMetadata, shubakFont } from '@spt/common';
 import { getLocale, getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
+import { UIProvider } from './providers';
+import { ReactNode } from 'react';
 
 export const metadata = layoutMetadata;
 export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   const locale = await getLocale();
 
@@ -20,10 +22,12 @@ export default async function RootLayout({
       dir={locale === 'ar' ? 'rtl' : 'ltr'}
       className={`${shubakFont.className}`}
     >
-      <body>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+      <body className="w-screen h-screen">
+        <UIProvider locale={locale}>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </UIProvider>
       </body>
     </html>
   );
