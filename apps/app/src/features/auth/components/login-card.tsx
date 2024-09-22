@@ -1,48 +1,27 @@
-import { AuthCard } from './card';
-import PhoneInput from 'react-phone-input-2';
+import { AuthCard } from '../auth-card';
 import { PrimaryButton } from '../../../ui/primary-button';
-import 'react-phone-input-2/lib/style.css';
 import { useTranslations } from 'next-intl';
+import { SAPhoneInput } from '../sa-phone-input';
+import { useState } from 'react';
 
 export function LoginCard(props: {
   title: string;
   description: string;
-  value: string;
-  onChange: (value: ((prevState: string) => string) | string) => void;
   text: string;
-  onClick: () => void;
 }) {
   const t = useTranslations();
+  const [phone, setPhone] = useState('');
+  const onChange = (value: string) => setPhone(value);
+  const submit = () => console.log(phone);
 
   return (
     <AuthCard title={props.title} description={props.description}>
       <div dir={'ltr'} className={'flex flex-col gap-6 py-6'}>
         <div className="flex flex-col gap-3">
           <label className="text-sm self-end">{t('label.phone')}</label>
-          <PhoneInput
-            disableDropdown={true}
-            disableCountryGuess={true}
-            country={'sa'}
-            value={props.value}
-            onChange={props.onChange}
-            inputStyle={{
-              width: '100%',
-              height: '100%',
-              padding: '0.5rem',
-              paddingLeft: '2.3rem',
-              borderRadius: '0.5rem',
-              border: '1px solid #eaeaea',
-            }}
-            buttonStyle={{
-              backgroundColor: 'transparent',
-              border: '1px solid #eaeaea',
-              borderRightStyle: 'none',
-              borderStyle: 'none',
-              paddingInline: '0.5rem',
-            }}
-          />
+          <SAPhoneInput onChange={onChange} />
         </div>
-        <PrimaryButton text={props.text} onClick={props.onClick} />
+        <PrimaryButton disabled text={props.text} onClick={submit} />
       </div>
     </AuthCard>
   );
