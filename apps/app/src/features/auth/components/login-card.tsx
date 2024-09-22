@@ -21,7 +21,7 @@ export function LoginCard(props: {
           <label className="text-sm self-end">{t('label.phone')}</label>
           <SAPhoneInput onChange={onChange} />
         </div>
-        <PrimaryButton disabled text={props.text} onClick={submit} />
+        <PrimaryButton text={props.text} onClick={submit} />
       </div>
     </AuthCard>
   );
