@@ -27,9 +27,9 @@ export const AuthCard = ({
     <Card
       {...props}
       className={cn(
-        'max-w-lg px-4 md:px-12 py-8 md:py-12 bg-white shadow-lg',
-        'rounded-b-none md:rounded-lg',
-        'h-full md:h-auto',
+        'lg:max-w-lg px-4 lg:px-12 py-8 lg:py-12 bg-white shadow-lg',
+        'rounded-b-none lg:rounded-lg',
+        'w-full h-full',
         props.className
       )}
     >
