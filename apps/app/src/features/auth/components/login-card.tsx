@@ -3,6 +3,7 @@ import { PrimaryButton } from '../../../ui/primary-button';
 import { useTranslations } from 'next-intl';
 import { SAPhoneInput } from '../sa-phone-input';
 import { useState } from 'react';
+import { authenticationSWRHooks } from '@spt/api-sdk';
 
 export function LoginCard(props: {
   title: string;
@@ -12,7 +13,11 @@ export function LoginCard(props: {
   const t = useTranslations();
   const [phone, setPhone] = useState('');
   const onChange = (value: string) => setPhone(value);
-  const submit = () => console.log(phone);
+  const { data, trigger, error, reset, isMutating } =
+    authenticationSWRHooks.usePostSharedAuthSendOtp();
+  const submit = () => {
+    trigger({ recipient: phone });
+  };
 
   return (
     <AuthCard title={props.title} description={props.description}>

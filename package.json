@@ -20,6 +20,7 @@
     "@nextui-org/tabs": "^2.0.35",
     "@nextui-org/theme": "^2.2.9",
     "@types/react-stars": "^2.2.4",
+    "axios": "^1.7.7",
     "framer-motion": "^11.3.29",
     "next": "14.2.3",
     "next-intl": "^3.19.4",
@@ -34,7 +35,8 @@
     "sharp": "^0.33.5",
     "swiper": "^11.1.10",
     "swr": "^2.2.5",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@nx/eslint": "19.6.2",

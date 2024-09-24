@@ -4,6 +4,7 @@ import { getLocale, getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
 import { UIProvider } from './providers';
 import { ReactNode } from 'react';
+import { initInfrastructure } from '../infrastructure';
 
 export const metadata = layoutMetadata;
 export default async function RootLayout({
@@ -11,6 +12,8 @@ export default async function RootLayout({
 }: {
   children: ReactNode;
 }) {
+  initInfrastructure();
+
   const locale = await getLocale();
   const messages = await getMessages();
 

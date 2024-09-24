@@ -22,10 +22,10 @@ importers:
         version: 2.25.2(@kubb/react@2.25.2)
       '@kubb/swagger-client':
         specifier: ^2.25.2
-        version: 2.25.2(@kubb/react@2.25.2)(axios@1.7.4)
+        version: 2.25.2(@kubb/react@2.25.2)(axios@1.7.7)
       '@kubb/swagger-swr':
         specifier: ^2.25.2
-        version: 2.25.2(@kubb/react@2.25.2)(axios@1.7.4)
+        version: 2.25.2(@kubb/react@2.25.2)(axios@1.7.7)
       '@kubb/swagger-ts':
         specifier: ^2.25.2
         version: 2.25.2(@kubb/react@2.25.2)
@@ -53,6 +53,9 @@ importers:
       '@types/react-stars':
         specifier: ^2.2.4
         version: 2.2.4
+      axios:
+        specifier: ^1.7.7
+        version: 1.7.7
       framer-motion:
         specifier: ^11.3.29
         version: 11.3.29(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -98,6 +101,9 @@ importers:
       tslib:
         specifier: ^2.3.0
         version: 2.6.3
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@nx/eslint':
         specifier: 19.6.2
@@ -2857,8 +2863,8 @@ packages:
     resolution: {integrity: sha512-Mr2ZakwQ7XUAjp7pAwQWRhhK8mQQ6JAaNWSjmjxil0R8BPioMtQsTLOolGYkji1rcL++3dCqZA3zWqpT+9Ew6g==}
     engines: {node: '>=4'}
 
-  axios@1.7.4:
-    resolution: {integrity: sha512-DukmaFRnY6AzAALSH4J2M3k6PkaC+MfaAGdEERRWcC9q3/TWQwLpHR8ZRLKTdQ3aBDL64EdluRDjJqKw+BPZEw==}
+  axios@1.7.7:
+    resolution: {integrity: sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==}
 
   axobject-query@3.2.4:
     resolution: {integrity: sha512-aPTElBrbifBU1krmZxGZOlBkslORe7Ll7+BDnI50Wy4LgOt69luMgevkDfTq1O/ZgprooPCtWpjCwKSZw/iZ4A==}
@@ -7595,6 +7601,9 @@ packages:
     resolution: {integrity: sha512-GQHQqAopRhwU8Kt1DDM8NjibDXHC8eoh1erhGAJPEyveY9qqVeXvVikNKrDz69sHowPMorbPUrH/mx8c50eiBQ==}
     engines: {node: '>=18'}
 
+  zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+
 snapshots:
 
   '@adobe/css-tools@4.4.0': {}
@@ -9043,7 +9052,7 @@ snapshots:
       '@kubb/parser-ts': 2.25.2
       natural-orderby: 3.0.2
 
-  '@kubb/swagger-client@2.25.2(@kubb/react@2.25.2)(axios@1.7.4)':
+  '@kubb/swagger-client@2.25.2(@kubb/react@2.25.2)(axios@1.7.7)':
     dependencies:
       '@kubb/core': 2.25.2
       '@kubb/fs': 2.25.2
@@ -9053,12 +9062,12 @@ snapshots:
       '@kubb/react': 2.25.2
       '@kubb/swagger-ts': 2.25.2(@kubb/react@2.25.2)
     optionalDependencies:
-      axios: 1.7.4
+      axios: 1.7.7
     transitivePeerDependencies:
       - encoding
       - supports-color
 
-  '@kubb/swagger-swr@2.25.2(@kubb/react@2.25.2)(axios@1.7.4)':
+  '@kubb/swagger-swr@2.25.2(@kubb/react@2.25.2)(axios@1.7.7)':
     dependencies:
       '@kubb/core': 2.25.2
       '@kubb/fs': 2.25.2
@@ -9066,7 +9075,7 @@ snapshots:
       '@kubb/parser-ts': 2.25.2
       '@kubb/plugin-oas': 2.25.2(@kubb/react@2.25.2)
       '@kubb/react': 2.25.2
-      '@kubb/swagger-client': 2.25.2(@kubb/react@2.25.2)(axios@1.7.4)
+      '@kubb/swagger-client': 2.25.2(@kubb/react@2.25.2)(axios@1.7.7)
       '@kubb/swagger-ts': 2.25.2(@kubb/react@2.25.2)
       '@kubb/swagger-zod': 2.25.2(@kubb/react@2.25.2)
     transitivePeerDependencies:
@@ -9123,7 +9132,7 @@ snapshots:
       '@module-federation/third-party-dts-extractor': 0.2.8
       adm-zip: 0.5.15
       ansi-colors: 4.1.3
-      axios: 1.7.4
+      axios: 1.7.7
       chalk: 3.0.0
       fs-extra: 9.1.0
       isomorphic-ws: 5.0.0(ws@8.17.1)
@@ -11364,7 +11373,7 @@ snapshots:
 
   axe-core@4.10.0: {}
 
-  axios@1.7.4:
+  axios@1.7.7:
     dependencies:
       follow-redirects: 1.15.6(debug@4.3.6)
       form-data: 4.0.0
@@ -14651,7 +14660,7 @@ snapshots:
       '@yarnpkg/lockfile': 1.1.0
       '@yarnpkg/parsers': 3.0.0-rc.46
       '@zkochan/js-yaml': 0.0.7
-      axios: 1.7.4
+      axios: 1.7.7
       chalk: 4.1.2
       cli-cursor: 3.1.0
       cli-spinners: 2.6.1
@@ -16801,3 +16810,5 @@ snapshots:
   yocto-queue@1.1.1: {}
 
   yoctocolors@2.1.1: {}
+
+  zod@3.23.8: {}
