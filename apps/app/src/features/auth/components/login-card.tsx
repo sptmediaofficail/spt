@@ -3,7 +3,8 @@ import { PrimaryButton } from '../../../ui/primary-button';
 import { useTranslations } from 'next-intl';
 import { SAPhoneInput } from '../sa-phone-input';
 import { useState } from 'react';
-import { authenticationSWRHooks } from '@spt/api-sdk';
+import { useAuthenticationServicePostSharedAuthSendOtp } from '../../../../../../libs/api-sdk/src/lib/gen2/queries';
+import { useRouter } from 'next/navigation';
 
 export function LoginCard(props: {
   title: string;
@@ -11,12 +12,29 @@ export function LoginCard(props: {
   text: string;
 }) {
   const t = useTranslations();
+  const router = useRouter();
   const [phone, setPhone] = useState('');
   const onChange = (value: string) => setPhone(value);
-  const { data, trigger, error, reset, isMutating } =
-    authenticationSWRHooks.usePostSharedAuthSendOtp();
-  const submit = () => {
-    trigger({ recipient: phone });
+  const { mutateAsync, isPending } =
+    useAuthenticationServicePostSharedAuthSendOtp();
+
+  const submit = async () => {
+    try {
+      await mutateAsync(
+        {
+          requestBody: {
+            recipient: `+${phone}`,
+          },
+        },
+        {
+          onSuccess: (error) => {
+            router.push(`/`);
+          },
+        }
+      );
+    } catch (error) {
+      router.push(`/register`);
+    }
   };
 
   return (
@@ -26,7 +44,11 @@ export function LoginCard(props: {
           <label className="text-sm self-end">{t('label.phone')}</label>
           <SAPhoneInput onChange={onChange} />
         </div>
-        <PrimaryButton text={props.text} onClick={submit} />
+        <PrimaryButton
+          isLoading={isPending}
+          text={props.text}
+          onClick={submit}
+        />
       </div>
     </AuthCard>
   );

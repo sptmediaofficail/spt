@@ -1,8 +1,5 @@
-import { axiosInstance } from '@kubb/swagger-client/client';
-import { envSchema } from './env';
+import { OpenAPI } from '../../../../libs/api-sdk/src/lib/gen2/requests';
 
 export const initApi = () => {
-  axiosInstance.defaults.baseURL = envSchema.NEXT_PUBLIC_API_URL;
-  console.log('axiosInstance.defaults.baseURL', envSchema.NEXT_PUBLIC_API_URL);
-  axiosInstance.defaults.headers.common['Accept-Language'] = 'ar';
+  OpenAPI.BASE = 'https://api.spt.sa/api/v1';
 };
