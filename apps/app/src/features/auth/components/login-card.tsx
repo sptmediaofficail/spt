@@ -1,20 +1,16 @@
-import { AuthCard } from '../auth-card';
 import { PrimaryButton } from '../../../ui/primary-button';
 import { useTranslations } from 'next-intl';
 import { SAPhoneInput } from '../sa-phone-input';
-import { useState } from 'react';
 import { useAuthenticationServicePostSharedAuthSendOtp } from '../../../../../../libs/api-sdk/src/lib/gen2/queries';
 import { useRouter } from 'next/navigation';
+import { usePreAuthStore } from '../store';
 
-export function LoginCard(props: {
-  title: string;
-  description: string;
-  text: string;
-}) {
+export function LoginCard(props: { onSuccessfulLogin: () => void }) {
   const t = useTranslations();
   const router = useRouter();
-  const [phone, setPhone] = useState('');
-  const onChange = (value: string) => setPhone(value);
+
+  const { state, setState } = usePreAuthStore();
+  const onChange = (recipient: string) => setState({ recipient });
   const { mutateAsync, isPending } =
     useAuthenticationServicePostSharedAuthSendOtp();
 
@@ -23,12 +19,12 @@ export function LoginCard(props: {
       await mutateAsync(
         {
           requestBody: {
-            recipient: `+${phone}`,
+            recipient: `+${state.recipient}`,
           },
         },
         {
-          onSuccess: (error) => {
-            router.push(`/`);
+          onSuccess: (response) => {
+            props.onSuccessfulLogin();
           },
         }
       );
@@ -38,18 +34,16 @@ export function LoginCard(props: {
   };
 
   return (
-    <AuthCard title={props.title} description={props.description}>
-      <div dir={'ltr'} className={'flex flex-col gap-6 py-6'}>
-        <div className="flex flex-col gap-3">
-          <label className="text-sm self-end">{t('label.phone')}</label>
-          <SAPhoneInput onChange={onChange} />
-        </div>
-        <PrimaryButton
-          isLoading={isPending}
-          text={props.text}
-          onClick={submit}
-        />
+    <div dir={'ltr'} className={'flex flex-col gap-6 py-6'}>
+      <div className="flex flex-col gap-3">
+        <label className="text-sm self-end">{t('label.phone')}</label>
+        <SAPhoneInput onChange={onChange} />
       </div>
-    </AuthCard>
+      <PrimaryButton
+        isLoading={isPending}
+        text={t('button.send')}
+        onClick={submit}
+      />
+    </div>
   );
 }

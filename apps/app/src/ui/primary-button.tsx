@@ -3,7 +3,6 @@ import { cn } from '@nextui-org/theme';
 
 type PrimaryButtonProps = ButtonProps & {
   text: string;
-  onClick?: () => void;
 };
 export const PrimaryButton = ({
   text,

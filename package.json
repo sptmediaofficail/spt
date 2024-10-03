@@ -27,6 +27,7 @@
     "@types/react-stars": "^2.2.4",
     "axios": "^1.7.7",
     "framer-motion": "^11.3.29",
+    "input-otp": "^1.2.4",
     "next": "14.2.3",
     "next-intl": "^3.19.4",
     "postman-to-openapi": "^3.0.1",
@@ -41,7 +42,8 @@
     "swiper": "^11.1.10",
     "swr": "^2.2.5",
     "tslib": "^2.3.0",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "zustand": "5.0.0-rc.2"
   },
   "devDependencies": {
     "@nx/eslint": "19.6.2",

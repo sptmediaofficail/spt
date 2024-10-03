@@ -1,11 +1,14 @@
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { useState } from 'react';
+import { usePreAuthStore } from './store';
 
-export const SAPhoneInput = (props: { onChange: (value: string) => void }) => {
+export const SAPhoneInput = () => {
   const [isDirty, setIsDirty] = useState(false);
+  const { state, setState } = usePreAuthStore();
   return (
     <PhoneInput
+      value={state.recipient}
       isValid={(value, country) => {
         if (!isDirty) return true;
         const saRegex = /^(966)([503649187])([0-9]{8})$/;
@@ -16,7 +19,7 @@ export const SAPhoneInput = (props: { onChange: (value: string) => void }) => {
       country={'sa'}
       onChange={(value) => {
         setIsDirty(true);
-        props.onChange(value);
+        setState({ recipient: value });
       }}
       inputStyle={{
         width: '100%',

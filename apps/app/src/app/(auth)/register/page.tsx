@@ -1,16 +1,18 @@
 'use client';
 import { useTranslations } from 'next-intl';
 import { RegisterCard } from '../../../features/auth/components/register-card';
+import { AuthCard } from '../../../features/auth/auth-card';
 
 export default function RegisterPage() {
   const t = useTranslations();
   return (
     <div className="w-full lg:max-w-lg h-2/3 lg:h-auto">
-      <RegisterCard
+      <AuthCard
         title={t('register.card.title')}
         description={t('register.card.description')}
-        text={t('register.card.button')}
-      />
+      >
+        <RegisterCard text={t('register.card.button')} />
+      </AuthCard>
     </div>
   );
 }
