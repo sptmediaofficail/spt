@@ -26,11 +26,12 @@ export function LoginCard(props: { onSuccessfulLogin: () => void }) {
           onSuccess: (response) => {
             props.onSuccessfulLogin();
           },
+          onError: (error) => {
+            router.push(`/register`);
+          },
         }
       );
-    } catch (error) {
-      router.push(`/register`);
-    }
+    } catch (error) {}
   };
 
   return (

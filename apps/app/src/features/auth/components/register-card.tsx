@@ -10,6 +10,7 @@ import { Input } from '@nextui-org/input';
 import { AiOutlineUser } from 'react-icons/ai';
 import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 import { LiaCitySolid } from 'react-icons/lia';
+import { usePreAuthStore } from '../store';
 
 export function RegisterCard(props: { text: string }) {
   const t = useTranslations();
@@ -23,11 +24,18 @@ export function RegisterCard(props: { text: string }) {
   const { mutateAsync, isPending } =
     useAuthenticationServicePostSharedAuthRegister();
 
+  const { state } = usePreAuthStore();
+
   const submit = async () => {
     try {
       await mutateAsync(
         {
-          formData: {},
+          formData: {
+            name: formData.name,
+            city_id: formData.city_id.toString(),
+            // @ts-ignore
+            phone: `+${state.recipient}`,
+          },
         },
         {
           onSuccess: () => {
@@ -69,8 +77,9 @@ export function RegisterCard(props: { text: string }) {
           borderRadius: '4rem!important',
         }}
         step={1}
-        onChange={(e) => {
-          setFormData({ ...formData, city_id: e });
+        onSelect={(id) => {
+          console.log('Selected City ID:', id); // Check what value is coming here
+          setFormData({ ...formData, city_id: id });
         }}
         defaultItems={cities}
         disabledKeys={cities
