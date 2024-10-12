@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import Image from 'next/image';
 import StatCar from '../assets/svg/stat-car.svg';
-import StatUser from '../assets/svg/stat-users.svg';
+import ProvidersSvg from '../assets/svg/providers.svg';
 import StatWrench from '../assets/svg/stat-wrench.svg';
 import StatMask from '../assets/svg/stat-mask.svg';
 import HeroImg from '../assets/images/hero.png';
@@ -98,22 +98,22 @@ const StatisticsSection = async () => {
 
   return (
     <section
-      className="flex
-      2xl:h-[10rem] 2xl:scale-110
-    w-full flex-row justify-around content-center text-center flex-wrap"
+      className="
+      flex 2xl:h-[10rem] 2xl:scale-110
+      w-full flex-row justify-around content-center text-center flex-wrap"
     >
-      <StatisticItem value={stats.clients} label="عميل راضي" icon={StatUser} />
+      <StatisticItem
+        value={stats.junkyard_sale_orders}
+        label="طلبات التشاليح"
+        icon={StatCar}
+      />
       <StatisticItem
         value={stats.spare_part_orders}
         label="طلبات قطع الغيار"
         icon={StatWrench}
         className={'!bg-[#fdf7f7]'}
       />
-      <StatisticItem
-        value={stats.junkyard_sale_orders}
-        label="طلبات التشاليح"
-        icon={StatCar}
-      />
+      <StatisticItem value={stats.providers} label="متجر" icon={ProvidersSvg} />
     </section>
   );
 };
