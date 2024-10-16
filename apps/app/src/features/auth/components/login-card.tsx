@@ -31,7 +31,9 @@ export function LoginCard(props: { onSuccessfulLogin: () => void }) {
           },
         }
       );
-    } catch (error) {}
+    } catch (error) {
+      //
+    }
   };
 
   return (

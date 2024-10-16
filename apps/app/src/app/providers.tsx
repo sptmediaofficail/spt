@@ -3,6 +3,7 @@ import { NextUIProvider } from '@nextui-org/system';
 import { ReactNode, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { OpenAPI } from '../../../../libs/api-sdk/src/lib/gen2/requests';
+import { useRouter } from 'next/navigation';
 
 OpenAPI.BASE = 'https://api.spt.sa/api/v1';
 
@@ -26,7 +27,7 @@ export const UIProvider = ({
       })
   );
   return (
-    <NextUIProvider locale={locale}>
+    <NextUIProvider navigate={useRouter} locale={locale}>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </NextUIProvider>
   );

@@ -15,7 +15,7 @@ export const OtpCard = () => {
 
   const { mutateAsync, isPending } =
     useAuthenticationServicePostSharedAuthVerifyOtp({
-      onSuccess: () => router.push('/dashboard'),
+      onSuccess: () => router.push('/home'),
       onError: (error) => {
         // @ts-ignore
         setError(error.body.message);

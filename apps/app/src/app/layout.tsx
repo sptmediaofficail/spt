@@ -5,8 +5,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { UIProvider } from './providers';
 import { ReactNode } from 'react';
 import { initInfrastructure } from '../infrastructure';
-import Navbar from '../features/navbar/navbar';
-import Sidenav from '../features/sidenav/sidenav';
+// import Navbar from '../features/navbar/navbar';
+// import Sidenav from '../features/sidenav/sidenav';
 
 export const metadata = layoutMetadata;
 export default async function RootLayout({
@@ -27,11 +27,11 @@ export default async function RootLayout({
     >
       <body className="w-screen h-screen">
         <UIProvider locale={locale}>
-          <NextIntlClientProvider messages={messages}>
-            <Navbar />
-            <div className="hidden md:block">
-              <Sidenav />
-            </div>
+          <NextIntlClientProvider messages={messages} locale={locale}>
+            {/*<Navbar />*/}
+            {/*<div className="hidden md:block">*/}
+            {/*  <Sidenav />*/}
+            {/*</div>*/}
             {children}
           </NextIntlClientProvider>
         </UIProvider>

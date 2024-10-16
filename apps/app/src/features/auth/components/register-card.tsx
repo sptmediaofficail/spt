@@ -39,7 +39,7 @@ export function RegisterCard(props: { text: string }) {
         },
         {
           onSuccess: () => {
-            router.push(`/`);
+            router.push(`/home`);
           },
         }
       );
@@ -77,15 +77,14 @@ export function RegisterCard(props: { text: string }) {
           borderRadius: '4rem!important',
         }}
         step={1}
-        onSelect={(id) => {
-          console.log('Selected City ID:', id); // Check what value is coming here
-          setFormData({ ...formData, city_id: id });
-        }}
         defaultItems={cities}
         disabledKeys={cities
           .filter((city) => !city.is_active)
           .map((city) => city.id)}
         allowsCustomValue={false}
+        onSelectionChange={(city_id) => {
+          setFormData({ ...formData, city_id });
+        }}
       >
         {(item) => (
           <AutocompleteItem key={item.id} value={item.id}>
