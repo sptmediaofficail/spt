@@ -1,12 +1,12 @@
 import {
   DownloadData,
   HowOrderData,
-  Offer,
   Partner,
   Right,
   Stats,
   TopRated,
 } from './types';
+import { Offer } from '@spt/core';
 
 export class SptClient {
   private baseURL = 'https://api.spt.sa/api/v1';

@@ -2,9 +2,11 @@
 import { useTranslations } from 'next-intl';
 import { PrimaryButton } from '../../../ui/primary-button';
 import { useAuthenticationServicePostSharedAuthVerifyOtp } from '../../../../../../libs/api-sdk/src/lib/gen2/queries';
-import { usePreAuthStore } from '../store';
+import { usePreAuthStore } from '../preAuthStore';
 import { useRouter } from 'next/navigation';
 import { OtpInput } from './otp-input';
+import { User } from '../types';
+import { useUserStore } from '../user-store';
 
 export const OtpCard = () => {
   const t = useTranslations();
@@ -12,10 +14,22 @@ export const OtpCard = () => {
   const { state } = usePreAuthStore();
   const [error, setError] = useState<string | null>(null);
   const [isOtpComplete, setIsOtpComplete] = useState<boolean>(false);
+  const { setUser, setToken } = useUserStore();
 
   const { mutateAsync, isPending } =
     useAuthenticationServicePostSharedAuthVerifyOtp({
-      onSuccess: () => router.push('/home'),
+      onSuccess: (response: {
+        data: {
+          token: {
+            token: string;
+          };
+          user: User;
+        };
+      }) => {
+        setUser(response.data.user);
+        setToken(response.data.token.token);
+        router.push('/home');
+      },
       onError: (error) => {
         // @ts-ignore
         setError(error.body.message);

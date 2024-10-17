@@ -1,4 +1,4 @@
-export interface IUser {
+export type User = {
   id: string;
   name: string;
   phone: string;
@@ -13,11 +13,11 @@ export interface IUser {
   rating: number;
   city_id: string;
   lang: string;
-  email: string | null;
+  email: any;
   has_push_notifications: boolean;
   has_sms_notifications: boolean;
   has_ability_to_visually_contact_with_client: boolean;
   has_ability_to_vocally_contact_with_client: boolean;
-  deleted_at: string | null;
+  deleted_at: any;
   permission_group_id: any;
-}
+};

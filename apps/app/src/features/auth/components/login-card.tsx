@@ -3,11 +3,14 @@ import { useTranslations } from 'next-intl';
 import { SAPhoneInput } from '../sa-phone-input';
 import { useAuthenticationServicePostSharedAuthSendOtp } from '../../../../../../libs/api-sdk/src/lib/gen2/queries';
 import { useRouter } from 'next/navigation';
-import { usePreAuthStore } from '../store';
+import { usePreAuthStore } from '../preAuthStore';
+import { useUserStore } from '../user-store';
+import { User } from '../types';
 
 export function LoginCard(props: { onSuccessfulLogin: () => void }) {
   const t = useTranslations();
   const router = useRouter();
+  const { setUser } = useUserStore();
 
   const { state, setState } = usePreAuthStore();
   const onChange = (recipient: string) => setState({ recipient });
@@ -24,6 +27,7 @@ export function LoginCard(props: { onSuccessfulLogin: () => void }) {
         },
         {
           onSuccess: (response) => {
+            setUser(response.data as User);
             props.onSuccessfulLogin();
           },
           onError: (error) => {

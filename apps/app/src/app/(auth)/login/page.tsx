@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { OtpCard } from '../../../features/auth/components/otp-card';
 import Image from 'next/image';
 import OTPIcon from '../../../assets/otp.svg';
-import { usePreAuthStore } from '../../../features/auth/store';
+import { usePreAuthStore } from '../../../features/auth/preAuthStore';
 
 export default function LoginPage() {
   const t = useTranslations();

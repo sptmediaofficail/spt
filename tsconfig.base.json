@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@spt/api-sdk": ["libs/api-sdk/src/index.ts"],
-      "@spt/common": ["libs/common/src/index.ts"]
+      "@spt/common": ["libs/common/src/index.ts"],
+      "@spt/core": ["libs/core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

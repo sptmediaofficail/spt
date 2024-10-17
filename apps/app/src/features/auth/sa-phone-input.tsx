@@ -1,7 +1,7 @@
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { useState } from 'react';
-import { usePreAuthStore } from './store';
+import { usePreAuthStore } from './preAuthStore';
 
 export const SAPhoneInput = () => {
   const [isDirty, setIsDirty] = useState(false);

@@ -2,13 +2,13 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import { Section } from '../components/section';
-import { Offer } from '../service/spt-client/types';
 import { IoPricetagOutline } from 'react-icons/io5';
 import Background from '../assets/images/offers-bg.jpg';
 import Gear from '../assets/svg/gear.svg';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 import { cn } from '@nextui-org/theme';
 import { Navigation } from 'swiper/modules';
+import { Offer } from '@spt/core';
 
 export const OffersSection = ({ offers }: { offers: Offer[] }) => {
   return (

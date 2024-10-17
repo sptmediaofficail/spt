@@ -1,7 +1,7 @@
 ﻿export default function DashboardPage() {
   return (
     <>
-      <div>asdaskljdn</div>
+      <div></div>
     </>
   );
 }

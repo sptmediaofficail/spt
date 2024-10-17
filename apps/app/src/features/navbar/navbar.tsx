@@ -21,10 +21,15 @@ import {
 } from '@nextui-org/navbar';
 import { useTranslations } from 'next-intl';
 import { Link } from '@nextui-org/link';
+import { useUserStore } from '../auth/user-store';
+import { useAuthenticationServicePostSharedAuthLogout } from '../../../../../libs/api-sdk/src/lib/gen2/queries';
+import { useRouter } from 'next/navigation';
+import { OpenAPI } from '../../../../../libs/api-sdk/src/lib/gen2/requests';
 
 export default function Navbar() {
   const t = useTranslations();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
 
   const menuItems = [
     { label: 'Home', href: '/' },
@@ -33,6 +38,16 @@ export default function Navbar() {
     { label: 'About', href: '/about' },
     { label: 'Contact', href: '/contact' },
   ];
+
+  const { user } = useUserStore();
+  const { mutateAsync } = useAuthenticationServicePostSharedAuthLogout();
+
+  const handleLogout = async () => {
+    console.log('Logging out', OpenAPI);
+    await mutateAsync({});
+    useUserStore.setState({ user: null, token: null });
+    router.push('/login');
+  };
 
   return (
     <NextUINavbar isBordered maxWidth="full">
@@ -71,7 +86,7 @@ export default function Navbar() {
               color="secondary"
               name="Jason Hughes"
               size="sm"
-              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              src={user?.avatar}
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
@@ -79,7 +94,7 @@ export default function Navbar() {
             {/*  <p className="font-semibold">Signed in as</p>*/}
             {/*  <p className="font-semibold">zoey@example.com</p>*/}
             {/*</DropdownItem>*/}
-            <DropdownItem href="/login" key="logout" color="danger">
+            <DropdownItem onClick={handleLogout} key="logout" color="danger">
               تسجيل الخروج
             </DropdownItem>
           </DropdownMenu>
@@ -114,7 +129,7 @@ export default function Navbar() {
                 color="secondary"
                 name="Jason Hughes"
                 size="sm"
-                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                src={user?.avatar}
               />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" variant="flat">

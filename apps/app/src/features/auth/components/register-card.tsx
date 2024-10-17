@@ -10,7 +10,7 @@ import { Input } from '@nextui-org/input';
 import { AiOutlineUser } from 'react-icons/ai';
 import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 import { LiaCitySolid } from 'react-icons/lia';
-import { usePreAuthStore } from '../store';
+import { usePreAuthStore } from '../preAuthStore';
 
 export function RegisterCard(props: { text: string }) {
   const t = useTranslations();
