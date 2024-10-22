@@ -38,6 +38,7 @@ export const Carousel: React.FC<CarouselProps> = ({
   return (
     <Swiper
       modules={isMobile ? [EffectCards, Pagination] : [Pagination]}
+      className={'!overflow-hidden'}
       effect={'cards'}
       spaceBetween={32}
       slidesPerView={'auto'}
