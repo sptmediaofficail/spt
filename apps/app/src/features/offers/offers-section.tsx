@@ -12,7 +12,7 @@ import { Offer } from '@spt/core';
 export const OffersSection = () => {
   const t = useTranslations();
   const { data, isLoading } = useSiteOffersServiceGetSiteOffers({
-    paginate: 3,
+    paginate: 10,
     contentLanguage: 'ar',
   });
 
@@ -32,7 +32,7 @@ export const OffersSection = () => {
                   <OfferCardSkeleton />
                 </SwiperSlide>
               ))
-            : offers.map((offer) => (
+            : [...offers, ...offers].map((offer) => (
                 <SwiperSlide
                   className={'!w-auto mb-14 !overflow-visible'}
                   key={offer.id}
