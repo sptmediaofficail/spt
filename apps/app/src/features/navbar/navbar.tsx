@@ -22,14 +22,11 @@ import {
 import { useTranslations } from 'next-intl';
 import { Link } from '@nextui-org/link';
 import { useUserStore } from '../auth/user-store';
-import { useAuthenticationServicePostSharedAuthLogout } from '../../../../../libs/api-sdk/src/lib/gen2/queries';
-import { useRouter } from 'next/navigation';
-import { OpenAPI } from '../../../../../libs/api-sdk/src/lib/gen2/requests';
+import { useLogout } from '../auth/login/use-logout';
 
 export default function Navbar() {
   const t = useTranslations();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const router = useRouter();
 
   const menuItems = [
     { label: 'Home', href: '/' },
@@ -40,14 +37,8 @@ export default function Navbar() {
   ];
 
   const { user } = useUserStore();
-  const { mutateAsync } = useAuthenticationServicePostSharedAuthLogout();
 
-  const handleLogout = async () => {
-    console.log('Logging out', OpenAPI);
-    await mutateAsync({});
-    useUserStore.setState({ user: null, token: null });
-    router.push('/login');
-  };
+  const { logout } = useLogout();
 
   return (
     <NextUINavbar isBordered maxWidth="full">
@@ -94,7 +85,7 @@ export default function Navbar() {
             {/*  <p className="font-semibold">Signed in as</p>*/}
             {/*  <p className="font-semibold">zoey@example.com</p>*/}
             {/*</DropdownItem>*/}
-            <DropdownItem onClick={handleLogout} key="logout" color="danger">
+            <DropdownItem onClick={logout} key="logout" color="danger">
               تسجيل الخروج
             </DropdownItem>
           </DropdownMenu>

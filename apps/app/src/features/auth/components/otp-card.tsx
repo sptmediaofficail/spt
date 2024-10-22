@@ -1,58 +1,19 @@
 ﻿import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { PrimaryButton } from '../../../ui/primary-button';
-import { useAuthenticationServicePostSharedAuthVerifyOtp } from '../../../../../../libs/api-sdk/src/lib/gen2/queries';
 import { usePreAuthStore } from '../preAuthStore';
-import { useRouter } from 'next/navigation';
 import { OtpInput } from './otp-input';
-import { User } from '../types';
-import { useUserStore } from '../user-store';
+import { useSubmitOtp } from '../login/use-submit-otp';
 
 export const OtpCard = () => {
   const t = useTranslations();
-  const router = useRouter();
   const { state } = usePreAuthStore();
-  const [error, setError] = useState<string | null>(null);
   const [isOtpComplete, setIsOtpComplete] = useState<boolean>(false);
-  const { setUser, setToken } = useUserStore();
+  const { submitOtp, isPending, error } = useSubmitOtp();
 
-  const { mutateAsync, isPending } =
-    useAuthenticationServicePostSharedAuthVerifyOtp({
-      onSuccess: (response: {
-        data: {
-          token: {
-            token: string;
-          };
-          user: User;
-        };
-      }) => {
-        setUser(response.data.user);
-        setToken(response.data.token.token);
-        router.push('/home');
-      },
-      onError: (error) => {
-        // @ts-ignore
-        setError(error.body.message);
-      },
-    });
-
-  const submitOtp = async (otp: string) => {
-    if (!state.recipient) return;
-    try {
-      await mutateAsync({
-        requestBody: {
-          recipient: `+${state.recipient}`,
-          code: otp,
-        },
-      });
-    } catch (error) {
-      console.error('Error submitting OTP:', error);
-    }
-  };
-
-  const handleOtpComplete = (otp: string) => {
+  const handleOtpComplete = async (otp: string) => {
     setIsOtpComplete(true);
-    submitOtp(otp);
+    await submitOtp(otp);
   };
 
   if (!state.recipient) return null;

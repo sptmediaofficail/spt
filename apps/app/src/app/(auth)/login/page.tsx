@@ -20,7 +20,7 @@ export default function LoginPage() {
           title={t('login.card.title')}
           description={t('login.card.description')}
         >
-          <LoginCard onSuccessfulLogin={() => setShowOTP(true)} />
+          <LoginCard onSuccess={() => setShowOTP(true)} />
         </AuthCard>
       ) : (
         <AuthCard
