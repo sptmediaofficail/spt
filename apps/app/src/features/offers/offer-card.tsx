@@ -4,8 +4,16 @@ import { Truncate } from '@re-dev/react-truncate';
 import { Offer } from '@spt/core';
 import DiscountSvg from '../../assets/discount.svg';
 import { formatPrice } from '../../utils/formatPrice';
+import { useTranslations } from 'next-intl';
 
 export const OfferCard = ({ offer }: { offer: Offer }) => {
+  const t = useTranslations();
+  const discount = Math.floor(
+    ((parseInt(offer.price_before_discount) -
+      parseInt(offer.price_after_discount)) /
+      parseInt(offer.price_before_discount)) *
+      100
+  );
   return (
     <Card key={offer.id} className="w-72 shadow-sm">
       <CardHeader className="p-0 rounded-b-none overflow-hidden">
@@ -16,6 +24,9 @@ export const OfferCard = ({ offer }: { offer: Offer }) => {
           width={400}
           height={176}
         />
+        <div className="absolute font-semibold top-0 left-0 text-sm bg-[#cd292a] text-white p-2 rounded-br">
+          <p>{t('common.discount') + ' ' + discount}%</p>
+        </div>
       </CardHeader>
       <CardBody className="flex flex-col gap-4 text-right">
         <h2 className={'text-xl'}>{offer.title}</h2>

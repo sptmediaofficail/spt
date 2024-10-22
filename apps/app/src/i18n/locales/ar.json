@@ -39,7 +39,8 @@
     "search": "بحث ..."
   },
   "common": {
-    "in.time": "خلال"
+    "in.time": "خلال",
+    "discount": "خصم"
   },
   "sidenav": {
     "home": "الرئيسية",

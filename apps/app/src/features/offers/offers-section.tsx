@@ -1,13 +1,13 @@
 'use client';
 
 import { useSiteOffersServiceGetSiteOffers } from '../../../../../libs/api-sdk/src/lib/gen2/queries';
-import { mockedOffers } from './_mocks/mocked-offers';
 import * as React from 'react';
 import { SwiperSlide } from 'swiper/react';
 import { Carousel } from '../../../../../libs/common/src/ui/carousel';
 import { OfferCard } from './offer-card';
 import { useTranslations } from 'next-intl';
 import { RiArrowLeftUpLine } from 'react-icons/ri';
+import { mockedOffers } from './_mocks/mocked-offers';
 
 export const OffersSection = () => {
   const t = useTranslations();
@@ -20,9 +20,9 @@ export const OffersSection = () => {
 
   console.log(data);
 
-  // if (isLoading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className={'relative'}>
@@ -42,7 +42,7 @@ export const OffersSection = () => {
         </div>
         <Carousel>
           {offers.map((offer) => (
-            <SwiperSlide className={'pb-8 !w-auto'} key={offer.id}>
+            <SwiperSlide className={''} key={offer.id}>
               <OfferCard offer={offer} />
             </SwiperSlide>
           ))}

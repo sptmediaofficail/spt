@@ -1,21 +1,51 @@
 'use client';
-import 'swiper/css';
-import { Swiper, SwiperProps } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-import * as React from 'react';
-import { ReactNode } from 'react';
 
-export const Carousel = (props: SwiperProps & { children: ReactNode }) => {
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-cards';
+
+import { Swiper, SwiperProps } from 'swiper/react';
+import { EffectCards, Pagination } from 'swiper/modules';
+import { ReactNode, useLayoutEffect, useState } from 'react';
+
+interface CarouselProps extends SwiperProps {
+  children: ReactNode;
+}
+
+export const Carousel: React.FC<CarouselProps> = ({
+  children,
+  ...restProps
+}) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Effect to detect mobile screen size
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 12321);
+      console.log('isMobile', isMobile);
+    };
+
+    handleResize(); // Initialize on mount
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <Swiper
-      modules={[Navigation]}
-      spaceBetween={32}
-      navigation={{ nextEl: '.arrow-left', prevEl: '.arrow-right' }}
-      slidesPerView={4}
-      {...props}
+      modules={[isMobile ? EffectCards : Pagination]}
+      effect={'cards'}
+      spaceBetween={isMobile ? 16 : 32}
+      slidesPerView={1}
+      keyboard={{ enabled: true }}
+      pagination={{ clickable: true }}
+      centeredSlides
+      grabCursor={true}
+      {...restProps}
     >
-      {props.children}
-      {/*<CarouselArrows />*/}
+      {children}
     </Swiper>
   );
 };
