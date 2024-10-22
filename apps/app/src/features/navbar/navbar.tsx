@@ -10,7 +10,7 @@ import {
   DropdownTrigger,
 } from '@nextui-org/dropdown';
 import { Avatar } from '@nextui-org/avatar';
-import SearchIcon from './search-icon';
+import SearchIcon from './search-icon'; // Keep your custom search icon
 import {
   Navbar as NextUINavbar,
   NavbarBrand,
@@ -24,20 +24,28 @@ import { Link } from '@nextui-org/link';
 import { useUserStore } from '../auth/user-store';
 import { useLogout } from '../auth/login/use-logout';
 
+// Importing icons from react-icons
+import {
+  FaClipboardList,
+  FaHome,
+  FaServicestack,
+  FaUserCircle,
+  FaWallet,
+} from 'react-icons/fa';
+
 export default function Navbar() {
   const t = useTranslations();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Features', href: '/features' },
-    { label: 'Pricing', href: '/pricing' },
-    { label: 'About', href: '/about' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'الرئيسية', href: '/', icon: <FaHome /> },
+    { label: 'الخدمات', href: '/services', icon: <FaServicestack /> },
+    { label: 'طلباتي', href: '/orders', icon: <FaClipboardList /> },
+    { label: 'محفظتي', href: '/wallet', icon: <FaWallet /> },
+    { label: 'الملف الشخصي', href: '/profile', icon: <FaUserCircle /> },
   ];
 
   const { user } = useUserStore();
-
   const { logout } = useLogout();
 
   return (
@@ -81,10 +89,6 @@ export default function Navbar() {
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
-            {/*<DropdownItem key="profile" className="h-14 gap-2">*/}
-            {/*  <p className="font-semibold">Signed in as</p>*/}
-            {/*  <p className="font-semibold">zoey@example.com</p>*/}
-            {/*</DropdownItem>*/}
             <DropdownItem onClick={logout} key="logout" color="danger">
               تسجيل الخروج
             </DropdownItem>
@@ -104,44 +108,16 @@ export default function Navbar() {
       <NavbarMenu isOpen={isMenuOpen} onOpenChange={setIsMenuOpen}>
         {menuItems.map((item) => (
           <NavbarMenuItem key={item.href}>
-            <Link href={item.href} color="foreground" className="w-full">
-              {item.label}
+            <Link
+              href={item.href}
+              color="foreground"
+              className="w-full flex items-center gap-1.5"
+            >
+              {item.icon}
+              <span className="ml-2">{item.label}</span>
             </Link>
           </NavbarMenuItem>
         ))}
-        {/* Additional Mobile Menu Items (Optional) */}
-        <NavbarMenuItem>
-          <Dropdown placement="bottom-end">
-            <DropdownTrigger>
-              <Avatar
-                isBordered
-                as="button"
-                className="transition-transform"
-                color="secondary"
-                name="Jason Hughes"
-                size="sm"
-                src={user?.avatar}
-              />
-            </DropdownTrigger>
-            <DropdownMenu aria-label="Profile Actions" variant="flat">
-              <DropdownItem key="profile" className="h-14 gap-2">
-                <p className="font-semibold">Signed in as</p>
-                <p className="font-semibold">zoey@example.com</p>
-              </DropdownItem>
-              <DropdownItem key="settings">My Settings</DropdownItem>
-              <DropdownItem key="team_settings">Team Settings</DropdownItem>
-              <DropdownItem key="analytics">Analytics</DropdownItem>
-              <DropdownItem key="system">System</DropdownItem>
-              <DropdownItem key="configurations">Configurations</DropdownItem>
-              <DropdownItem key="help_and_feedback">
-                Help & Feedback
-              </DropdownItem>
-              <DropdownItem key="logout" color="danger">
-                Log Out
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-        </NavbarMenuItem>
       </NavbarMenu>
     </NextUINavbar>
   );

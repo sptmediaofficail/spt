@@ -8,47 +8,56 @@ import {
   sidebarClasses,
   SubMenu,
 } from 'react-pro-sidebar';
-import { HouseIcon } from './assests/house';
+import {
+  FaClipboardList,
+  FaHome,
+  FaServicestack,
+  FaUserCircle,
+  FaWallet,
+} from 'react-icons/fa'; // Import icons from react-icons
 import { useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 const menuConfig = [
   {
-    label: 'sidenav.home',
-    icon: <HouseIcon />,
+    label: 'الرئيسية', // Translated label for home
+    icon: <FaHome />,
     href: '/home',
   },
-  // {
-  //   label: 'Calendar',
-  //   href: '/calendar',
-  //   icon: <HouseIcon />,
-  // },
-  // {
-  //   label: 'E-commerce',
-  //   href: '/e-commerce',
-  //   icon: <FaShoppingCart />,
-  // },
-  // {
-  //   label: 'Users',
-  //   icon: <FaUsers />,
-  //   submenu: [
-  //     { label: 'Admins', href: '/users/admins' },
-  //     { label: 'Customers', href: '/users/customers' },
-  //   ],
-  // },
-  // {
-  //   label: 'Settings',
-  //   href: '/settings',
-  //   icon: <FaCog />,
-  // },
+  {
+    label: 'الخدمات', // Translated label for services
+    icon: <FaServicestack />,
+    href: '/services',
+    submenu: [
+      {
+        label: 'الخدمة 1', // Translated label for service 1
+        href: '/service1',
+      },
+      {
+        label: 'الخدمة 2', // Translated label for service 2
+        href: '/service2',
+      },
+    ],
+  },
+  {
+    label: 'طلباتي', // Translated label for orders
+    icon: <FaClipboardList />,
+    href: '/orders',
+  },
+  {
+    label: 'محفظتي', // Translated label for wallet
+    icon: <FaWallet />,
+    href: '/wallet',
+  },
+  {
+    label: 'الملف الشخصي', // Translated label for profile
+    icon: <FaUserCircle />,
+    href: '/profile',
+  },
 ];
 
 const SideNav: React.FC = () => {
   const t = useTranslations();
-  const pathname = usePathname();
-  const isActive = (href: string | undefined) => href === pathname;
-  console.log('pathname', pathname, isActive('/home'));
 
   return (
     <Sidebar
