@@ -1,5 +1,62 @@
 {
-  "HomePage": {
-    "title": "Hello world!"
+  "login": {
+    "card": {
+      "title": "Login",
+      "description": "Enter your login details to access your account"
+    }
+  },
+  "register": {
+    "card": {
+      "title": "Register",
+      "description": "Enter your registration details to create a new account",
+      "button": "Create Account"
+    }
+  },
+  "otp": {
+    "card": {
+      "title": "Verify OTP",
+      "description": "The verification code will be sent to"
+    }
+  },
+  "button": {
+    "send": "Send",
+    "confirm": "Confirm"
+  },
+  "label": {
+    "email": "Email",
+    "password": "Password",
+    "phone": "Phone Number",
+    "name": "Name",
+    "city": "City",
+    "otp": "Verification Code"
+  },
+  "placeholder": {
+    "email": "Enter your email",
+    "password": "Enter your password",
+    "phone": "Enter your phone number",
+    "name": "Enter your name",
+    "city": "Enter your city",
+    "search": "Search ..."
+  },
+  "common": {
+    "in.time": "Within",
+    "discount": "Discount"
+  },
+  "sidenav": {
+    "home": "Home",
+    "services": "Services",
+    "my.orders": "My Orders",
+    "my.wallet": "My Wallet",
+    "my.profile": "My Profile"
+  },
+  "cards": {
+    "welcome": {
+      "header": "Welcome to the SPT Platform!",
+      "body": "Your ideal destination for quickly and efficiently finding the car parts you need."
+    }
+  },
+  "home": {
+    "offers": "Offers",
+    "more": "More"
   }
 }

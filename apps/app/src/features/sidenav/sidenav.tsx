@@ -8,7 +8,6 @@ import {
   sidebarClasses,
   SubMenu,
 } from 'react-pro-sidebar';
-import { FaShoppingCart } from 'react-icons/fa';
 import { HouseIcon } from './assests/house';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
@@ -20,16 +19,16 @@ const menuConfig = [
     icon: <HouseIcon />,
     href: '/home',
   },
-  {
-    label: 'Calendar',
-    href: '/calendar',
-    icon: <HouseIcon />,
-  },
-  {
-    label: 'E-commerce',
-    href: '/e-commerce',
-    icon: <FaShoppingCart />,
-  },
+  // {
+  //   label: 'Calendar',
+  //   href: '/calendar',
+  //   icon: <HouseIcon />,
+  // },
+  // {
+  //   label: 'E-commerce',
+  //   href: '/e-commerce',
+  //   icon: <FaShoppingCart />,
+  // },
   // {
   //   label: 'Users',
   //   icon: <FaUsers />,

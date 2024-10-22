@@ -14,6 +14,9 @@ import { Link } from '@nextui-org/link';
 import Image from 'next/image';
 import Logo from './assets/svg/logo.svg';
 
+const loginLink = 'https://spt-three.vercel.app/login';
+const registerLink = 'https://spt-three.vercel.app/register';
+
 const navbarItems = [
   { label: 'الرئيسية', href: '#', isActive: true },
   { label: 'الشركاء', href: '#partners', isActive: false },
@@ -64,7 +67,7 @@ export const Navbar = () => {
             as={Link}
             className="rounded-full text-white"
             color="primary"
-            href="#"
+            href={registerLink}
             variant="solid"
           >
             انشاء حساب
@@ -75,7 +78,7 @@ export const Navbar = () => {
           <Button
             className="rounded-full text-primary border-primary border-1"
             as={Link}
-            href="#"
+            href={loginLink}
             variant="bordered"
           >
             تسجيل الدخول
@@ -104,7 +107,7 @@ export const Navbar = () => {
               as={Link}
               className="rounded-full text-white"
               color="primary"
-              href="#"
+              href={registerLink}
               variant="solid"
             >
               انشاء حساب
@@ -114,7 +117,7 @@ export const Navbar = () => {
             <Button
               as={Link}
               className="rounded-full text-primary border-primary border-1"
-              href="#"
+              href={loginLink}
               variant="bordered"
             >
               تسجيل الدخول

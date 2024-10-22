@@ -9,7 +9,7 @@ export const useLogout = () => {
     useAuthenticationServicePostSharedAuthLogout();
 
   const logout = async () => {
-    await logoutAsync({});
+    // await logoutAsync({}, {onSuccess: reset});
     reset();
     router.push('/login');
   };

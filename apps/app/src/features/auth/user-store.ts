@@ -5,7 +5,7 @@ import { OpenAPI } from '../../../../../libs/api-sdk/src/lib/gen2/requests';
 import { setCookie } from 'cookies-next';
 import { useRouter } from 'next/router';
 
-const cacheToken = (token: string) => {
+export const cacheToken = (token: string) => {
   setCookie('token', token, {
     expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
   });
@@ -54,7 +54,8 @@ export const useUserStore = create<UserStore>()(
         onRehydrateStorage: () => (state) => {
           const router = useRouter();
           if (state?.token) {
-            cacheToken(state.token);
+            console.log('rehydrated token', state.token);
+            // cacheToken(state.token);
           } else {
             router.push('/login');
           }
