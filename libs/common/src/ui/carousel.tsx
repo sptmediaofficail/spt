@@ -37,7 +37,7 @@ export const Carousel: React.FC<CarouselProps> = ({
 
   return (
     <Swiper
-      modules={isMobile ? [EffectCards, Pagination] : [EffectCards]}
+      modules={isMobile ? [EffectCards, Pagination] : [Pagination]}
       effect={'cards'}
       spaceBetween={32}
       slidesPerView={'auto'}
