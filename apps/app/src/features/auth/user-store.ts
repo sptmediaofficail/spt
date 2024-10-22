@@ -2,8 +2,8 @@ import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import { User } from './types';
 import { OpenAPI } from '../../../../../libs/api-sdk/src/lib/gen2/requests';
-import { router } from 'next/client';
 import { setCookie } from 'cookies-next';
+import { useRouter } from 'next/router';
 
 const cacheToken = (token: string) => {
   setCookie('token', token, {
@@ -52,6 +52,7 @@ export const useUserStore = create<UserStore>()(
       {
         name: 'user',
         onRehydrateStorage: () => (state) => {
+          const router = useRouter();
           if (state?.token) {
             cacheToken(state.token);
           } else {
