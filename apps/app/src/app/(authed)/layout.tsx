@@ -10,7 +10,7 @@ export default async function Layout({ children }: { children: ReactNode }) {
         <div className="hidden md:block h-full">
           <Sidenav />
         </div>
-        <div className="p-8 w-full">{children}</div>
+        <div className="p-0 lg:p-8 w-full">{children}</div>
       </div>
     </div>
   );

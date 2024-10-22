@@ -7,7 +7,11 @@ import { useTranslations } from 'next-intl';
 export const WelcomeCard = () => {
   const t = useTranslations();
   return (
-    <Card className={'w-full h-48 bg-[#28478a] text-white'}>
+    <Card
+      className={
+        'w-full h-48 bg-[#28478a] text-white rounded-none lg:rounded-2xl'
+      }
+    >
       <div className={'flex justify-between w-full relative'}>
         <Image
           src={SptLogo}
@@ -17,7 +21,9 @@ export const WelcomeCard = () => {
         <Image
           src={Symbol}
           alt="Symbol"
-          className={'absolute h-64 w-48 right-0 top-0'}
+          className={
+            'opacity-0 lg:opacity-100 absolute h-64 w-48 right-0 top-0'
+          }
         />
       </div>
       <CardBody className={'flex justify-center gap-4 text-right px-4'}>

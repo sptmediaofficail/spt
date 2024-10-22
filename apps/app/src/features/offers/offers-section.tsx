@@ -25,12 +25,18 @@ export const OffersSection = () => {
         <Carousel>
           {isLoading
             ? Array.from({ length: 10 }).map((_, index) => (
-                <SwiperSlide className={'!w-auto mb-14 ml-4'} key={index}>
+                <SwiperSlide
+                  key={index}
+                  className={'!w-auto mb-14 ml-4 !overflow-visible'}
+                >
                   <OfferCardSkeleton />
                 </SwiperSlide>
               ))
             : offers.map((offer) => (
-                <SwiperSlide className={'!w-auto mb-14'} key={offer.id}>
+                <SwiperSlide
+                  className={'!w-auto mb-14 !overflow-visible'}
+                  key={offer.id}
+                >
                   <OfferCard offer={offer} />
                 </SwiperSlide>
               ))}
@@ -41,7 +47,9 @@ export const OffersSection = () => {
 };
 
 const Header = ({ title, moreText }: { title: string; moreText: string }) => (
-  <div className={'text-2xl font-bold text-right pb-6 flex justify-between'}>
+  <div
+    className={'text-2xl font-bold text-right pb-6 flex justify-between px-4'}
+  >
     <h2>{title}</h2>
     <button
       className={'text-lg font-light text-gray-400 flex items-center gap-2'}
