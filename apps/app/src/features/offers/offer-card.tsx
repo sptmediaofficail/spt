@@ -5,6 +5,7 @@ import { Offer } from '@spt/core';
 import DiscountSvg from '../../assets/discount.svg';
 import { formatPrice } from '../../utils/formatPrice';
 import { useTranslations } from 'next-intl';
+import { Skeleton } from '@nextui-org/skeleton';
 
 export const OfferCard = ({ offer }: { offer: Offer }) => {
   const t = useTranslations();
@@ -15,7 +16,7 @@ export const OfferCard = ({ offer }: { offer: Offer }) => {
       100
   );
   return (
-    <Card key={offer.id} className="w-72 shadow-sm">
+    <Card key={offer.id} className="w-80 shadow-sm">
       <CardHeader className="p-0 rounded-b-none overflow-hidden">
         <Image
           className={'h-44'}
@@ -44,6 +45,21 @@ export const OfferCard = ({ offer }: { offer: Offer }) => {
             {formatPrice(offer.price_after_discount)}
           </p>
         </div>
+      </CardBody>
+    </Card>
+  );
+};
+
+export const OfferCardSkeleton = () => {
+  return (
+    <Card className="w-80 shadow-sm">
+      <CardHeader className="p-0 animate-pulse bg-gray-300 rounded-b-none overflow-hidden relative">
+        <Skeleton className="h-44" />
+      </CardHeader>
+      <CardBody className="flex flex-col gap-4 text-right">
+        <Skeleton className="h-6 w-3/4" />
+        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-4 w-1/2" />
       </CardBody>
     </Card>
   );

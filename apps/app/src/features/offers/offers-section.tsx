@@ -4,10 +4,10 @@ import { useSiteOffersServiceGetSiteOffers } from '../../../../../libs/api-sdk/s
 import * as React from 'react';
 import { SwiperSlide } from 'swiper/react';
 import { Carousel } from '../../../../../libs/common/src/ui/carousel';
-import { OfferCard } from './offer-card';
+import { OfferCard, OfferCardSkeleton } from './offer-card';
 import { useTranslations } from 'next-intl';
 import { RiArrowLeftUpLine } from 'react-icons/ri';
-import { mockedOffers } from './_mocks/mocked-offers';
+import { Offer } from '@spt/core';
 
 export const OffersSection = () => {
   const t = useTranslations();
@@ -15,39 +15,39 @@ export const OffersSection = () => {
     paginate: 3,
     contentLanguage: 'ar',
   });
-  // const offers = data?.data.data as Offer[];
-  const offers = mockedOffers;
 
-  console.log(data);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  const offers = data?.data.data as Offer[];
 
   return (
     <div className={'relative'}>
       <div className="absolute inset-0">
-        <div
-          className={'text-2xl font-bold text-right pb-6 flex justify-between'}
-        >
-          <h2>{t('home.offers')}</h2>
-          <button
-            className={
-              'text-lg font-light text-gray-400 flex items-center gap-2'
-            }
-          >
-            <span>{t('home.more')}</span>
-            <RiArrowLeftUpLine className={'h-6 w-6'} />
-          </button>
-        </div>
+        <Header title={t('home.offers')} moreText={t('home.more')} />
         <Carousel>
-          {offers.map((offer) => (
-            <SwiperSlide className={''} key={offer.id}>
-              <OfferCard offer={offer} />
-            </SwiperSlide>
-          ))}
+          {isLoading
+            ? Array.from({ length: 10 }).map((_, index) => (
+                <SwiperSlide className={'!w-auto mb-14 ml-4'} key={index}>
+                  <OfferCardSkeleton />
+                </SwiperSlide>
+              ))
+            : offers.map((offer) => (
+                <SwiperSlide className={'!w-auto mb-14'} key={offer.id}>
+                  <OfferCard offer={offer} />
+                </SwiperSlide>
+              ))}
         </Carousel>
       </div>
     </div>
   );
 };
+
+const Header = ({ title, moreText }: { title: string; moreText: string }) => (
+  <div className={'text-2xl font-bold text-right pb-6 flex justify-between'}>
+    <h2>{title}</h2>
+    <button
+      className={'text-lg font-light text-gray-400 flex items-center gap-2'}
+    >
+      <span>{moreText}</span>
+      <RiArrowLeftUpLine className={'h-6 w-6'} />
+    </button>
+  </div>
+);

@@ -38,10 +38,9 @@ export const Carousel: React.FC<CarouselProps> = ({
       modules={[isMobile ? EffectCards : Pagination]}
       effect={'cards'}
       spaceBetween={isMobile ? 16 : 32}
-      slidesPerView={1}
+      slidesPerView={'auto'}
       keyboard={{ enabled: true }}
       pagination={{ clickable: true }}
-      centeredSlides
       grabCursor={true}
       {...restProps}
     >
