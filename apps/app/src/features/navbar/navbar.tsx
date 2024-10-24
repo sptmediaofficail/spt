@@ -38,11 +38,27 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { label: 'الرئيسية', href: '/', icon: <FaHome /> },
-    { label: 'الخدمات', href: '/services', icon: <FaServicestack /> },
-    { label: 'طلباتي', href: '/orders', icon: <FaClipboardList /> },
-    { label: 'محفظتي', href: '/wallet', icon: <FaWallet /> },
-    { label: 'الملف الشخصي', href: '/profile', icon: <FaUserCircle /> },
+    { label: t('sidenav.home'), href: '/', icon: <FaHome /> },
+    {
+      label: t('sidenav.services'),
+      href: '/services',
+      icon: <FaServicestack />,
+    },
+    {
+      label: t('sidenav.orders'),
+      href: '/orders',
+      icon: <FaClipboardList />,
+    },
+    {
+      label: t('sidenav.wallet'),
+      href: '/wallet',
+      icon: <FaWallet />,
+    },
+    {
+      label: t('sidenav.profile'),
+      href: '/profile',
+      icon: <FaUserCircle />,
+    },
   ];
 
   const { user } = useUserStore();

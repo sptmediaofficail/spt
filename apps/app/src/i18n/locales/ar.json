@@ -45,9 +45,9 @@
   "sidenav": {
     "home": "الرئيسية",
     "services": "الخدمات",
-    "my.orders": "طلباتي",
-    "my.wallet": "محفظتي",
-    "my.profile": "الملف الشخصي"
+    "orders": "طلباتي",
+    "wallet": "محفظتي",
+    "profile": "الملف الشخصي"
   },
   "cards": {
     "welcome": {

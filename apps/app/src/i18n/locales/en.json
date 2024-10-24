@@ -45,9 +45,9 @@
   "sidenav": {
     "home": "Home",
     "services": "Services",
-    "my.orders": "My Orders",
-    "my.wallet": "My Wallet",
-    "my.profile": "My Profile"
+    "orders": "My Orders",
+    "wallet": "My Wallet",
+    "profile": "My Profile"
   },
   "cards": {
     "welcome": {
