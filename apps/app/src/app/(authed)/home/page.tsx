@@ -1,6 +1,7 @@
 ﻿import { WelcomeCard } from '../../../features/home/welcome-card';
 import { ProvidersSection } from '../../../features/providers/providers-section';
 import { OffersSection } from '../../../features/offers/offers-section';
+import { ReviewsSection } from '../../../features/reviews/reveiws-section';
 
 export default function DashboardPage() {
   return (
@@ -9,6 +10,7 @@ export default function DashboardPage() {
         <WelcomeCard />
         <OffersSection />
         <ProvidersSection />
+        <ReviewsSection />
       </div>
     </>
   );
