@@ -30,3 +30,16 @@ export const ReviewCard = ({
     </div>
   </Card>
 );
+
+export const ReviewCardSkeleton = () => (
+  <Card className="w-80 lg:w-96 shadow-sm m-1 border">
+    <div className="p-4 animate-pulse flex flex-row gap-4">
+      <div className={'w-12 h-12 bg-gray-200 rounded-full'} />
+      <div className={'flex flex-col w-full gap-4'}>
+        <div className={'w-24 h-2 bg-gray-200'} />
+        <div className={'w-32 h-2 bg-gray-200'} />
+        <div className={'w-32 h-2 bg-gray-200'} />
+      </div>
+    </div>
+  </Card>
+);
