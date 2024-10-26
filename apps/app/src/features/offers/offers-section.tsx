@@ -2,9 +2,9 @@
 
 import * as React from 'react';
 import { SwiperSlide } from 'swiper/react';
-import { Carousel } from '../../../../../libs/common/src/ui/carousel';
-import { OfferCard, OfferCardSkeleton } from './offer-card';
 import { useTranslations } from 'next-intl';
+import { Carousel } from '@spt/common';
+import { OfferCard, OfferCardSkeleton } from './offer-card';
 import { HomeSection } from '../home/home-section';
 import { UseOffers } from './use-offers';
 

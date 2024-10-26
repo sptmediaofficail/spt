@@ -2,7 +2,7 @@ import { useLandingServiceGetLandingMostRatedProviders } from '../../../../../li
 import { Provider } from '@spt/core';
 import { UseCities } from '../../hooks/use-cities';
 
-type AdaptedProvider = Provider & { city_name_ar: string };
+export type AdaptedProvider = Provider & { city_name_ar: string };
 
 export const UseProviders = () => {
   const { cities, isLoading: citiesLoading } = UseCities();
