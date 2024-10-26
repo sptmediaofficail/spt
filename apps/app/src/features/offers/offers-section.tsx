@@ -22,25 +22,26 @@ export const OffersSection = () => {
     <HomeSection title={t('home.offers')}>
       <div className={'relative'}>
         <div className="absolute inset-0">
-          <Carousel>
-            {isLoading
-              ? Array.from({ length: 10 }).map((_, index) => (
-                  <SwiperSlide
-                    key={index}
-                    className={'!w-auto mb-14 ml-4 !overflow-visible'}
-                  >
-                    <OfferCardSkeleton />
-                  </SwiperSlide>
-                ))
-              : [...offers, ...offers].map((offer) => (
-                  <SwiperSlide
-                    className={'!w-auto mb-14 !overflow-visible'}
-                    key={offer.id}
-                  >
-                    <OfferCard offer={offer} />
-                  </SwiperSlide>
+          {isLoading ? (
+            <div className={'absolute overflow-hidden'}>
+              <div className={'flex gap-4 '}>
+                {Array.from({ length: 10 }).map((_, index) => (
+                  <OfferCardSkeleton key={index} />
                 ))}
-          </Carousel>
+              </div>
+            </div>
+          ) : (
+            <Carousel>
+              {[...offers, ...offers].map((offer) => (
+                <SwiperSlide
+                  key={offer.id}
+                  className={'!w-auto mb-14 !overflow-visible'}
+                >
+                  <OfferCard offer={offer} />
+                </SwiperSlide>
+              ))}
+            </Carousel>
+          )}
         </div>
       </div>
     </HomeSection>

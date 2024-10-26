@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl';
 import { Skeleton } from '@nextui-org/skeleton';
 
 export const OfferCard = ({ offer }: { offer: Offer }) => {
-  const t = useTranslations();
+  const t = useTranslations('common');
   const discount = Math.floor(
     ((parseInt(offer.price_before_discount) -
       parseInt(offer.price_after_discount)) /
@@ -26,7 +26,7 @@ export const OfferCard = ({ offer }: { offer: Offer }) => {
           height={176}
         />
         <div className="absolute font-semibold top-0 left-0 text-sm bg-[#cd292a] text-white p-2 rounded-br">
-          <p>{t('common.discount') + ' ' + discount}%</p>
+          <p>{t('discount') + ' ' + discount}%</p>
         </div>
       </CardHeader>
       <CardBody className="flex flex-col gap-4 text-right">

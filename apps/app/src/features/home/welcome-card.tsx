@@ -5,7 +5,7 @@ import Symbol from './assets/symbol.svg';
 import { useTranslations } from 'next-intl';
 
 export const WelcomeCard = () => {
-  const t = useTranslations();
+  const t = useTranslations('cards.welcome');
   return (
     <Card
       className={
@@ -28,12 +28,10 @@ export const WelcomeCard = () => {
       </div>
       <CardBody className={'flex justify-center gap-4 text-right px-4'}>
         <h1 className={'font-black text-3xl flex align-middle'}>
-          {t('cards.welcome.header')}
+          {t('header')}
         </h1>
 
-        <p className={'text-lg font-semibold max-w-sm'}>
-          {t('cards.welcome.body')}
-        </p>
+        <p className={'text-lg font-semibold max-w-sm'}>{t('body')}</p>
       </CardBody>
     </Card>
   );

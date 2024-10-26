@@ -14,50 +14,50 @@ import {
   FaServicestack,
   FaUserCircle,
   FaWallet,
-} from 'react-icons/fa'; // Import icons from react-icons
+} from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 const menuConfig = [
   {
-    label: 'الرئيسية', // Translated label for home
+    label: 'home',
     icon: <FaHome />,
     href: '/home',
   },
   {
-    label: 'الخدمات', // Translated label for services
+    label: 'services',
     icon: <FaServicestack />,
     href: '/services',
     submenu: [
-      {
-        label: 'الخدمة 1', // Translated label for service 1
-        href: '/service1',
-      },
-      {
-        label: 'الخدمة 2', // Translated label for service 2
-        href: '/service2',
-      },
+      // {
+      //   label: 'الخدمة 1',
+      //   href: '/service1',
+      // },
+      // {
+      //   label: 'الخدمة 2',
+      //   href: '/service2',
+      // },
     ],
   },
   {
-    label: 'طلباتي', // Translated label for orders
+    label: 'orders',
     icon: <FaClipboardList />,
     href: '/orders',
   },
   {
-    label: 'محفظتي', // Translated label for wallet
+    label: 'wallet',
     icon: <FaWallet />,
     href: '/wallet',
   },
   {
-    label: 'الملف الشخصي', // Translated label for profile
+    label: 'profile',
     icon: <FaUserCircle />,
     href: '/profile',
   },
 ];
 
 const SideNav: React.FC = () => {
-  const t = useTranslations();
+  const t = useTranslations('sidenav');
 
   return (
     <Sidebar
