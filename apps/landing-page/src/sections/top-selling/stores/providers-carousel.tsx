@@ -6,7 +6,7 @@ import { SecondButton } from '../../../components/second-button';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { CarouselArrows } from '../../../components/carousel-arrows';
-import { Provider } from '../../../service/spt-client/types';
+import { Provider } from '@spt/core';
 
 export const ProvidersCarousel = ({ providers }: { providers: Provider[] }) => {
   return (

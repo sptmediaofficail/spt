@@ -35,7 +35,7 @@ export const OffersSection = () => {
               {[...offers, ...offers].map((offer) => (
                 <SwiperSlide
                   key={offer.id}
-                  className={'!w-auto mb-14 !overflow-visible'}
+                  className={'!w-auto mb-14 !overflow-visible m-1'}
                 >
                   <OfferCard offer={offer} />
                 </SwiperSlide>

@@ -16,7 +16,11 @@ export const OfferCard = ({ offer }: { offer: Offer }) => {
       100
   );
   return (
-    <Card key={offer.id} className="w-72 lg:w-80 shadow-sm">
+    <Card
+      key={offer.id}
+      isHoverable
+      className="w-72 lg:w-80 shadow-sm border cursor-pointer hover:scale-[102%] transition-transform ease-in"
+    >
       <CardHeader className="p-0 rounded-b-none overflow-hidden">
         <Image
           className={'h-44 bg-transparent'}

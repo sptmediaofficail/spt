@@ -15,7 +15,7 @@ export const ProviderCard: React.FC<StoreCardProps> = ({
   rating,
 }) => {
   return (
-    <Card className="p-4 rounded-xl shadow-lg max-w-sm">
+    <Card shadow={'sm'} className="p-4 rounded-xl max-w-sm">
       <div className="flex items-center mb-4">
         <Avatar src="/store-icon.png" alt={name} className="mr-4" />
         <h2 className="text-lg font-bold">{name}</h2>

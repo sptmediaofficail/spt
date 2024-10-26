@@ -7,7 +7,7 @@ type HomeSectionProps = {
   children: ReactNode;
 };
 export const HomeSection = ({ title, children }: HomeSectionProps) => (
-  <section>
+  <section className={'h-96'}>
     <Header title={title} moreText={'More'} />
     {children}
   </section>
