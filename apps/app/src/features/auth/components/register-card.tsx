@@ -1,16 +1,14 @@
 import { PrimaryButton } from '../../../ui/primary-button';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
-import {
-  useAuthenticationServicePostSharedAuthRegister,
-  useCitiesServiceGetCities,
-} from '../../../../../../libs/api-sdk/src/lib/gen2/queries';
+import { useAuthenticationServicePostSharedAuthRegister } from '../../../../../../libs/api-sdk/src/lib/gen2/queries';
 import { useRouter } from 'next/navigation';
 import { Input } from '@nextui-org/input';
 import { AiOutlineUser } from 'react-icons/ai';
 import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 import { LiaCitySolid } from 'react-icons/lia';
 import { usePreAuthStore } from '../preAuthStore';
+import { UseCities } from '../../../hooks/use-cities';
 
 export function RegisterCard(props: { text: string }) {
   const t = useTranslations();
@@ -48,12 +46,7 @@ export function RegisterCard(props: { text: string }) {
     }
   };
 
-  const { data, isLoading } = useCitiesServiceGetCities();
-  const cities: {
-    id: number;
-    name_ar: string;
-    is_active: boolean;
-  }[] = data?.data?.data ?? [];
+  const { cities, isLoading } = UseCities();
 
   return (
     <div className={'flex flex-col gap-6 py-6'}>

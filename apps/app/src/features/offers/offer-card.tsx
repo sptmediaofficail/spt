@@ -56,12 +56,13 @@ export const OfferCard = ({ offer }: { offer: Offer }) => {
 
 export const OfferCardSkeleton = () => {
   return (
-    <Card className="w-72 lg:w-80 shadow-sm">
+    <Card className="w-72 lg:w-80 shadow-sm m-2 border">
       <CardHeader className="p-0 animate-pulse bg-gray-300 rounded-b-none overflow-hidden relative">
         <Skeleton className="h-44" />
       </CardHeader>
       <CardBody className="flex flex-col gap-4 text-right">
         <Skeleton className="h-6 w-3/4" />
+        <Skeleton className="h-4 w-full" />
         <Skeleton className="h-4 w-full" />
         <Skeleton className="h-4 w-1/2" />
       </CardBody>

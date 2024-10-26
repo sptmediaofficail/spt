@@ -1,45 +1,81 @@
 import React from 'react';
-import { FaMapMarkerAlt, FaStar } from 'react-icons/fa';
-import { Card } from '@nextui-org/card';
-import { Avatar } from '@nextui-org/avatar';
+import { FaRegStar, FaStar } from 'react-icons/fa';
+import { Card, CardBody, CardHeader } from '@nextui-org/card';
+import { Divider } from '@nextui-org/divider';
+import DefaultProviderAvatar from './assets/default-provider-avatar.svg';
+import Image from 'next/image';
+import { TfiLocationPin } from 'react-icons/tfi';
 
 interface StoreCardProps {
   name: string;
-  city: string;
+  city_name_ar: string;
   rating: number;
+  avatar: string | null;
 }
 
 export const ProviderCard: React.FC<StoreCardProps> = ({
+  avatar: avatarSrc,
   name,
-  city,
+  city_name_ar,
   rating,
 }) => {
+  const avatar = avatarSrc ?? DefaultProviderAvatar;
   return (
-    <Card shadow={'sm'} className="p-4 rounded-xl max-w-sm">
-      <div className="flex items-center mb-4">
-        <Avatar src="/store-icon.png" alt={name} className="mr-4" />
-        <h2 className="text-lg font-bold">{name}</h2>
-      </div>
-      <div className="flex justify-between items-center text-gray-600 mb-2">
-        <div className="flex justify-between items-center text-gray-600 mb-2">
-          <div className="flex items-center">
-            <FaMapMarkerAlt className="mr-2 text-blue-600" />
-            <span>{city}</span>
+    <Card className="p-4 rounded-xl w-96 max-w-md shadow-sm border">
+      <CardHeader className="flex items-center mb-4 p-0 gap-2">
+        <Image src={avatar} alt="Provider Avatar" width={40} height={40} />
+        <h2 className="text-md font-bold">{name}</h2>
+      </CardHeader>
+      <Divider />
+      <CardBody className="flex flex-col gap-2">
+        <div className="flex justify-between items-center text-gray-600">
+          <div className="text-gray-500 flex items-center gap-2">
+            <TfiLocationPin className={'text-primary'} />
+            <h4>عنوان المتجر</h4>
+          </div>
+          <div className="flex items-center gap-1">
+            <span>{city_name_ar}</span>
+          </div>
+        </div>
+        <div className="flex justify-between items-center text-gray-600">
+          <div className="text-gray-500 flex items-center gap-2">
+            <FaRegStar className={'text-primary'} />
+            <h4>التقييمات</h4>
           </div>
           <div className="flex items-center">
-            <FaStar className="text-yellow-500 mr-1" />
             <span>{rating}</span>
+            <FaStar className="text-yellow-500 mr-1" />
           </div>
         </div>
-        <div className="text-gray-500 flex items-center">
-          <FaMapMarkerAlt className="mr-2" />
-          <h4>عنوان المتجر</h4>
-        </div>
-        <div className="text-gray-500 flex items-center mt-2">
-          <FaStar className="mr-2" />
-          <h4>التقييمات</h4>
-        </div>
-      </div>
+      </CardBody>
     </Card>
   );
 };
+
+export const ProviderCardSkeleton = () => (
+  <Card className="p-4 rounded-xl w-96 m-2 max-w-md shadow-sm border">
+    <CardHeader className="flex items-center mb-4 p-0 gap-2">
+      <div className="w-10 h-10 bg-gray-200 rounded-full" />
+      <div className="w-20 h-4 bg-gray-200 rounded" />
+    </CardHeader>
+    <Divider />
+    <CardBody className="flex flex-col gap-2">
+      <div className="flex justify-between items-center text-gray-600">
+        <div className="text-gray-500 flex items-center gap-2">
+          <div className="w-20 h-4 bg-gray-200 rounded" />
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="w-20 h-4 bg-gray-200 rounded" />
+        </div>
+      </div>
+      <div className="flex justify-between items-center text-gray-600">
+        <div className="text-gray-500 flex items-center gap-2">
+          <div className="w-20 h-4 bg-gray-200 rounded" />
+        </div>
+        <div className="flex items-center">
+          <div className="w-12 h-4 bg-gray-200 rounded" />
+        </div>
+      </div>
+    </CardBody>
+  </Card>
+);

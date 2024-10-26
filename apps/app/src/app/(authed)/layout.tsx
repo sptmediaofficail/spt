@@ -10,7 +10,9 @@ export default async function Layout({ children }: { children: ReactNode }) {
         <div className="hidden md:block h-full">
           <Sidenav />
         </div>
-        <div className="p-0 lg:p-8 w-full">{children}</div>
+        <div className="p-0 lg:p-8 w-full overflow-y-scroll h-[calc(100dvh-4rem-1px)]">
+          {children}
+        </div>
       </div>
     </div>
   );

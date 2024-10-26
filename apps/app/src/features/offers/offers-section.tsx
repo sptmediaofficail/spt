@@ -1,35 +1,23 @@
 'use client';
 
-import { useSiteOffersServiceGetSiteOffers } from '../../../../../libs/api-sdk/src/lib/gen2/queries';
 import * as React from 'react';
 import { SwiperSlide } from 'swiper/react';
 import { Carousel } from '../../../../../libs/common/src/ui/carousel';
 import { OfferCard, OfferCardSkeleton } from './offer-card';
 import { useTranslations } from 'next-intl';
-import { Offer } from '@spt/core';
 import { HomeSection } from '../home/home-section';
+import { UseOffers } from './use-offers';
 
 export const OffersSection = () => {
-  const t = useTranslations();
-  const { data, isLoading } = useSiteOffersServiceGetSiteOffers({
-    paginate: 10,
-    contentLanguage: 'ar',
-  });
-
-  const offers = data?.data.data as Offer[];
+  const t = useTranslations('home');
+  const { offers, isLoading } = UseOffers();
 
   return (
-    <HomeSection title={t('home.offers')}>
+    <HomeSection title={t('offers')} className={'h-[calc(24rem+3.5rem)]'}>
       <div className={'relative'}>
         <div className="absolute inset-0">
           {isLoading ? (
-            <div className={'absolute overflow-hidden'}>
-              <div className={'flex gap-4 '}>
-                {Array.from({ length: 10 }).map((_, index) => (
-                  <OfferCardSkeleton key={index} />
-                ))}
-              </div>
-            </div>
+            <OffersSkeleton />
           ) : (
             <Carousel>
               {[...offers, ...offers].map((offer) => (
@@ -47,3 +35,16 @@ export const OffersSection = () => {
     </HomeSection>
   );
 };
+
+const OffersSkeleton = () => (
+  <div className={'absolute overflow-hidden w-full lg:w-auto'}>
+    <div className={'hidden lg:flex justify-center align-middle mx-auto'}>
+      {Array.from({ length: 10 }).map((_, index) => (
+        <OfferCardSkeleton key={index} />
+      ))}
+    </div>
+    <div className={'lg:hidden flex justify-center align-middle mx-auto'}>
+      <OfferCardSkeleton />
+    </div>
+  </div>
+);

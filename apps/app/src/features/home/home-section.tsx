@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { ReactNode } from 'react';
+import { HTMLProps } from 'react';
 import { RiArrowLeftUpLine } from 'react-icons/ri';
 
-type HomeSectionProps = {
-  title: string;
-  children: ReactNode;
-};
-export const HomeSection = ({ title, children }: HomeSectionProps) => (
-  <section className={'h-96'}>
-    <Header title={title} moreText={'More'} />
-    {children}
+export const HomeSection = (
+  props: HTMLProps<HTMLDivElement> & {
+    title: string;
+  }
+) => (
+  <section className={'h-96'} {...props}>
+    <Header title={props.title} moreText={'More'} />
+    {props.children}
   </section>
 );
 
