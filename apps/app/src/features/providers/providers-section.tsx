@@ -14,7 +14,7 @@ export const ProvidersSection = () => {
     <>
       <HomeSection
         title={t('spare_part_providers')}
-        className={'h-[calc(12rem+3rem)] w-full'}
+        className={'h-[calc(14rem+3rem)] w-full'}
       >
         <div className={'relative'}>
           <div className="absolute inset-0">

@@ -7,6 +7,7 @@ export const UseOffers = () => {
     contentLanguage: 'ar',
   });
 
+  // @ts-expect-error - no type
   const offers = props.data?.data.data as Offer[];
 
   return {

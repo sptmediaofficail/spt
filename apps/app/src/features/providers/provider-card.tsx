@@ -21,9 +21,15 @@ export const ProviderCard: React.FC<StoreCardProps> = ({
 }) => {
   const avatar = avatarSrc ?? DefaultProviderAvatar;
   return (
-    <Card className="p-4 rounded-xl w-96 max-w-md shadow-sm border">
+    <Card className="p-4 rounded-xl w-80 lg:w-96 max-w-md shadow-sm border">
       <CardHeader className="flex items-center mb-4 p-0 gap-2">
-        <Image src={avatar} alt="Provider Avatar" width={40} height={40} />
+        <Image
+          src={avatar}
+          alt="Provider Avatar"
+          width={40}
+          height={40}
+          className={'rounded-full'}
+        />
         <h2 className="text-md font-bold">{name}</h2>
       </CardHeader>
       <Divider />
@@ -53,7 +59,7 @@ export const ProviderCard: React.FC<StoreCardProps> = ({
 };
 
 export const ProviderCardSkeleton = () => (
-  <Card className="p-4 rounded-xl w-96 m-2 max-w-md shadow-sm border">
+  <Card className="p-4 rounded-xl w-80 lg:w-96 m-2 max-w-md shadow-sm border">
     <CardHeader className="flex items-center mb-4 p-0 gap-2">
       <div className="w-10 h-10 bg-gray-200 rounded-full" />
       <div className="w-20 h-4 bg-gray-200 rounded" />

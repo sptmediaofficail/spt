@@ -6,6 +6,7 @@ export const UseCities = () => {
     id: number;
     name_ar: string;
     is_active: boolean;
+    // @ts-expect-error - no type
   }[] = props.data?.data?.data ?? [];
 
   return {

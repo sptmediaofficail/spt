@@ -21,6 +21,7 @@ export const UseProviders = () => {
     };
   }
 
+  // @ts-expect-error - no type
   const rawProviders = props.data?.data;
 
   const cityAdapter = (record: { city_id: string }) => {
