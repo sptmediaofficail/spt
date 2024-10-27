@@ -26,6 +26,10 @@ export default async function RootLayout({
       className={`${shubakFont.className}`}
     >
       <body className="w-screen h-screen">
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
         <UIProvider locale={locale}>
           <NextIntlClientProvider messages={messages} locale={locale}>
             {/*<Navbar />*/}
