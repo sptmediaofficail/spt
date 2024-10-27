@@ -10,7 +10,7 @@ import {
   DropdownTrigger,
 } from '@nextui-org/dropdown';
 import { Avatar } from '@nextui-org/avatar';
-import SearchIcon from './search-icon'; // Keep your custom search icon
+import SearchIcon from './search-icon';
 import {
   Navbar as NextUINavbar,
   NavbarBrand,
@@ -24,7 +24,6 @@ import { Link } from '@nextui-org/link';
 import { useUserStore } from '../auth/user-store';
 import { useLogout } from '../auth/login/use-logout';
 
-// Importing icons from react-icons
 import {
   FaClipboardList,
   FaHome,
@@ -32,6 +31,8 @@ import {
   FaUserCircle,
   FaWallet,
 } from 'react-icons/fa';
+import { RiArrowDownSLine } from 'react-icons/ri';
+import NewNotificationSvg from './assets/new-notifications.svg';
 
 export default function Navbar() {
   const t = useTranslations();
@@ -91,18 +92,29 @@ export default function Navbar() {
 
       {/* Right Side: User Avatar and Mobile Menu Toggle */}
       <NavbarContent justify="end" className="flex-1 flex items-center">
+        <button className="w-9 h-9 rounded-full transform hover:scale-105 shadow-sm duration-100">
+          <Image src={NewNotificationSvg} alt="Notification" layout={'fixed'} />
+        </button>
+
         {/* User Avatar Dropdown */}
         <Dropdown placement="bottom-end">
-          <DropdownTrigger>
-            <Avatar
-              isBordered
-              as="button"
-              className="transition-transform"
-              color="secondary"
-              name="Jason Hughes"
-              size="sm"
-              src={user?.avatar}
-            />
+          <DropdownTrigger onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <div className="flex items-center gap-4 cursor-pointer">
+              <Avatar
+                isBordered
+                className="transition-transform"
+                color="secondary"
+                name={'PP'}
+                size="sm"
+                src={user?.avatar}
+              />
+              <span className="text-sm flex gap-2 items-center">
+                {user?.name}
+                <RiArrowDownSLine
+                  className={`mt-0.5 transform ${isMenuOpen && 'rotate-180'}`}
+                />
+              </span>
+            </div>
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
             <DropdownItem onClick={logout} key="logout" color="danger">
@@ -113,15 +125,13 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <NavbarMenuToggle
-          isOpen={isMenuOpen}
-          onOpenChange={setIsMenuOpen}
           className="ml-4 md:hidden"
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         />
       </NavbarContent>
 
       {/* Mobile Menu */}
-      <NavbarMenu isOpen={isMenuOpen} onOpenChange={setIsMenuOpen}>
+      <NavbarMenu>
         {menuItems.map((item) => (
           <NavbarMenuItem key={item.href}>
             <Link
