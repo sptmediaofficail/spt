@@ -47,7 +47,7 @@ const ProviderSection = ({
           <Carousel>
             {providers.map((provider) => (
               <SwiperSlide
-                className="mb-12 !w-auto !overflow-hidden"
+                className="mb-12 !w-auto !overflow-hidden lg:m-1 lg:mr-0 lg:mb-12 mr-4"
                 key={provider.id}
               >
                 <ProviderCard {...provider} />
@@ -62,13 +62,19 @@ const ProviderSection = ({
 
 const ProvidersSkeleton = ({ items = 10 }) => (
   <div className="absolute overflow-hidden w-full lg:w-auto">
-    <div className="hidden lg:flex justify-center align-middle mx-auto">
+    <div
+      className={'hidden lg:flex justify-center align-middle mx-auto gap-4 m-1'}
+    >
       {Array.from({ length: items }).map((_, index) => (
         <ProviderCardSkeleton key={index} />
       ))}
     </div>
-    <div className="lg:hidden flex justify-center align-middle mx-auto">
-      <ProviderCardSkeleton />
+    <div className={'lg:hidden w-fit flex flex-row overflow-hidden'}>
+      {Array.from({ length: 10 }).map((_, index) => (
+        <div key={index} className={'mr-4'}>
+          <ProviderCardSkeleton />
+        </div>
+      ))}
     </div>
   </div>
 );

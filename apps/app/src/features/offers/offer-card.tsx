@@ -56,7 +56,7 @@ export const OfferCard = ({ offer }: { offer: Offer }) => {
 
 export const OfferCardSkeleton = () => {
   return (
-    <Card className="w-72 lg:w-80 shadow-sm m-1 border">
+    <Card className="w-72 lg:w-80 shadow-sm border">
       <CardHeader className="p-0 animate-pulse bg-gray-300 rounded-b-none overflow-hidden relative">
         <Skeleton className="h-44" />
       </CardHeader>

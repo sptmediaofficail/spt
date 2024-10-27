@@ -32,7 +32,7 @@ export const ReviewCard = ({
 );
 
 export const ReviewCardSkeleton = () => (
-  <Card className="w-80 lg:w-96 shadow-sm m-1 border">
+  <Card className="w-80 lg:w-96 shadow-sm border">
     <div className="p-4 animate-pulse flex flex-row gap-4">
       <div className={'w-12 h-12 bg-gray-200 rounded-full'} />
       <div className={'flex flex-col w-full gap-4'}>
