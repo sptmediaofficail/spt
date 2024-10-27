@@ -10,13 +10,13 @@ import { UseReviews } from './use-reviews';
 
 export const ReviewsSection = () => {
   const t = useTranslations('home');
-  const { reviews, isLoading } = UseReviews();
+  const { reviews, isLoading, isError } = UseReviews();
 
   return (
     <HomeSection title={t('reviews')} className={'h-[calc(24rem+3.5rem)]'}>
       <div className={'relative'}>
         <div className="absolute inset-0">
-          {isLoading ? (
+          {isLoading || isError ? (
             <OffersSkeleton />
           ) : (
             <Carousel>

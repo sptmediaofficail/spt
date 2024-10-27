@@ -10,13 +10,13 @@ import { UseOffers } from './use-offers';
 
 export const OffersSection = () => {
   const t = useTranslations('home');
-  const { offers, isLoading } = UseOffers();
+  const { offers, isLoading, isError } = UseOffers();
 
   return (
     <HomeSection title={t('offers')} className={'h-[calc(24rem+3.5rem)]'}>
       <div className={'relative'}>
         <div className="absolute inset-0">
-          {isLoading ? (
+          {isLoading || isError ? (
             <OffersSkeleton />
           ) : (
             <Carousel>

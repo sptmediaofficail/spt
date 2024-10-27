@@ -5,6 +5,7 @@ import { Divider } from '@nextui-org/divider';
 import DefaultProviderAvatar from './assets/default-provider-avatar.svg';
 import Image from 'next/image';
 import { TfiLocationPin } from 'react-icons/tfi';
+import { Skeleton } from '@nextui-org/skeleton';
 
 interface StoreCardProps {
   name: string;
@@ -64,25 +65,25 @@ export const ProviderCard: React.FC<StoreCardProps> = ({
 export const ProviderCardSkeleton = () => (
   <Card className="p-4 rounded-xl w-80 lg:w-96 max-w-md shadow-sm border">
     <CardHeader className="flex items-center mb-4 p-0 gap-2">
-      <div className="w-10 h-10 bg-gray-200 rounded-full" />
-      <div className="w-20 h-4 bg-gray-200 rounded" />
+      <Skeleton className="w-10 h-10 bg-gray-200 rounded-full" />
+      <Skeleton className="w-20 h-4 bg-gray-200 rounded" />
     </CardHeader>
     <Divider />
     <CardBody className="flex flex-col gap-2">
       <div className="flex justify-between items-center text-gray-600">
         <div className="text-gray-500 flex items-center gap-2">
-          <div className="w-20 h-4 bg-gray-200 rounded" />
+          <Skeleton className="w-20 h-4 bg-gray-200 rounded" />
         </div>
         <div className="flex items-center gap-1">
-          <div className="w-20 h-4 bg-gray-200 rounded" />
+          <Skeleton className="w-20 h-4 bg-gray-200 rounded" />
         </div>
       </div>
       <div className="flex justify-between items-center text-gray-600">
         <div className="text-gray-500 flex items-center gap-2">
-          <div className="w-20 h-4 bg-gray-200 rounded" />
+          <Skeleton className="w-20 h-4 bg-gray-200 rounded" />
         </div>
         <div className="flex items-center">
-          <div className="w-12 h-4 bg-gray-200 rounded" />
+          <Skeleton className="w-12 h-4 bg-gray-200 rounded" />
         </div>
       </div>
     </CardBody>

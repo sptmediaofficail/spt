@@ -9,7 +9,7 @@ import { AdaptedProvider, UseProviders } from './use-providers';
 
 export const ProvidersSection = () => {
   const t = useTranslations('home');
-  const { providers, isLoading } = UseProviders();
+  const { providers, isLoading, isError } = UseProviders();
 
   return (
     <>
@@ -17,11 +17,13 @@ export const ProvidersSection = () => {
         title={t('spare_part_providers')}
         providers={providers.spare_part_providers}
         isLoading={isLoading}
+        isError={isError}
       />
       <ProviderSection
         title={t('junkyard_sale_providers')}
         providers={providers.junkyard_sale_providers}
         isLoading={isLoading}
+        isError={isError}
       />
     </>
   );
@@ -31,17 +33,19 @@ type ProviderSectionProps = {
   title: string;
   providers: AdaptedProvider[];
   isLoading: boolean;
+  isError: boolean;
 };
 
 const ProviderSection = ({
   title,
   providers,
   isLoading,
+  isError,
 }: ProviderSectionProps) => (
   <HomeSection title={title} className="h-[calc(14rem+3rem)] w-full">
     <div className="relative">
       <div className="absolute inset-0">
-        {isLoading ? (
+        {isLoading || isError ? (
           <ProvidersSkeleton />
         ) : (
           <Carousel>

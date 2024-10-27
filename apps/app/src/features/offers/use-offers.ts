@@ -8,7 +8,7 @@ export const UseOffers = () => {
   });
 
   // @ts-expect-error - no type
-  const offers = props.data?.data.data as Offer[];
+  const offers = props.data?.data?.data as Offer[];
 
   return {
     ...props,

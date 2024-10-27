@@ -11,7 +11,7 @@ export const UseProviders = () => {
     {}
   );
 
-  if (props.isLoading || citiesLoading) {
+  if (props.isLoading || citiesLoading || props.isError) {
     return {
       ...props,
       providers: {
@@ -37,9 +37,9 @@ export const UseProviders = () => {
     spare_part_providers: AdaptedProvider[];
     junkyard_sale_providers: AdaptedProvider[];
   } = {
-    spare_part_providers: rawProviders.spare_part_providers.map(cityAdapter),
+    spare_part_providers: rawProviders?.spare_part_providers.map(cityAdapter),
     junkyard_sale_providers:
-      rawProviders.junkyard_sale_providers.map(cityAdapter),
+      rawProviders?.junkyard_sale_providers.map(cityAdapter),
   };
 
   return {
