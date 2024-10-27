@@ -99,7 +99,7 @@ export default function Navbar() {
         {/* User Avatar Dropdown */}
         <Dropdown placement="bottom-end">
           <DropdownTrigger onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <div className="flex items-center gap-4 cursor-pointer">
+            <div className="hidden lg:flex items-center gap-4 cursor-pointer">
               <Avatar
                 isBordered
                 className="transition-transform"
