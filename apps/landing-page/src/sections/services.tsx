@@ -39,39 +39,6 @@ export const ServicesSection = () => {
   return (
     <Section id={'services'} title={'خدماتنا'} heading={'ماذا يمكن أن نقدم لك'}>
       <div className="flex flex-col lg:flex-row gap-6 mt-8">
-        {/*<div className="col-span-2">*/}
-        {/*  <ServiceCard*/}
-        {/*    title="التوصيل"*/}
-        {/*    description="هل تبحث عن قطع غيار موثوقة وبأسعار مناسبة لسيارتك؟ مع تطبيق SPT، يمكنك الآن العثور على كل ما تحتاجه لتصليح وصيانة سيارتك بلمسة واحدة!"*/}
-        {/*    icon={Service1Icon}*/}
-        {/*    theme={'light'}*/}
-        {/*    button={<SecondButton color={'primary'} text={'اطلب الآن'} />}*/}
-        {/*    bg={*/}
-        {/*      <Image*/}
-        {/*        src={Service1Bg}*/}
-        {/*        className="left-0 absolute w-1/2  fill-black pointer-events-none"*/}
-        {/*        alt="Service 1 Icon"*/}
-        {/*      />*/}
-        {/*    }*/}
-        {/*  />*/}
-        {/*</div>*/}
-        {/*<div className="col-span-2 lg:col-span-1">*/}
-        {/*  <ServiceCard*/}
-        {/*    title="بيع سيارات تشليح"*/}
-        {/*    description="هل تبحث عن قطع غيار موثوقة وبأسعار مناسبة لسيارتك؟ مع تطبيق SPT، يمكنك الآن العثور على كل ما تحتاجه لتصليح وصيانة سيارتك بلمسة واحدة!"*/}
-        {/*    icon={Service2Icon}*/}
-        {/*    bg={*/}
-        {/*      <Image*/}
-        {/*        src={Service2Bg}*/}
-        {/*        className="left-0 -bottom-20 absolute fill-black pointer-events-none"*/}
-        {/*        alt="Service 1 Icon"*/}
-        {/*      />*/}
-        {/*    }*/}
-        {/*    className="bg-primary text-white"*/}
-        {/*    button={<SecondButton color={'secondary'} text={'اطلب الآن'} />}*/}
-        {/*    theme="dark"*/}
-        {/*  />*/}
-        {/*</div>*/}
         {data.map((service, index) => (
           <ServiceCard
             key={index}

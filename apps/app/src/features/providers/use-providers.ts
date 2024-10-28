@@ -22,7 +22,10 @@ export const UseProviders = () => {
   }
 
   // @ts-expect-error - no type
-  const rawProviders = props.data?.data;
+  const rawProviders = props.data?.data ?? {
+    spare_part_providers: [],
+    junkyard_sale_providers: [],
+  };
 
   const cityAdapter = (record: { city_id: string }) => {
     const city_id = parseInt(record.city_id);
