@@ -35,8 +35,7 @@
     "password": "Enter your password",
     "phone": "Enter your phone number",
     "name": "Enter your name",
-    "city": "Enter your city",
-    "search": "Search ..."
+    "city": "Enter your city"
   },
   "common": {
     "in.time": "Within",
@@ -47,7 +46,14 @@
     "services": "Services",
     "orders": "My Orders",
     "wallet": "My Wallet",
-    "profile": "My Profile"
+    "profile": "My Profile",
+    "follow_us": "Follow us on :",
+    "logout": "Logout",
+    "about_app": "About App",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "rights_reserved": "All rights reserved",
+    "search": "Search ..."
   },
   "cards": {
     "welcome": {
