@@ -109,7 +109,7 @@ export default function Navbar() {
     <NextUINavbar isBordered maxWidth="full">
       {/* Left Side: Logo and Search */}
       <NavbarContent justify="start" className="flex-1">
-        <NavbarBrand className="mr-4 flex items-center gap-32">
+        <NavbarBrand className="mx-0 lg:mx-4 flex items-center gap-32">
           <Image src={LogoColored} alt="SPT Logo" width={100} height={30} />
           <Input
             classNames={{
