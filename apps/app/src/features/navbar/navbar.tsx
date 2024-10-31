@@ -43,6 +43,7 @@ import { cn } from '@nextui-org/theme';
 import Link from 'next/link';
 import { PrimaryButton } from '../../ui/primary-button';
 import { Card } from '@nextui-org/card';
+import { usePathname } from 'next/navigation';
 
 const menuItems = [
   { label: 'home', href: '/home', icon: <FaHome /> },
@@ -100,8 +101,8 @@ const links = [
 export default function Navbar() {
   const t = useTranslations('sidenav');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const isLinkActive = (href: string) => location.pathname === href;
+  const path = usePathname();
+  const isLinkActive = (href: string) => path === href;
   const { user } = useUserStore();
   const { logout } = useLogout();
 
