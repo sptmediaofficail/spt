@@ -42,6 +42,7 @@ import { Divider } from '@nextui-org/divider';
 import { cn } from '@nextui-org/theme';
 import Link from 'next/link';
 import { PrimaryButton } from '../../ui/primary-button';
+import { Card } from '@nextui-org/card';
 
 const menuItems = [
   { label: 'home', href: '/home', icon: <FaHome /> },
@@ -157,7 +158,7 @@ export default function Navbar() {
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
             <DropdownItem onClick={logout} key="logout" color="danger">
-              تسجيل الخروج
+              {t('logout')}
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
@@ -178,17 +179,34 @@ export default function Navbar() {
       </NavbarContent>
 
       {/* Mobile Menu */}
-      <NavbarMenu className="px-4 bg-white border border-t border-gray-100 md:hidden flex flex-col justify-between">
+      <NavbarMenu className="px-4 py-0 bg-white border border-t border-gray-100 md:hidden flex flex-col justify-between">
         <div>
+          <Card className="p-4 w-full rounded-xl shadow-sm border flex flex-row gap-4 mt-4">
+            {user?.avatar ? (
+              <Image
+                src={user?.avatar}
+                alt="Provider Avatar"
+                width={48}
+                height={48}
+                className={'rounded-full'}
+              />
+            ) : (
+              <FaUserCircle className="h-12 w-12 text-primary" />
+            )}
+            <div className={'flex flex-col self-start'}>
+              <h3 className={'text-lg font-bold'}>{user?.name}</h3>
+              <button className="text-[#05B5B4] font-semibold text-sm">
+                {t('edit_profile')}
+              </button>
+            </div>
+          </Card>
+
           {menuItems.map((item) => (
             <>
               <NavbarMenuItem className={`py-4`} key={item.href}>
                 <Link
                   href={item.href}
                   color="foreground"
-                  // className={`w-full flex items-center gap-1.5 text-red-500 ${
-                  //   isLinkActive(item.href) && 'text-red-100'
-                  // }}`}
                   className={cn(
                     'w-full flex items-center gap-1.5 font-medium opacity-80',
                     isLinkActive(item.href) && 'text-primary opacity-100'
