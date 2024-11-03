@@ -7,13 +7,20 @@ import { Carousel } from '@spt/common';
 import { OfferCard, OfferCardSkeleton } from './offer-card';
 import { HomeSection } from '../home/home-section';
 import { UseOffers } from './use-offers';
+import { useRouter } from 'next/navigation';
 
 export const OffersSection = () => {
   const t = useTranslations('home');
   const { offers, isLoading, isError } = UseOffers();
+  const router = useRouter();
+  const onMoreClick = () => router.push('/offers');
 
   return (
-    <HomeSection title={t('offers')} className={'h-[calc(24rem+3.5rem)]'}>
+    <HomeSection
+      title={t('offers')}
+      className={'h-[calc(24rem+3.5rem)]'}
+      onMoreClick={onMoreClick}
+    >
       <div className={'relative'}>
         <div className="absolute inset-0">
           {isLoading || isError ? (
