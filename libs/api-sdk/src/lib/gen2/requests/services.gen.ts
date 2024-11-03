@@ -3,3656 +3,4273 @@
 import type { CancelablePromise } from './core/CancelablePromise';
 import { OpenAPI } from './core/OpenAPI';
 import { request as __request } from './core/request';
-import type { GetSharedAuthMeData, GetSharedAuthMeResponse, PostSharedAuthRegisterData, PostSharedAuthRegisterResponse, PostSharedAuthSendOtpData, PostSharedAuthSendOtpResponse, PostSharedAuthVerifyOtpData, PostSharedAuthVerifyOtpResponse, PostSharedAuthLogoutData, PostSharedAuthLogoutResponse, PostSharedAuthEditProfileData, PostSharedAuthEditProfileResponse, PostSharedAuthChangePhoneData, PostSharedAuthChangePhoneResponse, PostSharedAuthVerifyChangePhoneData, PostSharedAuthVerifyChangePhoneResponse, PutSharedAuthUpdateSettingsData, PutSharedAuthUpdateSettingsResponse, GetBrandsData, GetBrandsResponse, GetSiteOffersData, GetSiteOffersResponse, GetCitiesData, GetCitiesResponse, GetBrandsAlfaRomeoModelsData, GetBrandsAlfaRomeoModelsResponse, PostClientOrderSparePartData, PostClientOrderSparePartResponse, GetVinJn8At3Mm3Pw009894Data, GetVinJn8At3Mm3Pw009894Response, PostChatData, PostChatResponse, PostChatMessageData, PostChatMessageResponse, GetTicketsData, GetTicketsResponse, GetTicketB33C269eB489415E842F65472771A0F3Data, GetTicketB33C269eB489415E842F65472771A0F3Response, PostTicketData, PostTicketResponse, PostTicketMessageData, PostTicketMessageResponse, PostCallMakeData, PostCallMakeResponse, PostCallAcceptData, PostCallAcceptResponse, PostCallRefuseData, PostCallRefuseResponse, PostCallEndData, PostCallEndResponse, GetNotificationIndexData, GetNotificationIndexResponse, GetNotificationUnreadCountData, GetNotificationUnreadCountResponse, PostNotificationMarkAsReadData, PostNotificationMarkAsReadResponse, GetAdminOrdersData, GetAdminOrdersResponse, GetAdminOrders1D9De514C4E149878Eb90909556C7186Data, GetAdminOrders1D9De514C4E149878Eb90909556C7186Response, GetAdminOrders1D9De514C4E149878Eb90909556C7186OffersData, GetAdminOrders1D9De514C4E149878Eb90909556C7186OffersResponse, GetAdminOrders89572A05E77B48Dc8E1B645Fe0C82B6aChatData, GetAdminOrders89572A05E77B48Dc8E1B645Fe0C82B6aChatResponse, GetSettingCallsResponse, GetSettingData, GetSettingResponse, PostAdminSettingData, PostAdminSettingResponse, GetAdminCitiesData, GetAdminCitiesResponse, PostAdminCitiesData, PostAdminCitiesResponse, PutAdminCities81A53C0640694120B9Ae6A4314Cd4AdaData, PutAdminCities81A53C0640694120B9Ae6A4314Cd4AdaResponse, DeleteAdminCitiesB4A072761Baf43B08068C03Fdabf2626Response, PostAdminCities0E3685698D074EfbA367182Dd5E2Db42StopData, PostAdminCities0E3685698D074EfbA367182Dd5E2Db42StopResponse, PostAdminCities0E3685698D074EfbA367182Dd5E2Db42RestoreData, PostAdminCities0E3685698D074EfbA367182Dd5E2Db42RestoreResponse, GetAdminProviderProfilesData, GetAdminProviderProfilesResponse, PostAdminProviderProfilesVerify09D88C1dFd8A424D9E7cA5D2391Cdbd3Data, PostAdminProviderProfilesVerify09D88C1dFd8A424D9E7cA5D2391Cdbd3Response, PostAdminProviderProfilesDecline02B915A75A5647118B4aEb110408A090Data, PostAdminProviderProfilesDecline02B915A75A5647118B4aEb110408A090Response, PostAdminProviderProfilesStop02B915A75A5647118B4aEb110408A090Data, PostAdminProviderProfilesStop02B915A75A5647118B4aEb110408A090Response, PostAdminProviderProfilesRestore02B915A75A5647118B4aEb110408A090Data, PostAdminProviderProfilesRestore02B915A75A5647118B4aEb110408A090Response, GetAdminUsersData, GetAdminUsersResponse, PostAdminUsersData, PostAdminUsersResponse, GetAdminUsers72D5778fB67B4E97B4E2F98F695162A7Data, GetAdminUsers72D5778fB67B4E97B4E2F98F695162A7Response, PutAdminUsersB2Ef1C4F918A4F349D2F97Ce28C2772FData, PutAdminUsersB2Ef1C4F918A4F349D2F97Ce28C2772FResponse, DeleteAdminUsersB4A072761Baf43B08068C03Fdabf2626Response, PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42StopData, PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42StopResponse, PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42RestoreData, PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42RestoreResponse, GetAdminMessageTemplatesData, GetAdminMessageTemplatesResponse, GetAdminMessageTemplates2Data, GetAdminMessageTemplates2Response, PostAdminMessageTemplates5Data, PostAdminMessageTemplates5Response, GetAdminServicesData, GetAdminServicesResponse, PostAdminServicesData, PostAdminServicesResponse, PostAdminServicesB11D171dEec14474A3D26Ef6881023AeData, PostAdminServicesB11D171dEec14474A3D26Ef6881023AeResponse, DeleteAdminServicesB4A072761Baf43B08068C03Fdabf2626Response, PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611StopData, PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611StopResponse, PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreData, PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreResponse, GetAdminCommissionsData, GetAdminCommissionsResponse, PostAdminCommissionsData, PostAdminCommissionsResponse, PutAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Data, PutAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Response, DeleteAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Response, PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611StopData, PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611StopResponse, PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreData, PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreResponse, GetAdminPlatformReviewsData, GetAdminPlatformReviewsResponse, PostAdminPlatformReviewsData, PostAdminPlatformReviewsResponse, PostAdminPlatformReviews5Data, PostAdminPlatformReviews5Response, DeleteAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330Response, PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330StopData, PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330StopResponse, PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330RestoreData, PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330RestoreResponse, GetAdminPagesRightsResponse, GetAdminPagesRightsPaginatedData, GetAdminPagesRightsPaginatedResponse, PostAdminPagesData, PostAdminPagesResponse, PostAdminPages5Data, PostAdminPages5Response, DeleteAdminPages51A7447F3Bfd4E89A7F31969C8Fb9330Response, GetAdminProviderSubscriptionPlansData, GetAdminProviderSubscriptionPlansResponse, PostAdminProviderSubscriptionPlansData, PostAdminProviderSubscriptionPlansResponse, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Data, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Response, DeleteAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Response, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704StopData, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704StopResponse, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704RestoreData, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704RestoreResponse, GetAdminCityServicesData, GetAdminCityServicesResponse, PutAdminCityServices13Data, PutAdminCityServices13Response, PostAdminCityServicesAttachData, PostAdminCityServicesAttachResponse, PostAdminCityServicesDetachData, PostAdminCityServicesDetachResponse, PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42StopData, PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42StopResponse, PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42RestoreData, PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42RestoreResponse, PostAdminAuthLoginData, PostAdminAuthLoginResponse, PostAdminAuthLogoutData, PostAdminAuthLogoutResponse, PostAdminCustomNotificationData, PostAdminCustomNotificationResponse, GetAdminPermissionGroupsData, GetAdminPermissionGroupsResponse, PostAdminPermissionGroupsData, PostAdminPermissionGroupsResponse, GetAdminPermissionGroups8E0Ea4E1B13645AdAa91F4D0B47DcfafResponse, PostAdminPermissionGroupsD814419D755547108E26Efeb66Fc8Fc2Data, PostAdminPermissionGroupsD814419D755547108E26Efeb66Fc8Fc2Response, PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42StopData, PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42StopResponse, PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42RestoreData, PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42RestoreResponse, DeleteAdminPermissionGroups51A7447F3Bfd4E89A7F31969C8Fb9330Response, GetAdminPermissionsResponse, GetAdminMessagesData, GetAdminMessagesResponse, GetAdminMessages8899Eddd256740B6Bcaa85Ed7D53D226Data, GetAdminMessages8899Eddd256740B6Bcaa85Ed7D53D226Response, PostAdminMessagesReply8899Eddd256740B6Bcaa85Ed7D53D226Data, PostAdminMessagesReply8899Eddd256740B6Bcaa85Ed7D53D226Response, PostAdminMessagesDelete6Aa8Ddfc861C4C42B7C406Dbb20627AdData, PostAdminMessagesDelete6Aa8Ddfc861C4C42B7C406Dbb20627AdResponse, GetAdminSlidersData, GetAdminSlidersResponse, PostAdminSlidersData, PostAdminSlidersResponse, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4Data, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4Response, DeleteAdminSliders6193D4CdCe8E4B79Ba467E3C086206F3Response, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4StopData, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4StopResponse, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4RestoreData, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4RestoreResponse, GetAdminHowHelpData, GetAdminHowHelpResponse, PostAdminHowHelpData, PostAdminHowHelpResponse, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdData, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdResponse, DeleteAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdResponse, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdStopData, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdStopResponse, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdRestoreData, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdRestoreResponse, GetAdminAboutSectionsData, GetAdminAboutSectionsResponse, PostAdminAboutSectionsData, PostAdminAboutSectionsResponse, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdData, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdResponse, DeleteAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdResponse, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdStopData, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdStopResponse, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdRestoreData, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdRestoreResponse, GetAdminDownloadSectionResponse, PostAdminDownloadSectionData, PostAdminDownloadSectionResponse, GetAdminAboutData, GetAdminAboutResponse, PostAdminAboutStoreAboutData, PostAdminAboutStoreAboutResponse, PostAdminAboutStoreHowOrderData, PostAdminAboutStoreHowOrderResponse, DeleteAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5Response, PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5StopData, PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5StopResponse, PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5RestoreData, PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5RestoreResponse, GetAdminSiteOffersData, GetAdminSiteOffersResponse, PostAdminSiteOffersData, PostAdminSiteOffersResponse, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Data, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Response, DeleteAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Response, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210StopData, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210StopResponse, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210RestoreData, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210RestoreResponse, GetAdminGuaranteeRightData, GetAdminGuaranteeRightResponse, PostAdminGuaranteeRightData, PostAdminGuaranteeRightResponse, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Data, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Response, DeleteAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Response, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33StopData, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33StopResponse, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33RestoreData, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33RestoreResponse, GetAdminPartnersData, GetAdminPartnersResponse, PostAdminPartnersData, PostAdminPartnersResponse, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Data, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Response, DeleteAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Response, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7StopData, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7StopResponse, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7RestoreData, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7RestoreResponse, GetAdminTicketsData, GetAdminTicketsResponse, GetAdminTicketsFd3A3D51755B4FecBa9aA162B21188CeMessagesData, GetAdminTicketsFd3A3D51755B4FecBa9aA162B21188CeMessagesResponse, PostAdminTicketsSendMessageData, PostAdminTicketsSendMessageResponse, GetClientOrdersData, GetClientOrdersResponse, GetClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224Data, GetClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224Response, PostClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryData, PostClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryResponse, PostClientOrderRateData, PostClientOrderRateResponse, PostClientOffer96Be9E84956A429889Bd9Bd3C58E251eAcceptData, PostClientOffer96Be9E84956A429889Bd9Bd3C58E251eAcceptResponse, GetClientServicesData, GetClientServicesResponse, GetProviderSubscriptionPlansData, GetProviderSubscriptionPlansResponse, PostProviderSubscriptionSubscribeData, PostProviderSubscriptionSubscribeResponse, GetProviderSubscriptionCheckData, GetProviderSubscriptionCheckResponse, GetProviderProfileData, GetProviderProfileResponse, PostProviderProfileData, PostProviderProfileResponse, PutProviderProfileData, PutProviderProfileResponse, GetProviderMeData, GetProviderMeResponse, GetProviderF84Fd31930E54Ea49C2881B822045EbcData, GetProviderF84Fd31930E54Ea49C2881B822045EbcResponse, GetProviderSearchData, GetProviderSearchResponse, GetProviderOrdersData, GetProviderOrdersResponse, GetProviderOrders1D9De514C4E149878Eb90909556C7186Data, GetProviderOrders1D9De514C4E149878Eb90909556C7186Response, PostProviderOrderRateData, PostProviderOrderRateResponse, PostProviderOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryData, PostProviderOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryResponse, PostProviderOfferData, PostProviderOfferResponse, GetPagesHowWeHelpResponse, GetPagesRightsPaginatedData, GetPagesRightsPaginatedResponse, GetPlatformReviewsData, GetPlatformReviewsResponse, GetMessagesData, GetMessagesResponse, PostMessagesSendData, PostMessagesSendResponse, GetLandingSlidersResponse, GetLandingServicesResponse, GetLandingSiteOffersResponse, GetLandingPlansResponse, GetLandingHowHelpResponse, GetLandingAboutSectionsResponse, GetLandingDownloadSectionResponse, GetLandingGuaranteeRightsResponse, GetLandingPlatformReviewsResponse, GetLandingPartnersResponse, GetLandingMostRatedProvidersResponse, GetLandingOrdersNumbersResponse, GetLandingContactResponse, GetLandingAboutResponse, GetLandingHowOrderResponse } from './types.gen';
+import type {
+  DeleteAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5Response,
+  DeleteAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdResponse,
+  DeleteAdminCitiesB4A072761Baf43B08068C03Fdabf2626Response,
+  DeleteAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Response,
+  DeleteAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Response,
+  DeleteAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdResponse,
+  DeleteAdminPages51A7447F3Bfd4E89A7F31969C8Fb9330Response,
+  DeleteAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Response,
+  DeleteAdminPermissionGroups51A7447F3Bfd4E89A7F31969C8Fb9330Response,
+  DeleteAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330Response,
+  DeleteAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Response,
+  DeleteAdminServicesB4A072761Baf43B08068C03Fdabf2626Response,
+  DeleteAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Response,
+  DeleteAdminSliders6193D4CdCe8E4B79Ba467E3C086206F3Response,
+  DeleteAdminUsersB4A072761Baf43B08068C03Fdabf2626Response,
+  GetAdminAboutData,
+  GetAdminAboutResponse,
+  GetAdminAboutSectionsData,
+  GetAdminAboutSectionsResponse,
+  GetAdminCitiesData,
+  GetAdminCitiesResponse,
+  GetAdminCityServicesData,
+  GetAdminCityServicesResponse,
+  GetAdminCommissionsData,
+  GetAdminCommissionsResponse,
+  GetAdminDownloadSectionResponse,
+  GetAdminGuaranteeRightData,
+  GetAdminGuaranteeRightResponse,
+  GetAdminHowHelpData,
+  GetAdminHowHelpResponse,
+  GetAdminMessages8899Eddd256740B6Bcaa85Ed7D53D226Data,
+  GetAdminMessages8899Eddd256740B6Bcaa85Ed7D53D226Response,
+  GetAdminMessagesData,
+  GetAdminMessagesResponse,
+  GetAdminMessageTemplates2Data,
+  GetAdminMessageTemplates2Response,
+  GetAdminMessageTemplatesData,
+  GetAdminMessageTemplatesResponse,
+  GetAdminOrders1D9De514C4E149878Eb90909556C7186Data,
+  GetAdminOrders1D9De514C4E149878Eb90909556C7186OffersData,
+  GetAdminOrders1D9De514C4E149878Eb90909556C7186OffersResponse,
+  GetAdminOrders1D9De514C4E149878Eb90909556C7186Response,
+  GetAdminOrders89572A05E77B48Dc8E1B645Fe0C82B6aChatData,
+  GetAdminOrders89572A05E77B48Dc8E1B645Fe0C82B6aChatResponse,
+  GetAdminOrdersData,
+  GetAdminOrdersResponse,
+  GetAdminPagesRightsPaginatedData,
+  GetAdminPagesRightsPaginatedResponse,
+  GetAdminPagesRightsResponse,
+  GetAdminPartnersData,
+  GetAdminPartnersResponse,
+  GetAdminPermissionGroups8E0Ea4E1B13645AdAa91F4D0B47DcfafResponse,
+  GetAdminPermissionGroupsData,
+  GetAdminPermissionGroupsResponse,
+  GetAdminPermissionsResponse,
+  GetAdminPlatformReviewsData,
+  GetAdminPlatformReviewsResponse,
+  GetAdminProviderProfilesData,
+  GetAdminProviderProfilesResponse,
+  GetAdminProviderSubscriptionPlansData,
+  GetAdminProviderSubscriptionPlansResponse,
+  GetAdminServicesData,
+  GetAdminServicesResponse,
+  GetAdminSiteOffersData,
+  GetAdminSiteOffersResponse,
+  GetAdminSlidersData,
+  GetAdminSlidersResponse,
+  GetAdminTicketsData,
+  GetAdminTicketsFd3A3D51755B4FecBa9aA162B21188CeMessagesData,
+  GetAdminTicketsFd3A3D51755B4FecBa9aA162B21188CeMessagesResponse,
+  GetAdminTicketsResponse,
+  GetAdminUsers72D5778fB67B4E97B4E2F98F695162A7Data,
+  GetAdminUsers72D5778fB67B4E97B4E2F98F695162A7Response,
+  GetAdminUsersData,
+  GetAdminUsersResponse,
+  GetBrandsAlfaRomeoModelsData,
+  GetBrandsAlfaRomeoModelsResponse,
+  GetBrandsData,
+  GetBrandsResponse,
+  GetCitiesData,
+  GetCitiesResponse,
+  GetClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224Data,
+  GetClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224Response,
+  GetClientOrdersData,
+  GetClientOrdersResponse,
+  GetClientServicesData,
+  GetClientServicesResponse,
+  GetLandingAboutResponse,
+  GetLandingAboutSectionsResponse,
+  GetLandingContactResponse,
+  GetLandingDownloadSectionResponse,
+  GetLandingGuaranteeRightsResponse,
+  GetLandingHowHelpResponse,
+  GetLandingHowOrderResponse,
+  GetLandingMostRatedProvidersResponse,
+  GetLandingOrdersNumbersResponse,
+  GetLandingPartnersResponse,
+  GetLandingPlansResponse,
+  GetLandingPlatformReviewsResponse,
+  GetLandingServicesResponse,
+  GetLandingSiteOffersResponse,
+  GetLandingSlidersResponse,
+  GetMessagesData,
+  GetMessagesResponse,
+  GetNotificationIndexData,
+  GetNotificationIndexResponse,
+  GetNotificationUnreadCountData,
+  GetNotificationUnreadCountResponse,
+  GetPagesHowWeHelpResponse,
+  GetPagesRightsPaginatedData,
+  GetPagesRightsPaginatedResponse,
+  GetPlatformReviewsData,
+  GetPlatformReviewsResponse,
+  GetProviderF84Fd31930E54Ea49C2881B822045EbcData,
+  GetProviderF84Fd31930E54Ea49C2881B822045EbcResponse,
+  GetProviderMeData,
+  GetProviderMeResponse,
+  GetProviderOrders1D9De514C4E149878Eb90909556C7186Data,
+  GetProviderOrders1D9De514C4E149878Eb90909556C7186Response,
+  GetProviderOrdersData,
+  GetProviderOrdersResponse,
+  GetProviderProfileData,
+  GetProviderProfileResponse,
+  GetProviderSearchData,
+  GetProviderSearchResponse,
+  GetProviderSubscriptionCheckData,
+  GetProviderSubscriptionCheckResponse,
+  GetProviderSubscriptionPlansData,
+  GetProviderSubscriptionPlansResponse,
+  GetSettingCallsResponse,
+  GetSettingData,
+  GetSettingResponse,
+  GetSharedAuthMeData,
+  GetSharedAuthMeResponse,
+  GetSiteOffersData,
+  GetSiteOffersResponse,
+  GetTicketB33C269eB489415E842F65472771A0F3Data,
+  GetTicketB33C269eB489415E842F65472771A0F3Response,
+  GetTicketsData,
+  GetTicketsResponse,
+  GetVinJn8At3Mm3Pw009894Data,
+  GetVinJn8At3Mm3Pw009894Response,
+  PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5RestoreData,
+  PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5RestoreResponse,
+  PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5StopData,
+  PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5StopResponse,
+  PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdData,
+  PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdResponse,
+  PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdRestoreData,
+  PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdRestoreResponse,
+  PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdStopData,
+  PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdStopResponse,
+  PostAdminAboutSectionsData,
+  PostAdminAboutSectionsResponse,
+  PostAdminAboutStoreAboutData,
+  PostAdminAboutStoreAboutResponse,
+  PostAdminAboutStoreHowOrderData,
+  PostAdminAboutStoreHowOrderResponse,
+  PostAdminAuthLoginData,
+  PostAdminAuthLoginResponse,
+  PostAdminAuthLogoutData,
+  PostAdminAuthLogoutResponse,
+  PostAdminCities0E3685698D074EfbA367182Dd5E2Db42RestoreData,
+  PostAdminCities0E3685698D074EfbA367182Dd5E2Db42RestoreResponse,
+  PostAdminCities0E3685698D074EfbA367182Dd5E2Db42StopData,
+  PostAdminCities0E3685698D074EfbA367182Dd5E2Db42StopResponse,
+  PostAdminCitiesData,
+  PostAdminCitiesResponse,
+  PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42RestoreData,
+  PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42RestoreResponse,
+  PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42StopData,
+  PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42StopResponse,
+  PostAdminCityServicesAttachData,
+  PostAdminCityServicesAttachResponse,
+  PostAdminCityServicesDetachData,
+  PostAdminCityServicesDetachResponse,
+  PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreData,
+  PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreResponse,
+  PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611StopData,
+  PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611StopResponse,
+  PostAdminCommissionsData,
+  PostAdminCommissionsResponse,
+  PostAdminCustomNotificationData,
+  PostAdminCustomNotificationResponse,
+  PostAdminDownloadSectionData,
+  PostAdminDownloadSectionResponse,
+  PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Data,
+  PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Response,
+  PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33RestoreData,
+  PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33RestoreResponse,
+  PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33StopData,
+  PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33StopResponse,
+  PostAdminGuaranteeRightData,
+  PostAdminGuaranteeRightResponse,
+  PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdData,
+  PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdResponse,
+  PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdRestoreData,
+  PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdRestoreResponse,
+  PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdStopData,
+  PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdStopResponse,
+  PostAdminHowHelpData,
+  PostAdminHowHelpResponse,
+  PostAdminMessagesDelete6Aa8Ddfc861C4C42B7C406Dbb20627AdData,
+  PostAdminMessagesDelete6Aa8Ddfc861C4C42B7C406Dbb20627AdResponse,
+  PostAdminMessagesReply8899Eddd256740B6Bcaa85Ed7D53D226Data,
+  PostAdminMessagesReply8899Eddd256740B6Bcaa85Ed7D53D226Response,
+  PostAdminMessageTemplates5Data,
+  PostAdminMessageTemplates5Response,
+  PostAdminPages5Data,
+  PostAdminPages5Response,
+  PostAdminPagesData,
+  PostAdminPagesResponse,
+  PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Data,
+  PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Response,
+  PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7RestoreData,
+  PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7RestoreResponse,
+  PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7StopData,
+  PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7StopResponse,
+  PostAdminPartnersData,
+  PostAdminPartnersResponse,
+  PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42RestoreData,
+  PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42RestoreResponse,
+  PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42StopData,
+  PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42StopResponse,
+  PostAdminPermissionGroupsD814419D755547108E26Efeb66Fc8Fc2Data,
+  PostAdminPermissionGroupsD814419D755547108E26Efeb66Fc8Fc2Response,
+  PostAdminPermissionGroupsData,
+  PostAdminPermissionGroupsResponse,
+  PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330RestoreData,
+  PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330RestoreResponse,
+  PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330StopData,
+  PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330StopResponse,
+  PostAdminPlatformReviews5Data,
+  PostAdminPlatformReviews5Response,
+  PostAdminPlatformReviewsData,
+  PostAdminPlatformReviewsResponse,
+  PostAdminProviderProfilesDecline02B915A75A5647118B4aEb110408A090Data,
+  PostAdminProviderProfilesDecline02B915A75A5647118B4aEb110408A090Response,
+  PostAdminProviderProfilesRestore02B915A75A5647118B4aEb110408A090Data,
+  PostAdminProviderProfilesRestore02B915A75A5647118B4aEb110408A090Response,
+  PostAdminProviderProfilesStop02B915A75A5647118B4aEb110408A090Data,
+  PostAdminProviderProfilesStop02B915A75A5647118B4aEb110408A090Response,
+  PostAdminProviderProfilesVerify09D88C1dFd8A424D9E7cA5D2391Cdbd3Data,
+  PostAdminProviderProfilesVerify09D88C1dFd8A424D9E7cA5D2391Cdbd3Response,
+  PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Data,
+  PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Response,
+  PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704RestoreData,
+  PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704RestoreResponse,
+  PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704StopData,
+  PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704StopResponse,
+  PostAdminProviderSubscriptionPlansData,
+  PostAdminProviderSubscriptionPlansResponse,
+  PostAdminServicesB11D171dEec14474A3D26Ef6881023AeData,
+  PostAdminServicesB11D171dEec14474A3D26Ef6881023AeResponse,
+  PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreData,
+  PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreResponse,
+  PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611StopData,
+  PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611StopResponse,
+  PostAdminServicesData,
+  PostAdminServicesResponse,
+  PostAdminSettingData,
+  PostAdminSettingResponse,
+  PostAdminSiteOffersData,
+  PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Data,
+  PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Response,
+  PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210RestoreData,
+  PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210RestoreResponse,
+  PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210StopData,
+  PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210StopResponse,
+  PostAdminSiteOffersResponse,
+  PostAdminSliders726A81EcD9B543Ad946bB77470B071F4Data,
+  PostAdminSliders726A81EcD9B543Ad946bB77470B071F4Response,
+  PostAdminSliders726A81EcD9B543Ad946bB77470B071F4RestoreData,
+  PostAdminSliders726A81EcD9B543Ad946bB77470B071F4RestoreResponse,
+  PostAdminSliders726A81EcD9B543Ad946bB77470B071F4StopData,
+  PostAdminSliders726A81EcD9B543Ad946bB77470B071F4StopResponse,
+  PostAdminSlidersData,
+  PostAdminSlidersResponse,
+  PostAdminTicketsSendMessageData,
+  PostAdminTicketsSendMessageResponse,
+  PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42RestoreData,
+  PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42RestoreResponse,
+  PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42StopData,
+  PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42StopResponse,
+  PostAdminUsersData,
+  PostAdminUsersResponse,
+  PostCallAcceptData,
+  PostCallAcceptResponse,
+  PostCallEndData,
+  PostCallEndResponse,
+  PostCallMakeData,
+  PostCallMakeResponse,
+  PostCallRefuseData,
+  PostCallRefuseResponse,
+  PostChatData,
+  PostChatMessageData,
+  PostChatMessageResponse,
+  PostChatResponse,
+  PostClientOffer96Be9E84956A429889Bd9Bd3C58E251eAcceptData,
+  PostClientOffer96Be9E84956A429889Bd9Bd3C58E251eAcceptResponse,
+  PostClientOrderRateData,
+  PostClientOrderRateResponse,
+  PostClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryData,
+  PostClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryResponse,
+  PostClientOrderSparePartData,
+  PostClientOrderSparePartResponse,
+  PostMessagesSendData,
+  PostMessagesSendResponse,
+  PostNotificationMarkAsReadData,
+  PostNotificationMarkAsReadResponse,
+  PostProviderOfferData,
+  PostProviderOfferResponse,
+  PostProviderOrderRateData,
+  PostProviderOrderRateResponse,
+  PostProviderOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryData,
+  PostProviderOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryResponse,
+  PostProviderProfileData,
+  PostProviderProfileResponse,
+  PostProviderSubscriptionSubscribeData,
+  PostProviderSubscriptionSubscribeResponse,
+  PostSharedAuthChangePhoneData,
+  PostSharedAuthChangePhoneResponse,
+  PostSharedAuthEditProfileData,
+  PostSharedAuthEditProfileResponse,
+  PostSharedAuthLogoutData,
+  PostSharedAuthLogoutResponse,
+  PostSharedAuthRegisterData,
+  PostSharedAuthRegisterResponse,
+  PostSharedAuthSendOtpData,
+  PostSharedAuthSendOtpResponse,
+  PostSharedAuthVerifyChangePhoneData,
+  PostSharedAuthVerifyChangePhoneResponse,
+  PostSharedAuthVerifyOtpData,
+  PostSharedAuthVerifyOtpResponse,
+  PostTicketData,
+  PostTicketMessageData,
+  PostTicketMessageResponse,
+  PostTicketResponse,
+  PutAdminCities81A53C0640694120B9Ae6A4314Cd4AdaData,
+  PutAdminCities81A53C0640694120B9Ae6A4314Cd4AdaResponse,
+  PutAdminCityServices13Data,
+  PutAdminCityServices13Response,
+  PutAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Data,
+  PutAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Response,
+  PutAdminUsersB2Ef1C4F918A4F349D2F97Ce28C2772FData,
+  PutAdminUsersB2Ef1C4F918A4F349D2F97Ce28C2772FResponse,
+  PutProviderProfileData,
+  PutProviderProfileResponse,
+  PutSharedAuthUpdateSettingsData,
+  PutSharedAuthUpdateSettingsResponse,
+} from './types.gen';
 
 export class AuthenticationService {
-    /**
-     * me
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getSharedAuthMe(data: GetSharedAuthMeData = {}): CancelablePromise<GetSharedAuthMeResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/shared/auth/me',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            }
-        });
-    }
-    
-    /**
-     * Register
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown OK
-     * @throws ApiError
-     */
-    public static postSharedAuthRegister(data: PostSharedAuthRegisterData = {}): CancelablePromise<PostSharedAuthRegisterResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/shared/auth/register',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * Send OTP
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.requestBody
-     * @returns unknown OK
-     * @throws ApiError
-     */
-    public static postSharedAuthSendOtp(data: PostSharedAuthSendOtpData = {}): CancelablePromise<PostSharedAuthSendOtpResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/shared/auth/send-otp',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * Verify OTP
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.requestBody
-     * @returns unknown OK
-     * @throws ApiError
-     */
-    public static postSharedAuthVerifyOtp(data: PostSharedAuthVerifyOtpData = {}): CancelablePromise<PostSharedAuthVerifyOtpResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/shared/auth/verify-otp',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * logout
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.requestBody
-     * @returns unknown OK
-     * @throws ApiError
-     */
-    public static postSharedAuthLogout(data: PostSharedAuthLogoutData = {}): CancelablePromise<PostSharedAuthLogoutResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/shared/auth/logout',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * Edit profile
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postSharedAuthEditProfile(data: PostSharedAuthEditProfileData = {}): CancelablePromise<PostSharedAuthEditProfileResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/shared/auth/edit-profile',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * Change phone
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postSharedAuthChangePhone(data: PostSharedAuthChangePhoneData = {}): CancelablePromise<PostSharedAuthChangePhoneResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/shared/auth/change-phone',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * Verify Change phone
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postSharedAuthVerifyChangePhone(data: PostSharedAuthVerifyChangePhoneData = {}): CancelablePromise<PostSharedAuthVerifyChangePhoneResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/shared/auth/verify-change-phone',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * Update Settings
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static putSharedAuthUpdateSettings(data: PutSharedAuthUpdateSettingsData = {}): CancelablePromise<PutSharedAuthUpdateSettingsResponse> {
-        return __request(OpenAPI, {
-            method: 'PUT',
-            url: '/shared/auth/update-settings',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * me
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getSharedAuthMe(
+    data: GetSharedAuthMeData = {}
+  ): CancelablePromise<GetSharedAuthMeResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/shared/auth/me',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+    });
+  }
+
+  /**
+   * Register
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown OK
+   * @throws ApiError
+   */
+  public static postSharedAuthRegister(
+    data: PostSharedAuthRegisterData = {}
+  ): CancelablePromise<PostSharedAuthRegisterResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/shared/auth/register',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * Send OTP
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.requestBody
+   * @returns unknown OK
+   * @throws ApiError
+   */
+  public static postSharedAuthSendOtp(
+    data: PostSharedAuthSendOtpData = {}
+  ): CancelablePromise<PostSharedAuthSendOtpResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/shared/auth/send-otp',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * Verify OTP
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.requestBody
+   * @returns unknown OK
+   * @throws ApiError
+   */
+  public static postSharedAuthVerifyOtp(
+    data: PostSharedAuthVerifyOtpData = {}
+  ): CancelablePromise<PostSharedAuthVerifyOtpResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/shared/auth/verify-otp',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * logout
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.requestBody
+   * @returns unknown OK
+   * @throws ApiError
+   */
+  public static postSharedAuthLogout(
+    data: PostSharedAuthLogoutData = {}
+  ): CancelablePromise<PostSharedAuthLogoutResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/shared/auth/logout',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * Edit profile
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postSharedAuthEditProfile(
+    data: PostSharedAuthEditProfileData = {}
+  ): CancelablePromise<PostSharedAuthEditProfileResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/shared/auth/edit-profile',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * Change phone
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postSharedAuthChangePhone(
+    data: PostSharedAuthChangePhoneData = {}
+  ): CancelablePromise<PostSharedAuthChangePhoneResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/shared/auth/change-phone',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * Verify Change phone
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postSharedAuthVerifyChangePhone(
+    data: PostSharedAuthVerifyChangePhoneData = {}
+  ): CancelablePromise<PostSharedAuthVerifyChangePhoneResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/shared/auth/verify-change-phone',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * Update Settings
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static putSharedAuthUpdateSettings(
+    data: PutSharedAuthUpdateSettingsData = {}
+  ): CancelablePromise<PutSharedAuthUpdateSettingsResponse> {
+    return __request(OpenAPI, {
+      method: 'PUT',
+      url: '/shared/auth/update-settings',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class BrandService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getBrands(data: GetBrandsData = {}): CancelablePromise<GetBrandsResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/brands',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            query: {
-                paginate: data.paginate
-            }
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getBrands(
+    data: GetBrandsData = {}
+  ): CancelablePromise<GetBrandsResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/brands',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      query: {
+        paginate: data.paginate,
+      },
+    });
+  }
 }
 
 export class SiteOffersService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getSiteOffers(data: GetSiteOffersData = {}): CancelablePromise<GetSiteOffersResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/site_offers',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            query: {
-                paginate: data.paginate
-            }
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getSiteOffers(
+    data: GetSiteOffersData = {}
+  ): CancelablePromise<GetSiteOffersResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/site_offers',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      query: {
+        paginate: data.paginate,
+        page: data.page,
+      },
+    });
+  }
 }
 
 export class CitiesService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getCities(data: GetCitiesData = {}): CancelablePromise<GetCitiesResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/cities',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            query: {
-                paginate: data.paginate
-            }
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getCities(
+    data: GetCitiesData = {}
+  ): CancelablePromise<GetCitiesResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/cities',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      query: {
+        paginate: data.paginate,
+      },
+    });
+  }
 }
 
 export class BrandModelsService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getBrandsAlfaRomeoModels(data: GetBrandsAlfaRomeoModelsData = {}): CancelablePromise<GetBrandsAlfaRomeoModelsResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/brands/Alfa_Romeo/models',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            }
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getBrandsAlfaRomeoModels(
+    data: GetBrandsAlfaRomeoModelsData = {}
+  ): CancelablePromise<GetBrandsAlfaRomeoModelsResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/brands/Alfa_Romeo/models',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+    });
+  }
 }
 
 export class OrderSparePartService {
-    /**
-     * store
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postClientOrderSparePart(data: PostClientOrderSparePartData = {}): CancelablePromise<PostClientOrderSparePartResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/client/order_spare_part',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
+  /**
+   * store
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postClientOrderSparePart(
+    data: PostClientOrderSparePartData = {}
+  ): CancelablePromise<PostClientOrderSparePartResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/client/order_spare_part',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
 }
 
 export class VinService {
-    /**
-     * Get Data
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getVinJn8At3Mm3Pw009894(data: GetVinJn8At3Mm3Pw009894Data = {}): CancelablePromise<GetVinJn8At3Mm3Pw009894Response> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/vin/JN8AT3MM3PW009894',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            }
-        });
-    }
-    
+  /**
+   * Get Data
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getVinJn8At3Mm3Pw009894(
+    data: GetVinJn8At3Mm3Pw009894Data = {}
+  ): CancelablePromise<GetVinJn8At3Mm3Pw009894Response> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/vin/JN8AT3MM3PW009894',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+    });
+  }
 }
 
 export class ChatService {
-    /**
-     * Chat
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postChat(data: PostChatData = {}): CancelablePromise<PostChatResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/chat',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * message
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postChatMessage(data: PostChatMessageData = {}): CancelablePromise<PostChatMessageResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/chat/message',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
+  /**
+   * Chat
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postChat(
+    data: PostChatData = {}
+  ): CancelablePromise<PostChatResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/chat',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * message
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postChatMessage(
+    data: PostChatMessageData = {}
+  ): CancelablePromise<PostChatMessageResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/chat/message',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
 }
 
 export class TicketService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.paginate
-     * @param data.page
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getTickets(data: GetTicketsData = {}): CancelablePromise<GetTicketsResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/tickets',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            query: {
-                paginate: data.paginate,
-                page: data.page
-            }
-        });
-    }
-    
-    /**
-     * details
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getTicketB33C269eB489415e842f65472771A0F3(data: GetTicketB33C269eB489415E842F65472771A0F3Data = {}): CancelablePromise<GetTicketB33C269eB489415E842F65472771A0F3Response> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/ticket/b33c269e-b489-415e-842f-65472771a0f3',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            }
-        });
-    }
-    
-    /**
-     * ticket
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postTicket(data: PostTicketData = {}): CancelablePromise<PostTicketResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/ticket',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * message
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postTicketMessage(data: PostTicketMessageData = {}): CancelablePromise<PostTicketMessageResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/ticket/message',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.paginate
+   * @param data.page
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getTickets(
+    data: GetTicketsData = {}
+  ): CancelablePromise<GetTicketsResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/tickets',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      query: {
+        paginate: data.paginate,
+        page: data.page,
+      },
+    });
+  }
+
+  /**
+   * details
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getTicketB33C269eB489415e842f65472771A0F3(
+    data: GetTicketB33C269eB489415E842F65472771A0F3Data = {}
+  ): CancelablePromise<GetTicketB33C269eB489415E842F65472771A0F3Response> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/ticket/b33c269e-b489-415e-842f-65472771a0f3',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+    });
+  }
+
+  /**
+   * ticket
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postTicket(
+    data: PostTicketData = {}
+  ): CancelablePromise<PostTicketResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/ticket',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * message
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postTicketMessage(
+    data: PostTicketMessageData = {}
+  ): CancelablePromise<PostTicketMessageResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/ticket/message',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
 }
 
 export class CallService {
-    /**
-     * make a call
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postCallMake(data: PostCallMakeData = {}): CancelablePromise<PostCallMakeResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/call/make',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * accept
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postCallAccept(data: PostCallAcceptData = {}): CancelablePromise<PostCallAcceptResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/call/accept',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * refuse
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postCallRefuse(data: PostCallRefuseData = {}): CancelablePromise<PostCallRefuseResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/call/refuse',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * end
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postCallEnd(data: PostCallEndData = {}): CancelablePromise<PostCallEndResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/call/end',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
+  /**
+   * make a call
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postCallMake(
+    data: PostCallMakeData = {}
+  ): CancelablePromise<PostCallMakeResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/call/make',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * accept
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postCallAccept(
+    data: PostCallAcceptData = {}
+  ): CancelablePromise<PostCallAcceptResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/call/accept',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * refuse
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postCallRefuse(
+    data: PostCallRefuseData = {}
+  ): CancelablePromise<PostCallRefuseResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/call/refuse',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * end
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postCallEnd(
+    data: PostCallEndData = {}
+  ): CancelablePromise<PostCallEndResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/call/end',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
 }
 
 export class NotificationService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getNotificationIndex(data: GetNotificationIndexData = {}): CancelablePromise<GetNotificationIndexResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/notification/index',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            query: {
-                paginate: data.paginate
-            }
-        });
-    }
-    
-    /**
-     * unReadCount
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getNotificationUnreadCount(data: GetNotificationUnreadCountData = {}): CancelablePromise<GetNotificationUnreadCountResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/notification/unread_count',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            }
-        });
-    }
-    
-    /**
-     * mark as read
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postNotificationMarkAsRead(data: PostNotificationMarkAsReadData = {}): CancelablePromise<PostNotificationMarkAsReadResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/notification/mark_as_read',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getNotificationIndex(
+    data: GetNotificationIndexData = {}
+  ): CancelablePromise<GetNotificationIndexResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/notification/index',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      query: {
+        paginate: data.paginate,
+      },
+    });
+  }
+
+  /**
+   * unReadCount
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getNotificationUnreadCount(
+    data: GetNotificationUnreadCountData = {}
+  ): CancelablePromise<GetNotificationUnreadCountResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/notification/unread_count',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+    });
+  }
+
+  /**
+   * mark as read
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postNotificationMarkAsRead(
+    data: PostNotificationMarkAsReadData = {}
+  ): CancelablePromise<PostNotificationMarkAsReadResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/notification/mark_as_read',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
 }
 
 export class AdminAdminOrdersService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.paginate
-     * @param data.search
-     * @param data.status 'receiving_offer','accepted','completed'
-     * @param data.type 'spare_parts','towing','junkyard_sale'
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminOrders(data: GetAdminOrdersData = {}): CancelablePromise<GetAdminOrdersResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/orders',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            query: {
-                paginate: data.paginate,
-                search: data.search,
-                status: data.status,
-                type: data.type
-            }
-        });
-    }
-    
-    /**
-     * details
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminOrders1D9De514C4E149878Eb90909556C7186(data: GetAdminOrders1D9De514C4E149878Eb90909556C7186Data = {}): CancelablePromise<GetAdminOrders1D9De514C4E149878Eb90909556C7186Response> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/orders/1d9de514-c4e1-4987-8eb9-0909556c7186',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            }
-        });
-    }
-    
-    /**
-     * offers
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminOrders1D9De514C4E149878Eb90909556C7186Offers(data: GetAdminOrders1D9De514C4E149878Eb90909556C7186OffersData = {}): CancelablePromise<GetAdminOrders1D9De514C4E149878Eb90909556C7186OffersResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/orders/1d9de514-c4e1-4987-8eb9-0909556c7186/offers',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            }
-        });
-    }
-    
-    /**
-     * chat
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminOrders89572A05E77b48Dc8E1b645Fe0C82B6aChat(data: GetAdminOrders89572A05E77B48Dc8E1B645Fe0C82B6aChatData = {}): CancelablePromise<GetAdminOrders89572A05E77B48Dc8E1B645Fe0C82B6aChatResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/orders/89572a05-e77b-48dc-8e1b-645fe0c82b6a/chat',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            }
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.paginate
+   * @param data.search
+   * @param data.status 'receiving_offer','accepted','completed'
+   * @param data.type 'spare_parts','towing','junkyard_sale'
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminOrders(
+    data: GetAdminOrdersData = {}
+  ): CancelablePromise<GetAdminOrdersResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/orders',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      query: {
+        paginate: data.paginate,
+        search: data.search,
+        status: data.status,
+        type: data.type,
+      },
+    });
+  }
+
+  /**
+   * details
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminOrders1D9De514C4E149878Eb90909556C7186(
+    data: GetAdminOrders1D9De514C4E149878Eb90909556C7186Data = {}
+  ): CancelablePromise<GetAdminOrders1D9De514C4E149878Eb90909556C7186Response> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/orders/1d9de514-c4e1-4987-8eb9-0909556c7186',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+    });
+  }
+
+  /**
+   * offers
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminOrders1D9De514C4E149878Eb90909556C7186Offers(
+    data: GetAdminOrders1D9De514C4E149878Eb90909556C7186OffersData = {}
+  ): CancelablePromise<GetAdminOrders1D9De514C4E149878Eb90909556C7186OffersResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/orders/1d9de514-c4e1-4987-8eb9-0909556c7186/offers',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+    });
+  }
+
+  /**
+   * chat
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminOrders89572A05E77b48Dc8E1b645Fe0C82B6aChat(
+    data: GetAdminOrders89572A05E77B48Dc8E1B645Fe0C82B6aChatData = {}
+  ): CancelablePromise<GetAdminOrders89572A05E77B48Dc8E1B645Fe0C82B6aChatResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/orders/89572a05-e77b-48dc-8e1b-645fe0c82b6a/chat',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+    });
+  }
 }
 
 export class SettingsService {
-    /**
-     * calls
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getSettingCalls(): CancelablePromise<GetSettingCallsResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/setting/calls'
-        });
-    }
-    
-    /**
-     * get by section
-     * @param data The data for the request.
-     * @param data.section contact,social_media,notification
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getSetting(data: GetSettingData = {}): CancelablePromise<GetSettingResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/setting',
-            query: {
-                section: data.section
-            }
-        });
-    }
-    
+  /**
+   * calls
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getSettingCalls(): CancelablePromise<GetSettingCallsResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/setting/calls',
+    });
+  }
+
+  /**
+   * get by section
+   * @param data The data for the request.
+   * @param data.section contact,social_media,notification
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getSetting(
+    data: GetSettingData = {}
+  ): CancelablePromise<GetSettingResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/setting',
+      query: {
+        section: data.section,
+      },
+    });
+  }
 }
 
 export class AdminSettingService {
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminSetting(data: PostAdminSettingData = {}): CancelablePromise<PostAdminSettingResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/setting',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminSetting(
+    data: PostAdminSettingData = {}
+  ): CancelablePromise<PostAdminSettingResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/setting',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminCitiesService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.paginate
-     * @param data.page
-     * @param data.search
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminCities(data: GetAdminCitiesData = {}): CancelablePromise<GetAdminCitiesResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/cities',
-            query: {
-                paginate: data.paginate,
-                page: data.page,
-                search: data.search
-            }
-        });
-    }
-    
-    /**
-     * create
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminCities(data: PostAdminCitiesData = {}): CancelablePromise<PostAdminCitiesResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/cities',
-            headers: {
-                Accept: data.accept
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.contentType
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static putAdminCities81A53C0640694120B9Ae6A4314Cd4Ada(data: PutAdminCities81A53C0640694120B9Ae6A4314Cd4AdaData = {}): CancelablePromise<PutAdminCities81A53C0640694120B9Ae6A4314Cd4AdaResponse> {
-        return __request(OpenAPI, {
-            method: 'PUT',
-            url: '/admin/cities/81a53c06-4069-4120-b9ae-6a4314cd4ada',
-            headers: {
-                'Content-Type': data.contentType
-            },
-            formData: data.formData,
-            mediaType: 'application/x-www-form-urlencoded'
-        });
-    }
-    
-    /**
-     * delete
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static deleteAdminCitiesB4A072761Baf43B08068C03Fdabf2626(): CancelablePromise<DeleteAdminCitiesB4A072761Baf43B08068C03Fdabf2626Response> {
-        return __request(OpenAPI, {
-            method: 'DELETE',
-            url: '/admin/cities/b4a07276-1baf-43b0-8068-c03fdabf2626'
-        });
-    }
-    
-    /**
-     * stop
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminCities0E3685698D074EfbA367182Dd5E2Db42Stop(data: PostAdminCities0E3685698D074EfbA367182Dd5E2Db42StopData = {}): CancelablePromise<PostAdminCities0E3685698D074EfbA367182Dd5E2Db42StopResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/cities/0e368569-8d07-4efb-a367-182dd5e2db42/stop',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * restore
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminCities0E3685698D074EfbA367182Dd5E2Db42Restore(data: PostAdminCities0E3685698D074EfbA367182Dd5E2Db42RestoreData = {}): CancelablePromise<PostAdminCities0E3685698D074EfbA367182Dd5E2Db42RestoreResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/cities/0e368569-8d07-4efb-a367-182dd5e2db42/restore',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.paginate
+   * @param data.page
+   * @param data.search
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminCities(
+    data: GetAdminCitiesData = {}
+  ): CancelablePromise<GetAdminCitiesResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/cities',
+      query: {
+        paginate: data.paginate,
+        page: data.page,
+        search: data.search,
+      },
+    });
+  }
+
+  /**
+   * create
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminCities(
+    data: PostAdminCitiesData = {}
+  ): CancelablePromise<PostAdminCitiesResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/cities',
+      headers: {
+        Accept: data.accept,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.contentType
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static putAdminCities81A53C0640694120B9Ae6A4314Cd4Ada(
+    data: PutAdminCities81A53C0640694120B9Ae6A4314Cd4AdaData = {}
+  ): CancelablePromise<PutAdminCities81A53C0640694120B9Ae6A4314Cd4AdaResponse> {
+    return __request(OpenAPI, {
+      method: 'PUT',
+      url: '/admin/cities/81a53c06-4069-4120-b9ae-6a4314cd4ada',
+      headers: {
+        'Content-Type': data.contentType,
+      },
+      formData: data.formData,
+      mediaType: 'application/x-www-form-urlencoded',
+    });
+  }
+
+  /**
+   * delete
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static deleteAdminCitiesB4A072761Baf43B08068C03Fdabf2626(): CancelablePromise<DeleteAdminCitiesB4A072761Baf43B08068C03Fdabf2626Response> {
+    return __request(OpenAPI, {
+      method: 'DELETE',
+      url: '/admin/cities/b4a07276-1baf-43b0-8068-c03fdabf2626',
+    });
+  }
+
+  /**
+   * stop
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminCities0E3685698D074EfbA367182Dd5E2Db42Stop(
+    data: PostAdminCities0E3685698D074EfbA367182Dd5E2Db42StopData = {}
+  ): CancelablePromise<PostAdminCities0E3685698D074EfbA367182Dd5E2Db42StopResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/cities/0e368569-8d07-4efb-a367-182dd5e2db42/stop',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * restore
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminCities0E3685698D074EfbA367182Dd5E2Db42Restore(
+    data: PostAdminCities0E3685698D074EfbA367182Dd5E2Db42RestoreData = {}
+  ): CancelablePromise<PostAdminCities0E3685698D074EfbA367182Dd5E2Db42RestoreResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/cities/0e368569-8d07-4efb-a367-182dd5e2db42/restore',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminProviderProfilesService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.paginate
-     * @param data.page
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminProviderProfiles(data: GetAdminProviderProfilesData = {}): CancelablePromise<GetAdminProviderProfilesResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/provider-profiles',
-            query: {
-                paginate: data.paginate,
-                page: data.page
-            }
-        });
-    }
-    
-    /**
-     * verify
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminProviderProfilesVerify09D88C1dFd8a424d9E7cA5D2391Cdbd3(data: PostAdminProviderProfilesVerify09D88C1dFd8A424D9E7cA5D2391Cdbd3Data = {}): CancelablePromise<PostAdminProviderProfilesVerify09D88C1dFd8A424D9E7cA5D2391Cdbd3Response> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/provider-profiles/verify/09d88c1d-fd8a-424d-9e7c-a5d2391cdbd3',
-            headers: {
-                Accept: data.accept
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * decline
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminProviderProfilesDecline02B915A75A5647118B4aEb110408A090(data: PostAdminProviderProfilesDecline02B915A75A5647118B4aEb110408A090Data = {}): CancelablePromise<PostAdminProviderProfilesDecline02B915A75A5647118B4aEb110408A090Response> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/provider-profiles/decline/02b915a7-5a56-4711-8b4a-eb110408a090',
-            headers: {
-                Accept: data.accept
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * stop
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminProviderProfilesStop02B915A75A5647118B4aEb110408A090(data: PostAdminProviderProfilesStop02B915A75A5647118B4aEb110408A090Data = {}): CancelablePromise<PostAdminProviderProfilesStop02B915A75A5647118B4aEb110408A090Response> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/provider-profiles/stop/02b915a7-5a56-4711-8b4a-eb110408a090',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * restore
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminProviderProfilesRestore02B915A75A5647118B4aEb110408A090(data: PostAdminProviderProfilesRestore02B915A75A5647118B4aEb110408A090Data = {}): CancelablePromise<PostAdminProviderProfilesRestore02B915A75A5647118B4aEb110408A090Response> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/provider-profiles/restore/02b915a7-5a56-4711-8b4a-eb110408a090',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.paginate
+   * @param data.page
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminProviderProfiles(
+    data: GetAdminProviderProfilesData = {}
+  ): CancelablePromise<GetAdminProviderProfilesResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/provider-profiles',
+      query: {
+        paginate: data.paginate,
+        page: data.page,
+      },
+    });
+  }
+
+  /**
+   * verify
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminProviderProfilesVerify09D88C1dFd8a424d9E7cA5D2391Cdbd3(
+    data: PostAdminProviderProfilesVerify09D88C1dFd8A424D9E7cA5D2391Cdbd3Data = {}
+  ): CancelablePromise<PostAdminProviderProfilesVerify09D88C1dFd8A424D9E7cA5D2391Cdbd3Response> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/provider-profiles/verify/09d88c1d-fd8a-424d-9e7c-a5d2391cdbd3',
+      headers: {
+        Accept: data.accept,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * decline
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminProviderProfilesDecline02B915A75A5647118B4aEb110408A090(
+    data: PostAdminProviderProfilesDecline02B915A75A5647118B4aEb110408A090Data = {}
+  ): CancelablePromise<PostAdminProviderProfilesDecline02B915A75A5647118B4aEb110408A090Response> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/provider-profiles/decline/02b915a7-5a56-4711-8b4a-eb110408a090',
+      headers: {
+        Accept: data.accept,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * stop
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminProviderProfilesStop02B915A75A5647118B4aEb110408A090(
+    data: PostAdminProviderProfilesStop02B915A75A5647118B4aEb110408A090Data = {}
+  ): CancelablePromise<PostAdminProviderProfilesStop02B915A75A5647118B4aEb110408A090Response> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/provider-profiles/stop/02b915a7-5a56-4711-8b4a-eb110408a090',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * restore
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminProviderProfilesRestore02B915A75A5647118B4aEb110408A090(
+    data: PostAdminProviderProfilesRestore02B915A75A5647118B4aEb110408A090Data = {}
+  ): CancelablePromise<PostAdminProviderProfilesRestore02B915A75A5647118B4aEb110408A090Response> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/provider-profiles/restore/02b915a7-5a56-4711-8b4a-eb110408a090',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminUsersService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.paginate
-     * @param data.page
-     * @param data.role ADMIN BUSINESS CLIENT
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminUsers(data: GetAdminUsersData = {}): CancelablePromise<GetAdminUsersResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/users',
-            headers: {
-                Accept: data.accept
-            },
-            query: {
-                paginate: data.paginate,
-                page: data.page,
-                role: data.role
-            }
-        });
-    }
-    
-    /**
-     * create
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminUsers(data: PostAdminUsersData = {}): CancelablePromise<PostAdminUsersResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/users',
-            headers: {
-                Accept: data.accept
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * single
-     * @param data The data for the request.
-     * @param data.accept
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminUsers72D5778fB67b4E97B4E2F98F695162A7(data: GetAdminUsers72D5778fB67B4E97B4E2F98F695162A7Data = {}): CancelablePromise<GetAdminUsers72D5778fB67B4E97B4E2F98F695162A7Response> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/users/72d5778f-b67b-4e97-b4e2-f98f695162a7',
-            headers: {
-                Accept: data.accept
-            }
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.contentType
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static putAdminUsersB2Ef1C4f918a4F349D2f97Ce28C2772F(data: PutAdminUsersB2Ef1C4F918A4F349D2F97Ce28C2772FData = {}): CancelablePromise<PutAdminUsersB2Ef1C4F918A4F349D2F97Ce28C2772FResponse> {
-        return __request(OpenAPI, {
-            method: 'PUT',
-            url: '/admin/users/b2ef1c4f-918a-4f34-9d2f-97ce28c2772f',
-            headers: {
-                'Content-Type': data.contentType
-            },
-            body: data.requestBody,
-            mediaType: '*/*'
-        });
-    }
-    
-    /**
-     * delete
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static deleteAdminUsersB4A072761Baf43B08068C03Fdabf2626(): CancelablePromise<DeleteAdminUsersB4A072761Baf43B08068C03Fdabf2626Response> {
-        return __request(OpenAPI, {
-            method: 'DELETE',
-            url: '/admin/users/b4a07276-1baf-43b0-8068-c03fdabf2626'
-        });
-    }
-    
-    /**
-     * stop
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminUsers0E3685698D074EfbA367182Dd5E2Db42Stop(data: PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42StopData = {}): CancelablePromise<PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42StopResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/users/0e368569-8d07-4efb-a367-182dd5e2db42/stop',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * restore
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminUsers0E3685698D074EfbA367182Dd5E2Db42Restore(data: PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42RestoreData = {}): CancelablePromise<PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42RestoreResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/users/0e368569-8d07-4efb-a367-182dd5e2db42/restore',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.paginate
+   * @param data.page
+   * @param data.role ADMIN BUSINESS CLIENT
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminUsers(
+    data: GetAdminUsersData = {}
+  ): CancelablePromise<GetAdminUsersResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/users',
+      headers: {
+        Accept: data.accept,
+      },
+      query: {
+        paginate: data.paginate,
+        page: data.page,
+        role: data.role,
+      },
+    });
+  }
+
+  /**
+   * create
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminUsers(
+    data: PostAdminUsersData = {}
+  ): CancelablePromise<PostAdminUsersResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/users',
+      headers: {
+        Accept: data.accept,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * single
+   * @param data The data for the request.
+   * @param data.accept
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminUsers72D5778fB67b4E97B4E2F98F695162A7(
+    data: GetAdminUsers72D5778fB67B4E97B4E2F98F695162A7Data = {}
+  ): CancelablePromise<GetAdminUsers72D5778fB67B4E97B4E2F98F695162A7Response> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/users/72d5778f-b67b-4e97-b4e2-f98f695162a7',
+      headers: {
+        Accept: data.accept,
+      },
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.contentType
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static putAdminUsersB2Ef1C4f918a4F349D2f97Ce28C2772F(
+    data: PutAdminUsersB2Ef1C4F918A4F349D2F97Ce28C2772FData = {}
+  ): CancelablePromise<PutAdminUsersB2Ef1C4F918A4F349D2F97Ce28C2772FResponse> {
+    return __request(OpenAPI, {
+      method: 'PUT',
+      url: '/admin/users/b2ef1c4f-918a-4f34-9d2f-97ce28c2772f',
+      headers: {
+        'Content-Type': data.contentType,
+      },
+      body: data.requestBody,
+      mediaType: '*/*',
+    });
+  }
+
+  /**
+   * delete
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static deleteAdminUsersB4A072761Baf43B08068C03Fdabf2626(): CancelablePromise<DeleteAdminUsersB4A072761Baf43B08068C03Fdabf2626Response> {
+    return __request(OpenAPI, {
+      method: 'DELETE',
+      url: '/admin/users/b4a07276-1baf-43b0-8068-c03fdabf2626',
+    });
+  }
+
+  /**
+   * stop
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminUsers0E3685698D074EfbA367182Dd5E2Db42Stop(
+    data: PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42StopData = {}
+  ): CancelablePromise<PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42StopResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/users/0e368569-8d07-4efb-a367-182dd5e2db42/stop',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * restore
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminUsers0E3685698D074EfbA367182Dd5E2Db42Restore(
+    data: PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42RestoreData = {}
+  ): CancelablePromise<PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42RestoreResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/users/0e368569-8d07-4efb-a367-182dd5e2db42/restore',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminMessageTemplatesService {
-    /**
-     * GET All Message Templates
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.paginate
-     * @param data.page
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminMessageTemplates(data: GetAdminMessageTemplatesData = {}): CancelablePromise<GetAdminMessageTemplatesResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/message-templates',
-            headers: {
-                Accept: data.accept
-            },
-            query: {
-                paginate: data.paginate,
-                page: data.page
-            }
-        });
-    }
-    
-    /**
-     * GET Specific Message Template
-     * @param data The data for the request.
-     * @param data.accept
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminMessageTemplates2(data: GetAdminMessageTemplates2Data = {}): CancelablePromise<GetAdminMessageTemplates2Response> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/message-templates/2',
-            headers: {
-                Accept: data.accept
-            }
-        });
-    }
-    
-    /**
-     * Update Exist Message Template
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminMessageTemplates5(data: PostAdminMessageTemplates5Data = {}): CancelablePromise<PostAdminMessageTemplates5Response> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/message-templates/5',
-            headers: {
-                Accept: data.accept
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * GET All Message Templates
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.paginate
+   * @param data.page
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminMessageTemplates(
+    data: GetAdminMessageTemplatesData = {}
+  ): CancelablePromise<GetAdminMessageTemplatesResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/message-templates',
+      headers: {
+        Accept: data.accept,
+      },
+      query: {
+        paginate: data.paginate,
+        page: data.page,
+      },
+    });
+  }
+
+  /**
+   * GET Specific Message Template
+   * @param data The data for the request.
+   * @param data.accept
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminMessageTemplates2(
+    data: GetAdminMessageTemplates2Data = {}
+  ): CancelablePromise<GetAdminMessageTemplates2Response> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/message-templates/2',
+      headers: {
+        Accept: data.accept,
+      },
+    });
+  }
+
+  /**
+   * Update Exist Message Template
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminMessageTemplates5(
+    data: PostAdminMessageTemplates5Data = {}
+  ): CancelablePromise<PostAdminMessageTemplates5Response> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/message-templates/5',
+      headers: {
+        Accept: data.accept,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminServicesService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.paginate
-     * @param data.page
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminServices(data: GetAdminServicesData = {}): CancelablePromise<GetAdminServicesResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/services',
-            query: {
-                paginate: data.paginate,
-                page: data.page
-            }
-        });
-    }
-    
-    /**
-     * create
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminServices(data: PostAdminServicesData = {}): CancelablePromise<PostAdminServicesResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/services',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.contentType
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminServicesB11D171dEec14474A3D26Ef6881023Ae(data: PostAdminServicesB11D171dEec14474A3D26Ef6881023AeData = {}): CancelablePromise<PostAdminServicesB11D171dEec14474A3D26Ef6881023AeResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/services/b11d171d-eec1-4474-a3d2-6ef6881023ae',
-            headers: {
-                'Content-Type': data.contentType,
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * delete
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static deleteAdminServicesB4A072761Baf43B08068C03Fdabf2626(): CancelablePromise<DeleteAdminServicesB4A072761Baf43B08068C03Fdabf2626Response> {
-        return __request(OpenAPI, {
-            method: 'DELETE',
-            url: '/admin/services/b4a07276-1baf-43b0-8068-c03fdabf2626'
-        });
-    }
-    
-    /**
-     * stop
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminServicesD48C07F9B8B846D98B3c3Ba8Fcdbe611Stop(data: PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611StopData = {}): CancelablePromise<PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611StopResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/services/d48c07f9-b8b8-46d9-8b3c-3ba8fcdbe611/stop',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * restore
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminServicesD48C07F9B8B846D98B3c3Ba8Fcdbe611Restore(data: PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreData = {}): CancelablePromise<PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/services/d48c07f9-b8b8-46d9-8b3c-3ba8fcdbe611/restore',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.paginate
+   * @param data.page
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminServices(
+    data: GetAdminServicesData = {}
+  ): CancelablePromise<GetAdminServicesResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/services',
+      query: {
+        paginate: data.paginate,
+        page: data.page,
+      },
+    });
+  }
+
+  /**
+   * create
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminServices(
+    data: PostAdminServicesData = {}
+  ): CancelablePromise<PostAdminServicesResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/services',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.contentType
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminServicesB11D171dEec14474A3D26Ef6881023Ae(
+    data: PostAdminServicesB11D171dEec14474A3D26Ef6881023AeData = {}
+  ): CancelablePromise<PostAdminServicesB11D171dEec14474A3D26Ef6881023AeResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/services/b11d171d-eec1-4474-a3d2-6ef6881023ae',
+      headers: {
+        'Content-Type': data.contentType,
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * delete
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static deleteAdminServicesB4A072761Baf43B08068C03Fdabf2626(): CancelablePromise<DeleteAdminServicesB4A072761Baf43B08068C03Fdabf2626Response> {
+    return __request(OpenAPI, {
+      method: 'DELETE',
+      url: '/admin/services/b4a07276-1baf-43b0-8068-c03fdabf2626',
+    });
+  }
+
+  /**
+   * stop
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminServicesD48C07F9B8B846D98B3c3Ba8Fcdbe611Stop(
+    data: PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611StopData = {}
+  ): CancelablePromise<PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611StopResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/services/d48c07f9-b8b8-46d9-8b3c-3ba8fcdbe611/stop',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * restore
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminServicesD48C07F9B8B846D98B3c3Ba8Fcdbe611Restore(
+    data: PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreData = {}
+  ): CancelablePromise<PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/services/d48c07f9-b8b8-46d9-8b3c-3ba8fcdbe611/restore',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminCommissionsService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.paginate
-     * @param data.page
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminCommissions(data: GetAdminCommissionsData = {}): CancelablePromise<GetAdminCommissionsResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/commissions',
-            query: {
-                paginate: data.paginate,
-                page: data.page
-            }
-        });
-    }
-    
-    /**
-     * create
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.paginate
-     * @param data.page
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminCommissions(data: PostAdminCommissionsData = {}): CancelablePromise<PostAdminCommissionsResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/commissions',
-            headers: {
-                Accept: data.accept
-            },
-            query: {
-                paginate: data.paginate,
-                page: data.page
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.contentType
-     * @param data.accept
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static putAdminCommissions51A7447f3Bfd4E89A7F31969C8Fb9330(data: PutAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Data = {}): CancelablePromise<PutAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Response> {
-        return __request(OpenAPI, {
-            method: 'PUT',
-            url: '/admin/commissions/51a7447f-3bfd-4e89-a7f3-1969c8fb9330',
-            headers: {
-                'Content-Type': data.contentType,
-                Accept: data.accept
-            },
-            body: data.requestBody,
-            mediaType: '*/*'
-        });
-    }
-    
-    /**
-     * delete
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static deleteAdminCommissions51A7447f3Bfd4E89A7F31969C8Fb9330(): CancelablePromise<DeleteAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Response> {
-        return __request(OpenAPI, {
-            method: 'DELETE',
-            url: '/admin/commissions/51a7447f-3bfd-4e89-a7f3-1969c8fb9330'
-        });
-    }
-    
-    /**
-     * stop
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminCommissionsD48C07F9B8B846D98B3c3Ba8Fcdbe611Stop(data: PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611StopData = {}): CancelablePromise<PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611StopResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/commissions/d48c07f9-b8b8-46d9-8b3c-3ba8fcdbe611/stop',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * restore
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminCommissionsD48C07F9B8B846D98B3c3Ba8Fcdbe611Restore(data: PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreData = {}): CancelablePromise<PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/commissions/d48c07f9-b8b8-46d9-8b3c-3ba8fcdbe611/restore',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.paginate
+   * @param data.page
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminCommissions(
+    data: GetAdminCommissionsData = {}
+  ): CancelablePromise<GetAdminCommissionsResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/commissions',
+      query: {
+        paginate: data.paginate,
+        page: data.page,
+      },
+    });
+  }
+
+  /**
+   * create
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.paginate
+   * @param data.page
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminCommissions(
+    data: PostAdminCommissionsData = {}
+  ): CancelablePromise<PostAdminCommissionsResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/commissions',
+      headers: {
+        Accept: data.accept,
+      },
+      query: {
+        paginate: data.paginate,
+        page: data.page,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.contentType
+   * @param data.accept
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static putAdminCommissions51A7447f3Bfd4E89A7F31969C8Fb9330(
+    data: PutAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Data = {}
+  ): CancelablePromise<PutAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Response> {
+    return __request(OpenAPI, {
+      method: 'PUT',
+      url: '/admin/commissions/51a7447f-3bfd-4e89-a7f3-1969c8fb9330',
+      headers: {
+        'Content-Type': data.contentType,
+        Accept: data.accept,
+      },
+      body: data.requestBody,
+      mediaType: '*/*',
+    });
+  }
+
+  /**
+   * delete
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static deleteAdminCommissions51A7447f3Bfd4E89A7F31969C8Fb9330(): CancelablePromise<DeleteAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Response> {
+    return __request(OpenAPI, {
+      method: 'DELETE',
+      url: '/admin/commissions/51a7447f-3bfd-4e89-a7f3-1969c8fb9330',
+    });
+  }
+
+  /**
+   * stop
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminCommissionsD48C07F9B8B846D98B3c3Ba8Fcdbe611Stop(
+    data: PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611StopData = {}
+  ): CancelablePromise<PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611StopResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/commissions/d48c07f9-b8b8-46d9-8b3c-3ba8fcdbe611/stop',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * restore
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminCommissionsD48C07F9B8B846D98B3c3Ba8Fcdbe611Restore(
+    data: PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreData = {}
+  ): CancelablePromise<PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/commissions/d48c07f9-b8b8-46d9-8b3c-3ba8fcdbe611/restore',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminPlatformReviewsService {
-    /**
-     * list
-     * @param data The data for the request.
-     * @param data.page
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminPlatformReviews(data: GetAdminPlatformReviewsData = {}): CancelablePromise<GetAdminPlatformReviewsResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/platform-reviews',
-            query: {
-                page: data.page,
-                paginate: data.paginate
-            }
-        });
-    }
-    
-    /**
-     * create
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminPlatformReviews(data: PostAdminPlatformReviewsData = {}): CancelablePromise<PostAdminPlatformReviewsResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/platform-reviews',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminPlatformReviews5(data: PostAdminPlatformReviews5Data = {}): CancelablePromise<PostAdminPlatformReviews5Response> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/platform-reviews/5',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * delete
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static deleteAdminPlatformReviews51A7447f3Bfd4E89A7F31969C8Fb9330(): CancelablePromise<DeleteAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330Response> {
-        return __request(OpenAPI, {
-            method: 'DELETE',
-            url: '/admin/platform-reviews/51a7447f-3bfd-4e89-a7f3-1969c8fb9330'
-        });
-    }
-    
-    /**
-     * stop
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminPlatformReviews51A7447f3Bfd4E89A7F31969C8Fb9330Stop(data: PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330StopData = {}): CancelablePromise<PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330StopResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/platform-reviews/51a7447f-3bfd-4e89-a7f3-1969c8fb9330/stop',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * restore
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminPlatformReviews51A7447f3Bfd4E89A7F31969C8Fb9330Restore(data: PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330RestoreData = {}): CancelablePromise<PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330RestoreResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/platform-reviews/51a7447f-3bfd-4e89-a7f3-1969c8fb9330/restore',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * list
+   * @param data The data for the request.
+   * @param data.page
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminPlatformReviews(
+    data: GetAdminPlatformReviewsData = {}
+  ): CancelablePromise<GetAdminPlatformReviewsResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/platform-reviews',
+      query: {
+        page: data.page,
+        paginate: data.paginate,
+      },
+    });
+  }
+
+  /**
+   * create
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminPlatformReviews(
+    data: PostAdminPlatformReviewsData = {}
+  ): CancelablePromise<PostAdminPlatformReviewsResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/platform-reviews',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminPlatformReviews5(
+    data: PostAdminPlatformReviews5Data = {}
+  ): CancelablePromise<PostAdminPlatformReviews5Response> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/platform-reviews/5',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * delete
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static deleteAdminPlatformReviews51A7447f3Bfd4E89A7F31969C8Fb9330(): CancelablePromise<DeleteAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330Response> {
+    return __request(OpenAPI, {
+      method: 'DELETE',
+      url: '/admin/platform-reviews/51a7447f-3bfd-4e89-a7f3-1969c8fb9330',
+    });
+  }
+
+  /**
+   * stop
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminPlatformReviews51A7447f3Bfd4E89A7F31969C8Fb9330Stop(
+    data: PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330StopData = {}
+  ): CancelablePromise<PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330StopResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/platform-reviews/51a7447f-3bfd-4e89-a7f3-1969c8fb9330/stop',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * restore
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminPlatformReviews51A7447f3Bfd4E89A7F31969C8Fb9330Restore(
+    data: PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330RestoreData = {}
+  ): CancelablePromise<PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330RestoreResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/platform-reviews/51a7447f-3bfd-4e89-a7f3-1969c8fb9330/restore',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminPagesService {
-    /**
-     * get page by type
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminPagesRights(): CancelablePromise<GetAdminPagesRightsResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/pages/rights'
-        });
-    }
-    
-    /**
-     * get page by type paginated
-     * @param data The data for the request.
-     * @param data.page
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminPagesRightsPaginated(data: GetAdminPagesRightsPaginatedData = {}): CancelablePromise<GetAdminPagesRightsPaginatedResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/pages/rights/paginated',
-            query: {
-                page: data.page,
-                paginate: data.paginate
-            }
-        });
-    }
-    
-    /**
-     * create
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminPages(data: PostAdminPagesData = {}): CancelablePromise<PostAdminPagesResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/pages',
-            headers: {
-                Accept: data.accept
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.contentType
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminPages5(data: PostAdminPages5Data = {}): CancelablePromise<PostAdminPages5Response> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/pages/5',
-            headers: {
-                'Content-Type': data.contentType,
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * delete
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static deleteAdminPages51A7447f3Bfd4E89A7F31969C8Fb9330(): CancelablePromise<DeleteAdminPages51A7447F3Bfd4E89A7F31969C8Fb9330Response> {
-        return __request(OpenAPI, {
-            method: 'DELETE',
-            url: '/admin/pages/51a7447f-3bfd-4e89-a7f3-1969c8fb9330'
-        });
-    }
-    
+  /**
+   * get page by type
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminPagesRights(): CancelablePromise<GetAdminPagesRightsResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/pages/rights',
+    });
+  }
+
+  /**
+   * get page by type paginated
+   * @param data The data for the request.
+   * @param data.page
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminPagesRightsPaginated(
+    data: GetAdminPagesRightsPaginatedData = {}
+  ): CancelablePromise<GetAdminPagesRightsPaginatedResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/pages/rights/paginated',
+      query: {
+        page: data.page,
+        paginate: data.paginate,
+      },
+    });
+  }
+
+  /**
+   * create
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminPages(
+    data: PostAdminPagesData = {}
+  ): CancelablePromise<PostAdminPagesResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/pages',
+      headers: {
+        Accept: data.accept,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.contentType
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminPages5(
+    data: PostAdminPages5Data = {}
+  ): CancelablePromise<PostAdminPages5Response> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/pages/5',
+      headers: {
+        'Content-Type': data.contentType,
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * delete
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static deleteAdminPages51A7447f3Bfd4E89A7F31969C8Fb9330(): CancelablePromise<DeleteAdminPages51A7447F3Bfd4E89A7F31969C8Fb9330Response> {
+    return __request(OpenAPI, {
+      method: 'DELETE',
+      url: '/admin/pages/51a7447f-3bfd-4e89-a7f3-1969c8fb9330',
+    });
+  }
 }
 
 export class AdminProviderSubscriptionPlansService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.paginate
-     * @param data.page
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminProviderSubscriptionPlans(data: GetAdminProviderSubscriptionPlansData = {}): CancelablePromise<GetAdminProviderSubscriptionPlansResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/provider-subscription-plans',
-            query: {
-                paginate: data.paginate,
-                page: data.page
-            }
-        });
-    }
-    
-    /**
-     * create
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.contentType
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminProviderSubscriptionPlans(data: PostAdminProviderSubscriptionPlansData = {}): CancelablePromise<PostAdminProviderSubscriptionPlansResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/provider-subscription-plans',
-            headers: {
-                Accept: data.accept,
-                'Content-Type': data.contentType
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.contentType
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704(data: PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Data = {}): CancelablePromise<PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Response> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/provider-subscription-plans/945b42fc-a279-4ac5-8c00-77e635c87704',
-            headers: {
-                'Content-Type': data.contentType,
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * delete
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static deleteAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704(): CancelablePromise<DeleteAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Response> {
-        return __request(OpenAPI, {
-            method: 'DELETE',
-            url: '/admin/provider-subscription-plans/945b42fc-a279-4ac5-8c00-77e635c87704'
-        });
-    }
-    
-    /**
-     * stop
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Stop(data: PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704StopData = {}): CancelablePromise<PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704StopResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/provider-subscription-plans/945b42fc-a279-4ac5-8c00-77e635c87704/stop',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * restore
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Restore(data: PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704RestoreData = {}): CancelablePromise<PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704RestoreResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/provider-subscription-plans/945b42fc-a279-4ac5-8c00-77e635c87704/restore',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.paginate
+   * @param data.page
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminProviderSubscriptionPlans(
+    data: GetAdminProviderSubscriptionPlansData = {}
+  ): CancelablePromise<GetAdminProviderSubscriptionPlansResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/provider-subscription-plans',
+      query: {
+        paginate: data.paginate,
+        page: data.page,
+      },
+    });
+  }
+
+  /**
+   * create
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.contentType
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminProviderSubscriptionPlans(
+    data: PostAdminProviderSubscriptionPlansData = {}
+  ): CancelablePromise<PostAdminProviderSubscriptionPlansResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/provider-subscription-plans',
+      headers: {
+        Accept: data.accept,
+        'Content-Type': data.contentType,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.contentType
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704(
+    data: PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Data = {}
+  ): CancelablePromise<PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Response> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/provider-subscription-plans/945b42fc-a279-4ac5-8c00-77e635c87704',
+      headers: {
+        'Content-Type': data.contentType,
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * delete
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static deleteAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704(): CancelablePromise<DeleteAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Response> {
+    return __request(OpenAPI, {
+      method: 'DELETE',
+      url: '/admin/provider-subscription-plans/945b42fc-a279-4ac5-8c00-77e635c87704',
+    });
+  }
+
+  /**
+   * stop
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Stop(
+    data: PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704StopData = {}
+  ): CancelablePromise<PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704StopResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/provider-subscription-plans/945b42fc-a279-4ac5-8c00-77e635c87704/stop',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * restore
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Restore(
+    data: PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704RestoreData = {}
+  ): CancelablePromise<PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704RestoreResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/provider-subscription-plans/945b42fc-a279-4ac5-8c00-77e635c87704/restore',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminCityServiceService {
-    /**
-     * city-services
-     * @param data The data for the request.
-     * @param data.paginate
-     * @param data.page
-     * @param data.search
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminCityServices(data: GetAdminCityServicesData = {}): CancelablePromise<GetAdminCityServicesResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/city-services',
-            query: {
-                paginate: data.paginate,
-                page: data.page,
-                search: data.search
-            }
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.contentType
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static putAdminCityServices13(data: PutAdminCityServices13Data = {}): CancelablePromise<PutAdminCityServices13Response> {
-        return __request(OpenAPI, {
-            method: 'PUT',
-            url: '/admin/city-services/13',
-            headers: {
-                Accept: data.accept,
-                'Content-Type': data.contentType
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * attach-service
-     * @param data The data for the request.
-     * @param data.contentType
-     * @param data.accept
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminCityServicesAttach(data: PostAdminCityServicesAttachData = {}): CancelablePromise<PostAdminCityServicesAttachResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/city-services/attach',
-            headers: {
-                'Content-Type': data.contentType,
-                Accept: data.accept
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * detach-service
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminCityServicesDetach(data: PostAdminCityServicesDetachData = {}): CancelablePromise<PostAdminCityServicesDetachResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/city-services/detach',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * stop
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminCityServices0E3685698D074EfbA367182Dd5E2Db42Stop(data: PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42StopData = {}): CancelablePromise<PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42StopResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/city-services/0e368569-8d07-4efb-a367-182dd5e2db42/stop',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * restore
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminCityServices0E3685698D074EfbA367182Dd5E2Db42Restore(data: PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42RestoreData = {}): CancelablePromise<PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42RestoreResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/city-services/0e368569-8d07-4efb-a367-182dd5e2db42/restore',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * city-services
+   * @param data The data for the request.
+   * @param data.paginate
+   * @param data.page
+   * @param data.search
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminCityServices(
+    data: GetAdminCityServicesData = {}
+  ): CancelablePromise<GetAdminCityServicesResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/city-services',
+      query: {
+        paginate: data.paginate,
+        page: data.page,
+        search: data.search,
+      },
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.contentType
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static putAdminCityServices13(
+    data: PutAdminCityServices13Data = {}
+  ): CancelablePromise<PutAdminCityServices13Response> {
+    return __request(OpenAPI, {
+      method: 'PUT',
+      url: '/admin/city-services/13',
+      headers: {
+        Accept: data.accept,
+        'Content-Type': data.contentType,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * attach-service
+   * @param data The data for the request.
+   * @param data.contentType
+   * @param data.accept
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminCityServicesAttach(
+    data: PostAdminCityServicesAttachData = {}
+  ): CancelablePromise<PostAdminCityServicesAttachResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/city-services/attach',
+      headers: {
+        'Content-Type': data.contentType,
+        Accept: data.accept,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * detach-service
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminCityServicesDetach(
+    data: PostAdminCityServicesDetachData = {}
+  ): CancelablePromise<PostAdminCityServicesDetachResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/city-services/detach',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * stop
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminCityServices0E3685698D074EfbA367182Dd5E2Db42Stop(
+    data: PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42StopData = {}
+  ): CancelablePromise<PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42StopResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/city-services/0e368569-8d07-4efb-a367-182dd5e2db42/stop',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * restore
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminCityServices0E3685698D074EfbA367182Dd5E2Db42Restore(
+    data: PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42RestoreData = {}
+  ): CancelablePromise<PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42RestoreResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/city-services/0e368569-8d07-4efb-a367-182dd5e2db42/restore',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminAuthService {
-    /**
-     * Login
-     * @param data The data for the request.
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminAuthLogin(data: PostAdminAuthLoginData = {}): CancelablePromise<PostAdminAuthLoginResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/auth/login',
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * Logout
-     * @param data The data for the request.
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminAuthLogout(data: PostAdminAuthLogoutData = {}): CancelablePromise<PostAdminAuthLogoutResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/auth/logout',
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
+  /**
+   * Login
+   * @param data The data for the request.
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminAuthLogin(
+    data: PostAdminAuthLoginData = {}
+  ): CancelablePromise<PostAdminAuthLoginResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/auth/login',
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * Logout
+   * @param data The data for the request.
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminAuthLogout(
+    data: PostAdminAuthLogoutData = {}
+  ): CancelablePromise<PostAdminAuthLogoutResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/auth/logout',
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
 }
 
 export class AdminCustomNotificationService {
-    /**
-     * Send
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminCustomNotification(data: PostAdminCustomNotificationData = {}): CancelablePromise<PostAdminCustomNotificationResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/custom-notification',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * Send
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminCustomNotification(
+    data: PostAdminCustomNotificationData = {}
+  ): CancelablePromise<PostAdminCustomNotificationResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/custom-notification',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminPermissionGroupsService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.page
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminPermissionGroups(data: GetAdminPermissionGroupsData = {}): CancelablePromise<GetAdminPermissionGroupsResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/permission-groups',
-            query: {
-                page: data.page,
-                paginate: data.paginate
-            }
-        });
-    }
-    
-    /**
-     * create
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.contentType
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminPermissionGroups(data: PostAdminPermissionGroupsData = {}): CancelablePromise<PostAdminPermissionGroupsResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/permission-groups',
-            headers: {
-                Accept: data.accept,
-                'Content-Type': data.contentType
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * single
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminPermissionGroups8E0Ea4E1B13645AdAa91F4D0B47Dcfaf(): CancelablePromise<GetAdminPermissionGroups8E0Ea4E1B13645AdAa91F4D0B47DcfafResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/permission-groups/8e0ea4e1-b136-45ad-aa91-f4d0b47dcfaf'
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.contentType
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminPermissionGroupsD814419d755547108E26Efeb66Fc8Fc2(data: PostAdminPermissionGroupsD814419D755547108E26Efeb66Fc8Fc2Data = {}): CancelablePromise<PostAdminPermissionGroupsD814419D755547108E26Efeb66Fc8Fc2Response> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/permission-groups/d814419d-7555-4710-8e26-efeb66fc8fc2',
-            headers: {
-                Accept: data.accept,
-                'Content-Type': data.contentType
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * stop
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42Stop(data: PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42StopData = {}): CancelablePromise<PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42StopResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/permission-groups/0e368569-8d07-4efb-a367-182dd5e2db42/stop',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * restore
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42Restore(data: PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42RestoreData = {}): CancelablePromise<PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42RestoreResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/permission-groups/0e368569-8d07-4efb-a367-182dd5e2db42/restore',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * delete
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static deleteAdminPermissionGroups51A7447f3Bfd4E89A7F31969C8Fb9330(): CancelablePromise<DeleteAdminPermissionGroups51A7447F3Bfd4E89A7F31969C8Fb9330Response> {
-        return __request(OpenAPI, {
-            method: 'DELETE',
-            url: '/admin/permission-groups/51a7447f-3bfd-4e89-a7f3-1969c8fb9330'
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.page
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminPermissionGroups(
+    data: GetAdminPermissionGroupsData = {}
+  ): CancelablePromise<GetAdminPermissionGroupsResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/permission-groups',
+      query: {
+        page: data.page,
+        paginate: data.paginate,
+      },
+    });
+  }
+
+  /**
+   * create
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.contentType
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminPermissionGroups(
+    data: PostAdminPermissionGroupsData = {}
+  ): CancelablePromise<PostAdminPermissionGroupsResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/permission-groups',
+      headers: {
+        Accept: data.accept,
+        'Content-Type': data.contentType,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * single
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminPermissionGroups8E0Ea4E1B13645AdAa91F4D0B47Dcfaf(): CancelablePromise<GetAdminPermissionGroups8E0Ea4E1B13645AdAa91F4D0B47DcfafResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/permission-groups/8e0ea4e1-b136-45ad-aa91-f4d0b47dcfaf',
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.contentType
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminPermissionGroupsD814419d755547108E26Efeb66Fc8Fc2(
+    data: PostAdminPermissionGroupsD814419D755547108E26Efeb66Fc8Fc2Data = {}
+  ): CancelablePromise<PostAdminPermissionGroupsD814419D755547108E26Efeb66Fc8Fc2Response> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/permission-groups/d814419d-7555-4710-8e26-efeb66fc8fc2',
+      headers: {
+        Accept: data.accept,
+        'Content-Type': data.contentType,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * stop
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42Stop(
+    data: PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42StopData = {}
+  ): CancelablePromise<PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42StopResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/permission-groups/0e368569-8d07-4efb-a367-182dd5e2db42/stop',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * restore
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42Restore(
+    data: PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42RestoreData = {}
+  ): CancelablePromise<PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42RestoreResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/permission-groups/0e368569-8d07-4efb-a367-182dd5e2db42/restore',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * delete
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static deleteAdminPermissionGroups51A7447f3Bfd4E89A7F31969C8Fb9330(): CancelablePromise<DeleteAdminPermissionGroups51A7447F3Bfd4E89A7F31969C8Fb9330Response> {
+    return __request(OpenAPI, {
+      method: 'DELETE',
+      url: '/admin/permission-groups/51a7447f-3bfd-4e89-a7f3-1969c8fb9330',
+    });
+  }
 }
 
 export class AdminPermissionsService {
-    /**
-     * index
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminPermissions(): CancelablePromise<GetAdminPermissionsResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/permissions'
-        });
-    }
-    
+  /**
+   * index
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminPermissions(): CancelablePromise<GetAdminPermissionsResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/permissions',
+    });
+  }
 }
 
 export class AdminMessagesService {
-    /**
-     * Get All Unreplied Messages
-     * @param data The data for the request.
-     * @param data.accept
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminMessages(data: GetAdminMessagesData = {}): CancelablePromise<GetAdminMessagesResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/messages',
-            headers: {
-                Accept: data.accept
-            }
-        });
-    }
-    
-    /**
-     * Get a specific Unreplied Messages
-     * @param data The data for the request.
-     * @param data.accept
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminMessages8899Eddd256740B6Bcaa85Ed7D53D226(data: GetAdminMessages8899Eddd256740B6Bcaa85Ed7D53D226Data = {}): CancelablePromise<GetAdminMessages8899Eddd256740B6Bcaa85Ed7D53D226Response> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/messages/8899eddd-2567-40b6-bcaa-85ed7d53d226',
-            headers: {
-                Accept: data.accept
-            }
-        });
-    }
-    
-    /**
-     * Reply to a specific message
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminMessagesReply8899Eddd256740B6Bcaa85Ed7D53D226(data: PostAdminMessagesReply8899Eddd256740B6Bcaa85Ed7D53D226Data = {}): CancelablePromise<PostAdminMessagesReply8899Eddd256740B6Bcaa85Ed7D53D226Response> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/messages/reply/8899eddd-2567-40b6-bcaa-85ed7d53d226',
-            headers: {
-                Accept: data.accept
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * Delete a specific message
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminMessagesDelete6Aa8Ddfc861c4C42B7C406Dbb20627Ad(data: PostAdminMessagesDelete6Aa8Ddfc861C4C42B7C406Dbb20627AdData = {}): CancelablePromise<PostAdminMessagesDelete6Aa8Ddfc861C4C42B7C406Dbb20627AdResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/messages/delete/6aa8ddfc-861c-4c42-b7c4-06dbb20627ad',
-            headers: {
-                Accept: data.accept
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * Get All Unreplied Messages
+   * @param data The data for the request.
+   * @param data.accept
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminMessages(
+    data: GetAdminMessagesData = {}
+  ): CancelablePromise<GetAdminMessagesResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/messages',
+      headers: {
+        Accept: data.accept,
+      },
+    });
+  }
+
+  /**
+   * Get a specific Unreplied Messages
+   * @param data The data for the request.
+   * @param data.accept
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminMessages8899Eddd256740B6Bcaa85Ed7D53D226(
+    data: GetAdminMessages8899Eddd256740B6Bcaa85Ed7D53D226Data = {}
+  ): CancelablePromise<GetAdminMessages8899Eddd256740B6Bcaa85Ed7D53D226Response> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/messages/8899eddd-2567-40b6-bcaa-85ed7d53d226',
+      headers: {
+        Accept: data.accept,
+      },
+    });
+  }
+
+  /**
+   * Reply to a specific message
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminMessagesReply8899Eddd256740B6Bcaa85Ed7D53D226(
+    data: PostAdminMessagesReply8899Eddd256740B6Bcaa85Ed7D53D226Data = {}
+  ): CancelablePromise<PostAdminMessagesReply8899Eddd256740B6Bcaa85Ed7D53D226Response> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/messages/reply/8899eddd-2567-40b6-bcaa-85ed7d53d226',
+      headers: {
+        Accept: data.accept,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * Delete a specific message
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminMessagesDelete6Aa8Ddfc861c4C42B7C406Dbb20627Ad(
+    data: PostAdminMessagesDelete6Aa8Ddfc861C4C42B7C406Dbb20627AdData = {}
+  ): CancelablePromise<PostAdminMessagesDelete6Aa8Ddfc861C4C42B7C406Dbb20627AdResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/messages/delete/6aa8ddfc-861c-4c42-b7c4-06dbb20627ad',
+      headers: {
+        Accept: data.accept,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminLandingSlidersService {
-    /**
-     * list
-     * @param data The data for the request.
-     * @param data.page
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminSliders(data: GetAdminSlidersData = {}): CancelablePromise<GetAdminSlidersResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/sliders',
-            query: {
-                page: data.page,
-                paginate: data.paginate
-            }
-        });
-    }
-    
-    /**
-     * create
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminSliders(data: PostAdminSlidersData = {}): CancelablePromise<PostAdminSlidersResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/sliders',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminSliders726A81EcD9B543Ad946bB77470B071F4(data: PostAdminSliders726A81EcD9B543Ad946bB77470B071F4Data = {}): CancelablePromise<PostAdminSliders726A81EcD9B543Ad946bB77470B071F4Response> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/sliders/726a81ec-d9b5-43ad-946b-b77470b071f4',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * delete
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static deleteAdminSliders6193D4CdCe8e4B79Ba467E3C086206F3(): CancelablePromise<DeleteAdminSliders6193D4CdCe8E4B79Ba467E3C086206F3Response> {
-        return __request(OpenAPI, {
-            method: 'DELETE',
-            url: '/admin/sliders/6193d4cd-ce8e-4b79-ba46-7e3c086206f3'
-        });
-    }
-    
-    /**
-     * stop
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminSliders726A81EcD9B543Ad946bB77470B071F4Stop(data: PostAdminSliders726A81EcD9B543Ad946bB77470B071F4StopData = {}): CancelablePromise<PostAdminSliders726A81EcD9B543Ad946bB77470B071F4StopResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/sliders/726a81ec-d9b5-43ad-946b-b77470b071f4/stop',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * restore
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminSliders726A81EcD9B543Ad946bB77470B071F4Restore(data: PostAdminSliders726A81EcD9B543Ad946bB77470B071F4RestoreData = {}): CancelablePromise<PostAdminSliders726A81EcD9B543Ad946bB77470B071F4RestoreResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/sliders/726a81ec-d9b5-43ad-946b-b77470b071f4/restore',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * list
+   * @param data The data for the request.
+   * @param data.page
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminSliders(
+    data: GetAdminSlidersData = {}
+  ): CancelablePromise<GetAdminSlidersResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/sliders',
+      query: {
+        page: data.page,
+        paginate: data.paginate,
+      },
+    });
+  }
+
+  /**
+   * create
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminSliders(
+    data: PostAdminSlidersData = {}
+  ): CancelablePromise<PostAdminSlidersResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/sliders',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminSliders726A81EcD9B543Ad946bB77470B071F4(
+    data: PostAdminSliders726A81EcD9B543Ad946bB77470B071F4Data = {}
+  ): CancelablePromise<PostAdminSliders726A81EcD9B543Ad946bB77470B071F4Response> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/sliders/726a81ec-d9b5-43ad-946b-b77470b071f4',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * delete
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static deleteAdminSliders6193D4CdCe8e4B79Ba467E3C086206F3(): CancelablePromise<DeleteAdminSliders6193D4CdCe8E4B79Ba467E3C086206F3Response> {
+    return __request(OpenAPI, {
+      method: 'DELETE',
+      url: '/admin/sliders/6193d4cd-ce8e-4b79-ba46-7e3c086206f3',
+    });
+  }
+
+  /**
+   * stop
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminSliders726A81EcD9B543Ad946bB77470B071F4Stop(
+    data: PostAdminSliders726A81EcD9B543Ad946bB77470B071F4StopData = {}
+  ): CancelablePromise<PostAdminSliders726A81EcD9B543Ad946bB77470B071F4StopResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/sliders/726a81ec-d9b5-43ad-946b-b77470b071f4/stop',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * restore
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminSliders726A81EcD9B543Ad946bB77470B071F4Restore(
+    data: PostAdminSliders726A81EcD9B543Ad946bB77470B071F4RestoreData = {}
+  ): CancelablePromise<PostAdminSliders726A81EcD9B543Ad946bB77470B071F4RestoreResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/sliders/726a81ec-d9b5-43ad-946b-b77470b071f4/restore',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminLandingHowHelpService {
-    /**
-     * list
-     * @param data The data for the request.
-     * @param data.page
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminHowHelp(data: GetAdminHowHelpData = {}): CancelablePromise<GetAdminHowHelpResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/how_help',
-            query: {
-                page: data.page,
-                paginate: data.paginate
-            }
-        });
-    }
-    
-    /**
-     * create
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminHowHelp(data: PostAdminHowHelpData = {}): CancelablePromise<PostAdminHowHelpResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/how_help',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminHowHelpC0E70442F1914F3cBb317Ca396D574Cd(data: PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdData = {}): CancelablePromise<PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/how_help/c0e70442-f191-4f3c-bb31-7ca396d574cd',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * delete
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static deleteAdminHowHelpC0E70442F1914F3cBb317Ca396D574Cd(): CancelablePromise<DeleteAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdResponse> {
-        return __request(OpenAPI, {
-            method: 'DELETE',
-            url: '/admin/how_help/c0e70442-f191-4f3c-bb31-7ca396d574cd'
-        });
-    }
-    
-    /**
-     * stop
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdStop(data: PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdStopData = {}): CancelablePromise<PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdStopResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/how_help/c0e70442-f191-4f3c-bb31-7ca396d574cd/stop',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * restore
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdRestore(data: PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdRestoreData = {}): CancelablePromise<PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdRestoreResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/how_help/c0e70442-f191-4f3c-bb31-7ca396d574cd/restore',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * list
+   * @param data The data for the request.
+   * @param data.page
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminHowHelp(
+    data: GetAdminHowHelpData = {}
+  ): CancelablePromise<GetAdminHowHelpResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/how_help',
+      query: {
+        page: data.page,
+        paginate: data.paginate,
+      },
+    });
+  }
+
+  /**
+   * create
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminHowHelp(
+    data: PostAdminHowHelpData = {}
+  ): CancelablePromise<PostAdminHowHelpResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/how_help',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminHowHelpC0E70442F1914F3cBb317Ca396D574Cd(
+    data: PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdData = {}
+  ): CancelablePromise<PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/how_help/c0e70442-f191-4f3c-bb31-7ca396d574cd',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * delete
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static deleteAdminHowHelpC0E70442F1914F3cBb317Ca396D574Cd(): CancelablePromise<DeleteAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdResponse> {
+    return __request(OpenAPI, {
+      method: 'DELETE',
+      url: '/admin/how_help/c0e70442-f191-4f3c-bb31-7ca396d574cd',
+    });
+  }
+
+  /**
+   * stop
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdStop(
+    data: PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdStopData = {}
+  ): CancelablePromise<PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdStopResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/how_help/c0e70442-f191-4f3c-bb31-7ca396d574cd/stop',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * restore
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdRestore(
+    data: PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdRestoreData = {}
+  ): CancelablePromise<PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdRestoreResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/how_help/c0e70442-f191-4f3c-bb31-7ca396d574cd/restore',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminLandingAboutSectionsService {
-    /**
-     * list
-     * @param data The data for the request.
-     * @param data.page
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminAboutSections(data: GetAdminAboutSectionsData = {}): CancelablePromise<GetAdminAboutSectionsResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/about_sections',
-            query: {
-                page: data.page,
-                paginate: data.paginate
-            }
-        });
-    }
-    
-    /**
-     * create
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminAboutSections(data: PostAdminAboutSectionsData = {}): CancelablePromise<PostAdminAboutSectionsResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/about_sections',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574Cd(data: PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdData = {}): CancelablePromise<PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/about_sections/c0e70442-f191-4f3c-bb31-7ca396d574cd',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * delete
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static deleteAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574Cd(): CancelablePromise<DeleteAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdResponse> {
-        return __request(OpenAPI, {
-            method: 'DELETE',
-            url: '/admin/about_sections/c0e70442-f191-4f3c-bb31-7ca396d574cd'
-        });
-    }
-    
-    /**
-     * stop
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdStop(data: PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdStopData = {}): CancelablePromise<PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdStopResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/about_sections/c0e70442-f191-4f3c-bb31-7ca396d574cd/stop',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * restore
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdRestore(data: PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdRestoreData = {}): CancelablePromise<PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdRestoreResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/about_sections/c0e70442-f191-4f3c-bb31-7ca396d574cd/restore',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * list
+   * @param data The data for the request.
+   * @param data.page
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminAboutSections(
+    data: GetAdminAboutSectionsData = {}
+  ): CancelablePromise<GetAdminAboutSectionsResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/about_sections',
+      query: {
+        page: data.page,
+        paginate: data.paginate,
+      },
+    });
+  }
+
+  /**
+   * create
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminAboutSections(
+    data: PostAdminAboutSectionsData = {}
+  ): CancelablePromise<PostAdminAboutSectionsResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/about_sections',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574Cd(
+    data: PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdData = {}
+  ): CancelablePromise<PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/about_sections/c0e70442-f191-4f3c-bb31-7ca396d574cd',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * delete
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static deleteAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574Cd(): CancelablePromise<DeleteAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdResponse> {
+    return __request(OpenAPI, {
+      method: 'DELETE',
+      url: '/admin/about_sections/c0e70442-f191-4f3c-bb31-7ca396d574cd',
+    });
+  }
+
+  /**
+   * stop
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdStop(
+    data: PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdStopData = {}
+  ): CancelablePromise<PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdStopResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/about_sections/c0e70442-f191-4f3c-bb31-7ca396d574cd/stop',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * restore
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdRestore(
+    data: PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdRestoreData = {}
+  ): CancelablePromise<PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdRestoreResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/about_sections/c0e70442-f191-4f3c-bb31-7ca396d574cd/restore',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminLandingDownloadSectionService {
-    /**
-     * list
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminDownloadSection(): CancelablePromise<GetAdminDownloadSectionResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/download_section'
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminDownloadSection(data: PostAdminDownloadSectionData = {}): CancelablePromise<PostAdminDownloadSectionResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/download_section',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
+  /**
+   * list
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminDownloadSection(): CancelablePromise<GetAdminDownloadSectionResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/download_section',
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminDownloadSection(
+    data: PostAdminDownloadSectionData = {}
+  ): CancelablePromise<PostAdminDownloadSectionResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/download_section',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
 }
 
 export class AdminLandingAboutService {
-    /**
-     * list
-     * @param data The data for the request.
-     * @param data.page
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminAbout(data: GetAdminAboutData = {}): CancelablePromise<GetAdminAboutResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/about',
-            query: {
-                page: data.page,
-                paginate: data.paginate
-            }
-        });
-    }
-    
-    /**
-     * create or update about
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminAboutStoreAbout(data: PostAdminAboutStoreAboutData = {}): CancelablePromise<PostAdminAboutStoreAboutResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/about/store_about',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * create or update how order
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminAboutStoreHowOrder(data: PostAdminAboutStoreHowOrderData = {}): CancelablePromise<PostAdminAboutStoreHowOrderResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/about/store_how_order',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * delete
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static deleteAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5(): CancelablePromise<DeleteAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5Response> {
-        return __request(OpenAPI, {
-            method: 'DELETE',
-            url: '/admin/about/7ad421cd-9075-4a74-b2e1-e4298a1dc2b5'
-        });
-    }
-    
-    /**
-     * stop
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5Stop(data: PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5StopData = {}): CancelablePromise<PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5StopResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/about/7ad421cd-9075-4a74-b2e1-e4298a1dc2b5/stop',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * restore
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5Restore(data: PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5RestoreData = {}): CancelablePromise<PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5RestoreResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/about/7ad421cd-9075-4a74-b2e1-e4298a1dc2b5/restore',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * list
+   * @param data The data for the request.
+   * @param data.page
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminAbout(
+    data: GetAdminAboutData = {}
+  ): CancelablePromise<GetAdminAboutResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/about',
+      query: {
+        page: data.page,
+        paginate: data.paginate,
+      },
+    });
+  }
+
+  /**
+   * create or update about
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminAboutStoreAbout(
+    data: PostAdminAboutStoreAboutData = {}
+  ): CancelablePromise<PostAdminAboutStoreAboutResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/about/store_about',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * create or update how order
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminAboutStoreHowOrder(
+    data: PostAdminAboutStoreHowOrderData = {}
+  ): CancelablePromise<PostAdminAboutStoreHowOrderResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/about/store_how_order',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * delete
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static deleteAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5(): CancelablePromise<DeleteAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5Response> {
+    return __request(OpenAPI, {
+      method: 'DELETE',
+      url: '/admin/about/7ad421cd-9075-4a74-b2e1-e4298a1dc2b5',
+    });
+  }
+
+  /**
+   * stop
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5Stop(
+    data: PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5StopData = {}
+  ): CancelablePromise<PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5StopResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/about/7ad421cd-9075-4a74-b2e1-e4298a1dc2b5/stop',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * restore
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5Restore(
+    data: PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5RestoreData = {}
+  ): CancelablePromise<PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5RestoreResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/about/7ad421cd-9075-4a74-b2e1-e4298a1dc2b5/restore',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminLandingSiteOfferService {
-    /**
-     * list
-     * @param data The data for the request.
-     * @param data.page
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminSiteOffers(data: GetAdminSiteOffersData = {}): CancelablePromise<GetAdminSiteOffersResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/site_offers',
-            query: {
-                page: data.page,
-                paginate: data.paginate
-            }
-        });
-    }
-    
-    /**
-     * create
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminSiteOffers(data: PostAdminSiteOffersData = {}): CancelablePromise<PostAdminSiteOffersResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/site_offers',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminSiteOffersE3Ed5781465b4C16879f981812Fb6210(data: PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Data = {}): CancelablePromise<PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Response> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * delete
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static deleteAdminSiteOffersE3Ed5781465b4C16879f981812Fb6210(): CancelablePromise<DeleteAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Response> {
-        return __request(OpenAPI, {
-            method: 'DELETE',
-            url: '/admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210'
-        });
-    }
-    
-    /**
-     * stop
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminSiteOffersE3Ed5781465b4C16879f981812Fb6210Stop(data: PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210StopData = {}): CancelablePromise<PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210StopResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210/stop',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * restore
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminSiteOffersE3Ed5781465b4C16879f981812Fb6210Restore(data: PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210RestoreData = {}): CancelablePromise<PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210RestoreResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210/restore',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * list
+   * @param data The data for the request.
+   * @param data.page
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminSiteOffers(
+    data: GetAdminSiteOffersData = {}
+  ): CancelablePromise<GetAdminSiteOffersResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/site_offers',
+      query: {
+        page: data.page,
+        paginate: data.paginate,
+      },
+    });
+  }
+
+  /**
+   * create
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminSiteOffers(
+    data: PostAdminSiteOffersData = {}
+  ): CancelablePromise<PostAdminSiteOffersResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/site_offers',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminSiteOffersE3Ed5781465b4C16879f981812Fb6210(
+    data: PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Data = {}
+  ): CancelablePromise<PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Response> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * delete
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static deleteAdminSiteOffersE3Ed5781465b4C16879f981812Fb6210(): CancelablePromise<DeleteAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Response> {
+    return __request(OpenAPI, {
+      method: 'DELETE',
+      url: '/admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210',
+    });
+  }
+
+  /**
+   * stop
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminSiteOffersE3Ed5781465b4C16879f981812Fb6210Stop(
+    data: PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210StopData = {}
+  ): CancelablePromise<PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210StopResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210/stop',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * restore
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminSiteOffersE3Ed5781465b4C16879f981812Fb6210Restore(
+    data: PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210RestoreData = {}
+  ): CancelablePromise<PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210RestoreResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210/restore',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminLandingGuaranteeRightService {
-    /**
-     * list
-     * @param data The data for the request.
-     * @param data.page
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminGuaranteeRight(data: GetAdminGuaranteeRightData = {}): CancelablePromise<GetAdminGuaranteeRightResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/guarantee_right',
-            query: {
-                page: data.page,
-                paginate: data.paginate
-            }
-        });
-    }
-    
-    /**
-     * create
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminGuaranteeRight(data: PostAdminGuaranteeRightData = {}): CancelablePromise<PostAdminGuaranteeRightResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/guarantee_right',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminGuaranteeRight716Ae479A4144E1a80A9De253B560D33(data: PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Data = {}): CancelablePromise<PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Response> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/guarantee_right/716ae479-a414-4e1a-80a9-de253b560d33',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * delete
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static deleteAdminGuaranteeRight716Ae479A4144E1a80A9De253B560D33(): CancelablePromise<DeleteAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Response> {
-        return __request(OpenAPI, {
-            method: 'DELETE',
-            url: '/admin/guarantee_right/716ae479-a414-4e1a-80a9-de253b560d33'
-        });
-    }
-    
-    /**
-     * stop
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminGuaranteeRight716Ae479A4144E1a80A9De253B560D33Stop(data: PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33StopData = {}): CancelablePromise<PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33StopResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/guarantee_right/716ae479-a414-4e1a-80a9-de253b560d33/stop',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * restore
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminGuaranteeRight716Ae479A4144E1a80A9De253B560D33Restore(data: PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33RestoreData = {}): CancelablePromise<PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33RestoreResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/guarantee_right/716ae479-a414-4e1a-80a9-de253b560d33/restore',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * list
+   * @param data The data for the request.
+   * @param data.page
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminGuaranteeRight(
+    data: GetAdminGuaranteeRightData = {}
+  ): CancelablePromise<GetAdminGuaranteeRightResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/guarantee_right',
+      query: {
+        page: data.page,
+        paginate: data.paginate,
+      },
+    });
+  }
+
+  /**
+   * create
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminGuaranteeRight(
+    data: PostAdminGuaranteeRightData = {}
+  ): CancelablePromise<PostAdminGuaranteeRightResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/guarantee_right',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminGuaranteeRight716Ae479A4144E1a80A9De253B560D33(
+    data: PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Data = {}
+  ): CancelablePromise<PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Response> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/guarantee_right/716ae479-a414-4e1a-80a9-de253b560d33',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * delete
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static deleteAdminGuaranteeRight716Ae479A4144E1a80A9De253B560D33(): CancelablePromise<DeleteAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Response> {
+    return __request(OpenAPI, {
+      method: 'DELETE',
+      url: '/admin/guarantee_right/716ae479-a414-4e1a-80a9-de253b560d33',
+    });
+  }
+
+  /**
+   * stop
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminGuaranteeRight716Ae479A4144E1a80A9De253B560D33Stop(
+    data: PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33StopData = {}
+  ): CancelablePromise<PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33StopResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/guarantee_right/716ae479-a414-4e1a-80a9-de253b560d33/stop',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * restore
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminGuaranteeRight716Ae479A4144E1a80A9De253B560D33Restore(
+    data: PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33RestoreData = {}
+  ): CancelablePromise<PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33RestoreResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/guarantee_right/716ae479-a414-4e1a-80a9-de253b560d33/restore',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminLandingPartnersService {
-    /**
-     * list
-     * @param data The data for the request.
-     * @param data.page
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminPartners(data: GetAdminPartnersData = {}): CancelablePromise<GetAdminPartnersResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/partners',
-            query: {
-                page: data.page,
-                paginate: data.paginate
-            }
-        });
-    }
-    
-    /**
-     * create
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminPartners(data: PostAdminPartnersData = {}): CancelablePromise<PostAdminPartnersResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/partners',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminPartners862Cfc1a45634Ac38Bb85F75Eeddd6E7(data: PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Data = {}): CancelablePromise<PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Response> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/partners/862cfc1a-4563-4ac3-8bb8-5f75eeddd6e7',
-            headers: {
-                Accept: data.accept
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * delete
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static deleteAdminPartners862Cfc1a45634Ac38Bb85F75Eeddd6E7(): CancelablePromise<DeleteAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Response> {
-        return __request(OpenAPI, {
-            method: 'DELETE',
-            url: '/admin/partners/862cfc1a-4563-4ac3-8bb8-5f75eeddd6e7'
-        });
-    }
-    
-    /**
-     * stop
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminPartners862Cfc1a45634Ac38Bb85F75Eeddd6E7Stop(data: PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7StopData = {}): CancelablePromise<PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7StopResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/partners/862cfc1a-4563-4ac3-8bb8-5f75eeddd6e7/stop',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
-    /**
-     * restore
-     * @param data The data for the request.
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminPartners862Cfc1a45634Ac38Bb85F75Eeddd6E7Restore(data: PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7RestoreData = {}): CancelablePromise<PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7RestoreResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/partners/862cfc1a-4563-4ac3-8bb8-5f75eeddd6e7/restore',
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * list
+   * @param data The data for the request.
+   * @param data.page
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminPartners(
+    data: GetAdminPartnersData = {}
+  ): CancelablePromise<GetAdminPartnersResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/partners',
+      query: {
+        page: data.page,
+        paginate: data.paginate,
+      },
+    });
+  }
+
+  /**
+   * create
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminPartners(
+    data: PostAdminPartnersData = {}
+  ): CancelablePromise<PostAdminPartnersResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/partners',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminPartners862Cfc1a45634Ac38Bb85F75Eeddd6E7(
+    data: PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Data = {}
+  ): CancelablePromise<PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Response> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/partners/862cfc1a-4563-4ac3-8bb8-5f75eeddd6e7',
+      headers: {
+        Accept: data.accept,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * delete
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static deleteAdminPartners862Cfc1a45634Ac38Bb85F75Eeddd6E7(): CancelablePromise<DeleteAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Response> {
+    return __request(OpenAPI, {
+      method: 'DELETE',
+      url: '/admin/partners/862cfc1a-4563-4ac3-8bb8-5f75eeddd6e7',
+    });
+  }
+
+  /**
+   * stop
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminPartners862Cfc1a45634Ac38Bb85F75Eeddd6E7Stop(
+    data: PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7StopData = {}
+  ): CancelablePromise<PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7StopResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/partners/862cfc1a-4563-4ac3-8bb8-5f75eeddd6e7/stop',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
+
+  /**
+   * restore
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminPartners862Cfc1a45634Ac38Bb85F75Eeddd6E7Restore(
+    data: PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7RestoreData = {}
+  ): CancelablePromise<PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7RestoreResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/partners/862cfc1a-4563-4ac3-8bb8-5f75eeddd6e7/restore',
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class AdminTicketsService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.paginate
-     * @param data.page
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminTickets(data: GetAdminTicketsData = {}): CancelablePromise<GetAdminTicketsResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/tickets',
-            query: {
-                paginate: data.paginate,
-                page: data.page
-            }
-        });
-    }
-    
-    /**
-     * messages
-     * @param data The data for the request.
-     * @param data.paginate
-     * @param data.page
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getAdminTicketsFd3A3D51755b4FecBa9aA162B21188CeMessages(data: GetAdminTicketsFd3A3D51755B4FecBa9aA162B21188CeMessagesData = {}): CancelablePromise<GetAdminTicketsFd3A3D51755B4FecBa9aA162B21188CeMessagesResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/admin/tickets/fd3a3d51-755b-4fec-ba9a-a162b21188ce/messages',
-            query: {
-                paginate: data.paginate,
-                page: data.page
-            }
-        });
-    }
-    
-    /**
-     * send messages
-     * @param data The data for the request.
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postAdminTicketsSendMessage(data: PostAdminTicketsSendMessageData = {}): CancelablePromise<PostAdminTicketsSendMessageResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/admin/tickets/send_message',
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.paginate
+   * @param data.page
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminTickets(
+    data: GetAdminTicketsData = {}
+  ): CancelablePromise<GetAdminTicketsResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/tickets',
+      query: {
+        paginate: data.paginate,
+        page: data.page,
+      },
+    });
+  }
+
+  /**
+   * messages
+   * @param data The data for the request.
+   * @param data.paginate
+   * @param data.page
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getAdminTicketsFd3A3D51755b4FecBa9aA162B21188CeMessages(
+    data: GetAdminTicketsFd3A3D51755B4FecBa9aA162B21188CeMessagesData = {}
+  ): CancelablePromise<GetAdminTicketsFd3A3D51755B4FecBa9aA162B21188CeMessagesResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/admin/tickets/fd3a3d51-755b-4fec-ba9a-a162b21188ce/messages',
+      query: {
+        paginate: data.paginate,
+        page: data.page,
+      },
+    });
+  }
+
+  /**
+   * send messages
+   * @param data The data for the request.
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postAdminTicketsSendMessage(
+    data: PostAdminTicketsSendMessageData = {}
+  ): CancelablePromise<PostAdminTicketsSendMessageResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/admin/tickets/send_message',
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
 }
 
 export class ClientClientOrdersService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.statusArray receiving_offer - accepted - completed
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getClientOrders(data: GetClientOrdersData = {}): CancelablePromise<GetClientOrdersResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/client/orders',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            query: {
-                'status[]': data.statusArray
-            }
-        });
-    }
-    
-    /**
-     * details
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224(data: GetClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224Data = {}): CancelablePromise<GetClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224Response> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/client/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            }
-        });
-    }
-    
-    /**
-     * confirm delivery
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224ConfirmDelivery(data: PostClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryData = {}): CancelablePromise<PostClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/client/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224/confirm-delivery',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * rate
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postClientOrderRate(data: PostClientOrderRateData = {}): CancelablePromise<PostClientOrderRateResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/client/order/rate',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.statusArray receiving_offer - accepted - completed
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getClientOrders(
+    data: GetClientOrdersData = {}
+  ): CancelablePromise<GetClientOrdersResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/client/orders',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      query: {
+        'status[]': data.statusArray,
+      },
+    });
+  }
+
+  /**
+   * details
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224(
+    data: GetClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224Data = {}
+  ): CancelablePromise<GetClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224Response> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/client/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+    });
+  }
+
+  /**
+   * confirm delivery
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224ConfirmDelivery(
+    data: PostClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryData = {}
+  ): CancelablePromise<PostClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/client/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224/confirm-delivery',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * rate
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postClientOrderRate(
+    data: PostClientOrderRateData = {}
+  ): CancelablePromise<PostClientOrderRateResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/client/order/rate',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
 }
 
 export class ClientClientOfferService {
-    /**
-     * Accept
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postClientOffer96Be9E84956a429889Bd9Bd3C58E251eAccept(data: PostClientOffer96Be9E84956A429889Bd9Bd3C58E251eAcceptData = {}): CancelablePromise<PostClientOffer96Be9E84956A429889Bd9Bd3C58E251eAcceptResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/client/offer/96be9e84-956a-4298-89bd-9bd3c58e251e/accept',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
+  /**
+   * Accept
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postClientOffer96Be9E84956a429889Bd9Bd3C58E251eAccept(
+    data: PostClientOffer96Be9E84956A429889Bd9Bd3C58E251eAcceptData = {}
+  ): CancelablePromise<PostClientOffer96Be9E84956A429889Bd9Bd3C58E251eAcceptResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/client/offer/96be9e84-956a-4298-89bd-9bd3c58e251e/accept',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
 }
 
 export class ClientServicesService {
-    /**
-     * list
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getClientServices(data: GetClientServicesData = {}): CancelablePromise<GetClientServicesResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/client/services',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            }
-        });
-    }
-    
+  /**
+   * list
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getClientServices(
+    data: GetClientServicesData = {}
+  ): CancelablePromise<GetClientServicesResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/client/services',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+    });
+  }
 }
 
 export class ProviderProviderSubscriptionService {
-    /**
-     * plans
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getProviderSubscriptionPlans(data: GetProviderSubscriptionPlansData = {}): CancelablePromise<GetProviderSubscriptionPlansResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/provider/subscription/plans',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            query: {
-                paginate: data.paginate
-            }
-        });
-    }
-    
-    /**
-     * subscribe
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postProviderSubscriptionSubscribe(data: PostProviderSubscriptionSubscribeData = {}): CancelablePromise<PostProviderSubscriptionSubscribeResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/provider/subscription/subscribe',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * check
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getProviderSubscriptionCheck(data: GetProviderSubscriptionCheckData = {}): CancelablePromise<GetProviderSubscriptionCheckResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/provider/subscription/check',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            }
-        });
-    }
-    
+  /**
+   * plans
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getProviderSubscriptionPlans(
+    data: GetProviderSubscriptionPlansData = {}
+  ): CancelablePromise<GetProviderSubscriptionPlansResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/provider/subscription/plans',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      query: {
+        paginate: data.paginate,
+      },
+    });
+  }
+
+  /**
+   * subscribe
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postProviderSubscriptionSubscribe(
+    data: PostProviderSubscriptionSubscribeData = {}
+  ): CancelablePromise<PostProviderSubscriptionSubscribeResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/provider/subscription/subscribe',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * check
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getProviderSubscriptionCheck(
+    data: GetProviderSubscriptionCheckData = {}
+  ): CancelablePromise<GetProviderSubscriptionCheckResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/provider/subscription/check',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+    });
+  }
 }
 
 export class ProviderProviderProfileService {
-    /**
-     * show
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getProviderProfile(data: GetProviderProfileData = {}): CancelablePromise<GetProviderProfileResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/provider/profile',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            }
-        });
-    }
-    
-    /**
-     * store
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postProviderProfile(data: PostProviderProfileData = {}): CancelablePromise<PostProviderProfileResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/provider/profile',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * update
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static putProviderProfile(data: PutProviderProfileData = {}): CancelablePromise<PutProviderProfileResponse> {
-        return __request(OpenAPI, {
-            method: 'PUT',
-            url: '/provider/profile',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'application/x-www-form-urlencoded'
-        });
-    }
-    
-    /**
-     * me
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getProviderMe(data: GetProviderMeData = {}): CancelablePromise<GetProviderMeResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/provider/me',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            }
-        });
-    }
-    
-    /**
-     * single provider
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getProviderF84Fd31930E54Ea49C2881B822045Ebc(data: GetProviderF84Fd31930E54Ea49C2881B822045EbcData = {}): CancelablePromise<GetProviderF84Fd31930E54Ea49C2881B822045EbcResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/provider/f84fd319-30e5-4ea4-9c28-81b822045ebc',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            }
-        });
-    }
-    
-    /**
-     * search
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.type spare_parts,towing,maintenance
-     * @param data.paginate
-     * @param data.lat
-     * @param data.lng
-     * @param data.sort
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getProviderSearch(data: GetProviderSearchData = {}): CancelablePromise<GetProviderSearchResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/provider/search',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            query: {
-                type: data.type,
-                paginate: data.paginate,
-                lat: data.lat,
-                lng: data.lng,
-                sort: data.sort
-            }
-        });
-    }
-    
+  /**
+   * show
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getProviderProfile(
+    data: GetProviderProfileData = {}
+  ): CancelablePromise<GetProviderProfileResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/provider/profile',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+    });
+  }
+
+  /**
+   * store
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postProviderProfile(
+    data: PostProviderProfileData = {}
+  ): CancelablePromise<PostProviderProfileResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/provider/profile',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * update
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static putProviderProfile(
+    data: PutProviderProfileData = {}
+  ): CancelablePromise<PutProviderProfileResponse> {
+    return __request(OpenAPI, {
+      method: 'PUT',
+      url: '/provider/profile',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'application/x-www-form-urlencoded',
+    });
+  }
+
+  /**
+   * me
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getProviderMe(
+    data: GetProviderMeData = {}
+  ): CancelablePromise<GetProviderMeResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/provider/me',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+    });
+  }
+
+  /**
+   * single provider
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getProviderF84Fd31930E54Ea49C2881B822045Ebc(
+    data: GetProviderF84Fd31930E54Ea49C2881B822045EbcData = {}
+  ): CancelablePromise<GetProviderF84Fd31930E54Ea49C2881B822045EbcResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/provider/f84fd319-30e5-4ea4-9c28-81b822045ebc',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+    });
+  }
+
+  /**
+   * search
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.type spare_parts,towing,maintenance
+   * @param data.paginate
+   * @param data.lat
+   * @param data.lng
+   * @param data.sort
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getProviderSearch(
+    data: GetProviderSearchData = {}
+  ): CancelablePromise<GetProviderSearchResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/provider/search',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      query: {
+        type: data.type,
+        paginate: data.paginate,
+        lat: data.lat,
+        lng: data.lng,
+        sort: data.sort,
+      },
+    });
+  }
 }
 
 export class ProviderProviderOrdersService {
-    /**
-     * index
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.status can_submit - already_submit - accepted - finished
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getProviderOrders(data: GetProviderOrdersData = {}): CancelablePromise<GetProviderOrdersResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/provider/orders',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            query: {
-                status: data.status
-            }
-        });
-    }
-    
-    /**
-     * details
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getProviderOrders1D9De514C4E149878Eb90909556C7186(data: GetProviderOrders1D9De514C4E149878Eb90909556C7186Data = {}): CancelablePromise<GetProviderOrders1D9De514C4E149878Eb90909556C7186Response> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/provider/orders/1d9de514-c4e1-4987-8eb9-0909556c7186',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            }
-        });
-    }
-    
-    /**
-     * rate
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postProviderOrderRate(data: PostProviderOrderRateData = {}): CancelablePromise<PostProviderOrderRateResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/provider/order/rate',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * confirm delivery
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postProviderOrdersC5Ad5169F88d4Acc8D4f6C985706B224ConfirmDelivery(data: PostProviderOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryData = {}): CancelablePromise<PostProviderOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/provider/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224/confirm-delivery',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
+  /**
+   * index
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.status can_submit - already_submit - accepted - finished
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getProviderOrders(
+    data: GetProviderOrdersData = {}
+  ): CancelablePromise<GetProviderOrdersResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/provider/orders',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      query: {
+        status: data.status,
+      },
+    });
+  }
+
+  /**
+   * details
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getProviderOrders1D9De514C4E149878Eb90909556C7186(
+    data: GetProviderOrders1D9De514C4E149878Eb90909556C7186Data = {}
+  ): CancelablePromise<GetProviderOrders1D9De514C4E149878Eb90909556C7186Response> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/provider/orders/1d9de514-c4e1-4987-8eb9-0909556c7186',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+    });
+  }
+
+  /**
+   * rate
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postProviderOrderRate(
+    data: PostProviderOrderRateData = {}
+  ): CancelablePromise<PostProviderOrderRateResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/provider/order/rate',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
+
+  /**
+   * confirm delivery
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postProviderOrdersC5Ad5169F88d4Acc8D4f6C985706B224ConfirmDelivery(
+    data: PostProviderOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryData = {}
+  ): CancelablePromise<PostProviderOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/provider/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224/confirm-delivery',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
 }
 
 export class ProviderProviderOfferService {
-    /**
-     * store
-     * @param data The data for the request.
-     * @param data.xRequestedWith API
-     * @param data.contentLanguage accepts: ar, en
-     * @param data.formData
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postProviderOffer(data: PostProviderOfferData = {}): CancelablePromise<PostProviderOfferResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/provider/offer',
-            headers: {
-                'X-Requested-With': data.xRequestedWith,
-                'Content-Language': data.contentLanguage
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
+  /**
+   * store
+   * @param data The data for the request.
+   * @param data.xRequestedWith API
+   * @param data.contentLanguage accepts: ar, en
+   * @param data.formData
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postProviderOffer(
+    data: PostProviderOfferData = {}
+  ): CancelablePromise<PostProviderOfferResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/provider/offer',
+      headers: {
+        'X-Requested-With': data.xRequestedWith,
+        'Content-Language': data.contentLanguage,
+      },
+      formData: data.formData,
+      mediaType: 'multipart/form-data',
+    });
+  }
 }
 
 export class PagesService {
-    /**
-     * get page by type
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getPagesHowWeHelp(): CancelablePromise<GetPagesHowWeHelpResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/pages/how_we_help'
-        });
-    }
-    
-    /**
-     * get page by type paginated
-     * @param data The data for the request.
-     * @param data.page
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getPagesRightsPaginated(data: GetPagesRightsPaginatedData = {}): CancelablePromise<GetPagesRightsPaginatedResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/pages/rights/paginated',
-            query: {
-                page: data.page,
-                paginate: data.paginate
-            }
-        });
-    }
-    
+  /**
+   * get page by type
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getPagesHowWeHelp(): CancelablePromise<GetPagesHowWeHelpResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/pages/how_we_help',
+    });
+  }
+
+  /**
+   * get page by type paginated
+   * @param data The data for the request.
+   * @param data.page
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getPagesRightsPaginated(
+    data: GetPagesRightsPaginatedData = {}
+  ): CancelablePromise<GetPagesRightsPaginatedResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/pages/rights/paginated',
+      query: {
+        page: data.page,
+        paginate: data.paginate,
+      },
+    });
+  }
 }
 
 export class PlatformReviewsService {
-    /**
-     * list
-     * @param data The data for the request.
-     * @param data.page
-     * @param data.paginate
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getPlatformReviews(data: GetPlatformReviewsData = {}): CancelablePromise<GetPlatformReviewsResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/platform-reviews',
-            query: {
-                page: data.page,
-                paginate: data.paginate
-            }
-        });
-    }
-    
+  /**
+   * list
+   * @param data The data for the request.
+   * @param data.page
+   * @param data.paginate
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getPlatformReviews(
+    data: GetPlatformReviewsData = {}
+  ): CancelablePromise<GetPlatformReviewsResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/platform-reviews',
+      query: {
+        page: data.page,
+        paginate: data.paginate,
+      },
+    });
+  }
 }
 
 export class MessagesService {
-    /**
-     * Get All Messages of the Logged In User
-     * @param data The data for the request.
-     * @param data.accept
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getMessages(data: GetMessagesData = {}): CancelablePromise<GetMessagesResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/messages/',
-            headers: {
-                Accept: data.accept
-            }
-        });
-    }
-    
-    /**
-     * Send Message
-     * @param data The data for the request.
-     * @param data.accept
-     * @param data.requestBody
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static postMessagesSend(data: PostMessagesSendData = {}): CancelablePromise<PostMessagesSendResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/messages/send',
-            headers: {
-                Accept: data.accept
-            },
-            body: data.requestBody,
-            mediaType: 'application/json'
-        });
-    }
-    
+  /**
+   * Get All Messages of the Logged In User
+   * @param data The data for the request.
+   * @param data.accept
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getMessages(
+    data: GetMessagesData = {}
+  ): CancelablePromise<GetMessagesResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/messages/',
+      headers: {
+        Accept: data.accept,
+      },
+    });
+  }
+
+  /**
+   * Send Message
+   * @param data The data for the request.
+   * @param data.accept
+   * @param data.requestBody
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static postMessagesSend(
+    data: PostMessagesSendData = {}
+  ): CancelablePromise<PostMessagesSendResponse> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/messages/send',
+      headers: {
+        Accept: data.accept,
+      },
+      body: data.requestBody,
+      mediaType: 'application/json',
+    });
+  }
 }
 
 export class LandingService {
-    /**
-     * sliders
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getLandingSliders(): CancelablePromise<GetLandingSlidersResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/landing/sliders'
-        });
-    }
-    
-    /**
-     * services
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getLandingServices(): CancelablePromise<GetLandingServicesResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/landing/services'
-        });
-    }
-    
-    /**
-     * site_offers
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getLandingSiteOffers(): CancelablePromise<GetLandingSiteOffersResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/landing/site_offers'
-        });
-    }
-    
-    /**
-     * plans
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getLandingPlans(): CancelablePromise<GetLandingPlansResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/landing/plans'
-        });
-    }
-    
-    /**
-     * how_help
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getLandingHowHelp(): CancelablePromise<GetLandingHowHelpResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/landing/how_help'
-        });
-    }
-    
-    /**
-     * about sections
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getLandingAboutSections(): CancelablePromise<GetLandingAboutSectionsResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/landing/about_sections'
-        });
-    }
-    
-    /**
-     * download section
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getLandingDownloadSection(): CancelablePromise<GetLandingDownloadSectionResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/landing/download_section'
-        });
-    }
-    
-    /**
-     * guarantee_rights
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getLandingGuaranteeRights(): CancelablePromise<GetLandingGuaranteeRightsResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/landing/guarantee_rights'
-        });
-    }
-    
-    /**
-     * platform_reviews
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getLandingPlatformReviews(): CancelablePromise<GetLandingPlatformReviewsResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/landing/platform_reviews'
-        });
-    }
-    
-    /**
-     * partners
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getLandingPartners(): CancelablePromise<GetLandingPartnersResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/landing/partners'
-        });
-    }
-    
-    /**
-     * most_rated_providers
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getLandingMostRatedProviders(): CancelablePromise<GetLandingMostRatedProvidersResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/landing/most_rated_providers'
-        });
-    }
-    
-    /**
-     * orders_numbers
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getLandingOrdersNumbers(): CancelablePromise<GetLandingOrdersNumbersResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/landing/orders_numbers'
-        });
-    }
-    
-    /**
-     * contact
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getLandingContact(): CancelablePromise<GetLandingContactResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/landing/contact'
-        });
-    }
-    
-    /**
-     * about
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getLandingAbout(): CancelablePromise<GetLandingAboutResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/landing/about'
-        });
-    }
-    
-    /**
-     * how_order
-     * @returns unknown Successful response
-     * @throws ApiError
-     */
-    public static getLandingHowOrder(): CancelablePromise<GetLandingHowOrderResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/landing/how_order'
-        });
-    }
-    
+  /**
+   * sliders
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getLandingSliders(): CancelablePromise<GetLandingSlidersResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/landing/sliders',
+    });
+  }
+
+  /**
+   * services
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getLandingServices(): CancelablePromise<GetLandingServicesResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/landing/services',
+    });
+  }
+
+  /**
+   * site_offers
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getLandingSiteOffers(): CancelablePromise<GetLandingSiteOffersResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/landing/site_offers',
+    });
+  }
+
+  /**
+   * plans
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getLandingPlans(): CancelablePromise<GetLandingPlansResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/landing/plans',
+    });
+  }
+
+  /**
+   * how_help
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getLandingHowHelp(): CancelablePromise<GetLandingHowHelpResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/landing/how_help',
+    });
+  }
+
+  /**
+   * about sections
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getLandingAboutSections(): CancelablePromise<GetLandingAboutSectionsResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/landing/about_sections',
+    });
+  }
+
+  /**
+   * download section
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getLandingDownloadSection(): CancelablePromise<GetLandingDownloadSectionResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/landing/download_section',
+    });
+  }
+
+  /**
+   * guarantee_rights
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getLandingGuaranteeRights(): CancelablePromise<GetLandingGuaranteeRightsResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/landing/guarantee_rights',
+    });
+  }
+
+  /**
+   * platform_reviews
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getLandingPlatformReviews(): CancelablePromise<GetLandingPlatformReviewsResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/landing/platform_reviews',
+    });
+  }
+
+  /**
+   * partners
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getLandingPartners(): CancelablePromise<GetLandingPartnersResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/landing/partners',
+    });
+  }
+
+  /**
+   * most_rated_providers
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getLandingMostRatedProviders(): CancelablePromise<GetLandingMostRatedProvidersResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/landing/most_rated_providers',
+    });
+  }
+
+  /**
+   * orders_numbers
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getLandingOrdersNumbers(): CancelablePromise<GetLandingOrdersNumbersResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/landing/orders_numbers',
+    });
+  }
+
+  /**
+   * contact
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getLandingContact(): CancelablePromise<GetLandingContactResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/landing/contact',
+    });
+  }
+
+  /**
+   * about
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getLandingAbout(): CancelablePromise<GetLandingAboutResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/landing/about',
+    });
+  }
+
+  /**
+   * how_order
+   * @returns unknown Successful response
+   * @throws ApiError
+   */
+  public static getLandingHowOrder(): CancelablePromise<GetLandingHowOrderResponse> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/landing/how_order',
+    });
+  }
 }

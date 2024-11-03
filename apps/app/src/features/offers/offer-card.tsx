@@ -6,6 +6,7 @@ import DiscountSvg from '../../assets/discount.svg';
 import { formatPrice } from '../../utils/formatPrice';
 import { useTranslations } from 'next-intl';
 import { Skeleton } from '@nextui-org/skeleton';
+import { cn } from '@nextui-org/theme';
 
 export const OfferCard = ({ offer }: { offer: Offer }) => {
   const t = useTranslations('common');
@@ -19,7 +20,10 @@ export const OfferCard = ({ offer }: { offer: Offer }) => {
     <Card
       key={offer.id}
       isHoverable
-      className="w-72 lg:w-80 shadow-sm border cursor-pointer hover:scale-[102%] transition-transform ease-in"
+      className={cn(
+        'w-72 shadow-sm border cursor-pointer hover:scale-[102%] transition-transform ease-in h-fit'
+        // 'xl:w-80'
+      )}
     >
       <CardHeader className="p-0 rounded-b-none overflow-hidden">
         <Image

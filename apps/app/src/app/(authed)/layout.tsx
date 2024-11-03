@@ -1,8 +1,14 @@
+'use client';
+
 import { ReactNode } from 'react';
 import Navbar from '../../features/navbar/navbar';
 import Sidenav from '../../features/sidenav/sidenav';
+import { usePathname } from 'next/navigation';
 
-export default async function Layout({ children }: { children: ReactNode }) {
+export default function Layout({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+  const isHome = pathname === '/home';
+
   return (
     <div className="flex flex-col">
       <Navbar />
@@ -10,7 +16,12 @@ export default async function Layout({ children }: { children: ReactNode }) {
         <div className="hidden md:block h-full">
           <Sidenav />
         </div>
-        <div className="p-0 lg:p-8 w-full overflow-y-scroll h-[calc(100dvh-4rem-1px)]">
+        {/* Set background based on the current path */}
+        <div
+          className={`p-0 lg:p-8 w-full overflow-y-scroll h-[calc(100dvh-4rem-1px)] ${
+            isHome ? 'bg-white' : 'bg-[#fafbfc]'
+          }`}
+        >
           {children}
         </div>
       </div>
