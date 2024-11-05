@@ -611,6 +611,11 @@ paths:
           schema:
             type: integer
           example: '10'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
