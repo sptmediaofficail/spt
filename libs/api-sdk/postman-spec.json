@@ -15,7 +15,9 @@
             {
               "listen": "test",
               "script": {
-                "exec": [""],
+                "exec": [
+                  ""
+                ],
                 "type": "text/javascript"
               }
             }
@@ -60,8 +62,14 @@
             },
             "url": {
               "raw": "{{local}}/shared/auth/me",
-              "host": ["{{local}}"],
-              "path": ["shared", "auth", "me"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "shared",
+                "auth",
+                "me"
+              ]
             }
           },
           "response": []
@@ -111,8 +119,14 @@
             },
             "url": {
               "raw": "{{local}}/shared/auth/register",
-              "host": ["{{local}}"],
-              "path": ["shared", "auth", "register"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "shared",
+                "auth",
+                "register"
+              ]
             }
           },
           "response": [
@@ -161,8 +175,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/client/auth/register",
-                  "host": ["{{local}}"],
-                  "path": ["client", "auth", "register"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "client",
+                    "auth",
+                    "register"
+                  ]
                 }
               },
               "status": "OK",
@@ -244,8 +264,14 @@
             },
             "url": {
               "raw": "{{local}}/shared/auth/send-otp",
-              "host": ["{{local}}"],
-              "path": ["shared", "auth", "send-otp"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "shared",
+                "auth",
+                "send-otp"
+              ]
             }
           },
           "response": [
@@ -278,8 +304,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/shared/auth/send-otp",
-                  "host": ["{{local}}"],
-                  "path": ["shared", "auth", "send-otp"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "shared",
+                    "auth",
+                    "send-otp"
+                  ]
                 }
               },
               "status": "OK",
@@ -374,8 +406,14 @@
             },
             "url": {
               "raw": "{{local}}/shared/auth/verify-otp",
-              "host": ["{{local}}"],
-              "path": ["shared", "auth", "verify-otp"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "shared",
+                "auth",
+                "verify-otp"
+              ]
             }
           },
           "response": [
@@ -408,8 +446,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/client/auth/verify-otp",
-                  "host": ["{{local}}"],
-                  "path": ["client", "auth", "verify-otp"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "client",
+                    "auth",
+                    "verify-otp"
+                  ]
                 }
               },
               "status": "OK",
@@ -468,7 +512,9 @@
             {
               "listen": "test",
               "script": {
-                "exec": [""],
+                "exec": [
+                  ""
+                ],
                 "type": "text/javascript"
               }
             }
@@ -510,8 +556,14 @@
             },
             "url": {
               "raw": "{{local}}/shared/auth/logout",
-              "host": ["{{local}}"],
-              "path": ["shared", "auth", "logout"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "shared",
+                "auth",
+                "logout"
+              ]
             }
           },
           "response": [
@@ -544,8 +596,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/shared/auth/logout",
-                  "host": ["{{local}}"],
-                  "path": ["shared", "auth", "logout"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "shared",
+                    "auth",
+                    "logout"
+                  ]
                 }
               },
               "status": "OK",
@@ -604,7 +662,9 @@
             {
               "listen": "test",
               "script": {
-                "exec": [""],
+                "exec": [
+                  ""
+                ],
                 "type": "text/javascript"
               }
             }
@@ -658,8 +718,14 @@
             },
             "url": {
               "raw": "{{local}}/shared/auth/edit-profile",
-              "host": ["{{local}}"],
-              "path": ["shared", "auth", "edit-profile"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "shared",
+                "auth",
+                "edit-profile"
+              ]
             }
           },
           "response": []
@@ -670,7 +736,9 @@
             {
               "listen": "test",
               "script": {
-                "exec": [""],
+                "exec": [
+                  ""
+                ],
                 "type": "text/javascript"
               }
             }
@@ -712,8 +780,14 @@
             },
             "url": {
               "raw": "{{local}}/shared/auth/change-phone",
-              "host": ["{{local}}"],
-              "path": ["shared", "auth", "change-phone"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "shared",
+                "auth",
+                "change-phone"
+              ]
             }
           },
           "response": []
@@ -724,7 +798,9 @@
             {
               "listen": "test",
               "script": {
-                "exec": [""],
+                "exec": [
+                  ""
+                ],
                 "type": "text/javascript"
               }
             }
@@ -766,8 +842,14 @@
             },
             "url": {
               "raw": "{{local}}/shared/auth/verify-change-phone",
-              "host": ["{{local}}"],
-              "path": ["shared", "auth", "verify-change-phone"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "shared",
+                "auth",
+                "verify-change-phone"
+              ]
             }
           },
           "response": []
@@ -778,7 +860,9 @@
             {
               "listen": "test",
               "script": {
-                "exec": [""],
+                "exec": [
+                  ""
+                ],
                 "type": "text/javascript"
               }
             }
@@ -820,8 +904,14 @@
             },
             "url": {
               "raw": "{{local}}/shared/auth/update-settings",
-              "host": ["{{local}}"],
-              "path": ["shared", "auth", "update-settings"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "shared",
+                "auth",
+                "update-settings"
+              ]
             }
           },
           "response": []
@@ -858,8 +948,12 @@
             },
             "url": {
               "raw": "{{url}}/brands?paginate=50",
-              "host": ["{{url}}"],
-              "path": ["brands"],
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "brands"
+              ],
               "query": [
                 {
                   "key": "paginate",
@@ -901,13 +995,21 @@
               "formdata": []
             },
             "url": {
-              "raw": "{{local}}/site_offers?paginate=10",
-              "host": ["{{local}}"],
-              "path": ["site_offers"],
+              "raw": "{{local}}/site_offers?paginate=10&page=1",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "site_offers"
+              ],
               "query": [
                 {
                   "key": "paginate",
                   "value": "10"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
                 }
               ]
             }
@@ -946,8 +1048,12 @@
             },
             "url": {
               "raw": "{{local}}/cities?paginate=50",
-              "host": ["{{local}}"],
-              "path": ["cities"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "cities"
+              ],
               "query": [
                 {
                   "key": "paginate",
@@ -990,8 +1096,14 @@
             },
             "url": {
               "raw": "{{local}}/brands/Alfa_Romeo/models",
-              "host": ["{{local}}"],
-              "path": ["brands", "Alfa_Romeo", "models"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "brands",
+                "Alfa_Romeo",
+                "models"
+              ],
               "query": [
                 {
                   "key": "paginate",
@@ -1177,8 +1289,13 @@
             },
             "url": {
               "raw": "{{local}}/client/order_spare_part",
-              "host": ["{{local}}"],
-              "path": ["client", "order_spare_part"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "client",
+                "order_spare_part"
+              ]
             }
           },
           "response": []
@@ -1225,8 +1342,13 @@
             },
             "url": {
               "raw": "{{local}}/vin/JN8AT3MM3PW009894",
-              "host": ["{{local}}"],
-              "path": ["vin", "JN8AT3MM3PW009894"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "vin",
+                "JN8AT3MM3PW009894"
+              ]
             }
           },
           "response": []
@@ -1281,8 +1403,12 @@
             },
             "url": {
               "raw": "{{local}}/chat",
-              "host": ["{{local}}"],
-              "path": ["chat"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "chat"
+              ]
             }
           },
           "response": []
@@ -1337,8 +1463,13 @@
             },
             "url": {
               "raw": "{{local}}/chat/message",
-              "host": ["{{local}}"],
-              "path": ["chat", "message"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "chat",
+                "message"
+              ]
             }
           },
           "response": []
@@ -1385,8 +1516,12 @@
             },
             "url": {
               "raw": "{{local}}/tickets?paginate=2&page=1",
-              "host": ["{{local}}"],
-              "path": ["tickets"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "tickets"
+              ],
               "query": [
                 {
                   "key": "paginate",
@@ -1438,8 +1573,13 @@
             },
             "url": {
               "raw": "{{local}}/ticket/b33c269e-b489-415e-842f-65472771a0f3",
-              "host": ["{{local}}"],
-              "path": ["ticket", "b33c269e-b489-415e-842f-65472771a0f3"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "ticket",
+                "b33c269e-b489-415e-842f-65472771a0f3"
+              ]
             }
           },
           "response": []
@@ -1496,8 +1636,12 @@
             },
             "url": {
               "raw": "{{local}}/ticket",
-              "host": ["{{local}}"],
-              "path": ["ticket"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "ticket"
+              ]
             }
           },
           "response": []
@@ -1553,8 +1697,13 @@
             },
             "url": {
               "raw": "{{local}}/ticket/message",
-              "host": ["{{local}}"],
-              "path": ["ticket", "message"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "ticket",
+                "message"
+              ]
             }
           },
           "response": []
@@ -1614,8 +1763,13 @@
             },
             "url": {
               "raw": "{{local}}/call/make",
-              "host": ["{{local}}"],
-              "path": ["call", "make"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "call",
+                "make"
+              ]
             }
           },
           "response": []
@@ -1660,8 +1814,13 @@
             },
             "url": {
               "raw": "{{local}}/call/accept",
-              "host": ["{{local}}"],
-              "path": ["call", "accept"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "call",
+                "accept"
+              ]
             }
           },
           "response": []
@@ -1706,8 +1865,13 @@
             },
             "url": {
               "raw": "{{local}}/call/refuse",
-              "host": ["{{local}}"],
-              "path": ["call", "refuse"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "call",
+                "refuse"
+              ]
             }
           },
           "response": []
@@ -1752,8 +1916,13 @@
             },
             "url": {
               "raw": "{{local}}/call/end",
-              "host": ["{{local}}"],
-              "path": ["call", "end"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "call",
+                "end"
+              ]
             }
           },
           "response": []
@@ -1800,8 +1969,13 @@
             },
             "url": {
               "raw": "{{local}}/notification/index?paginate=5",
-              "host": ["{{local}}"],
-              "path": ["notification", "index"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "notification",
+                "index"
+              ],
               "query": [
                 {
                   "key": "paginate",
@@ -1849,8 +2023,13 @@
             },
             "url": {
               "raw": "{{local}}/notification/unread_count",
-              "host": ["{{local}}"],
-              "path": ["notification", "unread_count"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "notification",
+                "unread_count"
+              ]
             }
           },
           "response": []
@@ -1895,8 +2074,13 @@
             },
             "url": {
               "raw": "{{local}}/notification/mark_as_read",
-              "host": ["{{local}}"],
-              "path": ["notification", "mark_as_read"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "notification",
+                "mark_as_read"
+              ]
             }
           },
           "response": []
@@ -1939,8 +2123,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/orders?paginate=10&search=ygy&status=receiving_offer&type=spare_parts",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "orders"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "orders"
+                  ],
                   "query": [
                     {
                       "key": "paginate",
@@ -1995,7 +2184,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/orders/1d9de514-c4e1-4987-8eb9-0909556c7186",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "orders",
@@ -2035,7 +2226,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/orders/1d9de514-c4e1-4987-8eb9-0909556c7186/offers",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "orders",
@@ -2076,7 +2269,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/orders/89572a05-e77b-48dc-8e1b-645fe0c82b6a/chat",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "orders",
@@ -2129,8 +2324,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/setting/calls",
-                  "host": ["{{local}}"],
-                  "path": ["setting", "calls"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "setting",
+                    "calls"
+                  ]
                 }
               },
               "response": []
@@ -2167,8 +2367,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/setting",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "setting"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "setting"
+                  ]
                 }
               },
               "response": []
@@ -2197,8 +2402,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/cities?paginate=100&page=1&search=Zulfi",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "cities"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "cities"
+                  ],
                   "query": [
                     {
                       "key": "paginate",
@@ -2244,8 +2454,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/cities",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "cities"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "cities"
+                  ]
                 }
               },
               "response": []
@@ -2278,7 +2493,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/cities/81a53c06-4069-4120-b9ae-6a4314cd4ada",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "cities",
@@ -2304,7 +2521,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/cities/b4a07276-1baf-43b0-8068-c03fdabf2626",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "cities",
@@ -2330,7 +2549,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/cities/0e368569-8d07-4efb-a367-182dd5e2db42/stop",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "cities",
@@ -2357,7 +2578,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/cities/0e368569-8d07-4efb-a367-182dd5e2db42/restore",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "cities",
@@ -2402,8 +2625,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/provider-profiles?paginate=100&page=1",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "provider-profiles"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "provider-profiles"
+                  ],
                   "query": [
                     {
                       "key": "paginate",
@@ -2460,7 +2688,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/provider-profiles/verify/09d88c1d-fd8a-424d-9e7c-a5d2391cdbd3",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "provider-profiles",
@@ -2498,7 +2728,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/provider-profiles/decline/02b915a7-5a56-4711-8b4a-eb110408a090",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "provider-profiles",
@@ -2525,7 +2757,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/provider-profiles/stop/02b915a7-5a56-4711-8b4a-eb110408a090",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "provider-profiles",
@@ -2552,7 +2786,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/provider-profiles/restore/02b915a7-5a56-4711-8b4a-eb110408a090",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "provider-profiles",
@@ -2593,8 +2829,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/users?paginate=10&page=1&role=BUSINESS",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "users"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "users"
+                  ],
                   "query": [
                     {
                       "key": "paginate",
@@ -2644,7 +2885,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/users/72d5778f-b67b-4e97-b4e2-f98f695162a7",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "users",
@@ -2688,8 +2931,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/users",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "users"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "users"
+                  ]
                 }
               },
               "response": []
@@ -2711,7 +2959,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/users/b2ef1c4f-918a-4f34-9d2f-97ce28c2772f",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "users",
@@ -2737,7 +2987,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/users/b4a07276-1baf-43b0-8068-c03fdabf2626",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "users",
@@ -2763,7 +3015,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/users/0e368569-8d07-4efb-a367-182dd5e2db42/stop",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "users",
@@ -2790,7 +3044,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/users/0e368569-8d07-4efb-a367-182dd5e2db42/restore",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "users",
@@ -2834,8 +3090,13 @@
                 ],
                 "url": {
                   "raw": "{{local}}/admin/message-templates?paginate=100&page=1",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "message-templates"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "message-templates"
+                  ],
                   "query": [
                     {
                       "key": "paginate",
@@ -2883,8 +3144,14 @@
                 ],
                 "url": {
                   "raw": "{{local}}/admin/message-templates/2",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "message-templates", "2"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "message-templates",
+                    "2"
+                  ]
                 }
               },
               "response": []
@@ -2926,8 +3193,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/message-templates/5",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "message-templates", "5"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "message-templates",
+                    "5"
+                  ]
                 }
               },
               "response": []
@@ -2956,8 +3229,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/services?paginate=10&page=1",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "services"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "services"
+                  ],
                   "query": [
                     {
                       "key": "paginate",
@@ -2993,8 +3271,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/services",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "services"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "services"
+                  ]
                 }
               },
               "response": []
@@ -3062,7 +3345,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/services/b11d171d-eec1-4474-a3d2-6ef6881023ae",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "services",
@@ -3088,7 +3373,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/services/b4a07276-1baf-43b0-8068-c03fdabf2626",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "services",
@@ -3114,7 +3401,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/services/d48c07f9-b8b8-46d9-8b3c-3ba8fcdbe611/stop",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "services",
@@ -3141,7 +3430,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/services/d48c07f9-b8b8-46d9-8b3c-3ba8fcdbe611/restore",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "services",
@@ -3176,8 +3467,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/commissions?paginate=10&page=1",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "commissions"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "commissions"
+                  ],
                   "query": [
                     {
                       "key": "paginate",
@@ -3219,8 +3515,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/commissions?paginate=10&page=1",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "commissions"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "commissions"
+                  ],
                   "query": [
                     {
                       "key": "paginate",
@@ -3257,7 +3558,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/commissions/51a7447f-3bfd-4e89-a7f3-1969c8fb9330",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "commissions",
@@ -3283,7 +3586,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/commissions/51a7447f-3bfd-4e89-a7f3-1969c8fb9330",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "commissions",
@@ -3309,7 +3614,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/commissions/d48c07f9-b8b8-46d9-8b3c-3ba8fcdbe611/stop",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "commissions",
@@ -3336,7 +3643,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/commissions/d48c07f9-b8b8-46d9-8b3c-3ba8fcdbe611/restore",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "commissions",
@@ -3371,8 +3680,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/platform-reviews?page=1&paginate=10",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "platform-reviews"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "platform-reviews"
+                  ],
                   "query": [
                     {
                       "key": "page",
@@ -3415,8 +3729,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/platform-reviews",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "platform-reviews"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "platform-reviews"
+                  ],
                   "query": [
                     {
                       "key": "paginate",
@@ -3461,8 +3780,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/platform-reviews/5",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "platform-reviews", "5"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "platform-reviews",
+                    "5"
+                  ],
                   "query": [
                     {
                       "key": "paginate",
@@ -3495,7 +3820,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/platform-reviews/51a7447f-3bfd-4e89-a7f3-1969c8fb9330",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "platform-reviews",
@@ -3521,7 +3848,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/platform-reviews/51a7447f-3bfd-4e89-a7f3-1969c8fb9330/stop",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "platform-reviews",
@@ -3548,7 +3877,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/platform-reviews/51a7447f-3bfd-4e89-a7f3-1969c8fb9330/restore",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "platform-reviews",
@@ -3593,8 +3924,14 @@
                 },
                 "url": {
                   "raw": "{{url}}/admin/pages/rights",
-                  "host": ["{{url}}"],
-                  "path": ["admin", "pages", "rights"],
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "pages",
+                    "rights"
+                  ],
                   "query": [
                     {
                       "key": "page",
@@ -3630,8 +3967,15 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/pages/rights/paginated?page=1&paginate=10",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "pages", "rights", "paginated"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "pages",
+                    "rights",
+                    "paginated"
+                  ],
                   "query": [
                     {
                       "key": "page",
@@ -3668,8 +4012,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/pages",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "pages"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "pages"
+                  ],
                   "query": [
                     {
                       "key": "paginate",
@@ -3731,8 +4080,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/pages/5",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "pages", "5"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "pages",
+                    "5"
+                  ]
                 }
               },
               "response": []
@@ -3753,7 +4108,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/pages/51a7447f-3bfd-4e89-a7f3-1969c8fb9330",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "pages",
@@ -3787,8 +4144,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/provider-subscription-plans?paginate=10&page=1",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "provider-subscription-plans"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "provider-subscription-plans"
+                  ],
                   "query": [
                     {
                       "key": "paginate",
@@ -3908,8 +4270,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/provider-subscription-plans",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "provider-subscription-plans"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "provider-subscription-plans"
+                  ]
                 }
               },
               "response": []
@@ -4017,7 +4384,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/provider-subscription-plans/945b42fc-a279-4ac5-8c00-77e635c87704",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "provider-subscription-plans",
@@ -4043,7 +4412,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/provider-subscription-plans/945b42fc-a279-4ac5-8c00-77e635c87704",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "provider-subscription-plans",
@@ -4069,7 +4440,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/provider-subscription-plans/945b42fc-a279-4ac5-8c00-77e635c87704/stop",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "provider-subscription-plans",
@@ -4096,7 +4469,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/provider-subscription-plans/945b42fc-a279-4ac5-8c00-77e635c87704/restore",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "provider-subscription-plans",
@@ -4131,8 +4506,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/city-services?paginate=100&page=1&search=حائل",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "city-services"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "city-services"
+                  ],
                   "query": [
                     {
                       "key": "paginate",
@@ -4178,8 +4558,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/city-services/13",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "city-services", "13"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "city-services",
+                    "13"
+                  ]
                 }
               },
               "response": []
@@ -4211,8 +4597,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/city-services/attach",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "city-services", "attach"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "city-services",
+                    "attach"
+                  ]
                 }
               },
               "response": []
@@ -4233,8 +4625,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/city-services/detach",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "city-services", "detach"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "city-services",
+                    "detach"
+                  ]
                 }
               },
               "response": []
@@ -4255,7 +4653,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/city-services/0e368569-8d07-4efb-a367-182dd5e2db42/stop",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "city-services",
@@ -4282,7 +4682,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/city-services/0e368569-8d07-4efb-a367-182dd5e2db42/restore",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "city-services",
@@ -4320,8 +4722,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/auth/login",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "auth", "login"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "auth",
+                    "login"
+                  ]
                 }
               },
               "response": []
@@ -4358,8 +4766,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/auth/logout",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "auth", "logout"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "auth",
+                    "logout"
+                  ]
                 }
               },
               "response": []
@@ -4385,8 +4799,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/custom-notification",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "custom-notification"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "custom-notification"
+                  ]
                 }
               },
               "response": []
@@ -4413,8 +4832,13 @@
                 "header": [],
                 "url": {
                   "raw": "{{local}}/admin/permission-groups?page=1&paginate=10",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "permission-groups"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "permission-groups"
+                  ],
                   "query": [
                     {
                       "key": "page",
@@ -4446,7 +4870,9 @@
                 "header": [],
                 "url": {
                   "raw": "{{local}}/admin/permission-groups/8e0ea4e1-b136-45ad-aa91-f4d0b47dcfaf",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "permission-groups",
@@ -4520,8 +4946,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/permission-groups",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "permission-groups"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "permission-groups"
+                  ]
                 }
               },
               "response": []
@@ -4590,7 +5021,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/permission-groups/d814419d-7555-4710-8e26-efeb66fc8fc2",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "permission-groups",
@@ -4616,7 +5049,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/permission-groups/0e368569-8d07-4efb-a367-182dd5e2db42/stop",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "permission-groups",
@@ -4643,7 +5078,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/permission-groups/0e368569-8d07-4efb-a367-182dd5e2db42/restore",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "permission-groups",
@@ -4670,7 +5107,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/permission-groups/51a7447f-3bfd-4e89-a7f3-1969c8fb9330",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "permission-groups",
@@ -4702,8 +5141,13 @@
                 "header": [],
                 "url": {
                   "raw": "{{local}}/admin/permissions",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "permissions"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "permissions"
+                  ]
                 }
               },
               "response": []
@@ -4736,8 +5180,13 @@
                 ],
                 "url": {
                   "raw": "{{local}}/admin/messages",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "messages"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "messages"
+                  ]
                 }
               },
               "response": []
@@ -4765,7 +5214,9 @@
                 ],
                 "url": {
                   "raw": "{{local}}/admin/messages/8899eddd-2567-40b6-bcaa-85ed7d53d226",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "messages",
@@ -4807,7 +5258,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/messages/reply/8899eddd-2567-40b6-bcaa-85ed7d53d226",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "messages",
@@ -4850,7 +5303,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/messages/delete/6aa8ddfc-861c-4c42-b7c4-06dbb20627ad",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "messages",
@@ -4905,8 +5360,13 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/sliders?page=1&paginate=10",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "sliders"],
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "sliders"
+                      ],
                       "query": [
                         {
                           "key": "page",
@@ -4964,8 +5424,13 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/sliders",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "sliders"],
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "sliders"
+                      ],
                       "query": [
                         {
                           "key": "paginate",
@@ -5036,7 +5501,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/sliders/726a81ec-d9b5-43ad-946b-b77470b071f4",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "sliders",
@@ -5084,7 +5551,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/sliders/6193d4cd-ce8e-4b79-ba46-7e3c086206f3",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "sliders",
@@ -5120,7 +5589,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/sliders/726a81ec-d9b5-43ad-946b-b77470b071f4/stop",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "sliders",
@@ -5157,7 +5628,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/sliders/726a81ec-d9b5-43ad-946b-b77470b071f4/restore",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "sliders",
@@ -5209,8 +5682,13 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/how_help?page=1&paginate=10",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "how_help"],
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "how_help"
+                      ],
                       "query": [
                         {
                           "key": "page",
@@ -5278,8 +5756,13 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/how_help",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "how_help"],
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "how_help"
+                      ],
                       "query": [
                         {
                           "key": "paginate",
@@ -5350,7 +5833,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/how_help/c0e70442-f191-4f3c-bb31-7ca396d574cd",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "how_help",
@@ -5398,7 +5883,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/how_help/c0e70442-f191-4f3c-bb31-7ca396d574cd",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "how_help",
@@ -5434,7 +5921,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/how_help/c0e70442-f191-4f3c-bb31-7ca396d574cd/stop",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "how_help",
@@ -5471,7 +5960,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/how_help/c0e70442-f191-4f3c-bb31-7ca396d574cd/restore",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "how_help",
@@ -5523,8 +6014,13 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/about_sections?page=1&paginate=10",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "about_sections"],
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "about_sections"
+                      ],
                       "query": [
                         {
                           "key": "page",
@@ -5592,8 +6088,13 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/about_sections",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "about_sections"],
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "about_sections"
+                      ],
                       "query": [
                         {
                           "key": "paginate",
@@ -5664,7 +6165,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/about_sections/c0e70442-f191-4f3c-bb31-7ca396d574cd",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "about_sections",
@@ -5712,7 +6215,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/about_sections/c0e70442-f191-4f3c-bb31-7ca396d574cd",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "about_sections",
@@ -5748,7 +6253,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/about_sections/c0e70442-f191-4f3c-bb31-7ca396d574cd/stop",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "about_sections",
@@ -5785,7 +6292,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/about_sections/c0e70442-f191-4f3c-bb31-7ca396d574cd/restore",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "about_sections",
@@ -5837,8 +6346,13 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/download_section",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "download_section"]
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "download_section"
+                      ]
                     }
                   },
                   "response": []
@@ -5906,8 +6420,13 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/download_section",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "download_section"]
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "download_section"
+                      ]
                     }
                   },
                   "response": []
@@ -5953,8 +6472,13 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/about?page=1&paginate=10",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "about"],
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "about"
+                      ],
                       "query": [
                         {
                           "key": "page",
@@ -6022,8 +6546,14 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/about/store_about",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "about", "store_about"],
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "about",
+                        "store_about"
+                      ],
                       "query": [
                         {
                           "key": "paginate",
@@ -6093,8 +6623,14 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/about/store_how_order",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "about", "store_how_order"],
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "about",
+                        "store_how_order"
+                      ],
                       "query": [
                         {
                           "key": "paginate",
@@ -6137,7 +6673,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/about/7ad421cd-9075-4a74-b2e1-e4298a1dc2b5",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "about",
@@ -6173,7 +6711,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/about/7ad421cd-9075-4a74-b2e1-e4298a1dc2b5/stop",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "about",
@@ -6210,7 +6750,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/about/7ad421cd-9075-4a74-b2e1-e4298a1dc2b5/restore",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "about",
@@ -6262,8 +6804,13 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/site_offers?page=1&paginate=10",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "site_offers"],
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "site_offers"
+                      ],
                       "query": [
                         {
                           "key": "page",
@@ -6341,8 +6888,13 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/site_offers",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "site_offers"],
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "site_offers"
+                      ],
                       "query": [
                         {
                           "key": "paginate",
@@ -6423,7 +6975,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "site_offers",
@@ -6471,7 +7025,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "site_offers",
@@ -6507,7 +7063,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210/stop",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "site_offers",
@@ -6544,7 +7102,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210/restore",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "site_offers",
@@ -6596,8 +7156,13 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/guarantee_right?page=1&paginate=10",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "guarantee_right"],
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "guarantee_right"
+                      ],
                       "query": [
                         {
                           "key": "page",
@@ -6665,8 +7230,13 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/guarantee_right",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "guarantee_right"],
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "guarantee_right"
+                      ],
                       "query": [
                         {
                           "key": "paginate",
@@ -6737,7 +7307,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/guarantee_right/716ae479-a414-4e1a-80a9-de253b560d33",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "guarantee_right",
@@ -6785,7 +7357,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/guarantee_right/716ae479-a414-4e1a-80a9-de253b560d33",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "guarantee_right",
@@ -6821,7 +7395,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/guarantee_right/716ae479-a414-4e1a-80a9-de253b560d33/stop",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "guarantee_right",
@@ -6858,7 +7434,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/guarantee_right/716ae479-a414-4e1a-80a9-de253b560d33/restore",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "guarantee_right",
@@ -6910,8 +7488,13 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/partners?page=1&paginate=10",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "partners"],
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "partners"
+                      ],
                       "query": [
                         {
                           "key": "page",
@@ -6959,8 +7542,13 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/partners",
-                      "host": ["{{local}}"],
-                      "path": ["admin", "partners"],
+                      "host": [
+                        "{{local}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "partners"
+                      ],
                       "query": [
                         {
                           "key": "paginate",
@@ -7010,7 +7598,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/partners/862cfc1a-4563-4ac3-8bb8-5f75eeddd6e7",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "partners",
@@ -7058,7 +7648,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/partners/862cfc1a-4563-4ac3-8bb8-5f75eeddd6e7",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "partners",
@@ -7094,7 +7686,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/partners/862cfc1a-4563-4ac3-8bb8-5f75eeddd6e7/stop",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "partners",
@@ -7131,7 +7725,9 @@
                     },
                     "url": {
                       "raw": "{{local}}/admin/partners/862cfc1a-4563-4ac3-8bb8-5f75eeddd6e7/restore",
-                      "host": ["{{local}}"],
+                      "host": [
+                        "{{local}}"
+                      ],
                       "path": [
                         "admin",
                         "partners",
@@ -7178,8 +7774,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/tickets?paginate=100&page=1",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "tickets"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "tickets"
+                  ],
                   "query": [
                     {
                       "key": "paginate",
@@ -7223,7 +7824,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/tickets/fd3a3d51-755b-4fec-ba9a-a162b21188ce/messages?paginate=100&page=1",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "admin",
                     "tickets",
@@ -7281,8 +7884,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/admin/tickets/send_message",
-                  "host": ["{{local}}"],
-                  "path": ["admin", "tickets", "send_message"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "tickets",
+                    "send_message"
+                  ]
                 }
               },
               "response": []
@@ -7334,8 +7943,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/client/orders?status[]=accepted",
-                  "host": ["{{local}}"],
-                  "path": ["client", "orders"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "client",
+                    "orders"
+                  ],
                   "query": [
                     {
                       "key": "status[]",
@@ -7404,7 +8018,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/client/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "client",
                     "orders",
@@ -7454,7 +8070,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/client/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224/confirm-delivery",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "client",
                     "orders",
@@ -7515,8 +8133,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/client/order/rate",
-                  "host": ["{{local}}"],
-                  "path": ["client", "order", "rate"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "client",
+                    "order",
+                    "rate"
+                  ]
                 }
               },
               "response": []
@@ -7560,7 +8184,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/client/offer/96be9e84-956a-4298-89bd-9bd3c58e251e/accept",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "client",
                     "offer",
@@ -7613,8 +8239,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/client/services",
-                  "host": ["{{local}}"],
-                  "path": ["client", "services"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "client",
+                    "services"
+                  ],
                   "query": [
                     {
                       "key": "status[]",
@@ -7687,8 +8318,14 @@
                 ],
                 "url": {
                   "raw": "{{local}}/provider/subscription/plans?paginate=50",
-                  "host": ["{{local}}"],
-                  "path": ["provider", "subscription", "plans"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "provider",
+                    "subscription",
+                    "plans"
+                  ],
                   "query": [
                     {
                       "key": "paginate",
@@ -7739,8 +8376,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/provider/subscription/subscribe",
-                  "host": ["{{local}}"],
-                  "path": ["provider", "subscription", "subscribe"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "provider",
+                    "subscription",
+                    "subscribe"
+                  ]
                 }
               },
               "response": []
@@ -7782,8 +8425,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/provider/subscription/check",
-                  "host": ["{{local}}"],
-                  "path": ["provider", "subscription", "check"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "provider",
+                    "subscription",
+                    "check"
+                  ]
                 }
               },
               "response": []
@@ -7830,8 +8479,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/provider/profile",
-                  "host": ["{{local}}"],
-                  "path": ["provider", "profile"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "provider",
+                    "profile"
+                  ]
                 }
               },
               "response": []
@@ -7873,8 +8527,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/provider/me",
-                  "host": ["{{local}}"],
-                  "path": ["provider", "me"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "provider",
+                    "me"
+                  ]
                 }
               },
               "response": []
@@ -7916,8 +8575,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/provider/f84fd319-30e5-4ea4-9c28-81b822045ebc",
-                  "host": ["{{local}}"],
-                  "path": ["provider", "f84fd319-30e5-4ea4-9c28-81b822045ebc"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "provider",
+                    "f84fd319-30e5-4ea4-9c28-81b822045ebc"
+                  ]
                 }
               },
               "response": []
@@ -7959,8 +8623,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/provider/search?type=spare_parts&paginate=10&lat=25.222264&lng=24.225563&sort=most_rated",
-                  "host": ["{{local}}"],
-                  "path": ["provider", "search"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "provider",
+                    "search"
+                  ],
                   "query": [
                     {
                       "key": "type",
@@ -8111,8 +8780,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/provider/profile",
-                  "host": ["{{local}}"],
-                  "path": ["provider", "profile"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "provider",
+                    "profile"
+                  ]
                 }
               },
               "response": []
@@ -8233,8 +8907,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/provider/profile",
-                  "host": ["{{local}}"],
-                  "path": ["provider", "profile"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "provider",
+                    "profile"
+                  ]
                 }
               },
               "response": []
@@ -8281,8 +8960,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/provider/orders?status=can_submit",
-                  "host": ["{{local}}"],
-                  "path": ["provider", "orders"],
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "provider",
+                    "orders"
+                  ],
                   "query": [
                     {
                       "key": "status",
@@ -8346,7 +9030,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/provider/orders/1d9de514-c4e1-4987-8eb9-0909556c7186",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "provider",
                     "orders",
@@ -8418,8 +9104,14 @@
                 },
                 "url": {
                   "raw": "{{local}}/provider/order/rate",
-                  "host": ["{{local}}"],
-                  "path": ["provider", "order", "rate"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "provider",
+                    "order",
+                    "rate"
+                  ]
                 }
               },
               "response": []
@@ -8458,7 +9150,9 @@
                 },
                 "url": {
                   "raw": "{{local}}/provider/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224/confirm-delivery",
-                  "host": ["{{local}}"],
+                  "host": [
+                    "{{local}}"
+                  ],
                   "path": [
                     "provider",
                     "orders",
@@ -8524,8 +9218,13 @@
                 },
                 "url": {
                   "raw": "{{local}}/provider/offer",
-                  "host": ["{{local}}"],
-                  "path": ["provider", "offer"]
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "provider",
+                    "offer"
+                  ]
                 }
               },
               "response": []
@@ -8556,8 +9255,13 @@
             },
             "url": {
               "raw": "{{local}}/pages/how_we_help",
-              "host": ["{{local}}"],
-              "path": ["pages", "how_we_help"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "pages",
+                "how_we_help"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -8593,8 +9297,14 @@
             },
             "url": {
               "raw": "{{local}}/pages/rights/paginated?page=1&paginate=10",
-              "host": ["{{local}}"],
-              "path": ["pages", "rights", "paginated"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "pages",
+                "rights",
+                "paginated"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -8633,8 +9343,12 @@
             },
             "url": {
               "raw": "{{local}}/platform-reviews?page=1&paginate=10",
-              "host": ["{{local}}"],
-              "path": ["platform-reviews"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "platform-reviews"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -8661,8 +9375,12 @@
             "header": [],
             "url": {
               "raw": "{{local}}/setting?section=notification",
-              "host": ["{{local}}"],
-              "path": ["setting"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "setting"
+              ],
               "query": [
                 {
                   "key": "section",
@@ -8681,8 +9399,13 @@
             "header": [],
             "url": {
               "raw": "{{local}}/setting/calls",
-              "host": ["{{local}}"],
-              "path": ["setting", "calls"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "setting",
+                "calls"
+              ]
             }
           },
           "response": []
@@ -8722,8 +9445,13 @@
             },
             "url": {
               "raw": "{{local}}/messages/",
-              "host": ["{{local}}"],
-              "path": ["messages", ""]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "messages",
+                ""
+              ]
             }
           },
           "response": []
@@ -8760,8 +9488,13 @@
             },
             "url": {
               "raw": "{{local}}/messages/send",
-              "host": ["{{local}}"],
-              "path": ["messages", "send"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "messages",
+                "send"
+              ]
             }
           },
           "response": []
@@ -8807,8 +9540,13 @@
             },
             "url": {
               "raw": "{{local}}/landing/sliders",
-              "host": ["{{local}}"],
-              "path": ["landing", "sliders"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "landing",
+                "sliders"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -8861,8 +9599,13 @@
             },
             "url": {
               "raw": "{{local}}/landing/services",
-              "host": ["{{local}}"],
-              "path": ["landing", "services"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "landing",
+                "services"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -8915,8 +9658,13 @@
             },
             "url": {
               "raw": "{{local}}/landing/site_offers",
-              "host": ["{{local}}"],
-              "path": ["landing", "site_offers"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "landing",
+                "site_offers"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -8969,8 +9717,13 @@
             },
             "url": {
               "raw": "{{local}}/landing/plans",
-              "host": ["{{local}}"],
-              "path": ["landing", "plans"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "landing",
+                "plans"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -9023,8 +9776,13 @@
             },
             "url": {
               "raw": "{{local}}/landing/how_help",
-              "host": ["{{local}}"],
-              "path": ["landing", "how_help"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "landing",
+                "how_help"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -9077,8 +9835,13 @@
             },
             "url": {
               "raw": "{{local}}/landing/about_sections",
-              "host": ["{{local}}"],
-              "path": ["landing", "about_sections"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "landing",
+                "about_sections"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -9124,8 +9887,13 @@
             },
             "url": {
               "raw": "{{local}}/landing/download_section",
-              "host": ["{{local}}"],
-              "path": ["landing", "download_section"]
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "landing",
+                "download_section"
+              ]
             }
           },
           "response": []
@@ -9166,8 +9934,13 @@
             },
             "url": {
               "raw": "{{local}}/landing/guarantee_rights",
-              "host": ["{{local}}"],
-              "path": ["landing", "guarantee_rights"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "landing",
+                "guarantee_rights"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -9220,8 +9993,13 @@
             },
             "url": {
               "raw": "{{local}}/landing/platform_reviews",
-              "host": ["{{local}}"],
-              "path": ["landing", "platform_reviews"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "landing",
+                "platform_reviews"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -9274,8 +10052,13 @@
             },
             "url": {
               "raw": "{{local}}/landing/partners",
-              "host": ["{{local}}"],
-              "path": ["landing", "partners"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "landing",
+                "partners"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -9328,8 +10111,13 @@
             },
             "url": {
               "raw": "{{local}}/landing/most_rated_providers",
-              "host": ["{{local}}"],
-              "path": ["landing", "most_rated_providers"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "landing",
+                "most_rated_providers"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -9382,8 +10170,13 @@
             },
             "url": {
               "raw": "{{local}}/landing/orders_numbers",
-              "host": ["{{local}}"],
-              "path": ["landing", "orders_numbers"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "landing",
+                "orders_numbers"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -9436,8 +10229,13 @@
             },
             "url": {
               "raw": "{{local}}/landing/contact",
-              "host": ["{{local}}"],
-              "path": ["landing", "contact"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "landing",
+                "contact"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -9490,8 +10288,13 @@
             },
             "url": {
               "raw": "{{local}}/landing/about",
-              "host": ["{{local}}"],
-              "path": ["landing", "about"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "landing",
+                "about"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -9544,8 +10347,13 @@
             },
             "url": {
               "raw": "{{local}}/landing/how_order",
-              "host": ["{{local}}"],
-              "path": ["landing", "how_order"],
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "landing",
+                "how_order"
+              ],
               "query": [
                 {
                   "key": "page",
@@ -9570,14 +10378,18 @@
       "listen": "prerequest",
       "script": {
         "type": "text/javascript",
-        "exec": [""]
+        "exec": [
+          ""
+        ]
       }
     },
     {
       "listen": "test",
       "script": {
         "type": "text/javascript",
-        "exec": [""]
+        "exec": [
+          ""
+        ]
       }
     }
   ],
