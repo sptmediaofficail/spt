@@ -9,6 +9,7 @@ export default function Template({ children }: { children: ReactNode }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      className={'h-full'}
     >
       {children}
     </motion.div>

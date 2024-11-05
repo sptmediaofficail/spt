@@ -1,4 +1,4 @@
-import { Card, CardBody, CardHeader } from '@nextui-org/card';
+import { Card, CardBody, CardHeader, CardProps } from '@nextui-org/card';
 import Image from 'next/image';
 import { Truncate } from '@re-dev/react-truncate';
 import { Offer } from '@spt/core';
@@ -8,7 +8,8 @@ import { useTranslations } from 'next-intl';
 import { Skeleton } from '@nextui-org/skeleton';
 import { cn } from '@nextui-org/theme';
 
-export const OfferCard = ({ offer }: { offer: Offer }) => {
+export const OfferCard = (props: CardProps & { offer: Offer }) => {
+  const { offer } = props;
   const t = useTranslations('common');
   const discount = Math.floor(
     ((parseInt(offer.price_before_discount) -
@@ -24,6 +25,7 @@ export const OfferCard = ({ offer }: { offer: Offer }) => {
         'w-72 shadow-sm border cursor-pointer hover:scale-[102%] transition-transform ease-in h-fit'
         // 'xl:w-80'
       )}
+      {...props}
     >
       <CardHeader className="p-0 rounded-b-none overflow-hidden">
         <Image
@@ -60,7 +62,7 @@ export const OfferCard = ({ offer }: { offer: Offer }) => {
 
 export const OfferCardSkeleton = () => {
   return (
-    <Card className="w-72 lg:w-80 shadow-sm border">
+    <Card className="w-72 lg:w-80 shadow-sm border h-fit">
       <CardHeader className="p-0 animate-pulse bg-gray-300 rounded-b-none overflow-hidden relative">
         <Skeleton className="h-44" />
       </CardHeader>

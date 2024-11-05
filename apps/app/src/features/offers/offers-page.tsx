@@ -7,37 +7,48 @@ import { UseOffers } from './use-offers';
 import { OfferCard, OfferCardSkeleton } from './offer-card';
 import { Divider } from '@nextui-org/divider';
 import Link from 'next/link';
-import { Pagination } from '@nextui-org/pagination';
+import { useIntersectionObserver } from 'usehooks-ts';
+import { useState } from 'react';
 
 export const OffersPage = () => {
   const { offers, isLoading, isError, setPagination } = UseOffers();
   const t = useTranslations('home');
+
+  const [hasIntersected, setHasIntersected] = useState(false);
+  const { isIntersecting, ref } = useIntersectionObserver({
+    threshold: 0.5,
+    onChange: (isIntersecting) => {
+      if (isIntersecting && !hasIntersected) {
+        setHasIntersected(true); // Update state to skip future first load
+      } else if (isIntersecting && hasIntersected) {
+        console.log('Intersecting');
+        setPagination((prev) => ({ ...prev, page: prev.page + 1 }));
+      }
+    },
+  });
+
   return (
-    <div className={'h-screen flex flex-col'}>
+    <div className="flex flex-col h-full">
       <OffersBreadcrumbs />
-      <Card className="p-4 rounded shadow mt-4 flex-1">
-        <CardHeader>
+      {isIntersecting ? 'Obscured' : 'Fully in view'}
+
+      <Card className="p-4 rounded shadow mt-4 h-full">
+        <CardHeader className="py-0">
           <h1 className="text-2xl font-bold">{t('offers')}</h1>
         </CardHeader>
-        <Divider className={'my-2 bg-gray-100'} />
+        <Divider className="mt-4 mb-2 bg-gray-100" />
         <CardBody className="flex flex-wrap flex-row gap-4">
           {isLoading || isError ? (
             <OffersSkeleton />
           ) : (
-            offers.map((offer) => <OfferCard offer={offer} key={offer.id} />)
+            <>
+              {offers.map((offer) => (
+                <OfferCard offer={offer} key={offer.id} />
+              ))}
+              <div ref={ref} style={{ height: '1px' }} />
+            </>
           )}
         </CardBody>
-
-        <Pagination
-          className={'mx-auto'}
-          onChange={(page) => {
-            console.log(page);
-            setPagination({ page, paginate: 10 });
-          }}
-          showControls
-          total={10}
-          initialPage={1}
-        />
       </Card>
     </div>
   );

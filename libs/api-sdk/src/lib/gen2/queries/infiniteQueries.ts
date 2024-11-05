@@ -726,8 +726,10 @@ export const useAdminLandingSiteOfferServiceGetAdminSiteOffersInfinite = <
 >(
   {
     paginate,
+    page,
   }: {
     paginate?: number;
+    page?: number;
   } = {},
   queryKey?: TQueryKey,
   options?: Omit<UseInfiniteQueryOptions<TData, TError>, 'queryKey' | 'queryFn'>
@@ -742,7 +744,7 @@ export const useAdminLandingSiteOfferServiceGetAdminSiteOffersInfinite = <
         page: pageParam as number,
         paginate,
       }) as TData,
-    initialPageParam: 'initialPageParam',
+    initialPageParam: 1,
     getNextPageParam: (response) =>
       (
         response as {
