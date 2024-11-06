@@ -6,12 +6,12 @@ import { useTranslations } from 'next-intl';
 import { Carousel } from '@spt/common';
 import { OfferCard, OfferCardSkeleton } from './offer-card';
 import { HomeSection } from '../home/home-section';
-import { UseOffers } from './use-offers';
+import { useOffers } from './use-offers';
 import { useRouter } from 'next/navigation';
 
 export const OffersSection = () => {
   const t = useTranslations('home');
-  const { offers, isLoading, isError } = UseOffers();
+  const { offers, isLoading, isError } = useOffers();
   const router = useRouter();
   const onMoreClick = () => router.push('/offers');
 

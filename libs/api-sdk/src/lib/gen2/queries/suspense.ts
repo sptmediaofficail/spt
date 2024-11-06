@@ -35,14 +35,16 @@ export const useBrandServiceGetBrandsSuspense = <TData = Common.BrandServiceGetB
 * @param data.xRequestedWith API
 * @param data.contentLanguage accepts: ar, en
 * @param data.paginate
+* @param data.page
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const useSiteOffersServiceGetSiteOffersSuspense = <TData = Common.SiteOffersServiceGetSiteOffersDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, paginate, xRequestedWith }: {
+export const useSiteOffersServiceGetSiteOffersSuspense = <TData = Common.SiteOffersServiceGetSiteOffersDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, page, paginate, xRequestedWith }: {
   contentLanguage?: string;
+  page?: number;
   paginate?: number;
   xRequestedWith?: string;
-} = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useSuspenseQuery<TData, TError>({ queryKey: Common.UseSiteOffersServiceGetSiteOffersKeyFn({ contentLanguage, paginate, xRequestedWith }, queryKey), queryFn: () => SiteOffersService.getSiteOffers({ contentLanguage, paginate, xRequestedWith }) as TData, ...options });
+} = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useSuspenseQuery<TData, TError>({ queryKey: Common.UseSiteOffersServiceGetSiteOffersKeyFn({ contentLanguage, page, paginate, xRequestedWith }, queryKey), queryFn: () => SiteOffersService.getSiteOffers({ contentLanguage, page, paginate, xRequestedWith }) as TData, ...options });
 /**
 * index
 * @param data The data for the request.

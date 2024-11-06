@@ -35,14 +35,16 @@ export const prefetchUseBrandServiceGetBrands = (queryClient: QueryClient, { con
 * @param data.xRequestedWith API
 * @param data.contentLanguage accepts: ar, en
 * @param data.paginate
+* @param data.page
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const prefetchUseSiteOffersServiceGetSiteOffers = (queryClient: QueryClient, { contentLanguage, paginate, xRequestedWith }: {
+export const prefetchUseSiteOffersServiceGetSiteOffers = (queryClient: QueryClient, { contentLanguage, page, paginate, xRequestedWith }: {
   contentLanguage?: string;
+  page?: number;
   paginate?: number;
   xRequestedWith?: string;
-} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseSiteOffersServiceGetSiteOffersKeyFn({ contentLanguage, paginate, xRequestedWith }), queryFn: () => SiteOffersService.getSiteOffers({ contentLanguage, paginate, xRequestedWith }) });
+} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseSiteOffersServiceGetSiteOffersKeyFn({ contentLanguage, page, paginate, xRequestedWith }), queryFn: () => SiteOffersService.getSiteOffers({ contentLanguage, page, paginate, xRequestedWith }) });
 /**
 * index
 * @param data The data for the request.

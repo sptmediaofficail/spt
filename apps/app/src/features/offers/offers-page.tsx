@@ -1,51 +1,65 @@
 'use client';
+
 import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/breadcrumbs';
 import { useTranslations } from 'next-intl';
 import { FaHome } from 'react-icons/fa';
 import { Card, CardBody, CardHeader } from '@nextui-org/card';
-import { UseOffers } from './use-offers';
+import { useOffersInfinity } from './use-offers';
 import { OfferCard, OfferCardSkeleton } from './offer-card';
 import { Divider } from '@nextui-org/divider';
 import Link from 'next/link';
 import { useIntersectionObserver } from 'usehooks-ts';
-import { useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 export const OffersPage = () => {
-  const { offers, isLoading, isError, setPagination } = UseOffers();
   const t = useTranslations('home');
+  const {
+    data,
+    isLoading,
+    isError,
+    isFetchingNextPage,
+    fetchNextPage,
+    pageSize,
+  } = useOffersInfinity();
 
-  const [hasIntersected, setHasIntersected] = useState(false);
-  const { isIntersecting, ref } = useIntersectionObserver({
+  const [isFirstMount, setIsFirstMount] = useState(true);
+
+  const { ref } = useIntersectionObserver({
     threshold: 0.5,
     onChange: (isIntersecting) => {
-      if (isIntersecting && !hasIntersected) {
-        setHasIntersected(true); // Update state to skip future first load
-      } else if (isIntersecting && hasIntersected) {
-        console.log('Intersecting');
-        setPagination((prev) => ({ ...prev, page: prev.page + 1 }));
+      if (isFirstMount) return;
+      if (isIntersecting) {
+        fetchNextPage({ pageParam: pageSize });
       }
     },
   });
 
-  return (
-    <div className="flex flex-col h-full">
-      <OffersBreadcrumbs />
-      {isIntersecting ? 'Obscured' : 'Fully in view'}
+  useEffect(() => {
+    if (isFirstMount) setIsFirstMount(false);
+  }, []);
 
-      <Card className="p-4 rounded shadow mt-4 h-full">
-        <CardHeader className="py-0">
-          <h1 className="text-2xl font-bold">{t('offers')}</h1>
+  return (
+    <div className="flex flex-col h-full p-4 lg:py-0 lg:px-0">
+      <OffersBreadcrumbs />
+      <Card className="px-2 lg:p-0 rounded shadow mt-2 lg:mt-0 flex-grow">
+        <CardHeader className="p-3 lg:p-4">
+          <h1 className="text-2xl lg:text-3xl font-bold">{t('offers')}</h1>
         </CardHeader>
-        <Divider className="mt-4 mb-2 bg-gray-100" />
-        <CardBody className="flex flex-wrap flex-row gap-4">
+        <Divider className="bg-gray-100 w-[calc(100%-2rem)] mx-auto" />
+        <CardBody className="flex flex-wrap flex-row gap-4 justify-center">
           {isLoading || isError ? (
             <OffersSkeleton />
           ) : (
             <>
-              {offers.map((offer) => (
-                <OfferCard offer={offer} key={offer.id} />
+              {data.pages.map((page, i) => (
+                <Fragment key={i}>
+                  {page.data.data.map((offer) => (
+                    <OfferCard key={offer.id} offer={offer} />
+                  ))}
+                </Fragment>
               ))}
-              <div ref={ref} style={{ height: '1px' }} />
+              <div ref={ref} className="w-full h-1" />
+              {isFetchingNextPage && <OffersSkeleton />}
             </>
           )}
         </CardBody>
@@ -54,27 +68,25 @@ export const OffersPage = () => {
   );
 };
 
-const OffersSkeleton = () => {
-  return (
-    <>
-      {Array.from({ length: 9 }).map((_, i) => (
-        <OfferCardSkeleton key={i} />
-      ))}
-    </>
-  );
-};
+const OffersSkeleton = () => (
+  <>
+    {Array.from({ length: 20 }).map((_, i) => (
+      <OfferCardSkeleton key={i} />
+    ))}
+  </>
+);
 
 const OffersBreadcrumbs = () => {
   const t = useTranslations();
   return (
-    <div>
+    <div className="mb-2 lg:mb-4">
       <Breadcrumbs>
         <BreadcrumbItem className="flex items-center gap-2">
           <FaHome />
-          <Link href={'/'}>{t('sidenav.home')}</Link>
+          <Link href="/">{t('sidenav.home')}</Link>
         </BreadcrumbItem>
-        <BreadcrumbItem href="/offers">
-          {<Link href={'/offers'}>{t('home.offers')}</Link>}
+        <BreadcrumbItem>
+          <Link href="/offers">{t('home.offers')}</Link>
         </BreadcrumbItem>
       </Breadcrumbs>
     </div>

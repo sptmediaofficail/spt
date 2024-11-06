@@ -42,6 +42,18 @@
         "command": "kubb generate --config {projectRoot}/kubb.config.ts",
         "color": true
       }
+    },
+    "generate2": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "target": "convert"
+        }
+      ],
+      "options": {
+        "command": "npx --package @7nohe/openapi-react-query-codegen openapi-rq -i {projectRoot}/openapi-spec.yml -o {projectRoot}/src/lib/gen2 --initialPageParam 1",
+        "color": true
+      }
     }
   }
 }

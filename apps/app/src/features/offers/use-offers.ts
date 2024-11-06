@@ -1,38 +1,63 @@
 import { Offer } from '@spt/core';
 import { useEffect, useState } from 'react';
-import { useAdminLandingSiteOfferServiceGetAdminSiteOffersInfinite } from '../../../../../libs/api-sdk/src/lib/gen2/queries/infiniteQueries';
 import { useSiteOffersServiceGetSiteOffers } from '../../../../../libs/api-sdk/src/lib/gen2/queries';
+import { useSiteOffersServiceGetSiteOffersInfinite } from '../../../../../libs/api-sdk/src/lib/gen2/queries/infiniteQueries';
 
-export const UseOffers = () => {
-  const [pagination, setPagination] = useState({
+interface Pagination {
+  page: number;
+  paginate: number;
+}
+
+export const useOffers = () => {
+  const [pagination, setPagination] = useState<Pagination>({
     page: 1,
     paginate: 10,
   });
-  //
+
   const props = useSiteOffersServiceGetSiteOffers({
     page: pagination.page,
     paginate: pagination.paginate,
     contentLanguage: 'ar',
   });
 
-  const props2 = useAdminLandingSiteOfferServiceGetAdminSiteOffersInfinite({
-    paginate: 10,
-    page: 1,
-  });
-
   useEffect(() => {
-    (async () => {
-      await props.refetch();
-    })();
+    props.refetch();
   }, [pagination, props.refetch]);
 
-  console.log(props.data);
-  // @ts-expect-error - no type
-  const offers = props.data?.data?.data as Offer[];
+  const offers = props.data?.data?.data || [];
 
   return {
     ...props,
-    offers,
+    offers: offers as Offer[], // casting to Offer[]
     setPagination,
+  };
+};
+
+export const useOffersInfinity = () => {
+  const initialPageSize = 20;
+  const subsequentPageSize = 10;
+
+  const props = useSiteOffersServiceGetSiteOffersInfinite(
+    {
+      paginate: initialPageSize,
+      contentLanguage: 'ar',
+    },
+    ['offers.infinite'],
+    {
+      getNextPageParam: (lastPage) =>
+        lastPage.data.links.next
+          ? new URL(lastPage.data.links.next).searchParams.get('page')
+          : null,
+      initialPageParam: 1,
+    }
+  );
+
+  const allOffers = props.data?.pages.flatMap((page) => page.data?.data) || [];
+
+  return {
+    ...props,
+    offers: allOffers as Offer[], // casting to Offer[]
+    pageSize:
+      allOffers.length > initialPageSize ? subsequentPageSize : initialPageSize,
   };
 };
