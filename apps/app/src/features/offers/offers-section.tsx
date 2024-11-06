@@ -27,7 +27,7 @@ export const OffersSection = () => {
             <OffersSkeleton />
           ) : (
             <Carousel>
-              {[...offers, ...offers].map((offer) => (
+              {offers.map((offer) => (
                 <SwiperSlide
                   key={offer.id}
                   className={
