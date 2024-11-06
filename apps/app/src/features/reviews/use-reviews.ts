@@ -8,7 +8,10 @@ type Review = {
 };
 
 export const UseReviews = () => {
-  const props = usePlatformReviewsServiceGetPlatformReviews();
+  const props = usePlatformReviewsServiceGetPlatformReviews({
+    page: 1,
+    paginate: 10,
+  });
   const reviews = props.data?.data?.data as Review[];
 
   if (props.isLoading || props.isError) {
