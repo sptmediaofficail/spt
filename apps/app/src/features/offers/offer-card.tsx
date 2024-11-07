@@ -22,7 +22,7 @@ export const OfferCard = (props: CardProps & { offer: Offer }) => {
       key={offer.id}
       isHoverable
       className={cn(
-        'w-72 shadow-sm border cursor-pointer hover:scale-[102%] transition-transform ease-in h-fit'
+        'w-72 shadow-sm border cursor-pointer transition-transform ease-in h-fit'
         // 'xl:w-80'
       )}
       {...props}

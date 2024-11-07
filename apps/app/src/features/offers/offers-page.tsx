@@ -46,7 +46,7 @@ export const OffersPage = () => {
           <h1 className="text-2xl lg:text-3xl font-bold">{t('offers')}</h1>
         </CardHeader>
         <Divider className="bg-gray-100 w-[calc(100%-2rem)] mx-auto" />
-        <CardBody className="flex flex-wrap flex-row gap-4 justify-center">
+        <CardBody className="flex flex-wrap flex-row gap-6 lg:gap-4 justify-center">
           {isLoading || isError ? (
             <OffersSkeleton />
           ) : (

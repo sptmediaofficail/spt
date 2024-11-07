@@ -37,7 +37,7 @@ export const ProviderCard: React.FC<StoreCardProps> = ({
         <h2 className="text-md font-bold">{name}</h2>
       </CardHeader>
       <Divider />
-      <CardBody className="flex flex-col gap-2">
+      <CardBody className="flex flex-col gap-2 px-0">
         <div className="flex justify-between items-center text-gray-600">
           <div className="text-gray-500 flex items-center gap-2">
             <TfiLocationPin className={'text-primary'} />
