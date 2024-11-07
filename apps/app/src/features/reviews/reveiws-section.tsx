@@ -13,7 +13,7 @@ export const ReviewsSection = () => {
   const { reviews, isLoading, isError } = UseReviews();
 
   return (
-    <HomeSection title={t('reviews')} className={'h-[calc(24rem+3.5rem)]'}>
+    <HomeSection title={t('reviews')} className={'h-[calc(14rem+3rem)]'}>
       <div className={'relative'}>
         <div className="absolute inset-0">
           {isLoading || isError ? (
