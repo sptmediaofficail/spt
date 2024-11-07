@@ -21,7 +21,7 @@ export const ReviewCard = ({
       alt="Provider Avatar"
       width={48}
       height={48}
-      className={'rounded-full'}
+      className="rounded-full w-12 h-12"
     />
     <div className={'flex flex-col w-full'}>
       <h3 className={'text-lg font-bold'}>{name}</h3>
