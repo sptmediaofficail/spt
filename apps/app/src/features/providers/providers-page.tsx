@@ -4,14 +4,18 @@ import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/breadcrumbs';
 import { useTranslations } from 'next-intl';
 import { FaHome } from 'react-icons/fa';
 import { Card, CardBody, CardHeader } from '@nextui-org/card';
-import { useReviewsInfinity } from './use-reviews';
-import { ReviewCard, ReviewCardSkeleton } from './review-card';
 import { Divider } from '@nextui-org/divider';
 import Link from 'next/link';
 import { useIntersectionObserver } from 'usehooks-ts';
 import { Fragment, useEffect, useState } from 'react';
+import { useProvidersInfinity } from './use-providers';
+import { ProviderCard, ProviderCardSkeleton } from './provider-card';
 
-export const ReviewsPage = () => {
+export const ProvidersPage = ({
+  type,
+}: {
+  type: 'spare_parts' | 'junkyard_sale';
+}) => {
   const t = useTranslations('home');
   const {
     data,
@@ -20,7 +24,9 @@ export const ReviewsPage = () => {
     isFetchingNextPage,
     fetchNextPage,
     pageSize,
-  } = useReviewsInfinity();
+  } = useProvidersInfinity({
+    type: type,
+  });
 
   const [isFirstMount, setIsFirstMount] = useState(true);
 
@@ -40,26 +46,30 @@ export const ReviewsPage = () => {
 
   return (
     <div className="flex flex-col h-full p-4 lg:py-0 lg:px-0">
-      <ReviewsBreadcrumbs />
+      <ProvidersBreadcrumbs type={type} />
       <Card className="px-2 lg:p-0 rounded shadow mt-2 lg:mt-0 flex-grow">
         <CardHeader className="p-3 lg:p-4">
-          <h1 className="text-2xl lg:text-3xl font-bold">{t('reviews')}</h1>
+          <h1 className="text-2xl lg:text-3xl font-bold">
+            {type === 'spare_parts'
+              ? t('spare_part_providers')
+              : t('junkyard_sale_providers')}
+          </h1>
         </CardHeader>
         <Divider className="bg-gray-100 w-[calc(100%-2rem)] mx-auto" />
         <CardBody className="flex flex-wrap flex-row gap-6 lg:gap-4 justify-center">
           {isLoading || isError ? (
-            <ReviewsSkeleton />
+            <ProvidersSkeleton />
           ) : (
             <>
               {data.pages.map((page, i) => (
                 <Fragment key={i}>
-                  {page.data.data.map((review) => (
-                    <ReviewCard key={review.id} {...review} />
+                  {page.data.data.map((provider) => (
+                    <ProviderCard key={provider.id} {...provider} />
                   ))}
                 </Fragment>
               ))}
               <div ref={ref} className="w-full h-1" />
-              {isFetchingNextPage && <ReviewsSkeleton />}
+              {isFetchingNextPage && <ProviderCardSkeleton />}
             </>
           )}
         </CardBody>
@@ -68,15 +78,19 @@ export const ReviewsPage = () => {
   );
 };
 
-const ReviewsSkeleton = () => (
+const ProvidersSkeleton = () => (
   <>
     {Array.from({ length: 20 }).map((_, i) => (
-      <ReviewCardSkeleton key={i} />
+      <ProviderCardSkeleton key={i} />
     ))}
   </>
 );
 
-const ReviewsBreadcrumbs = () => {
+const ProvidersBreadcrumbs = ({
+  type,
+}: {
+  type: 'spare_parts' | 'junkyard_sale';
+}) => {
   const t = useTranslations();
   return (
     <div className="mb-2 lg:mb-4">
@@ -86,7 +100,11 @@ const ReviewsBreadcrumbs = () => {
           <Link href="/">{t('sidenav.home')}</Link>
         </BreadcrumbItem>
         <BreadcrumbItem>
-          <Link href="/reviews">{t('home.reviews')}</Link>
+          <Link href={`/providers/${type}`}>
+            {type === 'spare_parts'
+              ? t('home.spare_part_providers')
+              : t('home.junkyard_sale_providers')}
+          </Link>
         </BreadcrumbItem>
       </Breadcrumbs>
     </div>

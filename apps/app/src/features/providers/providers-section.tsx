@@ -5,11 +5,13 @@ import { SwiperSlide } from 'swiper/react';
 import { useTranslations } from 'next-intl';
 import { ProviderCard, ProviderCardSkeleton } from './provider-card';
 import { HomeSection } from '../home/home-section';
-import { AdaptedProvider, UseProviders } from './use-providers';
+import { AdaptedProvider, useProviders } from './use-providers';
+import { useRouter } from 'next/navigation';
 
 export const ProvidersSection = () => {
   const t = useTranslations('home');
-  const { providers, isLoading, isError } = UseProviders();
+  const { providers, isLoading, isError } = useProviders();
+  const router = useRouter();
 
   return (
     <>
@@ -18,12 +20,14 @@ export const ProvidersSection = () => {
         providers={providers.spare_part_providers}
         isLoading={isLoading}
         isError={isError}
+        onMoreClick={() => router.push('/providers/spare-parts')}
       />
       <ProviderSection
         title={t('junkyard_sale_providers')}
         providers={providers.junkyard_sale_providers}
         isLoading={isLoading}
         isError={isError}
+        onMoreClick={() => router.push('/providers/junkyard')}
       />
     </>
   );
@@ -34,6 +38,7 @@ type ProviderSectionProps = {
   providers: AdaptedProvider[];
   isLoading: boolean;
   isError: boolean;
+  onMoreClick?: () => void;
 };
 
 const ProviderSection = ({
@@ -41,8 +46,13 @@ const ProviderSection = ({
   providers,
   isLoading,
   isError,
+  onMoreClick,
 }: ProviderSectionProps) => (
-  <HomeSection title={title} className="h-[calc(14rem+3rem)] w-full">
+  <HomeSection
+    title={title}
+    className="h-[calc(14rem+3rem)] w-full"
+    onMoreClick={onMoreClick}
+  >
     <div className="relative">
       <div className="absolute inset-0">
         {isLoading || isError ? (
