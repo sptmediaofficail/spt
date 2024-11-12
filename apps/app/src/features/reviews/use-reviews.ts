@@ -1,4 +1,5 @@
 import { usePlatformReviewsServiceGetPlatformReviews } from '../../../../../libs/api-sdk/src/lib/gen2/queries';
+import { usePlatformReviewsServiceGetPlatformReviewsInfinite } from '../../../../../libs/api-sdk/src/lib/gen2/queries/infiniteQueries';
 
 type Review = {
   id: string;
@@ -7,7 +8,7 @@ type Review = {
   avatar: string;
 };
 
-export const UseReviews = () => {
+export const useReviews = () => {
   const props = usePlatformReviewsServiceGetPlatformReviews({
     page: 1,
     paginate: 10,
@@ -27,23 +28,32 @@ export const UseReviews = () => {
   };
 };
 
-// const _mockedReviews = [
-//   {
-//     id: '1',
-//     name: 'John Doe',
-//     comment: 'Great service, I will definitely come back!',
-//     avatar: '',
-//   },
-//   {
-//     id: '2',
-//     name: 'Jane Doe',
-//     comment: 'I was very impressed with the quality of the service.',
-//     avatar: '',
-//   },
-//   {
-//     id: '3',
-//     name: 'John Smith',
-//     comment: 'I will recommend this service to all my friends.',
-//     avatar: '',
-//   },
-// ];
+export const useReviewsInfinity = () => {
+  const initialPageSize = 20;
+  const subsequentPageSize = 10;
+
+  const props = usePlatformReviewsServiceGetPlatformReviewsInfinite(
+    {
+      paginate: initialPageSize,
+    },
+    ['reviews.infinite'],
+    {
+      getNextPageParam: (lastPage) =>
+        lastPage.data.links.next
+          ? new URL(lastPage.data.links.next).searchParams.get('page')
+          : null,
+      initialPageParam: 1,
+    }
+  );
+
+  const allReviews = props.data?.pages.flatMap((page) => page.data?.data) || [];
+
+  return {
+    ...props,
+    reviews: allReviews as Review[],
+    pageSize:
+      allReviews.length > initialPageSize
+        ? subsequentPageSize
+        : initialPageSize,
+  };
+};
