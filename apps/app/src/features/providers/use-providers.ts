@@ -2,6 +2,7 @@ import { useLandingServiceGetLandingMostRatedProviders } from '../../../../../li
 import { Provider } from '@spt/core';
 import { UseCities } from '../../hooks/use-cities';
 import { useLandingServiceGetLandingMostRatedProvidersByTypeInfinite } from '../../../../../libs/api-sdk/src/lib/gen2/queries/infiniteQueries';
+import { createInfiniteHook } from '../../hooks/create-infinite-hook';
 
 export type AdaptedProvider = Provider & { city_name_ar: string };
 
@@ -45,35 +46,10 @@ export const useProvidersInfinity = ({
   type: providerType,
 }: {
   type: 'spare_parts' | 'junkyard_sale';
-}) => {
-  const initialPageSize = 20;
-  const subsequentPageSize = 10;
-
-  const props = useLandingServiceGetLandingMostRatedProvidersByTypeInfinite(
-    {
-      paginate: initialPageSize,
-      type: providerType,
-      contentLanguage: 'ar',
-    },
-    [`providers.infinite.${providerType}`],
-    {
-      getNextPageParam: (lastPage) =>
-        lastPage.data.links.next
-          ? new URL(lastPage.data.links.next).searchParams.get('page')
-          : null,
-      initialPageParam: 1,
-    }
-  );
-
-  const allProviders =
-    props.data?.pages.flatMap((page) => page.data?.data) ?? [];
-
-  return {
-    ...props,
-    providers: allProviders as AdaptedProvider[],
-    pageSize:
-      allProviders.length > initialPageSize
-        ? subsequentPageSize
-        : initialPageSize,
-  };
-};
+}) =>
+  createInfiniteHook({
+    serviceFunction:
+      useLandingServiceGetLandingMostRatedProvidersByTypeInfinite,
+    queryKey: [`providers.infinite.${providerType}`],
+    additionalParams: { type: providerType, contentLanguage: 'ar' },
+  })();
