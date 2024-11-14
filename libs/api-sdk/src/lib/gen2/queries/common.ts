@@ -475,6 +475,14 @@ export type LandingServiceGetLandingHowOrderDefaultResponse = Awaited<ReturnType
 export type LandingServiceGetLandingHowOrderQueryResult<TData = LandingServiceGetLandingHowOrderDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const useLandingServiceGetLandingHowOrderKey = "LandingServiceGetLandingHowOrder";
 export const UseLandingServiceGetLandingHowOrderKeyFn = (queryKey?: Array<unknown>) => [useLandingServiceGetLandingHowOrderKey, ...(queryKey ?? [])];
+export type LandingServiceGetLandingMostRatedProvidersByTypeDefaultResponse = Awaited<ReturnType<typeof LandingService.getLandingMostRatedProvidersByType>>;
+export type LandingServiceGetLandingMostRatedProvidersByTypeQueryResult<TData = LandingServiceGetLandingMostRatedProvidersByTypeDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useLandingServiceGetLandingMostRatedProvidersByTypeKey = "LandingServiceGetLandingMostRatedProvidersByType";
+export const UseLandingServiceGetLandingMostRatedProvidersByTypeKeyFn = ({ page, paginate, type }: {
+  page?: number;
+  paginate?: number;
+  type?: string;
+} = {}, queryKey?: Array<unknown>) => [useLandingServiceGetLandingMostRatedProvidersByTypeKey, ...(queryKey ?? [{ page, paginate, type }])];
 export type AuthenticationServicePostSharedAuthRegisterMutationResult = Awaited<ReturnType<typeof AuthenticationService.postSharedAuthRegister>>;
 export type AuthenticationServicePostSharedAuthSendOtpMutationResult = Awaited<ReturnType<typeof AuthenticationService.postSharedAuthSendOtp>>;
 export type AuthenticationServicePostSharedAuthVerifyOtpMutationResult = Awaited<ReturnType<typeof AuthenticationService.postSharedAuthVerifyOtp>>;

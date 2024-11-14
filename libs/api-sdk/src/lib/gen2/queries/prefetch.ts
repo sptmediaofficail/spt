@@ -801,3 +801,17 @@ export const prefetchUseLandingServiceGetLandingAbout = (queryClient: QueryClien
 * @throws ApiError
 */
 export const prefetchUseLandingServiceGetLandingHowOrder = (queryClient: QueryClient) => queryClient.prefetchQuery({ queryKey: Common.UseLandingServiceGetLandingHowOrderKeyFn(), queryFn: () => LandingService.getLandingHowOrder() });
+/**
+* most_rated_providers_by_type Copy
+* @param data The data for the request.
+* @param data.page
+* @param data.paginate
+* @param data.type spare_parts or junkyard_sale
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const prefetchUseLandingServiceGetLandingMostRatedProvidersByType = (queryClient: QueryClient, { page, paginate, type }: {
+  page?: number;
+  paginate?: number;
+  type?: string;
+} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseLandingServiceGetLandingMostRatedProvidersByTypeKeyFn({ page, paginate, type }), queryFn: () => LandingService.getLandingMostRatedProvidersByType({ page, paginate, type }) });

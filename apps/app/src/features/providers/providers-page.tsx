@@ -34,7 +34,9 @@ export const ProvidersPage = ({
     threshold: 0.5,
     onChange: (isIntersecting) => {
       if (isFirstMount) return;
+      console.log('isIntersecting', isIntersecting);
       if (isIntersecting) {
+        console.log('fetchNextPage');
         fetchNextPage({ pageParam: pageSize });
       }
     },

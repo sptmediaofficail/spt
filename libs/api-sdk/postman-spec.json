@@ -1,9 +1,10 @@
 {
   "info": {
-    "_postman_id": "522f9398-7821-4df7-aae8-290760d36324",
+    "_postman_id": "ac2327cb-ee79-4043-81a4-1ed4523ffdac",
     "name": "SPT",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "23770327"
+    "_exporter_id": "34119647",
+    "_collection_link": "https://spt111.postman.co/workspace/c47f8fc9-96b9-4cec-a811-9463a82363eb/collection/34119647-ac2327cb-ee79-4043-81a4-1ed4523ffdac?action=share&source=collection_link&creator=34119647"
   },
   "item": [
     {
@@ -10364,6 +10365,68 @@
                   "key": "paginate",
                   "value": "10",
                   "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "most_rated_providers_by_type Copy",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "ar",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/landing/most_rated_providers_by_type?page=1&paginate=10&type=spare_parts",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "landing",
+                "most_rated_providers_by_type"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "paginate",
+                  "value": "10"
+                },
+                {
+                  "key": "type",
+                  "value": "spare_parts",
+                  "description": "spare_parts or junkyard_sale"
                 }
               ]
             }

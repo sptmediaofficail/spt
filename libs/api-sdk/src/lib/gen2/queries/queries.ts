@@ -802,6 +802,20 @@ export const useLandingServiceGetLandingAbout = <TData = Common.LandingServiceGe
 */
 export const useLandingServiceGetLandingHowOrder = <TData = Common.LandingServiceGetLandingHowOrderDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>(queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useQuery<TData, TError>({ queryKey: Common.UseLandingServiceGetLandingHowOrderKeyFn(queryKey), queryFn: () => LandingService.getLandingHowOrder() as TData, ...options });
 /**
+* most_rated_providers_by_type Copy
+* @param data The data for the request.
+* @param data.page
+* @param data.paginate
+* @param data.type spare_parts or junkyard_sale
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const useLandingServiceGetLandingMostRatedProvidersByType = <TData = Common.LandingServiceGetLandingMostRatedProvidersByTypeDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ page, paginate, type }: {
+  page?: number;
+  paginate?: number;
+  type?: string;
+} = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useQuery<TData, TError>({ queryKey: Common.UseLandingServiceGetLandingMostRatedProvidersByTypeKeyFn({ page, paginate, type }, queryKey), queryFn: () => LandingService.getLandingMostRatedProvidersByType({ page, paginate, type }) as TData, ...options });
+/**
 * Register
 * @param data The data for the request.
 * @param data.xRequestedWith API

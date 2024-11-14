@@ -5157,3 +5157,32 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /landing/most_rated_providers_by_type:
+    get:
+      tags:
+        - Landing
+      summary: most_rated_providers_by_type Copy
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+        - name: type
+          in: query
+          schema:
+            type: string
+          description: spare_parts or junkyard_sale
+          example: spare_parts
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

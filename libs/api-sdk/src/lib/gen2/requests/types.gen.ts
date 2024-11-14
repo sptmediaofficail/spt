@@ -1979,6 +1979,17 @@ export type GetLandingAboutResponse = unknown;
 
 export type GetLandingHowOrderResponse = unknown;
 
+export type GetLandingMostRatedProvidersByTypeData = {
+    page?: number;
+    paginate?: number;
+    /**
+     * spare_parts or junkyard_sale
+     */
+    type?: string;
+};
+
+export type GetLandingMostRatedProvidersByTypeResponse = unknown;
+
 export type $OpenApiTs = {
     '/shared/auth/me': {
         get: {
@@ -4021,6 +4032,17 @@ export type $OpenApiTs = {
     };
     '/landing/how_order': {
         get: {
+            res: {
+                /**
+                 * Successful response
+                 */
+                200: unknown;
+            };
+        };
+    };
+    '/landing/most_rated_providers_by_type': {
+        get: {
+            req: GetLandingMostRatedProvidersByTypeData;
             res: {
                 /**
                  * Successful response

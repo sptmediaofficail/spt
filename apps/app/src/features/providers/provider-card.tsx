@@ -9,7 +9,9 @@ import { Skeleton } from '@nextui-org/skeleton';
 
 interface StoreCardProps {
   name: string;
-  city_name_ar: string;
+  city: {
+    name_ar: string;
+  };
   rating: number;
   avatar: string | null;
 }
@@ -17,14 +19,15 @@ interface StoreCardProps {
 export const ProviderCard: React.FC<StoreCardProps> = ({
   avatar: avatarSrc,
   name,
-  city_name_ar,
+  city,
   rating,
 }) => {
   const avatar = avatarSrc ?? DefaultProviderAvatar;
+  const city_name = city.name_ar || city.name;
   return (
     <Card
       isHoverable
-      className="p-4 rounded-xl w-80 lg:w-96 max-w-md shadow-sm border cursor-pointer transition-transform ease-in"
+      className="p-4 rounded-xl w-80 lg:w-96 max-w-md shadow-sm border cursor-pointer transition-transform ease-in h-fit"
     >
       <CardHeader className="flex items-center mb-4 p-0 gap-2">
         <Image
@@ -44,7 +47,7 @@ export const ProviderCard: React.FC<StoreCardProps> = ({
             <h4>عنوان المتجر</h4>
           </div>
           <div className="flex items-center gap-1">
-            <span>{city_name_ar}</span>
+            <span>{city_name}</span>
           </div>
         </div>
         <div className="flex justify-between items-center text-gray-600">

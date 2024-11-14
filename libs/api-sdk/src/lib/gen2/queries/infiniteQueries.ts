@@ -1,7 +1,7 @@
 // generated with @7nohe/openapi-react-query-codegen@1.6.1 
 
 import { InfiniteData, useInfiniteQuery, UseInfiniteQueryOptions } from "@tanstack/react-query";
-import { AdminCitiesService, AdminCityServiceService, AdminCommissionsService, AdminLandingAboutSectionsService, AdminLandingAboutService, AdminLandingGuaranteeRightService, AdminLandingHowHelpService, AdminLandingPartnersService, AdminLandingSiteOfferService, AdminLandingSlidersService, AdminMessageTemplatesService, AdminPagesService, AdminPermissionGroupsService, AdminPlatformReviewsService, AdminProviderProfilesService, AdminProviderSubscriptionPlansService, AdminServicesService, AdminTicketsService, AdminUsersService, PagesService, PlatformReviewsService, SiteOffersService, TicketService } from "../requests/services.gen";
+import { AdminCitiesService, AdminCityServiceService, AdminCommissionsService, AdminLandingAboutSectionsService, AdminLandingAboutService, AdminLandingGuaranteeRightService, AdminLandingHowHelpService, AdminLandingPartnersService, AdminLandingSiteOfferService, AdminLandingSlidersService, AdminMessageTemplatesService, AdminPagesService, AdminPermissionGroupsService, AdminPlatformReviewsService, AdminProviderProfilesService, AdminProviderSubscriptionPlansService, AdminServicesService, AdminTicketsService, AdminUsersService, LandingService, PagesService, PlatformReviewsService, SiteOffersService, TicketService } from "../requests/services.gen";
 import * as Common from "./common";
 /**
 * index
@@ -378,6 +378,23 @@ export const usePlatformReviewsServiceGetPlatformReviewsInfinite = <TData = Infi
   paginate?: number;
 } = {}, queryKey?: TQueryKey, options?: Omit<UseInfiniteQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useInfiniteQuery({
   queryKey: Common.UsePlatformReviewsServiceGetPlatformReviewsKeyFn({ paginate }, queryKey), queryFn: ({ pageParam }) => PlatformReviewsService.getPlatformReviews({ page: pageParam as number, paginate }) as TData, initialPageParam: "1", getNextPageParam: response => (response as {
+    nextPage: number;
+  }).nextPage, ...options
+});
+/**
+* most_rated_providers_by_type Copy
+* @param data The data for the request.
+* @param data.page
+* @param data.paginate
+* @param data.type spare_parts or junkyard_sale
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const useLandingServiceGetLandingMostRatedProvidersByTypeInfinite = <TData = InfiniteData<Common.LandingServiceGetLandingMostRatedProvidersByTypeDefaultResponse>, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ paginate, type }: {
+  paginate?: number;
+  type?: string;
+} = {}, queryKey?: TQueryKey, options?: Omit<UseInfiniteQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useInfiniteQuery({
+  queryKey: Common.UseLandingServiceGetLandingMostRatedProvidersByTypeKeyFn({ paginate, type }, queryKey), queryFn: ({ pageParam }) => LandingService.getLandingMostRatedProvidersByType({ page: pageParam as number, paginate, type }) as TData, initialPageParam: "1", getNextPageParam: response => (response as {
     nextPage: number;
   }).nextPage, ...options
 });

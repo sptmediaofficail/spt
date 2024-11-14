@@ -1,7 +1,7 @@
 import { useLandingServiceGetLandingMostRatedProviders } from '../../../../../libs/api-sdk/src/lib/gen2/queries';
 import { Provider } from '@spt/core';
 import { UseCities } from '../../hooks/use-cities';
-import { useSiteOffersServiceGetSiteOffersInfinite } from '../../../../../libs/api-sdk/src/lib/gen2/queries/infiniteQueries';
+import { useLandingServiceGetLandingMostRatedProvidersByTypeInfinite } from '../../../../../libs/api-sdk/src/lib/gen2/queries/infiniteQueries';
 
 export type AdaptedProvider = Provider & { city_name_ar: string };
 
@@ -27,23 +27,12 @@ export const useProviders = () => {
     spare_part_providers: [],
     junkyard_sale_providers: [],
   };
-
-  const cityAdapter = (record: { city_id: string }) => {
-    const city_id = parseInt(record.city_id);
-    const city = cities.find((city) => city.id === city_id);
-    return {
-      ...record,
-      city_name_ar: city?.name_ar ?? 'مدينة غير معروفة',
-    };
-  };
-
   const providers: {
     spare_part_providers: AdaptedProvider[];
     junkyard_sale_providers: AdaptedProvider[];
   } = {
-    spare_part_providers: rawProviders.spare_part_providers.map(cityAdapter),
-    junkyard_sale_providers:
-      rawProviders.junkyard_sale_providers.map(cityAdapter),
+    spare_part_providers: rawProviders.spare_part_providers,
+    junkyard_sale_providers: rawProviders.junkyard_sale_providers,
   };
 
   return {
@@ -60,13 +49,13 @@ export const useProvidersInfinity = ({
   const initialPageSize = 20;
   const subsequentPageSize = 10;
 
-  const props = useSiteOffersServiceGetSiteOffersInfinite(
+  const props = useLandingServiceGetLandingMostRatedProvidersByTypeInfinite(
     {
       paginate: initialPageSize,
-      contentLanguage: 'ar',
       type: providerType,
+      contentLanguage: 'ar',
     },
-    ['providers.infinite'],
+    [`providers.infinite.${providerType}`],
     {
       getNextPageParam: (lastPage) =>
         lastPage.data.links.next
