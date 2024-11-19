@@ -43,6 +43,14 @@ export const operations = {
         "path": "/site_offers",
         "method": "get"
     },
+    "get_site-offers-id": {
+        "path": "/site_offers/:id",
+        "method": "get"
+    },
+    "get_site-offers-ids": {
+        "path": "/site_offers/ids",
+        "method": "get"
+    },
     "get_cities": {
         "path": "/cities",
         "method": "get"
@@ -659,8 +667,12 @@ export const operations = {
         "path": "/provider/me",
         "method": "get"
     },
-    "get_provider-f84fd319-30e5-4ea4-9c28-81b822045ebc": {
-        "path": "/provider/f84fd319-30e5-4ea4-9c28-81b822045ebc",
+    "get_provider-id": {
+        "path": "/provider/:id",
+        "method": "get"
+    },
+    "get_provider-ids": {
+        "path": "/provider/ids",
         "method": "get"
     },
     "get_provider-search": {
@@ -769,6 +781,10 @@ export const operations = {
     },
     "get_landing-how-order": {
         "path": "/landing/how_order",
+        "method": "get"
+    },
+    "get_landing-most-rated-providers-by-type": {
+        "path": "/landing/most_rated_providers_by_type",
         "method": "get"
     }
 } as const;

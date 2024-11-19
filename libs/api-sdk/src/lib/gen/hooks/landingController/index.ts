@@ -6,6 +6,7 @@ export * from "./useGetLandingGuaranteeRights";
 export * from "./useGetLandingHowHelp";
 export * from "./useGetLandingHowOrder";
 export * from "./useGetLandingMostRatedProviders";
+export * from "./useGetLandingMostRatedProvidersByType";
 export * from "./useGetLandingOrdersNumbers";
 export * from "./useGetLandingPartners";
 export * from "./useGetLandingPlans";
