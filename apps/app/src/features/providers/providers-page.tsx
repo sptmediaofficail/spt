@@ -10,6 +10,7 @@ import { useIntersectionObserver } from 'usehooks-ts';
 import { Fragment, useEffect, useState } from 'react';
 import { useProvidersInfinity } from './use-providers';
 import { ProviderCard, ProviderCardSkeleton } from './provider-card';
+import { useRouter } from 'next/navigation';
 
 export const ProvidersPage = ({
   type,
@@ -17,6 +18,9 @@ export const ProvidersPage = ({
   type: 'spare_parts' | 'junkyard_sale';
 }) => {
   const t = useTranslations('home');
+  const router = useRouter();
+  const route = type === 'spare_parts' ? 'spare-parts' : 'junkyard';
+  const onCardClick = (id: string) => router.push(`/providers/${route}/${id}`);
   const {
     data,
     isLoading,
@@ -66,7 +70,11 @@ export const ProvidersPage = ({
               {data.pages.map((page, i) => (
                 <Fragment key={i}>
                   {page.data.data.map((provider) => (
-                    <ProviderCard key={provider.id} {...provider} />
+                    <ProviderCard
+                      key={provider.id}
+                      {...provider}
+                      onClick={() => onCardClick(provider.id)}
+                    />
                   ))}
                 </Fragment>
               ))}

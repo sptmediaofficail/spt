@@ -14,6 +14,7 @@ interface StoreCardProps {
   };
   rating: number;
   avatar: string | null;
+  onClick: () => void;
 }
 
 export const ProviderCard: React.FC<StoreCardProps> = ({
@@ -21,13 +22,16 @@ export const ProviderCard: React.FC<StoreCardProps> = ({
   name,
   city,
   rating,
+  onClick,
 }) => {
   const avatar = avatarSrc ?? DefaultProviderAvatar;
   const city_name = city.name_ar || city.name;
   return (
     <Card
       isHoverable
+      isPressable
       className="p-4 rounded-xl w-80 lg:w-96 max-w-md shadow-sm border cursor-pointer transition-transform ease-in h-fit"
+      onPress={onClick}
     >
       <CardHeader className="flex items-center mb-4 p-0 gap-2">
         <Image
