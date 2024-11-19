@@ -1,5 +1,7 @@
 // Next.js will invalidate the cache when a
 // request comes in, at most once every 60 seconds.
+import {fetchClient} from '../../fetch-client';
+
 export const revalidate = 60;
 
 // We'll prerender only the params from `generateStaticParams` at build time.
@@ -8,22 +10,24 @@ export const revalidate = 60;
 export const dynamicParams = true; // or false, to 404 on unknown paths
 
 export async function generateStaticParams() {
-  const posts: Post[] = await fetch('https://api.vercel.app/blog').then((res) =>
-    res.json()
-  );
-  return posts.map((post) => ({
-    id: String(post.id),
-  }));
+  const { data } = (await fetchClient.GET('/provider/ids')) as {
+    data: { id: string }[];
+  };
+  return data;
 }
 
-export const ShowProviderPage = async ({
-  providerId,
-}: {
-  providerId: string;
-}) => {
+export const ShowProviderPage = async ({ id }: { id: string }) => {
+  const { data: provider } = await fetchClient.GET('/provider/{id}', {
+    params: {
+      path: { id },
+    },
+  });
+
+  console.log('provider', id);
   return (
     <div>
-      <h1>Provider {providerId}</h1>
+      <h1>Provider {id}</h1>
+      <pre>{JSON.stringify(provider, null, 2)}</pre>
     </div>
   );
 };

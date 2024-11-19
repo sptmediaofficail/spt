@@ -4,7 +4,6 @@ import { getLocale, getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
 import { UIProvider } from './providers';
 import { ReactNode } from 'react';
-import { initInfrastructure } from '../infrastructure';
 // import Navbar from '../features/navbar/navbar';
 // import Sidenav from '../features/sidenav/sidenav';
 
@@ -14,8 +13,6 @@ export default async function RootLayout({
 }: {
   children: ReactNode;
 }) {
-  initInfrastructure();
-
   const locale = await getLocale();
   const messages = await getMessages();
 

@@ -4,17 +4,26 @@ import { User } from './types';
 import { OpenAPI } from '../../../../../libs/api-sdk/src/lib/gen2/requests';
 import { setCookie } from 'cookies-next';
 import { useRouter } from 'next/router';
+import { FetchClientConfig } from '../../fetch-client';
 
 export const cacheToken = (token: string) => {
   setCookie('token', token, {
     expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
   });
   OpenAPI.TOKEN = token;
+  FetchClientConfig.headers = {
+    ...FetchClientConfig.headers,
+    Authorization: `Bearer ${token}`,
+  };
 };
 
 const removeToken = () => {
   setCookie('token', '', { expires: new Date(0) });
   OpenAPI.TOKEN = '';
+  FetchClientConfig.headers = {
+    ...FetchClientConfig.headers,
+    Authorization: '',
+  };
 };
 
 type UserStore = {

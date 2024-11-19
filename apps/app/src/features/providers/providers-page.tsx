@@ -73,7 +73,7 @@ export const ProvidersPage = ({
                     <ProviderCard
                       key={provider.id}
                       {...provider}
-                      onClick={() => onCardClick(provider.id)}
+                      onClick={() => onCardClick(provider.provider_id)}
                     />
                   ))}
                 </Fragment>

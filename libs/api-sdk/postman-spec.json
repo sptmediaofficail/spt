@@ -4,7 +4,7 @@
     "name": "SPT",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "34119647",
-    "_collection_link": "https://spt111.postman.co/workspace/c47f8fc9-96b9-4cec-a811-9463a82363eb/collection/34119647-ac2327cb-ee79-4043-81a4-1ed4523ffdac?action=share&source=collection_link&creator=34119647"
+    "_collection_link": "https://spt111.postman.co/workspace/SPT~c47f8fc9-96b9-4cec-a811-9463a82363eb/collection/34119647-ac2327cb-ee79-4043-81a4-1ed4523ffdac?action=share&source=collection_link&creator=34119647"
   },
   "item": [
     {
@@ -1012,6 +1012,88 @@
                   "key": "page",
                   "value": "1"
                 }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "single",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Requested-With",
+                "value": "XMLHttpRequest",
+                "description": "API",
+                "type": "text"
+              },
+              {
+                "key": "Content-Language",
+                "value": "ar",
+                "description": "accepts: ar, en",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "{{local}}/site_offers/:id",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "site_offers",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ids",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Requested-With",
+                "value": "XMLHttpRequest",
+                "description": "API",
+                "type": "text"
+              },
+              {
+                "key": "Content-Language",
+                "value": "ar",
+                "description": "accepts: ar, en",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "{{local}}/site_offers/ids",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "site_offers",
+                "ids"
               ]
             }
           },
@@ -8575,13 +8657,67 @@
                   "formdata": []
                 },
                 "url": {
-                  "raw": "{{local}}/provider/f84fd319-30e5-4ea4-9c28-81b822045ebc",
+                  "raw": "{{local}}/provider/:id",
                   "host": [
                     "{{local}}"
                   ],
                   "path": [
                     "provider",
-                    "f84fd319-30e5-4ea4-9c28-81b822045ebc"
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "b1cecc65-bcaf-4296-884e-cb7177bc5d80"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "ids",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Requested-With",
+                    "value": "XMLHttpRequest",
+                    "description": "API",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Language",
+                    "value": "ar",
+                    "description": "accepts: ar, en",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{local}}/provider/ids",
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "provider",
+                    "ids"
                   ]
                 }
               },
@@ -10111,7 +10247,7 @@
               }
             },
             "url": {
-              "raw": "{{local}}/landing/most_rated_providers",
+              "raw": "{{local}}/landing/most_rated_providers?page=1&paginate=20",
               "host": [
                 "{{local}}"
               ],
@@ -10122,13 +10258,11 @@
               "query": [
                 {
                   "key": "page",
-                  "value": "1",
-                  "disabled": true
+                  "value": "1"
                 },
                 {
                   "key": "paginate",
-                  "value": "10",
-                  "disabled": true
+                  "value": "20"
                 }
               ]
             }
@@ -10406,7 +10540,7 @@
               }
             },
             "url": {
-              "raw": "{{local}}/landing/most_rated_providers_by_type?page=1&paginate=10&type=spare_parts",
+              "raw": "{{local}}/landing/most_rated_providers_by_type?page=1&paginate=1&type=spare_parts",
               "host": [
                 "{{local}}"
               ],
@@ -10421,7 +10555,7 @@
                 },
                 {
                   "key": "paginate",
-                  "value": "10"
+                  "value": "1"
                 },
                 {
                   "key": "type",

@@ -621,6 +621,57 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /site_offers/{id}:
+    get:
+      tags:
+        - site offers
+      summary: single
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /site_offers/ids:
+    get:
+      tags:
+        - site offers
+      summary: ids
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /cities:
     get:
       tags:
@@ -4622,11 +4673,42 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /provider/f84fd319-30e5-4ea4-9c28-81b822045ebc:
+  /provider/{id}:
     get:
       tags:
         - Provider > Provider profile
       summary: single provider
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: b1cecc65-bcaf-4296-884e-cb7177bc5d80
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /provider/ids:
+    get:
+      tags:
+        - Provider > Provider profile
+      summary: ids
       security:
         - bearerAuth: []
       parameters:
@@ -5104,6 +5186,17 @@ paths:
       summary: most_rated_providers
       security:
         - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '20'
       responses:
         '200':
           description: Successful response
@@ -5174,7 +5267,7 @@ paths:
           in: query
           schema:
             type: integer
-          example: '10'
+          example: '1'
         - name: type
           in: query
           schema:

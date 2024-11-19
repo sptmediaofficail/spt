@@ -70,7 +70,7 @@ const ProviderSection = ({
               >
                 <ProviderCard
                   {...provider}
-                  onClick={() => onCardClick(provider.id)}
+                  onClick={() => onCardClick(provider.provider_id)}
                 />
               </SwiperSlide>
             ))}
