@@ -68,5 +68,13 @@
     "spare_part_providers": "متاجر قطع الغيار",
     "junkyard_sale_providers": "متاجر التشاليح",
     "reviews": "ماذا قال عملائنا عنا"
+  },
+  "ProviderDetailsCard": {
+    "address": "عنوان المتجر",
+    "services": "خدمات المتجر",
+    "total_completed_orders": "الطلبات المنفذة",
+    "branches": "الفروع",
+    "spare_parts": "قطع الغيار",
+    "junkyard_sale": "التشاليح"
   }
 }
