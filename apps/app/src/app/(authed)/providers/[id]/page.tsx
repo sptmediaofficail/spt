@@ -31,10 +31,12 @@ export async function generateMetadata({
   const defaultImage = 'https://spt.sa/phone.png';
 
   // Brand Details
-  const brandDetails =
-    provider?.spare_part_brands
-      ?.map((brand) => `${brand.name}${brand.logo ? ' (شعار متوفر)' : ''}`)
-      .join('، ') || 'تفاصيل العلامات التجارية غير متوفرة';
+  const brandDetails = provider?.spare_part_brands?.map(({ name }, index) => {
+    if (index === 0) return name;
+    // Last item
+    if (index === provider.spare_part_brands.length - 1) return ` و${name}`;
+    return `, ${name}`;
+  });
 
   // OpenGraph Images
   const images = provider?.spare_part_brands?.map((brand) => ({
@@ -42,24 +44,29 @@ export async function generateMetadata({
     alt: `${providerName} - ${brand.name} - قطع غيار السيارات`,
   })) || [{ url: defaultImage, alt: 'قطع غيار السيارات' }];
 
+  const title = `${providerName} | SPT`;
+
+  const description = `${providerName} يقدم مجموعة واسعة من خدمات السيارات، مع تقييم ${providerRate} بناءً على ${completedOrders} طلبات مكتملة.
+  يتميز المزود بتوفير علامات تجارية تشمل: ${brandDetails}.`;
+
   return {
-    title: `${providerName} - قطع غيار السيارات | SPT`,
-    description: `${providerName} يقدم مجموعة واسعة من خدمات قطع غيار السيارات، مع تقييم ${providerRate} بناءً على ${completedOrders} طلبات مكتملة. يتميز المزود بتوفير علامات تجارية موثوقة تشمل: ${brandDetails}.`,
+    title,
+    description,
     openGraph: {
       type: 'website',
       locale: 'ar_SA',
       url: `https://spt.sa/provider/${params.id}`,
       siteName: 'SPT قطع غيار السيارات',
-      title: `${providerName} - قطع غيار السيارات`,
-      description: `${providerName} يقدم مجموعة واسعة من خدمات قطع غيار السيارات، مع تقييم ${providerRate} بناءً على ${completedOrders} طلبات مكتملة. يتميز المزود بتوفير علامات تجارية موثوقة تشمل: ${brandDetails}.`,
+      title,
+      description,
       images,
     },
     twitter: {
       card: 'summary_large_image',
       site: '@SPT',
       creator: '@SPT',
-      title: `${providerName} - قطع غيار السيارات | SPT`,
-      description: `${providerName} يقدم مجموعة واسعة من خدمات قطع غيار السيارات، مع تقييم ${providerRate} بناءً على ${completedOrders} طلبات مكتملة. يتميز المزود بتوفير علامات تجارية موثوقة تشمل: ${brandDetails}.`,
+      title,
+      description,
       images: images[0]?.url,
     },
     keywords: [
@@ -87,7 +94,7 @@ export async function generateMetadata({
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
       name: providerName,
-      description: `${providerName} يقدم مجموعة واسعة من خدمات قطع غيار السيارات، مع تقييم ${providerRate} وعلامات تجارية موثوقة تشمل: ${brandDetails}.`,
+      description,
       url: `https://spt.sa/provider/${params.id}`,
       logo: images[0]?.url || defaultImage,
       aggregateRating: {
