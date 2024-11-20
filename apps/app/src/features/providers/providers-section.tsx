@@ -20,14 +20,14 @@ export const ProvidersSection = () => {
         providers={providers.spare_part_providers}
         isLoading={isLoading}
         isError={isError}
-        onMoreClick={() => router.push('/providers/spare-parts')}
+        onMoreClick={() => router.push('/providers/spare_parts')}
       />
       <ProviderSection
         title={t('junkyard_sale_providers')}
         providers={providers.junkyard_sale_providers}
         isLoading={isLoading}
         isError={isError}
-        onMoreClick={() => router.push('/providers/junkyard')}
+        onMoreClick={() => router.push('/providers/junkyard_sale')}
       />
     </>
   );

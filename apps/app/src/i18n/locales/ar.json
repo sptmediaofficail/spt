@@ -69,6 +69,9 @@
     "junkyard_sale_providers": "متاجر التشاليح",
     "reviews": "ماذا قال عملائنا عنا"
   },
+  "ProviderLocation": {
+    "location": "الموقع"
+  },
   "ProviderDetailsCard": {
     "address": "عنوان المتجر",
     "services": "خدمات المتجر",
@@ -76,5 +79,12 @@
     "branches": "الفروع",
     "spare_parts": "قطع الغيار",
     "junkyard_sale": "التشاليح"
-  }
+  },
+  "provider_details": "تفاصيل المتجر",
+  "ProviderFAQ": {
+    "q1": "هل يوفر المتجر خدمة الشحن والتوصيل؟",
+    "q2": "امكانية التواصل المرئي مع العميل ؟",
+    "q3": "امكانية التواصل الصوتي مع العميل ؟"
+  },
+  "order_service": "اطلب خدمة"
 }
