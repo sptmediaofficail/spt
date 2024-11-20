@@ -1,6 +1,5 @@
 import { Card, CardBody, CardHeader } from '@nextui-org/card';
 import Image from 'next/image';
-import { fetchClient } from '../../fetch-client';
 import EnvatoSvg from './assets/envato.svg';
 import StarSvg from './assets/star.svg';
 import AddressSvg from './assets/address.svg';
@@ -14,15 +13,10 @@ import { useTranslations } from 'next-intl';
 import { Breadcrumbs } from '../../ui/breadcrumbs';
 import { PrimaryLink } from '../../ui/primary-button';
 import { GoogleMap } from './map';
+import { getProviderData } from './use-providers';
 
 export const ShowProviderPage = async ({ id }: { id: string }) => {
-  const { data } = (await fetchClient.GET('/provider/{id}', {
-    params: {
-      path: { id },
-    },
-  })) as { data: { data: IProvider } };
-
-  const provider = data?.data;
+  const provider = await getProviderData(id);
 
   return (
     <div className={'px-4 py-4'}>

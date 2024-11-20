@@ -3,6 +3,8 @@ import { Provider } from '@spt/core';
 import { UseCities } from '../../hooks/use-cities';
 import { useLandingServiceGetLandingMostRatedProvidersByTypeInfinite } from '../../../../../libs/api-sdk/src/lib/gen2/queries/infiniteQueries';
 import { createInfiniteHook } from '../../hooks/create-infinite-hook';
+import { fetchClient } from '../../fetch-client';
+import { IProvider } from './types';
 
 export type AdaptedProvider = Provider & { city_name_ar: string };
 
@@ -53,3 +55,12 @@ export const useProvidersInfinity = ({
     queryKey: [`providers.infinite.${providerType}`],
     additionalParams: { type: providerType, contentLanguage: 'ar' },
   })();
+
+export const getProviderData = async (id: string) => {
+  const { data } = (await fetchClient.GET('/provider/{id}', {
+    params: {
+      path: { id },
+    },
+  })) as { data: { data: IProvider } };
+  return data?.data;
+};

@@ -1,7 +1,7 @@
 import { ShowProviderPage } from '../../../../features/providers/show-provider-page';
 import { fetchClient } from '../../../../fetch-client';
 import { Metadata } from 'next';
-import { IProvider } from '../../../../features/providers/types';
+import { getProviderData } from '../../../../features/providers/use-providers';
 
 export const revalidate = 60;
 
@@ -22,13 +22,7 @@ export async function generateMetadata({
 }: {
   params: { id: string };
 }): Promise<Metadata> {
-  const { data } = (await fetchClient.GET('/provider/{id}', {
-    params: {
-      path: { id: params.id },
-    },
-  })) as { data: { data: IProvider } };
-
-  const provider = data?.data;
+  const provider = await getProviderData(params.id);
 
   // Fallbacks for robust metadata
   const providerName = provider?.name || 'مزود غير معروف';
