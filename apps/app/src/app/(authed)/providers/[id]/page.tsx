@@ -31,12 +31,14 @@ export async function generateMetadata({
   const defaultImage = 'https://spt.sa/phone.png';
 
   // Brand Details
-  const brandDetails = provider?.spare_part_brands?.map(({ name }, index) => {
-    if (index === 0) return name;
-    // Last item
-    if (index === provider.spare_part_brands.length - 1) return ` و${name}`;
-    return `, ${name}`;
-  });
+  const brandDetails = provider?.spare_part_brands?.reduce(
+    (acc, { name }, index, array) => {
+      if (index === 0) return name; // First item
+      if (index === array.length - 1) return `${acc} و${name}`; // Last item
+      return `${acc}, ${name}`; // Middle items
+    },
+    ''
+  );
 
   // OpenGraph Images
   const images = provider?.spare_part_brands?.map((brand) => ({
@@ -47,7 +49,7 @@ export async function generateMetadata({
   const title = `${providerName} | SPT`;
 
   const description = `${providerName} يقدم مجموعة واسعة من خدمات السيارات، مع تقييم ${providerRate} بناءً على ${completedOrders} طلبات مكتملة.
-  يتميز المزود بتوفير علامات تجارية تشمل: ${brandDetails}.`;
+  يقوم بتزويد قطع غيار السيارات من ${brandDetails} وغيرها من العلامات التجارية.`;
 
   return {
     title,
