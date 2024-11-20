@@ -12,7 +12,7 @@ export const Breadcrumbs = ({
   type,
 }: {
   id: string;
-  type: 'spare_parts' | 'junkyard_sale';
+  type: 'spare_parts' | 'junkyard_sale' | 'car_dismantling';
 }) => {
   const t = useTranslations();
   return (

@@ -78,7 +78,10 @@
     "total_completed_orders": "الطلبات المنفذة",
     "branches": "الفروع",
     "spare_parts": "قطع الغيار",
-    "junkyard_sale": "التشاليح"
+    "junkyard_sale": "التشاليح",
+    "car_dismantling": "تفكيك السيارات",
+    "towing": "قطر السيارات",
+    "N/A": "غير متوفر"
   },
   "provider_details": "تفاصيل المتجر",
   "ProviderFAQ": {

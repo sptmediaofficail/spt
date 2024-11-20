@@ -27,7 +27,7 @@ export const ShowProviderPage = async ({ id }: { id: string }) => {
   return (
     <div className={'px-4 py-4'}>
       <div className={'pb-4'}>
-        <Breadcrumbs type={provider.services} id={id} />
+        <Breadcrumbs type={provider?.services} id={id} />
       </div>
       <div className={'flex flex-col gap-8'}>
         <ProviderDetailsCard provider={provider} />
@@ -69,7 +69,7 @@ const ProviderDetailsCard = ({ provider }: { provider: IProvider }) => {
     {
       icon: ServicesSvg,
       label: t('services'),
-      value: t(provider.services),
+      value: t(provider?.services),
     },
     {
       icon: OrdersSvg,
