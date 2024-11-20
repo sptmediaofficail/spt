@@ -1,8 +1,9 @@
 'use client';
 import { AdvancedMarker, APIProvider, Map } from '@vis.gl/react-google-maps';
 import { Card } from '@nextui-org/card';
+import dynamic from 'next/dynamic';
 
-export default function GoogleMap({
+function EagerGoogleMap({
   position,
 }: {
   position: { lat: number; lng: number };
@@ -17,3 +18,7 @@ export default function GoogleMap({
     </Card>
   );
 }
+
+export const GoogleMap = dynamic(() => Promise.resolve(EagerGoogleMap), {
+  ssr: false,
+});

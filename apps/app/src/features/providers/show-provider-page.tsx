@@ -11,9 +11,9 @@ import YesSvg from './assets/yes.svg';
 import { IProvider } from './types';
 import { Divider } from '@nextui-org/divider';
 import { useTranslations } from 'next-intl';
-import GoogleMap from './map';
 import { Breadcrumbs } from '../../ui/breadcrumbs';
 import { PrimaryLink } from '../../ui/primary-button';
+import { GoogleMap } from './map';
 
 export const ShowProviderPage = async ({ id }: { id: string }) => {
   const { data } = (await fetchClient.GET('/provider/{id}', {
