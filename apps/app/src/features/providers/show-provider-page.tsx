@@ -18,6 +18,10 @@ import { getProviderData } from './use-providers';
 export const ShowProviderPage = async ({ id }: { id: string }) => {
   const provider = await getProviderData(id);
 
+  if (!provider) {
+    return <div>Provider data could not be fetched.</div>;
+  }
+
   return (
     <div className={'px-4 py-4'}>
       <div className={'pb-4'}>
@@ -25,7 +29,7 @@ export const ShowProviderPage = async ({ id }: { id: string }) => {
       </div>
       <div className={'flex flex-col gap-8'}>
         <ProviderDetailsCard provider={provider} />
-        <ProviderLocation location={provider.location} />
+        <ProviderLocation location={provider?.location || { lat: 0, lng: 0 }} />
         <ProviderFAQ provider={provider} />
         <OrderButton />
       </div>
