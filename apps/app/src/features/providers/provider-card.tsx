@@ -6,6 +6,7 @@ import DefaultProviderAvatar from './assets/default-provider-avatar.svg';
 import Image from 'next/image';
 import { TfiLocationPin } from 'react-icons/tfi';
 import { Skeleton } from '@nextui-org/skeleton';
+import { useRouter } from 'next/navigation';
 
 interface StoreCardProps {
   name: string;
@@ -14,7 +15,7 @@ interface StoreCardProps {
   };
   rating: number;
   avatar: string | null;
-  onClick: () => void;
+  provider_id: string;
 }
 
 export const ProviderCard: React.FC<StoreCardProps> = ({
@@ -22,8 +23,9 @@ export const ProviderCard: React.FC<StoreCardProps> = ({
   name,
   city,
   rating,
-  onClick,
+  provider_id,
 }) => {
+  const router = useRouter();
   const avatar = avatarSrc ?? DefaultProviderAvatar;
   const city_name = city.name_ar || city.name;
   return (
@@ -31,7 +33,7 @@ export const ProviderCard: React.FC<StoreCardProps> = ({
       isHoverable
       isPressable
       className="p-4 rounded-xl w-80 lg:w-96 max-w-md shadow-sm border cursor-pointer transition-transform ease-in h-fit"
-      onPress={onClick}
+      onPress={() => router.push(`/providers/${provider_id}`)}
     >
       <CardHeader className="flex items-center mb-4 p-0 gap-2">
         <Image

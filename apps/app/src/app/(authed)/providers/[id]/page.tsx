@@ -1,5 +1,5 @@
-import { ShowProviderPage } from '../../../../../features/providers/show-provider-page';
-import { fetchClient } from '../../../../../fetch-client';
+import { ShowProviderPage } from '../../../../features/providers/show-provider-page';
+import { fetchClient } from '../../../../fetch-client';
 
 export const revalidate = 60;
 

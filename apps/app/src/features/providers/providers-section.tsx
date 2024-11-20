@@ -21,7 +21,6 @@ export const ProvidersSection = () => {
         isLoading={isLoading}
         isError={isError}
         onMoreClick={() => router.push('/providers/spare-parts')}
-        onCardClick={(id) => router.push(`/providers/spare-parts/${id}`)}
       />
       <ProviderSection
         title={t('junkyard_sale_providers')}
@@ -29,7 +28,6 @@ export const ProvidersSection = () => {
         isLoading={isLoading}
         isError={isError}
         onMoreClick={() => router.push('/providers/junkyard')}
-        onCardClick={(id) => router.push(`/providers/junkyard/${id}`)}
       />
     </>
   );
@@ -41,7 +39,6 @@ type ProviderSectionProps = {
   isLoading: boolean;
   isError: boolean;
   onMoreClick?: () => void;
-  onCardClick: (id: string) => void;
 };
 
 const ProviderSection = ({
@@ -50,7 +47,6 @@ const ProviderSection = ({
   isLoading,
   isError,
   onMoreClick,
-  onCardClick,
 }: ProviderSectionProps) => (
   <HomeSection
     title={title}
@@ -68,10 +64,7 @@ const ProviderSection = ({
                 className="mb-12 !w-auto !overflow-hidden lg:m-1 lg:mr-0 lg:mb-12 mr-4"
                 key={provider.id}
               >
-                <ProviderCard
-                  {...provider}
-                  onClick={() => onCardClick(provider.provider_id)}
-                />
+                <ProviderCard {...provider} />
               </SwiperSlide>
             ))}
           </Carousel>
