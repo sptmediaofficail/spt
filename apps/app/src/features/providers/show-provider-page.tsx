@@ -112,10 +112,12 @@ const ProviderDetailsCard = ({ provider }: { provider: IProvider }) => {
       </CardHeader>
       <Divider className="my-2 bg-gray-100 hidden lg:block" />
 
-      <CardBody className={'mt-2'}>
-        <div className={'flex flex-col gap-2 lg:flex-row lg:justify-between'}>
+      <CardBody className={'mt-2 lg:mt-0'}>
+        <div
+          className={'flex flex-col gap-2 lg:flex-row justify-between lg:gap-0'}
+        >
           {details.map((detail, index) => (
-            <div key={detail.label} className={'flex flex-col gap-2'}>
+            <div key={detail.label} className={'lg:ml-auto'}>
               <Detail {...detail} />
               {index !== details.length - 1 && (
                 <Divider
@@ -144,10 +146,11 @@ const Detail = ({
 }) => {
   return (
     <>
-      <div className={'items-center gap-3 hidden lg:flex'}>
+      {/* Desktop */}
+      <div className={'gap-3 hidden lg:flex'}>
         <div
           className={
-            'w-8 h-8 relative bg-[#f1fbfb] p-1.5 rounded-full flex items-center'
+            'w-8 h-8 relative bg-[#f1fbfb] p-1.5 rounded-full flex items-center self-center'
           }
         >
           <Image src={icon} alt="Address" className={'h-6 w-6'} />
@@ -159,6 +162,7 @@ const Detail = ({
         </div>
       </div>
 
+      {/* Mobile */}
       <div className={'flex justify-between gap-3 lg:hidden'}>
         <div className={'flex items-center gap-3'}>
           <Image src={icon} alt={label} className={'h-6 w-6'} />
