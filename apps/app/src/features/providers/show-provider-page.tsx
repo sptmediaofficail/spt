@@ -7,6 +7,7 @@ import BranchesSvg from './assets/branches.svg';
 import OrdersSvg from './assets/orders.svg';
 import ServicesSvg from './assets/services.svg';
 import YesSvg from './assets/yes.svg';
+import NoSvg from './assets/no.svg';
 import { IProvider } from './types';
 import { Divider } from '@nextui-org/divider';
 import { useTranslations } from 'next-intl';
@@ -23,7 +24,7 @@ export const ShowProviderPage = async ({ id }: { id: string }) => {
   }
 
   return (
-    <div className={'px-4 py-4'}>
+    <div className={'px-4 py-4 lg:p-0 lg:pb-8'}>
       <div className={'pb-4'}>
         <Breadcrumbs type={provider?.services} id={id} />
       </div>
@@ -39,7 +40,15 @@ export const ShowProviderPage = async ({ id }: { id: string }) => {
 
 const OrderButton = () => {
   const t = useTranslations();
-  return <PrimaryLink href={'/'} text={t('order_service')} />;
+  return (
+    <PrimaryLink
+      href={'/'}
+      text={t('order_service')}
+      className={
+        'w-full lg:w-fit lg:px-12 lg:mr-auto shadow hover:shadow-md hover:scale-[102%] transition ease-out duration-100'
+      }
+    />
+  );
 };
 
 const ProviderLocation = ({
@@ -101,24 +110,29 @@ const ProviderDetailsCard = ({ provider }: { provider: IProvider }) => {
           </div>
         </div>
       </CardHeader>
+      <Divider className="my-2 bg-gray-100 hidden lg:block" />
 
       <CardBody className={'mt-2'}>
-        <div className={'flex flex-col gap-2'}>
+        <div className={'flex flex-col gap-2 lg:flex-row lg:justify-between'}>
           {details.map(({ icon, label, value }, index) => (
             <div key={label} className={'flex flex-col gap-2'}>
-              <div className={'flex items-center justify-between'}>
+              <div
+                className={
+                  'flex items-center lg:items-start justify-between lg:flex-col gap-3'
+                }
+              >
                 <div className={'flex items-center gap-3'}>
                   <Image src={icon} alt="Address" className={'h-6 w-6'} />
                   <p className={'text-gray-700'}>{label}</p>
                 </div>
-                <p className={'text-gray-700 font-semibold'}>{value}</p>
+                <p className={'text-gray-700 font-semibold lg:mx-9'}>{value}</p>
               </div>
               {index !== details.length - 1 && (
                 <Divider
                   style={{
                     borderStyle: 'dashed',
                   }}
-                  className="my-2 bg-gray-100"
+                  className="my-2 bg-gray-100 lg:hidden"
                 />
               )}
             </div>
@@ -151,7 +165,7 @@ const ProviderFAQ = ({ provider }: { provider: IProvider }) => {
   ];
 
   return (
-    <div className={'flex flex-col gap-2'}>
+    <div className={'flex flex-col gap-2 lg:w-1/3'}>
       {FAQ.map(({ icon, label, value }, index) => (
         <div key={label} className={'flex flex-col gap-2'}>
           <div className={'flex items-center justify-between'}>
@@ -163,7 +177,7 @@ const ProviderFAQ = ({ provider }: { provider: IProvider }) => {
               {value ? (
                 <Image src={YesSvg} alt="Yes" className={'h-6 w-6'} />
               ) : (
-                'No'
+                <Image src={NoSvg} alt="No" className={'h-6 w-6'} />
               )}
             </p>
           </div>
@@ -172,7 +186,7 @@ const ProviderFAQ = ({ provider }: { provider: IProvider }) => {
               style={{
                 borderStyle: 'dashed',
               }}
-              className="my-2 bg-gray-100"
+              className="my-2 bg-gray-100 bg-transparent lg:border-transparent"
             />
           )}
         </div>

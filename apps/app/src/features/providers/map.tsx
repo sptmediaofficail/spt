@@ -9,7 +9,7 @@ function EagerGoogleMap({
   position: { lat: number; lng: number };
 }) {
   return (
-    <Card className="h-[10rem] w-full">
+    <Card className="h-[10rem] w-full lg:h-[20rem]">
       <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
         <Map defaultCenter={position} defaultZoom={10} mapId="abc9c64525471500">
           <AdvancedMarker position={position} />
