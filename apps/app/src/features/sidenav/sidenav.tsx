@@ -29,14 +29,14 @@ const menuConfig = [
     icon: <FaServicestack />,
     href: '/services',
     submenu: [
-      // {
-      //   label: 'الخدمة 1',
-      //   href: '/service1',
-      // },
-      // {
-      //   label: 'الخدمة 2',
-      //   href: '/service2',
-      // },
+      {
+        label: 'order_spare_part',
+        href: '/services/order-spare-part',
+      },
+      {
+        label: 'sell_junk_car',
+        href: '/services/sell-junk-car',
+      },
     ],
   },
   {
@@ -124,7 +124,7 @@ const SideNav: React.FC = () => {
                     key={subIndex}
                     component={<Link href={subItem.href} />}
                   >
-                    {t(subItem.label)}
+                    <p className={'mx-11'}>{t(subItem.label)}</p>
                   </MenuItem>
                 ))}
               </SubMenu>

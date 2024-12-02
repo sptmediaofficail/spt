@@ -42,7 +42,7 @@ const OrderButton = () => {
   const t = useTranslations();
   return (
     <PrimaryLink
-      href={'/'}
+      href={'/services/order-spare-part'}
       text={t('order_service')}
       className={
         'w-full lg:w-fit lg:px-12 lg:mr-auto shadow hover:shadow-md hover:scale-[102%] transition ease-out duration-100'
