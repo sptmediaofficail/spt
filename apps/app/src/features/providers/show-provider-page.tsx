@@ -26,7 +26,7 @@ export const ShowProviderPage = async ({ id }: { id: string }) => {
   return (
     <div className={'px-4 py-4 lg:p-0 lg:pb-8'}>
       <div className={'pb-4'}>
-        <Breadcrumbs type={provider?.services} id={id} />
+        <Breadcrumbs type={provider?.services as 'spare_parts'} id={id} />
       </div>
       <div className={'flex flex-col gap-8'}>
         <ProviderDetailsCard provider={provider} />
@@ -114,25 +114,15 @@ const ProviderDetailsCard = ({ provider }: { provider: IProvider }) => {
 
       <CardBody className={'mt-2'}>
         <div className={'flex flex-col gap-2 lg:flex-row lg:justify-between'}>
-          {details.map(({ icon, label, value }, index) => (
-            <div key={label} className={'flex flex-col gap-2'}>
-              <div
-                className={
-                  'flex items-center lg:items-start justify-between lg:flex-col gap-3'
-                }
-              >
-                <div className={'flex items-center gap-3'}>
-                  <Image src={icon} alt="Address" className={'h-6 w-6'} />
-                  <p className={'text-gray-700'}>{label}</p>
-                </div>
-                <p className={'text-gray-700 font-semibold lg:mx-9'}>{value}</p>
-              </div>
+          {details.map((detail, index) => (
+            <div key={detail.label} className={'flex flex-col gap-2'}>
+              <Detail {...detail} />
               {index !== details.length - 1 && (
                 <Divider
                   style={{
                     borderStyle: 'dashed',
                   }}
-                  className="my-2 bg-gray-100 lg:hidden"
+                  className="my-2 bg-white lg:hidden"
                 />
               )}
             </div>
@@ -140,6 +130,43 @@ const ProviderDetailsCard = ({ provider }: { provider: IProvider }) => {
         </div>
       </CardBody>
     </Card>
+  );
+};
+
+const Detail = ({
+  icon,
+  label,
+  value,
+}: {
+  icon: string;
+  label: string;
+  value: number | string;
+}) => {
+  return (
+    <>
+      <div className={'items-center gap-3 hidden lg:flex'}>
+        <div
+          className={
+            'w-8 h-8 relative bg-[#f1fbfb] p-1.5 rounded-full flex items-center'
+          }
+        >
+          <Image src={icon} alt="Address" className={'h-6 w-6'} />
+        </div>
+
+        <div className={'flex flex-col gap-1 items-start'}>
+          <p className={'text-gray-700 text-xs'}>{label}</p>
+          <p className={'text-gray-700 font-semibold'}>{value}</p>
+        </div>
+      </div>
+
+      <div className={'flex justify-between gap-3 lg:hidden'}>
+        <div className={'flex items-center gap-3'}>
+          <Image src={icon} alt={label} className={'h-6 w-6'} />
+          <p className={'text-gray-700'}>{label}</p>
+        </div>
+        <p className={'text-gray-700 font-semibold'}>{value}</p>
+      </div>
+    </>
   );
 };
 
