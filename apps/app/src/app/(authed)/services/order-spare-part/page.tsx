@@ -41,7 +41,7 @@ export default function OrderSparePartPage() {
         className={'w-full'}
       >
         <Tab title={t('enter_chassis_number')}>
-          <div className={'flex flex-col gap-4'}>
+          <div className={'flex flex-col lg:flex-row gap-4 lg:gap-3'}>
             {selectors.map((selector) => (
               <Select
                 label={t(selector.label)}
@@ -49,9 +49,7 @@ export default function OrderSparePartPage() {
                 isRequired
                 key={selector.label}
                 classNames={{
-                  // rounded-none
                   trigger: 'rounded-lg shadow-sm border border-gray-300',
-                  // make the after color green
                   label: 'after:text-[#05b5b4] after:px-1',
                 }}
                 color={'primary'}

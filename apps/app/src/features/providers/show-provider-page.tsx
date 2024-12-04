@@ -24,7 +24,7 @@ export const ShowProviderPage = async ({ id }: { id: string }) => {
   }
 
   return (
-    <div className={'px-4 py-4 lg:p-0 lg:pb-8'}>
+    <div>
       <div className={'pb-4'}>
         <Breadcrumbs type={provider?.services as 'spare_parts'} id={id} />
       </div>
@@ -196,10 +196,10 @@ const ProviderFAQ = ({ provider }: { provider: IProvider }) => {
   ];
 
   return (
-    <div className={'flex flex-col gap-2 lg:w-1/3'}>
+    <div className={'flex flex-col lg:flex-row gap-4 justify-between'}>
       {FAQ.map(({ icon, label, value }, index) => (
         <div key={label} className={'flex flex-col gap-2'}>
-          <div className={'flex items-center justify-between'}>
+          <div className={'flex items-center justify-between lg:gap-4'}>
             <div className={'flex items-center gap-3'}>
               <Image src={icon} alt="Address" className={'h-6 w-6'} />
               <p className={'text-gray-700'}>{label}</p>

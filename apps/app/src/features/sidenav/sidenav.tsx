@@ -65,11 +65,11 @@ const SideNav: React.FC = () => {
         [`.${sidebarClasses.container}`]: {
           backgroundColor: '#ffffff',
           color: '#333',
-          height: 'calc(100vh - 65px)',
+          position: 'fixed',
           borderLeft: '1px solid #e0e0e0',
         },
       }}
-      width="250px"
+      width="240px"
       transitionDuration={300}
     >
       <Menu

@@ -22,7 +22,7 @@ export default async function RootLayout({
       dir={locale === 'ar' ? 'rtl' : 'ltr'}
       className={`${shubakFont.className}`}
     >
-      <body className="w-screen h-screen">
+      <body className="">
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
