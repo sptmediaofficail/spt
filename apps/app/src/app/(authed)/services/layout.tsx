@@ -3,10 +3,10 @@ import { ReactNode } from 'react';
 
 const ServicesLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className={'flex flex-col'}>
+    <div className={'flex flex-col justify-between h-full'}>
       <DynamicBreadcrumbs />
 
-      <div className="bg-white">{children}</div>
+      <div className="bg-white flex-1">{children}</div>
     </div>
   );
 };

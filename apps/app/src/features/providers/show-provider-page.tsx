@@ -24,13 +24,15 @@ export const ShowProviderPage = async ({ id }: { id: string }) => {
   }
 
   return (
-    <div>
-      <div className={'pb-4'}>
-        <Breadcrumbs type={provider?.services as 'spare_parts'} id={id} />
-      </div>
-      <div className={'flex flex-col gap-8'}>
+    <div className={'h-full flex flex-col gap-4'}>
+      <Breadcrumbs type={provider?.services as 'spare_parts'} id={id} />
+      <div className={'flex flex-col gap-8 h-full'}>
         <ProviderDetailsCard provider={provider} />
-        <ProviderLocation location={provider?.location || { lat: 0, lng: 0 }} />
+        <div className={'flex-1'}>
+          <ProviderLocation
+            location={provider?.location || { lat: 0, lng: 0 }}
+          />
+        </div>
         <ProviderFAQ provider={provider} />
         <OrderButton />
       </div>
@@ -58,7 +60,7 @@ const ProviderLocation = ({
 }) => {
   const t = useTranslations('ProviderLocation');
   return (
-    <div className={'flex flex-col gap-4'}>
+    <div className={'flex flex-col gap-4 h-full'}>
       <h2 className={'text-xl font-semibold'}>{t('location')}</h2>
       <GoogleMap position={location} />
     </div>
@@ -95,7 +97,7 @@ const ProviderDetailsCard = ({ provider }: { provider: IProvider }) => {
       <CardHeader>
         <div className={'flex items-center gap-4'}>
           <div className={'rounded-full bg-gray-200 w-12 h-12 relative'}>
-            <Image src={EnvatoSvg} alt="Envato" fill={true} className={'p-3'} />
+            <Image src={EnvatoSvg} alt="Envato" fill className={'p-3'} />
           </div>
           <div className={'flex flex-col'}>
             <h2 className={'text-[#05b5b4] font-semibold text-lg'}>

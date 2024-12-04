@@ -29,7 +29,7 @@ const selectors = [
 export default function OrderSparePartPage() {
   const t = useTranslations();
   return (
-    <div className={'w-full p-4 flex flex-col gap-4'}>
+    <div className={'w-full p-4 flex flex-col gap-4 h-full'}>
       <H1>{'order_spare_part'}</H1>
 
       <PrimaryDivider />
@@ -41,7 +41,7 @@ export default function OrderSparePartPage() {
         className={'w-full'}
       >
         <Tab title={t('enter_chassis_number')}>
-          <div className={'flex flex-col lg:flex-row gap-4 lg:gap-3'}>
+          <div className={'flex flex-col lg:flex-row gap-4'}>
             {selectors.map((selector) => (
               <Select
                 label={t(selector.label)}
@@ -70,12 +70,14 @@ export default function OrderSparePartPage() {
         <Tab title={t('enter_car_details')}>Tab 2</Tab>
       </Tabs>
 
-      <Image src={AddParts} alt="Add Parts" className={'mx-auto'} />
-      <h2 className={'text-center text-gray-500 text-lg font-semibold'}>
-        {t('no_parts_added')}
-      </h2>
+      <div className={'flex-1 flex flex-col gap-4 items-center justify-center'}>
+        <Image src={AddParts} alt="Add Parts" />
+        <h2 className={'text-center text-gray-500 text-lg font-semibold'}>
+          {t('no_parts_added')}
+        </h2>
 
-      <PrimaryButton className={'w-fit mx-auto px-8'} text={t('add_part')} />
+        <PrimaryButton className={'w-fit mx-auto px-8'} text={t('add_part')} />
+      </div>
     </div>
   );
 }
