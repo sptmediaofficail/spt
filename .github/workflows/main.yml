@@ -1,0 +1,52 @@
+name: Deploy to Production Server
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow on push or pull request to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 18
+
+    - name: Install Dependencies
+      run: npm i -f
+
+    - name: Build
+      run: nx run-many build serve -t app landing-page
+
+    - name: Install sshpass
+      run: sudo apt-get install -y sshpass
+
+    - name: Deploy to Server
+      env:
+        DEPLOY_PASSWORD: ${{ secrets.DEPLOY_PASSWORD }}
+      run: |
+        sshpass -p "$DEPLOY_PASSWORD" ssh -o StrictHostKeyChecking=no ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} <<EOF
+          sudo apt-get update
+          curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+          sudo apt-get install -y nodejs
+          cd /var/www/dist
+          git stash
+          echo $?
+          git checkout main
+          echo $?
+          git pull
+          echo $?
+          nvm install 18
+          nvm use 18
+          echo $?
+          npm i -f
+          echo $?
+          npm run deploy
+          echo $?
+        EOF
