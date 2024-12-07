@@ -2,7 +2,15 @@
   "name": "@spt/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export",
+    "lint": "next lint",
+    "lint-fix": "next lint --fix",
+    "deploy": "next build && next export && next-nginx-routes"
+  },
   "private": true,
   "dependencies": {
     "@7nohe/openapi-react-query-codegen": "^1.6.1",
