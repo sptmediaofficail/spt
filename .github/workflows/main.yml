@@ -18,11 +18,14 @@ jobs:
       with:
         node-version: 18
 
+    - name: Install pnpm
+      run: npm install -g pnpm  # Install pnpm globally
+
     - name: Install Dependencies
-      run: npm i -f
+      run: pnpm install --no-frozen-lockfile  # Use pnpm to install dependencies
 
     - name: Install NX CLI
-      run: npm install -g nx
+      run: npm install -g nx  # Make sure NX CLI is globally available
 
     - name: Build
       run: nx run-many build serve -t app landing-page
