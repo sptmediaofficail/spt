@@ -99,5 +99,13 @@
   "select_model": "اختر الموديل",
   "select_brand": "اختر الماركة",
   "no_parts_added": "لم يتم اضافة اي قطعة",
-  "add_part": "اضافة قطعة"
+  "add_part": "اضافة قطعة",
+  "part_name": "اسم القطعة",
+  "enter_part_name": "ادخل اسم القطعة",
+  "parts_quantity": "عدد القطع",
+  "part_condition": "حالة القطعة",
+  "new": "جديد",
+  "used": "مستعمل",
+  "notes": "ملاحظات",
+  "enter_notes": "ادخل ملاحظات"
 }
