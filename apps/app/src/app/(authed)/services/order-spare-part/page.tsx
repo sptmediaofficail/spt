@@ -19,6 +19,8 @@ import { Controller, useForm } from 'react-hook-form';
 import { Input } from '../../../../ui/input';
 import { Button } from '@nextui-org/button';
 import { BiMinus, BiPlus } from 'react-icons/bi';
+import { Checkbox, CheckboxGroup } from '@nextui-org/checkbox';
+import { Textarea } from '@nextui-org/input';
 
 const currentYear = new Date().getFullYear();
 const years = Array.from({ length: 20 }, (_, i) => currentYear - i);
@@ -41,10 +43,7 @@ const selectors = [
 type FormData = {
   partName: string;
   quantity: number;
-  status: {
-    new: boolean;
-    used: boolean;
-  };
+  status: string[];
   notes?: string;
 };
 
@@ -59,51 +58,45 @@ export default function OrderSparePartPage() {
     defaultValues: {
       partName: '',
       quantity: 1,
-      status: {
-        new: false,
-        used: false,
-      },
+      status: ['new'],
       notes: '',
     },
   });
 
   const onSubmit = (data) => {
-    // Call your API here.
+    console.log(data);
   };
 
   return (
     <>
       <Modal
-        isOpen={true}
+        isOpen
         onClose={onOpenChange}
-        placement="top-center"
+        placement="center"
         size="xl"
+        classNames={{
+          base: 'mx-4',
+        }}
       >
         <ModalContent>
-          <ModalHeader>
-            <h2 className="text-lg font-semibold text-center">
-              {t('add_part')}
-            </h2>
-          </ModalHeader>
-          <div className="mx-4 mb-2">
-            <PrimaryDivider />
-          </div>
-          <ModalBody>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-              {/* Part Name Field */}
-              <Controller
-                name="partName"
-                control={control}
-                rules={{ required: t('required') }}
-                render={({ field }) => (
-                  <Input
-                    {...field}
-                    isRequired
-                    label={t('part_name')}
-                    labelPlacement={'outside'}
-                    placeholder={t('enter_part_name')}
-                  />
-                )}
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <ModalHeader>
+              <h2 className="text-lg font-semibold text-center">
+                {t('add_part')}
+              </h2>
+            </ModalHeader>
+            <div className="mx-4 mb-2">
+              <PrimaryDivider />
+            </div>
+            <ModalBody className="flex flex-col gap-4">
+              <Input
+                isRequired
+                label={t('part_name')}
+                labelPlacement={'outside'}
+                placeholder={t('enter_part_name')}
+                variant={'bordered'}
+                errorMessage={t('field_required')}
+                {...register('partName')}
               />
 
               {/* Part Count */}
@@ -153,59 +146,60 @@ export default function OrderSparePartPage() {
 
               {/* Part Condition */}
               <div>
-                <label className="block text-sm font-medium mb-1">
-                  {t('part_condition')}
-                </label>
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      id="new"
-                      {...register('status')}
-                      value="new"
-                    />
-                    <label htmlFor="new">{t('new')}</label>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      id="used"
-                      {...register('status')}
-                      value="used"
-                    />
-                    <label htmlFor="used">{t('used')}</label>
-                  </div>
-                </div>
-              </div>
-
-              {/* Notes */}
-              <div>
-                <label className="block text-sm font-medium mb-1">
-                  {t('notes')}
-                </label>
-                <textarea
-                  {...register('notes')}
-                  placeholder={t('enter_notes')}
-                  className="w-full border border-gray-300 rounded-md p-2"
-                  rows={3}
+                <Controller
+                  name="status"
+                  control={control}
+                  render={({ field }) => (
+                    <CheckboxGroup
+                      {...field}
+                      isRequired
+                      label={t('part_condition')}
+                      errorMessage={t('field_required')}
+                      classNames={{
+                        wrapper: 'flex flex-row gap-4 justify-between lg:w-1/2',
+                        label:
+                          'after:text-[#05b5b4] after:px-1 text-sm text-black',
+                      }}
+                    >
+                      <Checkbox value="new">{t('new')}</Checkbox>
+                      <Checkbox
+                        classNames={{
+                          base: 'mx-auto',
+                        }}
+                        value="used"
+                      >
+                        {t('used')}
+                      </Checkbox>
+                    </CheckboxGroup>
+                  )}
                 />
               </div>
-            </form>
-          </ModalBody>
-          <ModalFooter>
-            <div className="flex justify-between w-full">
-              <button
-                type="button"
-                onClick={onOpenChange}
-                className="btn btn-outline px-8"
-              >
-                {t('cancel')}
-              </button>
-              <button type="submit" className="btn btn-primary px-8">
-                {t('add')}
-              </button>
-            </div>
-          </ModalFooter>
+
+              <Textarea
+                label={t('notes')}
+                labelPlacement={'outside'}
+                placeholder={t('enter_notes')}
+                variant={'bordered'}
+                {...register('notes')}
+              />
+            </ModalBody>
+            <ModalFooter>
+              <div className="flex w-full gap-4 justify-end">
+                <Button
+                  onClick={onOpenChange}
+                  variant={'bordered'}
+                  className={'rounded-lg px-8'}
+                >
+                  {t('cancel')}
+                </Button>
+                <PrimaryButton
+                  text={t('add')}
+                  type="submit"
+                  className={'w-fit px-8'}
+                />
+              </div>
+            </ModalFooter>
+          </form>
         </ModalContent>
       </Modal>
 
