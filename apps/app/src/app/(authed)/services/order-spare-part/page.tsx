@@ -48,11 +48,8 @@ type FormData = {
 };
 
 export default function OrderSparePartPage() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const t = useTranslations();
-  const addPart = () => {
-    onOpen();
-  };
 
   const { handleSubmit, control, register } = useForm<FormData>({
     defaultValues: {
@@ -63,17 +60,18 @@ export default function OrderSparePartPage() {
     },
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: FormData) => {
     console.log(data);
   };
 
   return (
     <>
       <Modal
-        isOpen
-        onClose={onOpenChange}
+        isOpen={isOpen}
+        onClose={onClose}
         placement="center"
         size="xl"
+        hideCloseButton
         classNames={{
           base: 'mx-4',
         }}
@@ -104,7 +102,7 @@ export default function OrderSparePartPage() {
                 name="quantity"
                 control={control}
                 rules={{
-                  required: t('required'),
+                  required: t('field_required'),
                   validate: (value) => value >= 0 || t('must_be_positive'),
                 }}
                 render={({
@@ -119,7 +117,7 @@ export default function OrderSparePartPage() {
                       <Button
                         isIconOnly
                         size="sm"
-                        onClick={() => onChange(Math.min(value + 1, 99))}
+                        onPress={() => onChange(Math.min(value + 1, 99))}
                         disabled={value <= 0}
                         className="rounded-full"
                       >
@@ -129,7 +127,7 @@ export default function OrderSparePartPage() {
                       <Button
                         isIconOnly
                         size="sm"
-                        onClick={() => onChange(Math.max(value - 1, 1))}
+                        onPress={() => onChange(Math.max(value - 1, 1))}
                         className="rounded-full"
                       >
                         <BiMinus />
@@ -186,7 +184,7 @@ export default function OrderSparePartPage() {
             <ModalFooter>
               <div className="flex w-full gap-4 justify-end">
                 <Button
-                  onClick={onOpenChange}
+                  onPress={onClose}
                   variant={'bordered'}
                   className={'rounded-lg px-8'}
                 >
@@ -253,7 +251,7 @@ export default function OrderSparePartPage() {
           </h2>
 
           <PrimaryButton
-            onClick={addPart}
+            onPress={onOpen}
             className={'w-fit mx-auto px-8'}
             text={t('add_part')}
           />
