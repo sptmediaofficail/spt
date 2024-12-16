@@ -114,5 +114,7 @@
   "notes": "ملاحظات",
   "enter_notes": "ادخل ملاحظات",
   "field_required": "هذا الحقل مطلوب.",
-  "part": "{count} قطعة"
+  "part": "{count} قطعة",
+  "next": "التالي",
+  "prev": "السابق"
 }
