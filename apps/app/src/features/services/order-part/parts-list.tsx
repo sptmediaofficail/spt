@@ -4,9 +4,9 @@ import { OrderPartData } from './types';
 import { PrimaryButton } from '../../../ui/primary-button';
 import Image from 'next/image';
 import { PartCard } from './part-card';
-import AddParts from '../../../../features/services/assets/add-parts.svg';
-import PlusIcon from '../../../../features/services/assets/white-plus-icon.svg';
-import PrimaryPlusIcon from '../../../../features/services/assets/plus-icon.svg';
+import AddParts from './assets/add-parts.svg';
+import PlusIcon from './assets/white-plus-icon.svg';
+import PrimaryPlusIcon from './assets/plus-icon.svg';
 
 export const PartsList = ({ onOpen }: { onOpen: () => void }) => {
   const t = useTranslations();
