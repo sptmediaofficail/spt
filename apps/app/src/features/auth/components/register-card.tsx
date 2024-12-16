@@ -85,7 +85,7 @@ export function RegisterCard(props: { text: string }) {
           </AutocompleteItem>
         )}
       </Autocomplete>
-      <PrimaryButton isLoading={isPending} text={props.text} onClick={submit} />
+      <PrimaryButton isLoading={isPending} text={props.text} onPress={submit} />
     </div>
   );
 }

@@ -27,6 +27,9 @@ module.exports = {
               DEFAULT: '#28478A',
               foreground: '#F3F5F7',
             },
+            accent: {
+              DEFAULT: '#05B5B4',
+            },
             secondary: '#F3F5F7',
             secondaryText: '#596780',
           },

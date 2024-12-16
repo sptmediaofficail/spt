@@ -15,10 +15,8 @@ export const PrimaryButton = ({
     <Button
       onClick={onClick}
       {...props}
-      className={cn(
-        'bg-primary text-white w-full rounded-lg font-bold',
-        props.className
-      )}
+      className={cn('w-full rounded-lg font-semibold', props.className)}
+      color={'primary'}
     >
       {text}
     </Button>

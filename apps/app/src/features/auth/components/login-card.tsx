@@ -18,7 +18,7 @@ export function LoginCard({ onSuccess }: { onSuccess: () => void }) {
       <PrimaryButton
         isLoading={isPending}
         text={t('button.send')}
-        onClick={requestOTP}
+        onPress={requestOTP}
       />
     </div>
   );

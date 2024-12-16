@@ -223,7 +223,7 @@ export default function Navbar() {
         </div>
 
         <NavbarMenuItem className={`py-3`} key={'logout'}>
-          <PrimaryButton size={'lg'} text={'تسجيل الخروج'} onClick={logout} />
+          <PrimaryButton size={'lg'} text={'تسجيل الخروج'} onPress={logout} />
 
           <div className="flex flex-col justify-center items-center gap-6 w-full mt-8">
             <div className="flex justify-center items-center gap-4">

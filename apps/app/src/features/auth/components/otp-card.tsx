@@ -29,7 +29,7 @@ export const OtpCard = () => {
       <PrimaryButton
         className="mt-6 w-full disabled:opacity-50 disabled:cursor-not-allowed"
         text={t('button.confirm')}
-        onClick={() => {}}
+        onPress={() => {}}
         isLoading={isPending}
         isDisabled={!isOtpComplete}
       />
