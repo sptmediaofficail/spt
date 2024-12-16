@@ -5,10 +5,10 @@ import { PrimaryDivider } from '../../../../ui/divider';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { useTranslations } from 'next-intl';
 import { useDisclosure } from '@nextui-org/modal';
-import { FormProvider, useForm } from 'react-hook-form';
+import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 import { AddPartModal } from '../../../../features/services/order-part/add-part-modal';
 import {
-  OrderPartData,
+  FormOrderParts,
   PartData,
 } from '../../../../features/services/order-part/types';
 import { Steps, StepsProvider, useSteps } from 'react-step-builder';
@@ -17,15 +17,17 @@ import { CarInfo } from '../../../../features/services/order-part/car-info';
 import { PrimaryButton } from '../../../../ui/primary-button';
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 import { AnimatedDev } from '../../../../ui/animated-dev';
+import { ChassisInfo } from '../../../../features/services/order-part/chassis-info';
 
 const OrderSparePartPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const t = useTranslations();
 
-  const form = useForm<OrderPartData>({
+  const form = useForm<FormOrderParts>({
     defaultValues: {
       parts: [],
     },
+    mode: 'onChange',
   });
 
   const onAddPart = (data: PartData) => {
@@ -59,15 +61,21 @@ const OrderSparePartPage = () => {
 };
 
 export default OrderSparePartPage;
+
 const MySteps = ({ onOpen }: { onOpen: () => void }) => {
-  const { next, prev } = useSteps();
+  const { next, prev, hasNext, hasPrev } = useSteps();
   const t = useTranslations();
+  const form = useFormContext<FormOrderParts>();
+
+  const isChassisValid = form.getFieldState('vin_serial').invalid;
+
+  form.watch();
 
   return (
     <>
       <Steps>
         <AnimatedDev>
-          <h1>Step 1</h1>
+          <ChassisInfo />
         </AnimatedDev>
         <AnimatedDev className="flex flex-col gap-8 lg:gap-0 justify-between h-full">
           <CarInfo />
@@ -79,6 +87,7 @@ const MySteps = ({ onOpen }: { onOpen: () => void }) => {
       </Steps>
       <AnimatedDev className="flex justify-between gap-4">
         <PrimaryButton
+          isDisabled={!hasPrev}
           onPress={prev}
           variant={'bordered'}
           className="w-fit"
@@ -86,6 +95,7 @@ const MySteps = ({ onOpen }: { onOpen: () => void }) => {
           startContent={<GrFormNext className={'w-4 h-4'} />}
         />
         <PrimaryButton
+          isDisabled={!hasNext || !isChassisValid}
           onPress={next}
           text={t('next')}
           className={'w-auto'}

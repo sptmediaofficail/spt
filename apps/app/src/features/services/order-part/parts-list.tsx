@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { useFormContext } from 'react-hook-form';
-import { OrderPartData } from './types';
+import { FormOrderParts } from './types';
 import { PrimaryButton } from '../../../ui/primary-button';
 import Image from 'next/image';
 import { PartCard } from './part-card';
@@ -10,7 +10,7 @@ import PrimaryPlusIcon from './assets/plus-icon.svg';
 
 export const PartsList = ({ onOpen }: { onOpen: () => void }) => {
   const t = useTranslations();
-  const form = useFormContext<OrderPartData>();
+  const form = useFormContext<FormOrderParts>();
   const parts = form.watch('parts');
 
   const onDelete = (index: number) => {

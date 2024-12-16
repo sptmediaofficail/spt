@@ -13,7 +13,7 @@ type RemoveNumberIndexed<T> = {
     : K]: T[K];
 };
 
-export type OrderPartData = RemoveNumberIndexed<
+export type FormOrderParts = RemoveNumberIndexed<
   PostClientOrderSparePartData['formData']
 > & {
   parts: PartData[];
