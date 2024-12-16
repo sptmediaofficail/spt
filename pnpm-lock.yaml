@@ -158,6 +158,9 @@ importers:
       react-stars:
         specifier: ^2.2.5
         version: 2.2.5
+      react-step-builder:
+        specifier: ^3.0.6
+        version: 3.0.6
       round-polygon:
         specifier: ^0.6.7
         version: 0.6.7
@@ -7471,6 +7474,9 @@ packages:
 
   react-stars@2.2.5:
     resolution: {integrity: sha512-O//KS6Z9RZnUOU/r+3+wxCzNalVn/wEWIcbAQFRV3dw8WbV+ys/kgcpBPijqTiNpHGrcwZdtb/7wF/UVem20CQ==}
+
+  react-step-builder@3.0.6:
+    resolution: {integrity: sha512-5tt2ExMzBaB2JYq3aqVF8MyOERi3NYxfnVKTsAwTsyWkbV7w618ESZiFhQeJ508CS2BHU+CdUhxVO/qzCxRwjQ==}
 
   react-textarea-autosize@8.5.3:
     resolution: {integrity: sha512-XT1024o2pqCuZSuBt9FwHlaDeNtVrtCXu0Rnz88t1jUGheCLa3PhjE1GH8Ctm2axEtvdCl5SUHYschyQ0L5QHQ==}
@@ -18320,6 +18326,8 @@ snapshots:
       - supports-color
 
   react-stars@2.2.5: {}
+
+  react-step-builder@3.0.6: {}
 
   react-textarea-autosize@8.5.3(@types/react@18.3.1)(react@18.3.1):
     dependencies:

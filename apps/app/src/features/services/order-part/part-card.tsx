@@ -1,7 +1,7 @@
 import { PartData } from './types';
 import { useTranslations } from 'next-intl';
 import { Card, CardBody, CardHeader } from '@nextui-org/card';
-import { PrimaryDivider } from '../../ui/divider';
+import { PrimaryDivider } from '../../../ui/divider';
 import React from 'react';
 import QuantityIcon from './assets/quantity-icon.svg';
 import StatusIcon from './assets/status-icon.svg';

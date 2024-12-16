@@ -10,14 +10,14 @@ import {
 } from '@nextui-org/modal';
 import { useTranslations } from 'next-intl';
 import { Controller, useForm } from 'react-hook-form';
-import { PrimaryDivider } from '../../ui/divider';
+import { PrimaryDivider } from '../../../ui/divider';
 import { Button } from '@nextui-org/button';
 import { BiMinus, BiPlus } from 'react-icons/bi';
 import { Checkbox, CheckboxGroup } from '@nextui-org/checkbox';
 import { Textarea } from '@nextui-org/input';
-import { PrimaryButton } from '../../ui/primary-button';
+import { PrimaryButton } from '../../../ui/primary-button';
 import { PartData } from './types';
-import { Input } from '../../ui/input';
+import { Input } from '../../../ui/input';
 import { useEffect } from 'react';
 
 export const AddPartModal = ({
