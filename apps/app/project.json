@@ -17,6 +17,15 @@
           "dev": false
         }
       }
+    },
+    "start": {
+      "executor": "@nx/next:server",
+      "options": {
+        "buildTarget": "app:build",
+        "dev": false,
+        "port": 3001,
+        "root": "apps/app"
+      }
     }
   }
 }
