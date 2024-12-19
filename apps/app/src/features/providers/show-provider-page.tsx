@@ -24,7 +24,7 @@ export const ShowProviderPage = async ({ id }: { id: string }) => {
   }
 
   return (
-    <div className={'h-full flex flex-col gap-4'}>
+    <div className={'h-full flex flex-col gap-4 p-4 lg:p-0'}>
       <Breadcrumbs type={provider?.services as 'spare_parts'} id={id} />
       <div className={'flex flex-col gap-8 h-full'}>
         <ProviderDetailsCard provider={provider} />

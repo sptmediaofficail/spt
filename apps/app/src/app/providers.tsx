@@ -2,7 +2,7 @@
 import { NextUIProvider } from '@nextui-org/system';
 import { ReactNode, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { OpenAPI } from '../../../../libs/api-sdk/src/lib/gen2/requests';
+import { OpenAPI } from '@spt/api-sdk';
 import { useRouter } from 'next/navigation';
 import { envSchema } from '../env';
 

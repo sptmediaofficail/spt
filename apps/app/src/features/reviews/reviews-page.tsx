@@ -39,9 +39,9 @@ export const ReviewsPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col h-full p-4 lg:py-0 lg:px-0">
+    <div className="flex flex-col">
       <ReviewsBreadcrumbs />
-      <Card className="px-2 lg:p-0 rounded shadow mt-2 lg:mt-0 flex-grow">
+      <Card className="px-2 lg:p-0 rounded shadow flex-grow h-[calc(100svh-10.3rem)]">
         <CardHeader className="p-3 lg:p-4">
           <h1 className="text-2xl lg:text-3xl font-bold">{t('reviews')}</h1>
         </CardHeader>
@@ -79,7 +79,7 @@ const ReviewsSkeleton = () => (
 const ReviewsBreadcrumbs = () => {
   const t = useTranslations();
   return (
-    <div className="mb-2 lg:mb-4">
+    <div className="p-4 lg:p-0 lg:pb-4">
       <Breadcrumbs>
         <BreadcrumbItem className="flex items-center gap-2">
           <FaHome />

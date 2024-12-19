@@ -49,7 +49,7 @@ export const ProvidersPage = ({
   return (
     <div className="flex flex-col">
       <ProvidersBreadcrumbs type={type} />
-      <Card className="px-2 lg:p-0 rounded shadow mt-2 lg:mt-0 flex-grow h-[calc(100svh-9rem)]">
+      <Card className="px-2 lg:p-0 rounded shadow flex-grow h-[calc(100svh-10.3rem)]">
         <CardHeader className="p-3 lg:p-4">
           <h1 className="text-2xl lg:text-3xl font-bold">
             {type === 'spare_parts'
@@ -95,7 +95,7 @@ const ProvidersBreadcrumbs = ({
 }) => {
   const t = useTranslations();
   return (
-    <div className="mb-2 lg:mb-4">
+    <div className="p-4 lg:p-0 lg:pb-4">
       <Breadcrumbs>
         <BreadcrumbItem className="flex items-center gap-2">
           <FaHome />
