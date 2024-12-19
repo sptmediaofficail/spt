@@ -25,26 +25,26 @@ export const PartModal = ({
   onClose,
   onSubmit,
   initialData,
-  mode = 'add',
 }: UseDisclosureProps & {
   onSubmit: (data: PartData) => void;
   initialData?: PartData;
-  mode?: 'add' | 'edit';
-  // only needed for edit mode
 }) => {
   const t = useTranslations();
-  const { handleSubmit, control, register, reset } = useForm<PartData>({
-    defaultValues: {
-      partName: '',
-      quantity: 1,
-      status: ['new'],
-      notes: '',
-    },
-    mode: 'onChange',
-  });
+  const { handleSubmit, control, register, reset, setFocus } =
+    useForm<PartData>({
+      defaultValues: {
+        partName: '',
+        quantity: 1,
+        status: ['new'],
+        notes: '',
+      },
+      mode: 'onChange',
+    });
+  const isEdit = !!initialData;
 
   useEffect(() => {
     if (isOpen) {
+      setFocus('partName');
       reset(
         initialData || {
           partName: '',
@@ -54,7 +54,7 @@ export const PartModal = ({
         }
       );
     }
-  }, [isOpen, reset, initialData]);
+  }, [isOpen, reset, initialData, setFocus, isEdit]);
 
   return (
     <Modal
@@ -69,7 +69,7 @@ export const PartModal = ({
         <form onSubmit={handleSubmit(onSubmit)}>
           <ModalHeader>
             <h2 className="text-lg font-semibold text-center">
-              {mode === 'add' ? t('add_part') : t('edit_part')}
+              {isEdit ? t('edit_part') : t('add_part')}
             </h2>
           </ModalHeader>
           <div className="mx-4 mb-2">
@@ -167,7 +167,7 @@ export const PartModal = ({
                 {t('cancel')}
               </Button>
               <PrimaryButton
-                text={mode === 'add' ? t('add') : t('save')}
+                text={isEdit ? t('save') : t('add')}
                 type="submit"
                 className="w-fit px-8"
               />
