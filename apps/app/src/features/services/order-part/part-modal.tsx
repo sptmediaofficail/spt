@@ -20,12 +20,17 @@ import { PartData } from './types';
 import { Input } from '../../../ui/input';
 import { useEffect } from 'react';
 
-export const AddPartModal = ({
+export const PartModal = ({
   isOpen,
   onClose,
   onSubmit,
+  initialData,
+  mode = 'add',
 }: UseDisclosureProps & {
   onSubmit: (data: PartData) => void;
+  initialData?: PartData;
+  mode?: 'add' | 'edit';
+  // only needed for edit mode
 }) => {
   const t = useTranslations();
   const { handleSubmit, control, register, reset } = useForm<PartData>({
@@ -35,11 +40,21 @@ export const AddPartModal = ({
       status: ['new'],
       notes: '',
     },
+    mode: 'onChange',
   });
 
   useEffect(() => {
-    if (!isOpen) reset();
-  }, [isOpen, reset]);
+    if (isOpen) {
+      reset(
+        initialData || {
+          partName: '',
+          quantity: 1,
+          status: ['new'],
+          notes: '',
+        }
+      );
+    }
+  }, [isOpen, reset, initialData]);
 
   return (
     <Modal
@@ -54,7 +69,7 @@ export const AddPartModal = ({
         <form onSubmit={handleSubmit(onSubmit)}>
           <ModalHeader>
             <h2 className="text-lg font-semibold text-center">
-              {t('add_part')}
+              {mode === 'add' ? t('add_part') : t('edit_part')}
             </h2>
           </ModalHeader>
           <div className="mx-4 mb-2">
@@ -91,7 +106,6 @@ export const AddPartModal = ({
                       isIconOnly
                       size="sm"
                       onPress={() => onChange(Math.min(value + 1, 99))}
-                      disabled={value <= 0}
                       className="rounded-full"
                     >
                       <BiPlus />
@@ -153,7 +167,7 @@ export const AddPartModal = ({
                 {t('cancel')}
               </Button>
               <PrimaryButton
-                text={t('add')}
+                text={mode === 'add' ? t('add') : t('save')}
                 type="submit"
                 className="w-fit px-8"
               />

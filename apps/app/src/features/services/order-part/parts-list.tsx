@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { useFormContext } from 'react-hook-form';
-import { FormOrderParts } from './types';
+import { FormOrderParts, PartData } from './types';
 import { PrimaryButton } from '../../../ui/primary-button';
 import Image from 'next/image';
 import { PartCard } from './part-card';
@@ -9,7 +9,13 @@ import PlusIcon from './assets/white-plus-icon.svg';
 import PrimaryPlusIcon from './assets/plus-icon.svg';
 import { IoMdInformationCircleOutline } from 'react-icons/io';
 
-export const PartsList = ({ onOpen }: { onOpen: () => void }) => {
+export const PartsList = ({
+  onOpen,
+  onEditPart,
+}: {
+  onOpen: () => void;
+  onEditPart: (part: PartData, index: number) => void;
+}) => {
   const t = useTranslations();
   const form = useFormContext<FormOrderParts>();
   const parts = form.watch('parts');
@@ -50,9 +56,7 @@ export const PartsList = ({ onOpen }: { onOpen: () => void }) => {
             index={index}
             {...part}
             onDelete={onDelete}
-            onEdit={(index) => {
-              console.log('Edit', index);
-            }}
+            onEdit={() => onEditPart(part, index)}
           />
         ))}
       </div>

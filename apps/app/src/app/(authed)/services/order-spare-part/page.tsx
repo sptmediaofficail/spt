@@ -6,7 +6,7 @@ import { Tab, Tabs } from '@nextui-org/tabs';
 import { useTranslations } from 'next-intl';
 import { useDisclosure } from '@nextui-org/modal';
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';
-import { AddPartModal } from '../../../../features/services/order-part/add-part-modal';
+import { PartModal } from '../../../../features/services/order-part/part-modal';
 import {
   FormOrderParts,
   PartData,
@@ -18,9 +18,11 @@ import { PrimaryButton } from '../../../../ui/primary-button';
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 import { AnimatedDev } from '../../../../ui/animated-dev';
 import { ChassisInfo } from '../../../../features/services/order-part/chassis-info';
+import { useState } from 'react';
 
 const OrderSparePartPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [mode, setMode] = useState<'add' | 'edit'>('add');
   const t = useTranslations();
 
   const form = useForm<FormOrderParts>({
@@ -30,13 +32,41 @@ const OrderSparePartPage = () => {
     mode: 'onChange',
   });
 
-  const onAddPart = (data: PartData) => {
-    form.setValue('parts', [...form.getValues().parts, data]);
+  const onSubmit = (data: PartData) => {
+    if (mode === 'add') {
+      form.setValue('parts', [...form.getValues().parts, data]);
+    }
+
+    if (mode === 'edit' && editingPart) {
+      // Update existing part
+      const updatedParts = [...form.getValues().parts];
+      updatedParts[editingPart.index] = data;
+      form.setValue('parts', updatedParts);
+      setEditingPart(null);
+    }
+
     onClose();
+  };
+
+  const [editingPart, setEditingPart] = useState<{
+    part: PartData;
+    index: number;
+  } | null>(null);
+
+  const onEditPart = (part: PartData, index: number) => {
+    setMode('edit');
+    setEditingPart({ part, index });
+    onOpen();
   };
   return (
     <FormProvider {...form}>
-      <AddPartModal isOpen={isOpen} onClose={onClose} onSubmit={onAddPart} />
+      <PartModal
+        isOpen={isOpen}
+        onClose={onClose}
+        onSubmit={onSubmit}
+        initialData={editingPart?.part}
+        mode={mode}
+      />
       <div className="w-full p-4 flex flex-col gap-4 h-full">
         <H1>{'order_spare_part'}</H1>
         <PrimaryDivider />
@@ -44,14 +74,14 @@ const OrderSparePartPage = () => {
           <Tab className={'h-full'} title={t('enter_chassis_number')}>
             <form className="flex justify-between flex-col h-full w-full gap-8">
               <StepsProvider>
-                <MySteps onOpen={onOpen} />
+                <MySteps onOpen={onOpen} onEditPart={onEditPart} />
               </StepsProvider>
             </form>
           </Tab>
           <Tab className={'h-full'} title={t('enter_car_details')}>
             <form className="flex justify-between flex-col h-full w-full gap-8">
               <CarInfo />
-              <PartsList onOpen={onOpen} />
+              <PartsList onOpen={onOpen} onEditPart={onEditPart} />
             </form>
           </Tab>
         </Tabs>
@@ -62,7 +92,13 @@ const OrderSparePartPage = () => {
 
 export default OrderSparePartPage;
 
-const MySteps = ({ onOpen }: { onOpen: () => void }) => {
+const MySteps = ({
+  onOpen,
+  onEditPart,
+}: {
+  onOpen: () => void;
+  onEditPart: (part: FormOrderParts['parts'][number], index: number) => void;
+}) => {
   const { next, prev, hasNext, hasPrev } = useSteps();
   const t = useTranslations();
   const form = useFormContext<FormOrderParts>();
@@ -79,7 +115,7 @@ const MySteps = ({ onOpen }: { onOpen: () => void }) => {
         </AnimatedDev>
         <AnimatedDev className="flex flex-col gap-8 h-full">
           <CarInfo />
-          <PartsList onOpen={onOpen} />
+          <PartsList onOpen={onOpen} onEditPart={onEditPart} />
         </AnimatedDev>
         <AnimatedDev>
           <h1>Step 3</h1>
