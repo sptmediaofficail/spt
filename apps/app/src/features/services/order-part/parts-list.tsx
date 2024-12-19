@@ -7,6 +7,7 @@ import { PartCard } from './part-card';
 import AddParts from './assets/add-parts.svg';
 import PlusIcon from './assets/white-plus-icon.svg';
 import PrimaryPlusIcon from './assets/plus-icon.svg';
+import { IoMdInformationCircleOutline } from 'react-icons/io';
 
 export const PartsList = ({ onOpen }: { onOpen: () => void }) => {
   const t = useTranslations();
@@ -22,12 +23,15 @@ export const PartsList = ({ onOpen }: { onOpen: () => void }) => {
 
   return parts.length > 0 ? (
     <>
-      <div>
-        <div className="flex gap-2 flex-col">
+      <div className="flex justify-between items-center">
+        <div className="flex gap-2 flex-col lg:flex-row lg:items-center">
           <h2 className="text-md font-semibold">{t('add_part')}</h2>
-          <p className="text-accent text-sm font-semibold">
-            {t('add_more_parts')}
-          </p>
+          <div className={'flex gap-1 items-center text-accent'}>
+            <IoMdInformationCircleOutline className={'w-4 h-4 lg:w-6 lg:h-6'} />
+            <p className="text-xs lg:text-sm font-semibold">
+              {t('add_more_parts')}
+            </p>
+          </div>
         </div>
         <PrimaryButton
           variant={'bordered'}
@@ -39,17 +43,19 @@ export const PartsList = ({ onOpen }: { onOpen: () => void }) => {
           }
         />
       </div>
-      {parts.map((part, index) => (
-        <PartCard
-          key={index}
-          index={index}
-          {...part}
-          onDelete={onDelete}
-          onEdit={(index) => {
-            console.log('Edit', index);
-          }}
-        />
-      ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {parts.map((part, index) => (
+          <PartCard
+            key={index}
+            index={index}
+            {...part}
+            onDelete={onDelete}
+            onEdit={(index) => {
+              console.log('Edit', index);
+            }}
+          />
+        ))}
+      </div>
     </>
   ) : (
     <div className="flex-1 flex flex-col gap-4 items-center justify-center">

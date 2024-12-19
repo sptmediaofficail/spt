@@ -23,7 +23,7 @@ export const DynamicBreadcrumbs = () => {
   };
 
   return (
-    <NextBreadcrumbs className={'pb-4'}>
+    <NextBreadcrumbs className={'p-4 lg:p-0 lg:pb-4'}>
       <BreadcrumbItem className="flex items-center gap-2">
         <FaHome />
         <Link href="/">{t('sidenav.home')}</Link>

@@ -42,14 +42,14 @@ const OrderSparePartPage = () => {
         <PrimaryDivider />
         <Tabs fullWidth variant="underlined" color="primary" className="w-full">
           <Tab className={'h-full'} title={t('enter_chassis_number')}>
-            <form className="flex justify-between flex-col h-full w-full gap-8 lg:gap-0">
+            <form className="flex justify-between flex-col h-full w-full gap-8">
               <StepsProvider>
                 <MySteps onOpen={onOpen} />
               </StepsProvider>
             </form>
           </Tab>
           <Tab className={'h-full'} title={t('enter_car_details')}>
-            <form className="flex justify-between flex-col h-full w-full gap-8 lg:gap-0">
+            <form className="flex justify-between flex-col h-full w-full gap-8">
               <CarInfo />
               <PartsList onOpen={onOpen} />
             </form>
@@ -77,7 +77,7 @@ const MySteps = ({ onOpen }: { onOpen: () => void }) => {
         <AnimatedDev>
           <ChassisInfo />
         </AnimatedDev>
-        <AnimatedDev className="flex flex-col gap-8 lg:gap-0 justify-between h-full">
+        <AnimatedDev className="flex flex-col gap-8 h-full">
           <CarInfo />
           <PartsList onOpen={onOpen} />
         </AnimatedDev>

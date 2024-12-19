@@ -20,7 +20,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         <div
           className={`w-full flex flex-col gap-4 lg:p-8
           min-h-[calc(100vh-4rem-1px)]
-          ${isHome ? 'bg-white p-0' : 'bg-[#fafbfc] p-4'}`}
+          ${isHome ? 'bg-white p-0' : 'bg-[#fafbfc]'}`}
         >
           {/*  className={`p-0 lg:p-8 w-full overflow-y-scroll ${*/}
           {/*    isHome ? 'bg-white' : 'bg-[#fafbfc]'*/}
