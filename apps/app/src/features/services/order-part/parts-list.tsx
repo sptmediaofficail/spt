@@ -8,6 +8,9 @@ import AddParts from './assets/add-parts.svg';
 import PlusIcon from './assets/white-plus-icon.svg';
 import PrimaryPlusIcon from './assets/plus-icon.svg';
 import { IoMdInformationCircleOutline } from 'react-icons/io';
+import { useDisclosure } from '@nextui-org/modal';
+import { DeleteModal } from './part-modal';
+import { useState } from 'react';
 
 export const PartsList = ({
   onOpen,
@@ -18,17 +21,30 @@ export const PartsList = ({
 }) => {
   const t = useTranslations();
   const form = useFormContext<FormOrderParts>();
+  const deleteModal = useDisclosure();
   const parts = form.watch('parts');
+  const [indexToDelete, setIndexToDelete] = useState<number | null>(null);
 
-  const onDelete = (index: number) => {
+  const deletePart = (index: number) => {
     form.setValue(
       'parts',
       parts.filter((_, i) => i !== index)
     );
   };
 
+  const onPressDeleteIcon = (index: number) => {
+    deleteModal.onOpen();
+    setIndexToDelete(index);
+  };
+
+  const onDelete = () => {
+    deletePart(indexToDelete as number);
+    deleteModal.onClose();
+  };
+
   return parts.length > 0 ? (
     <>
+      <DeleteModal {...deleteModal} onDelete={onDelete} />
       <div className="flex justify-between items-center">
         <div className="flex gap-2 flex-col lg:flex-row lg:items-center">
           <h2 className="text-md font-semibold">{t('add_part')}</h2>
@@ -55,7 +71,7 @@ export const PartsList = ({
             key={index}
             index={index}
             {...part}
-            onDelete={onDelete}
+            onDelete={onPressDeleteIcon}
             onEdit={() => onEditPart(part, index)}
           />
         ))}

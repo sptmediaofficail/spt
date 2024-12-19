@@ -6,7 +6,10 @@ import { Tab, Tabs } from '@nextui-org/tabs';
 import { useTranslations } from 'next-intl';
 import { useDisclosure } from '@nextui-org/modal';
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';
-import { PartModal } from '../../../../features/services/order-part/part-modal';
+import {
+  PartModal,
+  UnsavedChangesModal,
+} from '../../../../features/services/order-part/part-modal';
 import {
   FormOrderParts,
   PartData,
@@ -22,6 +25,7 @@ import { useState } from 'react';
 
 const OrderSparePartPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const unSavedChangesModal = useDisclosure();
   const t = useTranslations();
 
   const form = useForm<FormOrderParts>({
@@ -54,15 +58,17 @@ const OrderSparePartPage = () => {
   };
 
   const closeAndReset = () => {
+    unSavedChangesModal.onClose();
     setEditingPart(null);
     onClose();
   };
 
   return (
     <FormProvider {...form}>
+      <UnsavedChangesModal {...unSavedChangesModal} onConfirm={closeAndReset} />
       <PartModal
         isOpen={isOpen}
-        onClose={closeAndReset}
+        onClose={unSavedChangesModal.onOpen}
         onSubmit={onSubmit}
         initialData={editingPart?.part}
       />

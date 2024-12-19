@@ -19,6 +19,9 @@ import { PrimaryButton } from '../../../ui/primary-button';
 import { PartData } from './types';
 import { Input } from '../../../ui/input';
 import { useEffect } from 'react';
+import Image from 'next/image';
+import DeleteIcon from './assets/delete-part.svg';
+import UnsavedChangesIcon from './assets/unsaved-icon.svg';
 
 export const PartModal = ({
   isOpen,
@@ -174,6 +177,109 @@ export const PartModal = ({
             </div>
           </ModalFooter>
         </form>
+      </ModalContent>
+    </Modal>
+  );
+};
+
+export const DeleteModal = ({
+  isOpen,
+  onClose,
+  onDelete,
+}: UseDisclosureProps & { onDelete: () => void }) => {
+  const t = useTranslations();
+
+  return (
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      placement="center"
+      size="sm"
+      hideCloseButton
+      classNames={{ base: 'mx-4' }}
+    >
+      <ModalContent>
+        <ModalHeader>
+          <Image src={DeleteIcon} alt="Delete Icon" className="mx-auto" />
+        </ModalHeader>
+        <ModalBody className="gap-2">
+          <h2 className="text-lg font-semibold text-center">
+            {t('delete_part')}
+          </h2>
+          <p className="text-center text-gray-500 text-sm font-semibold">
+            {t('delete_part_message')}
+          </p>
+        </ModalBody>
+        <ModalFooter>
+          <div className="flex w-full gap-4 items-stretch h-12">
+            <Button
+              onPress={onClose}
+              variant="bordered"
+              className="rounded-xl w-full h-full"
+            >
+              {t('cancel')}
+            </Button>
+            <PrimaryButton
+              text={t('delete')}
+              onPress={onDelete}
+              className="rounded-xl w-full h-full"
+            />
+          </div>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  );
+};
+
+export const UnsavedChangesModal = ({
+  isOpen,
+  onClose,
+  onConfirm,
+}: UseDisclosureProps & { onConfirm: () => void }) => {
+  const t = useTranslations();
+
+  return (
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      placement="center"
+      size="sm"
+      hideCloseButton
+      classNames={{ base: 'mx-4' }}
+    >
+      <ModalContent>
+        <ModalHeader>
+          <Image
+            src={UnsavedChangesIcon}
+            alt="Unsaved Changes Icon"
+            className="mx-auto"
+          />
+        </ModalHeader>
+        <ModalBody className="gap-2">
+          <h2 className="text-lg font-semibold text-center">
+            {t('unsaved_changes')}
+          </h2>
+          <p className="text-center text-gray-500 text-sm font-semibold">
+            {t('unsaved_changes_message')}
+          </p>
+        </ModalBody>
+        <ModalFooter>
+          <div className="flex w-full gap-4 items-stretch h-12">
+            <Button
+              onPress={onClose}
+              variant="bordered"
+              className="rounded-xl w-full h-full"
+            >
+              {t('cancel')}
+            </Button>
+            <PrimaryButton
+              text={t('confirm')}
+              onPress={onConfirm}
+              className="rounded-xl w-full h-full"
+              autoFocus
+            />
+          </div>
+        </ModalFooter>
       </ModalContent>
     </Modal>
   );
