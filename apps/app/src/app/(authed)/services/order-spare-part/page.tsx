@@ -68,7 +68,8 @@ const OrderSparePartPage = () => {
       <UnsavedChangesModal {...unSavedChangesModal} onConfirm={closeAndReset} />
       <PartModal
         isOpen={isOpen}
-        onClose={unSavedChangesModal.onOpen}
+        onClose={onClose}
+        onCloseWithChanges={unSavedChangesModal.onOpen}
         onSubmit={onSubmit}
         initialData={editingPart?.part}
       />

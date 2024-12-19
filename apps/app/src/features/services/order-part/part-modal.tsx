@@ -28,12 +28,14 @@ export const PartModal = ({
   onClose,
   onSubmit,
   initialData,
+  onCloseWithChanges,
 }: UseDisclosureProps & {
   onSubmit: (data: PartData) => void;
   initialData?: PartData;
+  onCloseWithChanges?: () => void;
 }) => {
   const t = useTranslations();
-  const { handleSubmit, control, register, reset, setFocus } =
+  const { handleSubmit, control, register, reset, setFocus, formState, watch } =
     useForm<PartData>({
       defaultValues: {
         partName: '',
@@ -59,10 +61,12 @@ export const PartModal = ({
     }
   }, [isOpen, reset, initialData, setFocus, isEdit]);
 
+  console.log('formState.isDirty', formState.isDirty);
+
   return (
     <Modal
       isOpen={isOpen}
-      onClose={onClose}
+      onClose={formState.isDirty ? onCloseWithChanges : onClose}
       placement="center"
       size="xl"
       hideCloseButton
@@ -163,7 +167,7 @@ export const PartModal = ({
           <ModalFooter>
             <div className="flex w-full gap-4 justify-end">
               <Button
-                onPress={onClose}
+                onPress={formState.isDirty ? onCloseWithChanges : onClose}
                 variant="bordered"
                 className="rounded-lg px-8"
               >
