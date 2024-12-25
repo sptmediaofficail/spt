@@ -4,16 +4,12 @@ import { H1 } from '../../../../ui/typography';
 import { PrimaryDivider } from '../../../../ui/divider';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { useTranslations } from 'next-intl';
-import { useDisclosure } from '@nextui-org/modal';
-import { FormProvider, useForm, useFormContext } from 'react-hook-form';
+import { FormProvider, useFormContext } from 'react-hook-form';
 import {
   PartModal,
   UnsavedChangesModal,
 } from '../../../../features/services/order-part/part-modal';
-import {
-  FormOrderParts,
-  PartData,
-} from '../../../../features/services/order-part/types';
+import { FormOrderParts } from '../../../../features/services/order-part/types';
 import { Steps, StepsProvider, useSteps } from 'react-step-builder';
 import { PartsList } from '../../../../features/services/order-part/parts-list';
 import { CarInfo } from '../../../../features/services/order-part/car-info';
@@ -21,56 +17,30 @@ import { PrimaryButton } from '../../../../ui/primary-button';
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 import { AnimatedDev } from '../../../../ui/animated-dev';
 import { ChassisInfo } from '../../../../features/services/order-part/chassis-info';
-import { useState } from 'react';
+import { usePartForm } from '../../../../features/services/order-part/use-part-form';
 
 const OrderSparePartPage = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const unSavedChangesModal = useDisclosure();
   const t = useTranslations();
-
-  const form = useForm<FormOrderParts>({
-    defaultValues: {
-      parts: [],
-    },
-    mode: 'onChange',
-  });
-
-  const [editingPart, setEditingPart] = useState<{
-    part: PartData;
-    index: number;
-  } | null>(null);
-
-  const onSubmit = (data: PartData) => {
-    if (editingPart) {
-      const updatedParts = [...form.getValues().parts];
-      updatedParts[editingPart.index] = data;
-      form.setValue('parts', updatedParts);
-      setEditingPart(null);
-    } else {
-      form.setValue('parts', [...form.getValues().parts, data]);
-    }
-    onClose();
-  };
-
-  const onEditPart = (part: PartData, index: number) => {
-    setEditingPart({ part, index });
-    onOpen();
-  };
-
-  const closeAndReset = () => {
-    unSavedChangesModal.onClose();
-    setEditingPart(null);
-    onClose();
-  };
+  const {
+    form,
+    onSubmit,
+    editingPart,
+    onEditPart,
+    partFormModal,
+    unSavedChangesModal,
+    closeUnSavedChangesModalAndReset,
+  } = usePartForm();
 
   return (
     <FormProvider {...form}>
-      <UnsavedChangesModal {...unSavedChangesModal} onConfirm={closeAndReset} />
+      <UnsavedChangesModal
+        {...unSavedChangesModal}
+        onConfirm={closeUnSavedChangesModalAndReset}
+      />
       <PartModal
-        isOpen={isOpen}
-        onClose={onClose}
-        onCloseWithChanges={unSavedChangesModal.onOpen}
+        {...partFormModal}
         onSubmit={onSubmit}
+        onCloseWithChanges={unSavedChangesModal.onOpen}
         initialData={editingPart?.part}
       />
       <div className="w-full p-4 flex flex-col gap-4 h-full">
@@ -80,14 +50,20 @@ const OrderSparePartPage = () => {
           <Tab className={'h-full'} title={t('enter_chassis_number')}>
             <form className="flex justify-between flex-col h-full w-full gap-8">
               <StepsProvider>
-                <MySteps onOpen={onOpen} onEditPart={onEditPart} />
+                <MySteps
+                  onOpen={partFormModal.onOpen}
+                  onEditPart={onEditPart}
+                />
               </StepsProvider>
             </form>
           </Tab>
           <Tab className={'h-full'} title={t('enter_car_details')}>
             <form className="flex justify-between flex-col h-full w-full gap-8">
               <CarInfo />
-              <PartsList onOpen={onOpen} onEditPart={onEditPart} />
+              <PartsList
+                onAddPart={partFormModal.onOpen}
+                onEditPart={onEditPart}
+              />
             </form>
           </Tab>
         </Tabs>
@@ -121,7 +97,7 @@ const MySteps = ({
         </AnimatedDev>
         <AnimatedDev className="flex flex-col gap-8 h-full">
           <CarInfo />
-          <PartsList onOpen={onOpen} onEditPart={onEditPart} />
+          <PartsList onAddPart={onOpen} onEditPart={onEditPart} />
         </AnimatedDev>
         <AnimatedDev>
           <h1>Step 3</h1>

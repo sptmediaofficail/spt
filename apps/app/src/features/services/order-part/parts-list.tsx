@@ -13,10 +13,10 @@ import { DeleteModal } from './part-modal';
 import { useState } from 'react';
 
 export const PartsList = ({
-  onOpen,
+  onAddPart,
   onEditPart,
 }: {
-  onOpen: () => void;
+  onAddPart: () => void;
   onEditPart: (part: PartData, index: number) => void;
 }) => {
   const t = useTranslations();
@@ -57,7 +57,7 @@ export const PartsList = ({
         </div>
         <PrimaryButton
           variant={'bordered'}
-          onPress={onOpen}
+          onPress={onAddPart}
           className="w-fit"
           text={t('add_part')}
           startContent={
@@ -84,7 +84,7 @@ export const PartsList = ({
         {t('no_parts_added')}
       </h2>
       <PrimaryButton
-        onPress={onOpen}
+        onPress={onAddPart}
         className="w-fit mx-auto px-8"
         text={t('add_part')}
         startContent={
