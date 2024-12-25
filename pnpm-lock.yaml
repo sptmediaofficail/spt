@@ -11,6 +11,9 @@ importers:
       '@7nohe/openapi-react-query-codegen':
         specifier: ^1.6.1
         version: 1.6.1(commander@12.1.0)(glob@10.4.5)(ts-morph@23.0.0)(typescript@5.5.4)
+      '@hookform/resolvers':
+        specifier: ^3.9.1
+        version: 3.9.1(react-hook-form@7.54.0(react@18.3.1))
       '@kubb/cli':
         specifier: ^2.25.2
         version: 2.25.2(typescript@5.5.4)
@@ -1257,6 +1260,11 @@ packages:
     hasBin: true
     peerDependencies:
       typescript: ^5.x
+
+  '@hookform/resolvers@3.9.1':
+    resolution: {integrity: sha512-ud2HqmGBM0P0IABqoskKWI6PEf6ZDDBZkFqe2Vnl+mTHCEHzr3ISjjZyCwTjC/qpL25JC9aIDkloQejvMeq0ug==}
+    peerDependencies:
+      react-hook-form: ^7.0.0
 
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -10097,6 +10105,10 @@ snapshots:
       typescript: 5.5.4
     transitivePeerDependencies:
       - magicast
+
+  '@hookform/resolvers@3.9.1(react-hook-form@7.54.0(react@18.3.1))':
+    dependencies:
+      react-hook-form: 7.54.0(react@18.3.1)
 
   '@humanwhocodes/config-array@0.11.14':
     dependencies:

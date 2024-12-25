@@ -20,11 +20,8 @@ export const ChassisInfo = () => {
           labelPlacement="outside"
           placeholder={t('enter_chassis_number')}
           variant="bordered"
-          errorMessage={t('chassis_validation')}
-          {...form.register('vin_serial', {
-            required: t('chassis_required'),
-            validate: (value) => value.length === 17 || t('chassis_validation'),
-          })}
+          // errorMessage={t('chassis_validation')}
+          {...form.register('vin_serial')}
         />
 
         <div className={'mt-4'}>

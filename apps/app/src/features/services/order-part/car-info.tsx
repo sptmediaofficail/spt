@@ -27,9 +27,12 @@ export const CarInfo = () => {
       {selectors.map((selector) => (
         <Controller
           key={selector.label}
-          name={selector.label}
+          name={selector.name}
           control={form.control}
-          render={({ field }) => (
+          rules={{
+            required: t('field_required'),
+          }}
+          render={({ field, fieldState }) => (
             <Select
               {...field}
               label={t(selector.label)}
@@ -43,6 +46,7 @@ export const CarInfo = () => {
               variant="bordered"
               className="w-full rounded-none"
               placeholder={t(selector.label)}
+              {...form.register(selector.name)}
             >
               {selector.options.map((option) => (
                 <SelectItem key={option} value={option}>

@@ -2,16 +2,28 @@ import { useForm } from 'react-hook-form';
 import { FormOrderParts, PartData } from './types';
 import { useState } from 'react';
 import { useDisclosure } from '@nextui-org/modal';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from 'next-intl';
 
-export const usePartForm = () => {
+export const useOrderForm = () => {
   const partFormModal = useDisclosure();
   const unSavedChangesModal = useDisclosure();
+  const t = useTranslations();
+
+  const validation = z.object({
+    vin_serial: z.string().length(17, {
+      message: t('chassis_validation'),
+    }),
+    parts: z.array(z.any()).nonempty(),
+  });
 
   const form = useForm<FormOrderParts>({
     defaultValues: {
       parts: [],
     },
     mode: 'onChange',
+    resolver: zodResolver(validation),
   });
 
   const [editingPart, setEditingPart] = useState<{

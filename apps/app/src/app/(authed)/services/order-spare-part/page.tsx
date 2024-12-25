@@ -4,7 +4,7 @@ import { H1 } from '../../../../ui/typography';
 import { PrimaryDivider } from '../../../../ui/divider';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { useTranslations } from 'next-intl';
-import { FormProvider, useFormContext } from 'react-hook-form';
+import { FormProvider, useFormContext, useFormState } from 'react-hook-form';
 import {
   PartModal,
   UnsavedChangesModal,
@@ -17,7 +17,8 @@ import { PrimaryButton } from '../../../../ui/primary-button';
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 import { AnimatedDev } from '../../../../ui/animated-dev';
 import { ChassisInfo } from '../../../../features/services/order-part/chassis-info';
-import { usePartForm } from '../../../../features/services/order-part/use-part-form';
+import { useOrderForm } from '../../../../features/services/order-part/use-order-form';
+import { useEffect, useState } from 'react';
 
 const OrderSparePartPage = () => {
   const t = useTranslations();
@@ -29,7 +30,7 @@ const OrderSparePartPage = () => {
     partFormModal,
     unSavedChangesModal,
     closeUnSavedChangesModalAndReset,
-  } = usePartForm();
+  } = useOrderForm();
 
   return (
     <FormProvider {...form}>
@@ -81,13 +82,26 @@ const MySteps = ({
   onOpen: () => void;
   onEditPart: (part: FormOrderParts['parts'][number], index: number) => void;
 }) => {
-  const { next, prev, hasNext, hasPrev } = useSteps();
+  const [isThisStepValid, setIsThisStepValid] = useState(false);
+  const { next, prev, hasNext, hasPrev, current } = useSteps();
   const t = useTranslations();
   const form = useFormContext<FormOrderParts>();
 
-  const isChassisValid = form.getFieldState('vin_serial').invalid;
+  const { errors, dirtyFields } = useFormState<FormOrderParts>(form.formState);
+  const isFirstStepValid = !!(!errors.vin_serial && dirtyFields.vin_serial);
 
-  form.watch();
+  const isCarInfoValid =
+    dirtyFields.year && dirtyFields.brand && dirtyFields.model;
+  const isPartsListValid = form.getValues().parts.length > 0;
+  const isSecondStepValid = !!(isCarInfoValid && isPartsListValid);
+
+  useEffect(() => {
+    if (current === 1) {
+      setIsThisStepValid(isFirstStepValid);
+    } else if (current === 2) {
+      setIsThisStepValid(isSecondStepValid);
+    }
+  }, [current, dirtyFields, errors, isFirstStepValid, isSecondStepValid]);
 
   return (
     <>
@@ -113,7 +127,7 @@ const MySteps = ({
           startContent={<GrFormNext className={'w-4 h-4'} />}
         />
         <PrimaryButton
-          isDisabled={!hasNext || !isChassisValid}
+          isDisabled={!hasNext || !isThisStepValid}
           onPress={next}
           text={t('next')}
           className={'w-auto'}

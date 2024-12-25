@@ -61,8 +61,6 @@ export const PartModal = ({
     }
   }, [isOpen, reset, initialData, setFocus, isEdit]);
 
-  console.log('formState.isDirty', formState.isDirty);
-
   return (
     <Modal
       isOpen={isOpen}
