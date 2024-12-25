@@ -51,7 +51,7 @@ const OrderSparePartPage = () => {
           <Tab className={'h-full'} title={t('enter_chassis_number')}>
             <form className="flex justify-between flex-col h-full w-full gap-8">
               <StepsProvider>
-                <MySteps
+                <StepsComponent
                   onOpen={partFormModal.onOpen}
                   onEditPart={onEditPart}
                 />
@@ -60,11 +60,13 @@ const OrderSparePartPage = () => {
           </Tab>
           <Tab className={'h-full'} title={t('enter_car_details')}>
             <form className="flex justify-between flex-col h-full w-full gap-8">
-              <CarInfo />
-              <PartsList
-                onAddPart={partFormModal.onOpen}
-                onEditPart={onEditPart}
-              />
+              <StepsProvider>
+                <StepsComponent
+                  onOpen={partFormModal.onOpen}
+                  onEditPart={onEditPart}
+                  startWithCarInfo={true}
+                />
+              </StepsProvider>
             </form>
           </Tab>
         </Tabs>
@@ -75,12 +77,14 @@ const OrderSparePartPage = () => {
 
 export default OrderSparePartPage;
 
-const MySteps = ({
+const StepsComponent = ({
   onOpen,
   onEditPart,
+  startWithCarInfo = false,
 }: {
   onOpen: () => void;
   onEditPart: (part: FormOrderParts['parts'][number], index: number) => void;
+  startWithCarInfo?: boolean;
 }) => {
   const [isThisStepValid, setIsThisStepValid] = useState(false);
   const { next, prev, hasNext, hasPrev, current } = useSteps();
@@ -88,34 +92,45 @@ const MySteps = ({
   const form = useFormContext<FormOrderParts>();
 
   const { errors, dirtyFields } = useFormState<FormOrderParts>(form.formState);
-  const isFirstStepValid = !!(!errors.vin_serial && dirtyFields.vin_serial);
 
   const isCarInfoValid =
     dirtyFields.year && dirtyFields.brand && dirtyFields.model;
   const isPartsListValid = form.getValues().parts.length > 0;
-  const isSecondStepValid = !!(isCarInfoValid && isPartsListValid);
 
   useEffect(() => {
-    if (current === 1) {
-      setIsThisStepValid(isFirstStepValid);
-    } else if (current === 2) {
-      setIsThisStepValid(isSecondStepValid);
-    }
-  }, [current, dirtyFields, errors, isFirstStepValid, isSecondStepValid]);
+    // get current step and run it's validation
+    console.log({ current, isValid: steps[current - 1].validation });
+    setIsThisStepValid(steps[current - 1].validation);
+  }, [form.getValues(), current]);
+
+  let steps = [
+    {
+      component: <ChassisInfo />,
+      validation: !!(!errors.vin_serial && dirtyFields.vin_serial),
+    },
+    {
+      component: (
+        <div className="flex flex-col gap-8 h-full">
+          <CarInfo />
+          <PartsList onAddPart={onOpen} onEditPart={onEditPart} />
+        </div>
+      ),
+      validation: !!(isCarInfoValid && isPartsListValid),
+    },
+  ];
+
+  if (startWithCarInfo) {
+    steps = steps.filter((_, index) => index !== 0);
+  }
 
   return (
     <>
       <Steps>
-        <AnimatedDev>
-          <ChassisInfo />
-        </AnimatedDev>
-        <AnimatedDev className="flex flex-col gap-8 h-full">
-          <CarInfo />
-          <PartsList onAddPart={onOpen} onEditPart={onEditPart} />
-        </AnimatedDev>
-        <AnimatedDev>
-          <h1>Step 3</h1>
-        </AnimatedDev>
+        {steps.map((step, index) => (
+          <AnimatedDev key={index} className="h-full">
+            {step.component}
+          </AnimatedDev>
+        ))}
       </Steps>
       <AnimatedDev className="flex justify-between gap-4">
         <PrimaryButton
@@ -126,13 +141,22 @@ const MySteps = ({
           text={t('prev')}
           startContent={<GrFormNext className={'w-4 h-4'} />}
         />
-        <PrimaryButton
-          isDisabled={!hasNext || !isThisStepValid}
-          onPress={next}
-          text={t('next')}
-          className={'w-auto'}
-          endContent={<GrFormPrevious className={'w-4 h-4'} />}
-        />
+        {hasNext ? (
+          <PrimaryButton
+            isDisabled={!isThisStepValid}
+            onPress={next}
+            text={t('next')}
+            className={'w-auto'}
+            endContent={<GrFormPrevious className={'w-4 h-4'} />}
+          />
+        ) : (
+          <PrimaryButton
+            isDisabled={!isThisStepValid}
+            onSubmit={form.handleSubmit((data) => console.log(data))}
+            text={t('confirm')}
+            className={'w-auto'}
+          />
+        )}
       </AnimatedDev>
     </>
   );
