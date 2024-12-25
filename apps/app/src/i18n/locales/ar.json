@@ -127,5 +127,9 @@
   "delete_part_message": "هل انت متأكد من حذف هذه القطعة ؟",
   "unsaved_changes": "الخروج دون حفظ",
   "unsaved_changes_message": "هل تريد الخروج دون حفظ التغييرات ؟",
-  "confirm": "تأكيد"
+  "confirm": "تأكيد",
+  "pickup": "تحديد مكان الاستلام",
+  "address_details": "تفاصيل العنوان",
+  "enter_address_details": "ادخل تفاصيل العنوان",
+  "pickup_date_time": "تاريخ و وقت الاستلام"
 }

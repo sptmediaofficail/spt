@@ -19,6 +19,8 @@ import { AnimatedDev } from '../../../../ui/animated-dev';
 import { ChassisInfo } from '../../../../features/services/order-part/chassis-info';
 import { useOrderForm } from '../../../../features/services/order-part/use-order-form';
 import { useEffect, useState } from 'react';
+import { GoogleMap } from '../../../../features/providers/map';
+import { Textarea } from '../../../../ui/input';
 
 const OrderSparePartPage = () => {
   const t = useTranslations();
@@ -116,6 +118,38 @@ const StepsComponent = ({
         </div>
       ),
       validation: !!(isCarInfoValid && isPartsListValid),
+    },
+    {
+      component: (
+        <div className="flex flex-col gap-6 font-semibold text-gray-800 text-sm">
+          <div className="flex flex-col gap-2">
+            <label className={''}>{t('pickup')}</label>
+            <div className="w-full h-64 bg-gray-200 rounded-xl flex items-center justify-center overflow-hidden shadow-sm">
+              <GoogleMap
+                onDrag={(e) => console.log(e?.latLng?.lat(), e?.latLng?.lng())}
+              />
+            </div>
+          </div>
+          <div>
+            <label>{t('address_details')}</label>
+            <Textarea
+              {...form.register('address', { required: true })}
+              placeholder={t('enter_address_details')}
+              classNames={{
+                inputWrapper: 'mt-2',
+              }}
+            />
+          </div>
+          <div>
+            <label>{t('pickup_date_time')}</label>
+            <input
+              type="datetime-local"
+              className="input"
+              {...form.register('delivery_date', { required: true })}
+            />
+          </div>
+        </div>
+      ),
     },
   ];
 
