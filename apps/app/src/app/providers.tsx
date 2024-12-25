@@ -5,6 +5,11 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { OpenAPI } from '@spt/api-sdk';
 import { useRouter } from 'next/navigation';
 import { envSchema } from '../env';
+import {
+  AbstractIntlMessages,
+  IntlError,
+  NextIntlClientProvider,
+} from 'next-intl';
 
 OpenAPI.BASE = envSchema.NEXT_PUBLIC_API_URL;
 
@@ -31,5 +36,31 @@ export const UIProvider = ({
     <NextUIProvider navigate={useRouter} locale={locale}>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </NextUIProvider>
+  );
+};
+
+export const I18nProvider = ({
+  children,
+  locale,
+  messages,
+}: {
+  children: ReactNode;
+  locale: string;
+  messages: AbstractIntlMessages;
+}) => {
+  function onError(error: IntlError) {
+    // console.error('error');
+    // if (error.code === 'MISSING_MESSAGE') return;
+    // console.error(error);
+  }
+
+  return (
+    <NextIntlClientProvider
+      messages={messages}
+      locale={locale}
+      onError={onError}
+    >
+      {children}
+    </NextIntlClientProvider>
   );
 };

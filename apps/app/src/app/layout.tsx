@@ -1,8 +1,11 @@
 import './global.css';
 import { layoutMetadata, shubakFont } from '@spt/common';
-import { getLocale, getMessages } from 'next-intl/server';
-import { NextIntlClientProvider } from 'next-intl';
-import { UIProvider } from './providers';
+import {
+  getLocale,
+  getMessages,
+  unstable_setRequestLocale,
+} from 'next-intl/server';
+import { I18nProvider, UIProvider } from './providers';
 import { ReactNode } from 'react';
 // import Navbar from '../features/navbar/navbar';
 // import Sidenav from '../features/sidenav/sidenav';
@@ -16,6 +19,8 @@ export default async function RootLayout({
   const locale = await getLocale();
   const messages = await getMessages();
 
+  unstable_setRequestLocale(locale);
+
   return (
     <html
       lang={locale}
@@ -28,13 +33,13 @@ export default async function RootLayout({
           content="width=device-width, initial-scale=1, maximum-scale=1"
         />
         <UIProvider locale={locale}>
-          <NextIntlClientProvider messages={messages} locale={locale}>
+          <I18nProvider messages={messages} locale={locale}>
             {/*<Navbar />*/}
             {/*<div className="hidden md:block">*/}
             {/*  <Sidenav />*/}
             {/*</div>*/}
             {children}
-          </NextIntlClientProvider>
+          </I18nProvider>
         </UIProvider>
       </body>
     </html>
