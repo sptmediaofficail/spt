@@ -131,5 +131,7 @@
   "pickup": "تحديد مكان الاستلام",
   "address_details": "تفاصيل العنوان",
   "enter_address_details": "ادخل تفاصيل العنوان",
-  "pickup_date_time": "تاريخ و وقت الاستلام"
+  "pickup_date_time": "تاريخ و وقت الاستلام",
+  "loading": "جاري التحميل ...",
+  "detecting_location": "جاري تحديد موقعك ..."
 }

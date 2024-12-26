@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
 import { Card } from '@nextui-org/card';
 import dynamic from 'next/dynamic';
+import { useTranslations } from 'next-intl';
 
 function EagerGoogleMap({
   position,
@@ -17,13 +18,6 @@ function EagerGoogleMap({
     lat: number;
     lng: number;
   } | null>(null);
-  const [Animation, setAnimation] = useState<any>(null);
-
-  useEffect(() => {
-    if (typeof google !== 'undefined') {
-      setAnimation(google.maps.Animation);
-    }
-  }, []);
 
   useEffect(() => {
     // If no position is provided, try to get the current position of the user
@@ -50,9 +44,9 @@ function EagerGoogleMap({
     }
   }, [onInit, position]);
 
-  // If currentPosition is still null, render a loading state or a fallback
+  const t = useTranslations();
   if (currentPosition === null) {
-    return <div>Loading...</div>;
+    return <div>{t('detecting_location')}</div>;
   }
 
   return (
@@ -62,11 +56,12 @@ function EagerGoogleMap({
           defaultCenter={currentPosition}
           defaultZoom={10}
           mapId="abc9c64525471500"
+          controlSize={24}
         >
           <Marker
             draggable={!!onDragEnd}
             position={currentPosition}
-            animation={onDragEnd && Animation ? Animation.BOUNCE : undefined}
+            animation={onDragEnd ? 1 : undefined}
             onDragEnd={onDragEnd}
           />
         </Map>

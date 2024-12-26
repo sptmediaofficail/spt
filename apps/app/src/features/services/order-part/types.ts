@@ -1,4 +1,5 @@
 import { PostClientOrderSparePartData } from '@spt/api-sdk';
+import { CalendarDateTime } from '@internationalized/date';
 
 export type PartData = {
   partName: string;
@@ -17,4 +18,5 @@ export type FormOrderParts = RemoveNumberIndexed<
   PostClientOrderSparePartData['formData']
 > & {
   parts: PartData[];
+  calender_delivery_date: CalendarDateTime;
 };

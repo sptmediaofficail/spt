@@ -1,10 +1,15 @@
 import { useForm } from 'react-hook-form';
 import { FormOrderParts, PartData } from './types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDisclosure } from '@nextui-org/modal';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
+import {
+  getLocalTimeZone,
+  now,
+  toCalendarDateTime,
+} from '@internationalized/date';
 
 export const useOrderForm = () => {
   const partFormModal = useDisclosure();
@@ -21,10 +26,22 @@ export const useOrderForm = () => {
   const form = useForm<FormOrderParts>({
     defaultValues: {
       parts: [],
+      // CalendarDateTime
+      calender_delivery_date: toCalendarDateTime(
+        now(getLocalTimeZone()).add({ weeks: 1 })
+      ),
     },
     mode: 'onChange',
     resolver: zodResolver(validation),
   });
+
+  const calender_delivery_date = form.watch('calender_delivery_date');
+  useEffect(() => {
+    form.setValue(
+      'delivery_date',
+      calender_delivery_date.toDate(getLocalTimeZone()).toISOString()
+    );
+  }, [calender_delivery_date, form]);
 
   const [editingPart, setEditingPart] = useState<{
     part: PartData;

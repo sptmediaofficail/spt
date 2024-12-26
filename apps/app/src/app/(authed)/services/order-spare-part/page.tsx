@@ -4,15 +4,18 @@ import { H1 } from '../../../../ui/typography';
 import { PrimaryDivider } from '../../../../ui/divider';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { useTranslations } from 'next-intl';
-import { FormProvider, useFormContext, useFormState } from 'react-hook-form';
+import {
+  Controller,
+  FormProvider,
+  useFormContext,
+  useFormState,
+} from 'react-hook-form';
 import {
   PartModal,
   UnsavedChangesModal,
 } from '../../../../features/services/order-part/part-modal';
 import { FormOrderParts } from '../../../../features/services/order-part/types';
 import { Steps, StepsProvider, useSteps } from 'react-step-builder';
-import { PartsList } from '../../../../features/services/order-part/parts-list';
-import { CarInfo } from '../../../../features/services/order-part/car-info';
 import { PrimaryButton } from '../../../../ui/primary-button';
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 import { AnimatedDev } from '../../../../ui/animated-dev';
@@ -21,7 +24,10 @@ import { useOrderForm } from '../../../../features/services/order-part/use-order
 import { useEffect, useState } from 'react';
 import { GoogleMap } from '../../../../features/providers/map';
 import { Textarea } from '../../../../ui/input';
+import { DatePicker } from '@nextui-org/date-picker';
 import { DevTool } from '@hookform/devtools';
+import { CarInfo } from '../../../../features/services/order-part/car-info';
+import { PartsList } from '../../../../features/services/order-part/parts-list';
 
 const OrderSparePartPage = () => {
   const t = useTranslations();
@@ -132,10 +138,10 @@ const StepsComponent = ({
     },
     {
       component: (
-        <div className="flex flex-col gap-6 font-semibold text-gray-800 text-sm">
-          <div className="flex flex-col gap-2">
-            <label className={''}>{t('pickup')}</label>
-            <div className="w-full h-64 bg-gray-200 rounded-xl flex items-center justify-center overflow-hidden shadow-sm">
+        <div className="flex flex-col h-full gap-6 font-semibold text-gray-800 text-sm">
+          <div className="flex flex-col gap-2 flex-1">
+            <label>{t('pickup')}</label>
+            <div className="w-full h-full flex-1 bg-gray-200 rounded-xl flex items-center justify-center overflow-hidden shadow-sm animate-appearance-in">
               <GoogleMap
                 onInit={setLocation}
                 onDragEnd={(e) =>
@@ -151,19 +157,30 @@ const StepsComponent = ({
             <Textarea
               {...form.register('address', { required: true })}
               placeholder={t('enter_address_details')}
+              radius={'sm'}
               classNames={{
                 inputWrapper: 'mt-2',
               }}
             />
           </div>
-          <div>
-            <label>{t('pickup_date_time')}</label>
-            <input
-              type="datetime-local"
-              className="input"
-              {...form.register('delivery_date', { required: true })}
-            />
-          </div>
+          <Controller
+            control={form.control}
+            name="calender_delivery_date"
+            render={({ field }) => (
+              <DatePicker
+                hideTimeZone
+                dir={'rtl'}
+                showMonthAndYearPickers
+                shouldForceLeadingZeros
+                radius={'sm'}
+                label={t('pickup_date_time')}
+                variant="bordered"
+                labelPlacement={'outside'}
+                {...field}
+                onChange={field.onChange}
+              />
+            )}
+          />
         </div>
       ),
     },
