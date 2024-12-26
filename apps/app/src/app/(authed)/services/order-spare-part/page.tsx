@@ -200,7 +200,7 @@ const StepsComponent = ({
           </AnimatedDev>
         ))}
       </Steps>
-      <AnimatedDev className="flex justify-between gap-4">
+      <dev className="flex justify-between gap-4">
         <PrimaryButton
           isDisabled={!hasPrev}
           onPress={prev}
@@ -225,7 +225,7 @@ const StepsComponent = ({
             className={'w-auto'}
           />
         )}
-      </AnimatedDev>
+      </dev>
     </>
   );
 };
