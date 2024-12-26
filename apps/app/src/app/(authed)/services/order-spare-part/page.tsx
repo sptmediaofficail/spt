@@ -21,6 +21,7 @@ import { useOrderForm } from '../../../../features/services/order-part/use-order
 import { useEffect, useState } from 'react';
 import { GoogleMap } from '../../../../features/providers/map';
 import { Textarea } from '../../../../ui/input';
+import { DevTool } from '@hookform/devtools';
 
 const OrderSparePartPage = () => {
   const t = useTranslations();
@@ -92,6 +93,16 @@ const StepsComponent = ({
   const { next, prev, hasNext, hasPrev, current } = useSteps();
   const t = useTranslations();
   const form = useFormContext<FormOrderParts>();
+  const setLocation = ({
+    lat,
+    lng,
+  }: {
+    lat: number | undefined;
+    lng: number | undefined;
+  }) => {
+    form.setValue('latitude', lat);
+    form.setValue('longitude', lng);
+  };
 
   const { errors, dirtyFields } = useFormState<FormOrderParts>(form.formState);
 
@@ -126,7 +137,12 @@ const StepsComponent = ({
             <label className={''}>{t('pickup')}</label>
             <div className="w-full h-64 bg-gray-200 rounded-xl flex items-center justify-center overflow-hidden shadow-sm">
               <GoogleMap
-                onDrag={(e) => console.log(e?.latLng?.lat(), e?.latLng?.lng())}
+                onInit={setLocation}
+                onDragEnd={(e) =>
+                  setLocation({ lat: e?.latLng?.lat(), lng: e?.latLng?.lng() })
+                }
+                {...form.register('latitude')}
+                {...form.register('longitude')}
               />
             </div>
           </div>
@@ -159,6 +175,7 @@ const StepsComponent = ({
 
   return (
     <>
+      <DevTool control={form.control} />
       <Steps>
         {steps.map((step, index) => (
           <AnimatedDev key={index} className="h-full">

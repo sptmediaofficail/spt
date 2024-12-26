@@ -6,10 +6,12 @@ import dynamic from 'next/dynamic';
 
 function EagerGoogleMap({
   position,
-  onDrag,
+  onDragEnd,
+  onInit,
 }: {
   position?: { lat: number; lng: number };
-  onDrag?: (e: google.maps.MapMouseEvent) => void;
+  onDragEnd?: (e: google.maps.MapMouseEvent) => void;
+  onInit?: ({ lat, lng }: { lat: number; lng: number }) => void;
 }) {
   const [currentPosition, setCurrentPosition] = useState<{
     lat: number;
@@ -32,6 +34,11 @@ function EagerGoogleMap({
             lat: geoPosition.coords.latitude,
             lng: geoPosition.coords.longitude,
           });
+          onInit &&
+            onInit({
+              lat: geoPosition.coords.latitude,
+              lng: geoPosition.coords.longitude,
+            });
         },
         (error) => {
           console.error('Error getting current position', error);
@@ -41,7 +48,7 @@ function EagerGoogleMap({
     } else {
       setCurrentPosition(position || null);
     }
-  }, [position]);
+  }, [onInit, position]);
 
   // If currentPosition is still null, render a loading state or a fallback
   if (currentPosition === null) {
@@ -57,10 +64,10 @@ function EagerGoogleMap({
           mapId="abc9c64525471500"
         >
           <Marker
-            draggable={!!onDrag}
+            draggable={!!onDragEnd}
             position={currentPosition}
-            animation={onDrag && Animation ? Animation.BOUNCE : undefined}
-            onDrag={onDrag}
+            animation={onDragEnd && Animation ? Animation.BOUNCE : undefined}
+            onDragEnd={onDragEnd}
           />
         </Map>
       </APIProvider>
