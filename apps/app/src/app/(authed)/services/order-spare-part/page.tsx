@@ -57,7 +57,7 @@ const OrderSparePartPage = () => {
       <div className="w-full p-4 flex flex-col gap-4 h-full">
         <H1>{'order_spare_part'}</H1>
         <PrimaryDivider />
-        <div className="relative">
+        <div className="relative flex-1">
           <div className={'absolute top-[42px] right-0 w-full'}>
             <Divider className="bg-gray-100 mx-auto h-[2px] w-[89%]" />
           </div>
@@ -68,28 +68,25 @@ const OrderSparePartPage = () => {
             color="primary"
             classNames={{
               tab: 'pb-4 mb-2',
+              panel: 'max-h-[calc(100%_-_3.5rem)] p-0 pt-2',
             }}
           >
             <Tab className={'h-full'} title={t('enter_chassis_number')}>
-              <form className="flex justify-between flex-col h-full w-full gap-8">
-                <StepsProvider>
-                  <StepsComponent
-                    onOpen={partFormModal.onOpen}
-                    onEditPart={onEditPart}
-                  />
-                </StepsProvider>
-              </form>
+              <StepsProvider>
+                <StepsComponent
+                  onOpen={partFormModal.onOpen}
+                  onEditPart={onEditPart}
+                />
+              </StepsProvider>
             </Tab>
             <Tab className={'h-full'} title={t('enter_car_details')}>
-              <form className="flex justify-between flex-col h-full w-full gap-8">
-                <StepsProvider>
-                  <StepsComponent
-                    onOpen={partFormModal.onOpen}
-                    onEditPart={onEditPart}
-                    startWithCarInfo={true}
-                  />
-                </StepsProvider>
-              </form>
+              <StepsProvider>
+                <StepsComponent
+                  onOpen={partFormModal.onOpen}
+                  onEditPart={onEditPart}
+                  startWithCarInfo={true}
+                />
+              </StepsProvider>
             </Tab>
           </Tabs>
         </div>
@@ -205,16 +202,16 @@ const StepsComponent = ({
   }
 
   return (
-    <>
+    <div className="flex flex-col justify-between gap-6 h-full">
       <DevTool control={form.control} />
       <Steps>
         {steps.map((step, index) => (
-          <AnimatedDev key={index} className="h-full">
+          <AnimatedDev key={index} className="flex-1">
             {step.component}
           </AnimatedDev>
         ))}
       </Steps>
-      <dev className="flex justify-between gap-4">
+      <dev className="flex justify-between gap-4 mt-auto">
         <PrimaryButton
           isDisabled={!hasPrev}
           onPress={prev}
@@ -240,6 +237,6 @@ const StepsComponent = ({
           />
         )}
       </dev>
-    </>
+    </div>
   );
 };

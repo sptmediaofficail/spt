@@ -79,7 +79,7 @@ export const PartsList = ({
     </>
   ) : (
     <div className="flex-1 flex flex-col gap-4 items-center justify-center">
-      <Image src={AddParts} alt="Add Parts" />
+      <Image src={AddParts} alt="Add Parts" className={'w-4/12 lg:w-auto'} />
       <h2 className="text-center text-gray-500 text-lg font-semibold">
         {t('no_parts_added')}
       </h2>
