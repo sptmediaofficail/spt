@@ -28,6 +28,7 @@ import { DatePicker } from '@nextui-org/date-picker';
 import { DevTool } from '@hookform/devtools';
 import { CarInfo } from '../../../../features/services/order-part/car-info';
 import { PartsList } from '../../../../features/services/order-part/parts-list';
+import { Divider } from '@nextui-org/divider';
 
 const OrderSparePartPage = () => {
   const t = useTranslations();
@@ -56,29 +57,42 @@ const OrderSparePartPage = () => {
       <div className="w-full p-4 flex flex-col gap-4 h-full">
         <H1>{'order_spare_part'}</H1>
         <PrimaryDivider />
-        <Tabs fullWidth variant="underlined" color="primary" className="w-full">
-          <Tab className={'h-full'} title={t('enter_chassis_number')}>
-            <form className="flex justify-between flex-col h-full w-full gap-8">
-              <StepsProvider>
-                <StepsComponent
-                  onOpen={partFormModal.onOpen}
-                  onEditPart={onEditPart}
-                />
-              </StepsProvider>
-            </form>
-          </Tab>
-          <Tab className={'h-full'} title={t('enter_car_details')}>
-            <form className="flex justify-between flex-col h-full w-full gap-8">
-              <StepsProvider>
-                <StepsComponent
-                  onOpen={partFormModal.onOpen}
-                  onEditPart={onEditPart}
-                  startWithCarInfo={true}
-                />
-              </StepsProvider>
-            </form>
-          </Tab>
-        </Tabs>
+        <div className="relative">
+          <div className={'absolute top-[42px] right-0 w-full'}>
+            <Divider className="bg-gray-100 mx-auto h-[2px] w-[89%]" />
+          </div>
+
+          <Tabs
+            fullWidth
+            variant="underlined"
+            color="primary"
+            classNames={{
+              tab: 'pb-4 mb-2',
+            }}
+          >
+            <Tab className={'h-full'} title={t('enter_chassis_number')}>
+              <form className="flex justify-between flex-col h-full w-full gap-8">
+                <StepsProvider>
+                  <StepsComponent
+                    onOpen={partFormModal.onOpen}
+                    onEditPart={onEditPart}
+                  />
+                </StepsProvider>
+              </form>
+            </Tab>
+            <Tab className={'h-full'} title={t('enter_car_details')}>
+              <form className="flex justify-between flex-col h-full w-full gap-8">
+                <StepsProvider>
+                  <StepsComponent
+                    onOpen={partFormModal.onOpen}
+                    onEditPart={onEditPart}
+                    startWithCarInfo={true}
+                  />
+                </StepsProvider>
+              </form>
+            </Tab>
+          </Tabs>
+        </div>
       </div>
     </FormProvider>
   );
