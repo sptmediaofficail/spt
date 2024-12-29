@@ -5,11 +5,7 @@ import { useDisclosure } from '@nextui-org/modal';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
-import {
-  getLocalTimeZone,
-  now,
-  toCalendarDateTime,
-} from '@internationalized/date';
+import { getLocalTimeZone, now, toCalendarDate } from '@internationalized/date';
 
 export const useOrderForm = () => {
   const partFormModal = useDisclosure();
@@ -27,7 +23,7 @@ export const useOrderForm = () => {
     defaultValues: {
       parts: [],
       // CalendarDateTime
-      calender_delivery_date: toCalendarDateTime(
+      calender_delivery_date: toCalendarDate(
         now(getLocalTimeZone()).add({ weeks: 1 })
       ),
     },
@@ -37,6 +33,7 @@ export const useOrderForm = () => {
 
   const calender_delivery_date = form.watch('calender_delivery_date');
   useEffect(() => {
+    form.register('delivery_date');
     form.setValue(
       'delivery_date',
       calender_delivery_date.toDate(getLocalTimeZone()).toISOString()
