@@ -21,26 +21,31 @@ function EagerGoogleMap({
 
   useEffect(() => {
     // If no position is provided, try to get the current position of the user
-    if (!position && navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (geoPosition) => {
-          setCurrentPosition({
-            lat: geoPosition.coords.latitude,
-            lng: geoPosition.coords.longitude,
-          });
-          onInit &&
-            onInit({
+    try {
+      if (!position && navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (geoPosition) => {
+            setCurrentPosition({
               lat: geoPosition.coords.latitude,
               lng: geoPosition.coords.longitude,
             });
-        },
-        (error) => {
-          console.error('Error getting current position', error);
-          // Handle geolocation error (e.g., fallback position or user notification)
-        }
-      );
-    } else {
-      setCurrentPosition(position || null);
+            onInit &&
+              onInit({
+                lat: geoPosition.coords.latitude,
+                lng: geoPosition.coords.longitude,
+              });
+          },
+          (error) => {
+            console.error('Error getting current position', error);
+            // Handle geolocation error (e.g., fallback position or user notification)
+          }
+        );
+      } else {
+        setCurrentPosition(position || null);
+      }
+    } catch (e) {
+      console.error('Error getting current position', e);
+      setCurrentPosition(null);
     }
   }, [onInit, position]);
 

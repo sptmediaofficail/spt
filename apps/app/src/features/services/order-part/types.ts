@@ -19,4 +19,6 @@ export type FormOrderParts = RemoveNumberIndexed<
 > & {
   parts: PartData[];
   calender_delivery_date: CalendarDateTime;
+  is_agent: boolean;
+  receive_offers: boolean;
 };

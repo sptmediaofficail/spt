@@ -11,12 +11,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <NextInput
         ref={ref}
+        radius={'sm'}
         classNames={{
           label: 'after:text-[#05b5b4] after:px-1',
           inputWrapper:
             'rounded-lg shadow-sm border-1.5 border-gray-300 active:border-red-500 duration-200 ease-in-out focus:border-red-500',
           ...props.classNames,
         }}
+        color="primary"
         labelPlacement={'outside'}
         variant={'bordered'}
         isClearable
@@ -33,6 +35,7 @@ export const Textarea = React.forwardRef<HTMLInputElement, TextAreaProps>(
     return (
       <NextTextarea
         ref={ref}
+        radius={'sm'}
         classNames={{
           label: 'after:text-[#05b5b4] after:px-1',
           inputWrapper:
@@ -41,6 +44,7 @@ export const Textarea = React.forwardRef<HTMLInputElement, TextAreaProps>(
         }}
         labelPlacement={'outside'}
         variant={'bordered'}
+        color={'primary'}
         isClearable
         {...props}
       />

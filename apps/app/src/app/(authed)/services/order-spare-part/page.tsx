@@ -29,6 +29,7 @@ import { DevTool } from '@hookform/devtools';
 import { CarInfo } from '../../../../features/services/order-part/car-info';
 import { PartsList } from '../../../../features/services/order-part/parts-list';
 import { Divider } from '@nextui-org/divider';
+import { OrderReview } from '../../../../features/services/order-part/steps/order-review';
 
 const OrderSparePartPage = () => {
   const t = useTranslations();
@@ -186,6 +187,8 @@ const StepsComponent = ({
                 radius={'sm'}
                 label={t('pickup_date_time')}
                 variant="bordered"
+                isReadOnly
+                color="primary"
                 labelPlacement={'outside'}
                 {...field}
                 onChange={field.onChange}
@@ -194,6 +197,10 @@ const StepsComponent = ({
           />
         </div>
       ),
+      validation: !errors.address && !errors.delivery_date,
+    },
+    {
+      component: <OrderReview />,
     },
   ];
 

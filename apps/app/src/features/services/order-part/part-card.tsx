@@ -13,8 +13,8 @@ import { Button } from '@nextui-org/button';
 export const PartCard = (
   part: PartData & {
     index: number;
-    onEdit: (index: number) => void;
-    onDelete: (index: number) => void;
+    onEdit?: (index: number) => void;
+    onDelete?: (index: number) => void;
   }
 ) => {
   const t = useTranslations();
@@ -40,20 +40,24 @@ export const PartCard = (
       <CardHeader className={'p-0 flex justify-between'}>
         <h2 className="text-lg font-semibold">{partName}</h2>
         <div className="flex">
-          <Button
-            isIconOnly
-            variant={'light'}
-            onPress={() => part.onEdit(part.index)}
-          >
-            <Image src={EditIcon} alt="Edit" width={18} height={18} />
-          </Button>
-          <Button
-            isIconOnly
-            variant={'light'}
-            onPress={() => part.onDelete(part.index)}
-          >
-            <Image src={DeleteIcon} alt="Delete" width={18} height={18} />
-          </Button>
+          {part.onEdit && (
+            <Button
+              isIconOnly
+              variant={'light'}
+              onPress={() => part.onEdit(part.index)}
+            >
+              <Image src={EditIcon} alt="Edit" width={18} height={18} />
+            </Button>
+          )}
+          {part.onDelete && (
+            <Button
+              isIconOnly
+              variant={'light'}
+              onPress={() => part.onDelete(part.index)}
+            >
+              <Image src={DeleteIcon} alt="Delete" width={18} height={18} />
+            </Button>
+          )}
         </div>
       </CardHeader>
       <PrimaryDivider />
