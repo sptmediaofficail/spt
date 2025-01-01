@@ -1,8 +1,8 @@
 import { FormOrderParts } from '../types';
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { Steps, useSteps } from 'react-step-builder';
 import { useTranslations } from 'next-intl';
-import { useFormContext } from 'react-hook-form';
+import { useFormContext, useWatch } from 'react-hook-form';
 import { ChassisInfo } from '../chassis-info';
 import { CarInfo } from '../car-info';
 import { PartsList } from '../parts-list';
@@ -23,7 +23,7 @@ export const StepsComponent = ({
   startWithCarInfo?: boolean;
 }) => {
   const [isThisStepValid, setIsThisStepValid] = useState(false);
-  const { next, prev, hasNext, hasPrev, current } = useSteps();
+  const { next, prev, hasNext, hasPrev, current, total } = useSteps();
   const t = useTranslations();
   const form = useFormContext<FormOrderParts>();
 
@@ -50,17 +50,16 @@ export const StepsComponent = ({
     },
     {
       component: <OrderReview />,
-      fields: ['is_agent', 'receive_offers'],
+      fields: ['is_agent', 'receive_offers', 'agent_code', 'is_delivery'],
     },
   ];
 
-  // useEffect(() => {
-  //   console.log('current', steps[current - 1].fields);
-  //   form.trigger(steps[current - 1].fields).then((isValid) => {
-  //     console.log('isValid', isValid);
-  //     setIsThisStepValid(isValid);
-  //   });
-  // }, [current, steps]);
+  useEffect(() => {
+    if (current > total) return;
+    form.trigger(steps[current - 1].fields).then((isValid) => {
+      setIsThisStepValid(isValid);
+    });
+  }, [current, useWatch({ control: form.control })]);
 
   const goNext = () => {
     form.trigger(steps[current - 1].fields).then((isValid) => {

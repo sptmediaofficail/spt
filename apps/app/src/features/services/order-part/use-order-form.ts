@@ -12,15 +12,33 @@ export const useOrderForm = () => {
   const unSavedChangesModal = useDisclosure();
   const t = useTranslations();
 
-  const validation = z.object({
-    vin_serial: z.string().length(17, {
-      message: t('vin_serial_validation'),
-    }),
-    parts: z.array(z.any()).nonempty(),
-    address: z.string().min(5, {
-      message: t('address_validation'),
-    }),
-  });
+  const validation = z
+    .object({
+      vin_serial: z.string().length(17, {
+        message: t('vin_serial_validation'),
+      }),
+      parts: z.array(z.any()).nonempty(),
+      address: z.string().min(5, {
+        message: t('address_validation'),
+      }),
+      brand: z.string().min(1, {
+        message: t('brand_validation'),
+      }),
+      model: z.string().min(1, {
+        message: t('model_validation'),
+      }),
+      year: z.string().min(4, {
+        message: t('year_validation'),
+      }),
+      delivery_date: z.string(),
+      receive_offers: z.boolean(),
+      is_agent: z.boolean(),
+      agent_code: z.string().optional(),
+    })
+    .refine((data) => {
+      if (data.is_agent && !data.agent_code) return false;
+      else return true;
+    });
 
   const form = useForm<FormOrderParts>({
     defaultValues: {
