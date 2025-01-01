@@ -12,11 +12,12 @@ export const UseAuthenticationServiceGetSharedAuthMeKeyFn = ({ contentLanguage, 
 export type BrandServiceGetBrandsDefaultResponse = Awaited<ReturnType<typeof BrandService.getBrands>>;
 export type BrandServiceGetBrandsQueryResult<TData = BrandServiceGetBrandsDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const useBrandServiceGetBrandsKey = "BrandServiceGetBrands";
-export const UseBrandServiceGetBrandsKeyFn = ({ contentLanguage, paginate, xRequestedWith }: {
+export const UseBrandServiceGetBrandsKeyFn = ({ contentLanguage, page, paginate, xRequestedWith }: {
   contentLanguage?: string;
+  page?: number;
   paginate?: number;
   xRequestedWith?: string;
-} = {}, queryKey?: Array<unknown>) => [useBrandServiceGetBrandsKey, ...(queryKey ?? [{ contentLanguage, paginate, xRequestedWith }])];
+} = {}, queryKey?: Array<unknown>) => [useBrandServiceGetBrandsKey, ...(queryKey ?? [{ contentLanguage, page, paginate, xRequestedWith }])];
 export type SiteOffersServiceGetSiteOffersDefaultResponse = Awaited<ReturnType<typeof SiteOffersService.getSiteOffers>>;
 export type SiteOffersServiceGetSiteOffersQueryResult<TData = SiteOffersServiceGetSiteOffersDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const useSiteOffersServiceGetSiteOffersKey = "SiteOffersServiceGetSiteOffers";
@@ -26,6 +27,21 @@ export const UseSiteOffersServiceGetSiteOffersKeyFn = ({ contentLanguage, page, 
   paginate?: number;
   xRequestedWith?: string;
 } = {}, queryKey?: Array<unknown>) => [useSiteOffersServiceGetSiteOffersKey, ...(queryKey ?? [{ contentLanguage, page, paginate, xRequestedWith }])];
+export type SiteOffersServiceGetSiteOffersByIdDefaultResponse = Awaited<ReturnType<typeof SiteOffersService.getSiteOffersById>>;
+export type SiteOffersServiceGetSiteOffersByIdQueryResult<TData = SiteOffersServiceGetSiteOffersByIdDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useSiteOffersServiceGetSiteOffersByIdKey = "SiteOffersServiceGetSiteOffersById";
+export const UseSiteOffersServiceGetSiteOffersByIdKeyFn = ({ contentLanguage, id, xRequestedWith }: {
+  contentLanguage?: string;
+  id: string;
+  xRequestedWith?: string;
+}, queryKey?: Array<unknown>) => [useSiteOffersServiceGetSiteOffersByIdKey, ...(queryKey ?? [{ contentLanguage, id, xRequestedWith }])];
+export type SiteOffersServiceGetSiteOffersIdsDefaultResponse = Awaited<ReturnType<typeof SiteOffersService.getSiteOffersIds>>;
+export type SiteOffersServiceGetSiteOffersIdsQueryResult<TData = SiteOffersServiceGetSiteOffersIdsDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useSiteOffersServiceGetSiteOffersIdsKey = "SiteOffersServiceGetSiteOffersIds";
+export const UseSiteOffersServiceGetSiteOffersIdsKeyFn = ({ contentLanguage, xRequestedWith }: {
+  contentLanguage?: string;
+  xRequestedWith?: string;
+} = {}, queryKey?: Array<unknown>) => [useSiteOffersServiceGetSiteOffersIdsKey, ...(queryKey ?? [{ contentLanguage, xRequestedWith }])];
 export type CitiesServiceGetCitiesDefaultResponse = Awaited<ReturnType<typeof CitiesService.getCities>>;
 export type CitiesServiceGetCitiesQueryResult<TData = CitiesServiceGetCitiesDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const useCitiesServiceGetCitiesKey = "CitiesServiceGetCities";
@@ -34,13 +50,16 @@ export const UseCitiesServiceGetCitiesKeyFn = ({ contentLanguage, paginate, xReq
   paginate?: number;
   xRequestedWith?: string;
 } = {}, queryKey?: Array<unknown>) => [useCitiesServiceGetCitiesKey, ...(queryKey ?? [{ contentLanguage, paginate, xRequestedWith }])];
-export type BrandModelsServiceGetBrandsAlfaRomeoModelsDefaultResponse = Awaited<ReturnType<typeof BrandModelsService.getBrandsAlfaRomeoModels>>;
-export type BrandModelsServiceGetBrandsAlfaRomeoModelsQueryResult<TData = BrandModelsServiceGetBrandsAlfaRomeoModelsDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
-export const useBrandModelsServiceGetBrandsAlfaRomeoModelsKey = "BrandModelsServiceGetBrandsAlfaRomeoModels";
-export const UseBrandModelsServiceGetBrandsAlfaRomeoModelsKeyFn = ({ contentLanguage, xRequestedWith }: {
+export type BrandModelsServiceGetBrandsByBrandIdModelsDefaultResponse = Awaited<ReturnType<typeof BrandModelsService.getBrandsByBrandIdModels>>;
+export type BrandModelsServiceGetBrandsByBrandIdModelsQueryResult<TData = BrandModelsServiceGetBrandsByBrandIdModelsDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useBrandModelsServiceGetBrandsByBrandIdModelsKey = "BrandModelsServiceGetBrandsByBrandIdModels";
+export const UseBrandModelsServiceGetBrandsByBrandIdModelsKeyFn = ({ brandId, contentLanguage, page, paginate, xRequestedWith }: {
+  brandId: string;
   contentLanguage?: string;
+  page?: number;
+  paginate?: number;
   xRequestedWith?: string;
-} = {}, queryKey?: Array<unknown>) => [useBrandModelsServiceGetBrandsAlfaRomeoModelsKey, ...(queryKey ?? [{ contentLanguage, xRequestedWith }])];
+}, queryKey?: Array<unknown>) => [useBrandModelsServiceGetBrandsByBrandIdModelsKey, ...(queryKey ?? [{ brandId, contentLanguage, page, paginate, xRequestedWith }])];
 export type VinServiceGetVinJn8At3Mm3Pw009894DefaultResponse = Awaited<ReturnType<typeof VinService.getVinJn8At3Mm3Pw009894>>;
 export type VinServiceGetVinJn8At3Mm3Pw009894QueryResult<TData = VinServiceGetVinJn8At3Mm3Pw009894DefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const useVinServiceGetVinJn8At3Mm3Pw009894Key = "VinServiceGetVinJn8At3Mm3Pw009894";
@@ -357,13 +376,21 @@ export const UseProviderProviderProfileServiceGetProviderMeKeyFn = ({ contentLan
   contentLanguage?: string;
   xRequestedWith?: string;
 } = {}, queryKey?: Array<unknown>) => [useProviderProviderProfileServiceGetProviderMeKey, ...(queryKey ?? [{ contentLanguage, xRequestedWith }])];
-export type ProviderProviderProfileServiceGetProviderF84Fd31930E54Ea49C2881B822045EbcDefaultResponse = Awaited<ReturnType<typeof ProviderProviderProfileService.getProviderF84Fd31930E54Ea49C2881B822045Ebc>>;
-export type ProviderProviderProfileServiceGetProviderF84Fd31930E54Ea49C2881B822045EbcQueryResult<TData = ProviderProviderProfileServiceGetProviderF84Fd31930E54Ea49C2881B822045EbcDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
-export const useProviderProviderProfileServiceGetProviderF84Fd31930E54Ea49C2881B822045EbcKey = "ProviderProviderProfileServiceGetProviderF84Fd31930E54Ea49C2881B822045Ebc";
-export const UseProviderProviderProfileServiceGetProviderF84Fd31930E54Ea49C2881B822045EbcKeyFn = ({ contentLanguage, xRequestedWith }: {
+export type ProviderProviderProfileServiceGetProviderByIdDefaultResponse = Awaited<ReturnType<typeof ProviderProviderProfileService.getProviderById>>;
+export type ProviderProviderProfileServiceGetProviderByIdQueryResult<TData = ProviderProviderProfileServiceGetProviderByIdDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useProviderProviderProfileServiceGetProviderByIdKey = "ProviderProviderProfileServiceGetProviderById";
+export const UseProviderProviderProfileServiceGetProviderByIdKeyFn = ({ contentLanguage, id, xRequestedWith }: {
+  contentLanguage?: string;
+  id: string;
+  xRequestedWith?: string;
+}, queryKey?: Array<unknown>) => [useProviderProviderProfileServiceGetProviderByIdKey, ...(queryKey ?? [{ contentLanguage, id, xRequestedWith }])];
+export type ProviderProviderProfileServiceGetProviderIdsDefaultResponse = Awaited<ReturnType<typeof ProviderProviderProfileService.getProviderIds>>;
+export type ProviderProviderProfileServiceGetProviderIdsQueryResult<TData = ProviderProviderProfileServiceGetProviderIdsDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useProviderProviderProfileServiceGetProviderIdsKey = "ProviderProviderProfileServiceGetProviderIds";
+export const UseProviderProviderProfileServiceGetProviderIdsKeyFn = ({ contentLanguage, xRequestedWith }: {
   contentLanguage?: string;
   xRequestedWith?: string;
-} = {}, queryKey?: Array<unknown>) => [useProviderProviderProfileServiceGetProviderF84Fd31930E54Ea49C2881B822045EbcKey, ...(queryKey ?? [{ contentLanguage, xRequestedWith }])];
+} = {}, queryKey?: Array<unknown>) => [useProviderProviderProfileServiceGetProviderIdsKey, ...(queryKey ?? [{ contentLanguage, xRequestedWith }])];
 export type ProviderProviderProfileServiceGetProviderSearchDefaultResponse = Awaited<ReturnType<typeof ProviderProviderProfileService.getProviderSearch>>;
 export type ProviderProviderProfileServiceGetProviderSearchQueryResult<TData = ProviderProviderProfileServiceGetProviderSearchDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const useProviderProviderProfileServiceGetProviderSearchKey = "ProviderProviderProfileServiceGetProviderSearch";

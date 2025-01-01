@@ -159,6 +159,7 @@ export type GetBrandsData = {
      * accepts: ar, en
      */
     contentLanguage?: string;
+    page?: number;
     paginate?: number;
     /**
      * API
@@ -183,6 +184,33 @@ export type GetSiteOffersData = {
 
 export type GetSiteOffersResponse = unknown;
 
+export type GetSiteOffersByIdData = {
+    /**
+     * accepts: ar, en
+     */
+    contentLanguage?: string;
+    id: string;
+    /**
+     * API
+     */
+    xRequestedWith?: string;
+};
+
+export type GetSiteOffersByIdResponse = unknown;
+
+export type GetSiteOffersIdsData = {
+    /**
+     * accepts: ar, en
+     */
+    contentLanguage?: string;
+    /**
+     * API
+     */
+    xRequestedWith?: string;
+};
+
+export type GetSiteOffersIdsResponse = unknown;
+
 export type GetCitiesData = {
     /**
      * accepts: ar, en
@@ -197,18 +225,21 @@ export type GetCitiesData = {
 
 export type GetCitiesResponse = unknown;
 
-export type GetBrandsAlfaRomeoModelsData = {
+export type GetBrandsByBrandIdModelsData = {
+    brandId: string;
     /**
      * accepts: ar, en
      */
     contentLanguage?: string;
+    page?: number;
+    paginate?: number;
     /**
      * API
      */
     xRequestedWith?: string;
 };
 
-export type GetBrandsAlfaRomeoModelsResponse = unknown;
+export type GetBrandsByBrandIdModelsResponse = unknown;
 
 export type PostClientOrderSparePartData = {
     /**
@@ -1802,7 +1833,21 @@ export type GetProviderMeData = {
 
 export type GetProviderMeResponse = unknown;
 
-export type GetProviderF84Fd31930E54Ea49C2881B822045EbcData = {
+export type GetProviderByIdData = {
+    /**
+     * accepts: ar, en
+     */
+    contentLanguage?: string;
+    id: string;
+    /**
+     * API
+     */
+    xRequestedWith?: string;
+};
+
+export type GetProviderByIdResponse = unknown;
+
+export type GetProviderIdsData = {
     /**
      * accepts: ar, en
      */
@@ -1813,7 +1858,7 @@ export type GetProviderF84Fd31930E54Ea49C2881B822045EbcData = {
     xRequestedWith?: string;
 };
 
-export type GetProviderF84Fd31930E54Ea49C2881B822045EbcResponse = unknown;
+export type GetProviderIdsResponse = unknown;
 
 export type GetProviderSearchData = {
     /**
@@ -2120,6 +2165,28 @@ export type $OpenApiTs = {
             };
         };
     };
+    '/site_offers/{id}': {
+        get: {
+            req: GetSiteOffersByIdData;
+            res: {
+                /**
+                 * Successful response
+                 */
+                200: unknown;
+            };
+        };
+    };
+    '/site_offers/ids': {
+        get: {
+            req: GetSiteOffersIdsData;
+            res: {
+                /**
+                 * Successful response
+                 */
+                200: unknown;
+            };
+        };
+    };
     '/cities': {
         get: {
             req: GetCitiesData;
@@ -2131,9 +2198,9 @@ export type $OpenApiTs = {
             };
         };
     };
-    '/brands/Alfa_Romeo/models': {
+    '/brands/{brandId}/models': {
         get: {
-            req: GetBrandsAlfaRomeoModelsData;
+            req: GetBrandsByBrandIdModelsData;
             res: {
                 /**
                  * Successful response
@@ -3759,9 +3826,20 @@ export type $OpenApiTs = {
             };
         };
     };
-    '/provider/f84fd319-30e5-4ea4-9c28-81b822045ebc': {
+    '/provider/{id}': {
         get: {
-            req: GetProviderF84Fd31930E54Ea49C2881B822045EbcData;
+            req: GetProviderByIdData;
+            res: {
+                /**
+                 * Successful response
+                 */
+                200: unknown;
+            };
+        };
+    };
+    '/provider/ids': {
+        get: {
+            req: GetProviderIdsData;
             res: {
                 /**
                  * Successful response

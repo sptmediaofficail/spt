@@ -21,14 +21,16 @@ export const prefetchUseAuthenticationServiceGetSharedAuthMe = (queryClient: Que
 * @param data.xRequestedWith API
 * @param data.contentLanguage accepts: ar, en
 * @param data.paginate
+* @param data.page
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const prefetchUseBrandServiceGetBrands = (queryClient: QueryClient, { contentLanguage, paginate, xRequestedWith }: {
+export const prefetchUseBrandServiceGetBrands = (queryClient: QueryClient, { contentLanguage, page, paginate, xRequestedWith }: {
   contentLanguage?: string;
+  page?: number;
   paginate?: number;
   xRequestedWith?: string;
-} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseBrandServiceGetBrandsKeyFn({ contentLanguage, paginate, xRequestedWith }), queryFn: () => BrandService.getBrands({ contentLanguage, paginate, xRequestedWith }) });
+} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseBrandServiceGetBrandsKeyFn({ contentLanguage, page, paginate, xRequestedWith }), queryFn: () => BrandService.getBrands({ contentLanguage, page, paginate, xRequestedWith }) });
 /**
 * index
 * @param data The data for the request.
@@ -46,6 +48,32 @@ export const prefetchUseSiteOffersServiceGetSiteOffers = (queryClient: QueryClie
   xRequestedWith?: string;
 } = {}) => queryClient.prefetchQuery({ queryKey: Common.UseSiteOffersServiceGetSiteOffersKeyFn({ contentLanguage, page, paginate, xRequestedWith }), queryFn: () => SiteOffersService.getSiteOffers({ contentLanguage, page, paginate, xRequestedWith }) });
 /**
+* single
+* @param data The data for the request.
+* @param data.id
+* @param data.xRequestedWith API
+* @param data.contentLanguage accepts: ar, en
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const prefetchUseSiteOffersServiceGetSiteOffersById = (queryClient: QueryClient, { contentLanguage, id, xRequestedWith }: {
+  contentLanguage?: string;
+  id: string;
+  xRequestedWith?: string;
+}) => queryClient.prefetchQuery({ queryKey: Common.UseSiteOffersServiceGetSiteOffersByIdKeyFn({ contentLanguage, id, xRequestedWith }), queryFn: () => SiteOffersService.getSiteOffersById({ contentLanguage, id, xRequestedWith }) });
+/**
+* ids
+* @param data The data for the request.
+* @param data.xRequestedWith API
+* @param data.contentLanguage accepts: ar, en
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const prefetchUseSiteOffersServiceGetSiteOffersIds = (queryClient: QueryClient, { contentLanguage, xRequestedWith }: {
+  contentLanguage?: string;
+  xRequestedWith?: string;
+} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseSiteOffersServiceGetSiteOffersIdsKeyFn({ contentLanguage, xRequestedWith }), queryFn: () => SiteOffersService.getSiteOffersIds({ contentLanguage, xRequestedWith }) });
+/**
 * index
 * @param data The data for the request.
 * @param data.xRequestedWith API
@@ -62,15 +90,21 @@ export const prefetchUseCitiesServiceGetCities = (queryClient: QueryClient, { co
 /**
 * index
 * @param data The data for the request.
+* @param data.brandId
 * @param data.xRequestedWith API
 * @param data.contentLanguage accepts: ar, en
+* @param data.paginate
+* @param data.page
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const prefetchUseBrandModelsServiceGetBrandsAlfaRomeoModels = (queryClient: QueryClient, { contentLanguage, xRequestedWith }: {
+export const prefetchUseBrandModelsServiceGetBrandsByBrandIdModels = (queryClient: QueryClient, { brandId, contentLanguage, page, paginate, xRequestedWith }: {
+  brandId: string;
   contentLanguage?: string;
+  page?: number;
+  paginate?: number;
   xRequestedWith?: string;
-} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseBrandModelsServiceGetBrandsAlfaRomeoModelsKeyFn({ contentLanguage, xRequestedWith }), queryFn: () => BrandModelsService.getBrandsAlfaRomeoModels({ contentLanguage, xRequestedWith }) });
+}) => queryClient.prefetchQuery({ queryKey: Common.UseBrandModelsServiceGetBrandsByBrandIdModelsKeyFn({ brandId, contentLanguage, page, paginate, xRequestedWith }), queryFn: () => BrandModelsService.getBrandsByBrandIdModels({ brandId, contentLanguage, page, paginate, xRequestedWith }) });
 /**
 * Get Data
 * @param data The data for the request.
@@ -614,15 +648,29 @@ export const prefetchUseProviderProviderProfileServiceGetProviderMe = (queryClie
 /**
 * single provider
 * @param data The data for the request.
+* @param data.id
 * @param data.xRequestedWith API
 * @param data.contentLanguage accepts: ar, en
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const prefetchUseProviderProviderProfileServiceGetProviderF84Fd31930E54Ea49C2881B822045Ebc = (queryClient: QueryClient, { contentLanguage, xRequestedWith }: {
+export const prefetchUseProviderProviderProfileServiceGetProviderById = (queryClient: QueryClient, { contentLanguage, id, xRequestedWith }: {
+  contentLanguage?: string;
+  id: string;
+  xRequestedWith?: string;
+}) => queryClient.prefetchQuery({ queryKey: Common.UseProviderProviderProfileServiceGetProviderByIdKeyFn({ contentLanguage, id, xRequestedWith }), queryFn: () => ProviderProviderProfileService.getProviderById({ contentLanguage, id, xRequestedWith }) });
+/**
+* ids
+* @param data The data for the request.
+* @param data.xRequestedWith API
+* @param data.contentLanguage accepts: ar, en
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const prefetchUseProviderProviderProfileServiceGetProviderIds = (queryClient: QueryClient, { contentLanguage, xRequestedWith }: {
   contentLanguage?: string;
   xRequestedWith?: string;
-} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseProviderProviderProfileServiceGetProviderF84Fd31930E54Ea49C2881B822045EbcKeyFn({ contentLanguage, xRequestedWith }), queryFn: () => ProviderProviderProfileService.getProviderF84Fd31930E54Ea49C2881B822045Ebc({ contentLanguage, xRequestedWith }) });
+} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseProviderProviderProfileServiceGetProviderIdsKeyFn({ contentLanguage, xRequestedWith }), queryFn: () => ProviderProviderProfileService.getProviderIds({ contentLanguage, xRequestedWith }) });
 /**
 * search
 * @param data The data for the request.

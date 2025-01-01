@@ -1,8 +1,27 @@
 // generated with @7nohe/openapi-react-query-codegen@1.6.1 
 
 import { InfiniteData, useInfiniteQuery, UseInfiniteQueryOptions } from "@tanstack/react-query";
-import { AdminCitiesService, AdminCityServiceService, AdminCommissionsService, AdminLandingAboutSectionsService, AdminLandingAboutService, AdminLandingGuaranteeRightService, AdminLandingHowHelpService, AdminLandingPartnersService, AdminLandingSiteOfferService, AdminLandingSlidersService, AdminMessageTemplatesService, AdminPagesService, AdminPermissionGroupsService, AdminPlatformReviewsService, AdminProviderProfilesService, AdminProviderSubscriptionPlansService, AdminServicesService, AdminTicketsService, AdminUsersService, LandingService, PagesService, PlatformReviewsService, SiteOffersService, TicketService } from "../requests/services.gen";
+import { AdminCitiesService, AdminCityServiceService, AdminCommissionsService, AdminLandingAboutSectionsService, AdminLandingAboutService, AdminLandingGuaranteeRightService, AdminLandingHowHelpService, AdminLandingPartnersService, AdminLandingSiteOfferService, AdminLandingSlidersService, AdminMessageTemplatesService, AdminPagesService, AdminPermissionGroupsService, AdminPlatformReviewsService, AdminProviderProfilesService, AdminProviderSubscriptionPlansService, AdminServicesService, AdminTicketsService, AdminUsersService, BrandModelsService, BrandService, LandingService, PagesService, PlatformReviewsService, SiteOffersService, TicketService } from "../requests/services.gen";
 import * as Common from "./common";
+/**
+* index
+* @param data The data for the request.
+* @param data.xRequestedWith API
+* @param data.contentLanguage accepts: ar, en
+* @param data.paginate
+* @param data.page
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const useBrandServiceGetBrandsInfinite = <TData = InfiniteData<Common.BrandServiceGetBrandsDefaultResponse>, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, paginate, xRequestedWith }: {
+  contentLanguage?: string;
+  paginate?: number;
+  xRequestedWith?: string;
+} = {}, queryKey?: TQueryKey, options?: Omit<UseInfiniteQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useInfiniteQuery({
+  queryKey: Common.UseBrandServiceGetBrandsKeyFn({ contentLanguage, paginate, xRequestedWith }, queryKey), queryFn: ({ pageParam }) => BrandService.getBrands({ contentLanguage, page: pageParam as number, paginate, xRequestedWith }) as TData, initialPageParam: "1", getNextPageParam: response => (response as {
+    nextPage: number;
+  }).nextPage, ...options
+});
 /**
 * index
 * @param data The data for the request.
@@ -19,6 +38,27 @@ export const useSiteOffersServiceGetSiteOffersInfinite = <TData = InfiniteData<C
   xRequestedWith?: string;
 } = {}, queryKey?: TQueryKey, options?: Omit<UseInfiniteQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useInfiniteQuery({
   queryKey: Common.UseSiteOffersServiceGetSiteOffersKeyFn({ contentLanguage, paginate, xRequestedWith }, queryKey), queryFn: ({ pageParam }) => SiteOffersService.getSiteOffers({ contentLanguage, page: pageParam as number, paginate, xRequestedWith }) as TData, initialPageParam: "1", getNextPageParam: response => (response as {
+    nextPage: number;
+  }).nextPage, ...options
+});
+/**
+* index
+* @param data The data for the request.
+* @param data.brandId
+* @param data.xRequestedWith API
+* @param data.contentLanguage accepts: ar, en
+* @param data.paginate
+* @param data.page
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const useBrandModelsServiceGetBrandsByBrandIdModelsInfinite = <TData = InfiniteData<Common.BrandModelsServiceGetBrandsByBrandIdModelsDefaultResponse>, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ brandId, contentLanguage, paginate, xRequestedWith }: {
+  brandId: string;
+  contentLanguage?: string;
+  paginate?: number;
+  xRequestedWith?: string;
+}, queryKey?: TQueryKey, options?: Omit<UseInfiniteQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useInfiniteQuery({
+  queryKey: Common.UseBrandModelsServiceGetBrandsByBrandIdModelsKeyFn({ brandId, contentLanguage, paginate, xRequestedWith }, queryKey), queryFn: ({ pageParam }) => BrandModelsService.getBrandsByBrandIdModels({ brandId, contentLanguage, page: pageParam as number, paginate, xRequestedWith }) as TData, initialPageParam: "1", getNextPageParam: response => (response as {
     nextPage: number;
   }).nextPage, ...options
 });

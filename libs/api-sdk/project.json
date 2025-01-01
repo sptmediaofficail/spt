@@ -66,6 +66,13 @@
         "command": "openapi-typescript {projectRoot}/openapi-spec.yml -o {projectRoot}/src/schema.ts",
         "color": true
       }
+    },
+    "download": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node {projectRoot}/scripts/export-collection.js",
+        "color": true
+      }
     }
   }
 }

@@ -4,7 +4,7 @@
     "name": "SPT",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "34119647",
-    "_collection_link": "https://spt111.postman.co/workspace/SPT~c47f8fc9-96b9-4cec-a811-9463a82363eb/collection/34119647-ac2327cb-ee79-4043-81a4-1ed4523ffdac?action=share&source=collection_link&creator=34119647"
+    "_collection_link": "https://spt111.postman.co/workspace/c47f8fc9-96b9-4cec-a811-9463a82363eb/collection/34119647-ac2327cb-ee79-4043-81a4-1ed4523ffdac?action=share&source=collection_link&creator=34119647"
   },
   "item": [
     {
@@ -948,9 +948,9 @@
               "formdata": []
             },
             "url": {
-              "raw": "{{url}}/brands?paginate=50",
+              "raw": "{{local}}/brands?paginate=10&page=1",
               "host": [
-                "{{url}}"
+                "{{local}}"
               ],
               "path": [
                 "brands"
@@ -958,7 +958,11 @@
               "query": [
                 {
                   "key": "paginate",
-                  "value": "50"
+                  "value": "10"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
                 }
               ]
             }
@@ -1178,20 +1182,29 @@
               "formdata": []
             },
             "url": {
-              "raw": "{{local}}/brands/Alfa_Romeo/models",
+              "raw": "{{local}}/brands/:brandId/models?paginate=1&page=1",
               "host": [
                 "{{local}}"
               ],
               "path": [
                 "brands",
-                "Alfa_Romeo",
+                ":brandId",
                 "models"
               ],
               "query": [
                 {
                   "key": "paginate",
-                  "value": "50",
-                  "disabled": true
+                  "value": "1"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "brandId",
+                  "value": "Alfa_Romeo"
                 }
               ]
             }
@@ -10247,7 +10260,7 @@
               }
             },
             "url": {
-              "raw": "{{local}}/landing/most_rated_providers?page=1&paginate=20",
+              "raw": "{{local}}/landing/most_rated_providers",
               "host": [
                 "{{local}}"
               ],
@@ -10258,11 +10271,13 @@
               "query": [
                 {
                   "key": "page",
-                  "value": "1"
+                  "value": "1",
+                  "disabled": true
                 },
                 {
                   "key": "paginate",
-                  "value": "20"
+                  "value": "20",
+                  "disabled": true
                 }
               ]
             }

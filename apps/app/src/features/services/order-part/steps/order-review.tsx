@@ -28,6 +28,7 @@ export const OrderReview = () => {
           readOnly
           label={t('address_details')}
           labelPlacement="outside"
+          isRequired
           variant="bordered"
           isClearable={false}
           className={'place-self-end'}

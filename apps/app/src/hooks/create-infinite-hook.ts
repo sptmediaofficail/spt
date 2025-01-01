@@ -24,7 +24,10 @@ export function createInfiniteHook<TData, TItem, TQueryKey extends string>({
     const props = serviceFunction(
       {
         paginate: initialPageSize,
-        ...additionalParams,
+        ...{
+          contentLanguage: 'ar',
+          ...additionalParams,
+        },
       },
       queryKey,
       {

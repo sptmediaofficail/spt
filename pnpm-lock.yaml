@@ -104,6 +104,9 @@ importers:
       '@nextui-org/theme':
         specifier: ^2.4.3
         version: 2.4.3(tailwindcss@3.4.3(ts-node@10.9.1(@swc/core@1.5.29(@swc/helpers@0.5.12))(@types/node@18.16.9)(typescript@5.5.4)))
+      '@nextui-org/use-infinite-scroll':
+        specifier: ^2.2.2
+        version: 2.2.2(react@18.3.1)
       '@re-dev/react-truncate':
         specifier: ^0.4.2
         version: 0.4.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2177,6 +2180,11 @@ packages:
 
   '@nextui-org/use-image@2.1.1':
     resolution: {integrity: sha512-Tsfy9pA4AQBAj7rFIEonB9L/hXGg7M5agaAZNBUVpdp47NjcEwLpcU2XncKh8AhkQku0p4JOyMC9usRGV3z06Q==}
+    peerDependencies:
+      react: '>=18 || >=19.0.0-rc.0'
+
+  '@nextui-org/use-infinite-scroll@2.2.2':
+    resolution: {integrity: sha512-WKGA3AqPf7Rg2xaWDAj4O1NacCTYmCwarWI9d7JPBtyz6/jKc4wQFAclV1UHgJdVbTqZ1Z0uXs8y7iHxqdEraA==}
     peerDependencies:
       react: '>=18 || >=19.0.0-rc.0'
 
@@ -11802,6 +11810,11 @@ snapshots:
   '@nextui-org/use-image@2.1.1(react@18.3.1)':
     dependencies:
       '@nextui-org/use-safe-layout-effect': 2.1.1(react@18.3.1)
+      react: 18.3.1
+
+  '@nextui-org/use-infinite-scroll@2.2.2(react@18.3.1)':
+    dependencies:
+      '@nextui-org/shared-utils': 2.1.2
       react: 18.3.1
 
   '@nextui-org/use-intersection-observer@2.2.2(react@18.3.1)':

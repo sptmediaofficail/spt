@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { FormOrderParts, PartData } from './types';
 import { useEffect, useState } from 'react';
 import { useDisclosure } from '@nextui-org/modal';
@@ -13,10 +13,16 @@ export const useOrderForm = () => {
   const t = useTranslations();
 
   const validation = z.object({
-    vin_serial: z.string().length(17, {
-      message: t('chassis_validation'),
-    }),
+    vin_serial: z
+      .string()
+      .length(17, {
+        message: t('vin_serial_validation'),
+      })
+      .or(z.string().optional()),
     parts: z.array(z.any()).nonempty(),
+    address: z.string().min(5, {
+      message: t('address_validation'),
+    }),
   });
 
   const form = useForm<FormOrderParts>({
@@ -26,6 +32,7 @@ export const useOrderForm = () => {
       calender_delivery_date: toCalendarDate(
         now(getLocalTimeZone()).add({ weeks: 1 })
       ),
+      vin_serial: '',
     },
     mode: 'onChange',
     resolver: zodResolver(validation),
@@ -45,7 +52,7 @@ export const useOrderForm = () => {
     index: number;
   } | null>(null);
 
-  const onSubmit = (data: PartData) => {
+  const mutatePart: SubmitHandler<PartData> = (data) => {
     if (editingPart) {
       const updatedParts = [...form.getValues().parts];
       updatedParts[editingPart.index] = data;
@@ -68,9 +75,33 @@ export const useOrderForm = () => {
     partFormModal.onClose();
   };
 
+  const processOrder: SubmitHandler<FormOrderParts> = async (data) => {
+    console.log(data);
+    // reset()
+    // const data = form.getValues();
+    // console.log({ data });
+    // const result = await postClientOrderSparePart(
+    //   data,
+    //   {},
+    //   {
+    //     baseURL: process.env.NEXT_PUBLIC_API_URL,
+    //     headers: {
+    //       Authorization: `Bearer ${getCookie('token')}`,
+    //     },
+    //   }
+    // );
+    // console.log(result);
+  };
+
+  const onError = (error: any) => {
+    console.error('Form error', error);
+  };
+
   return {
     form,
-    onSubmit,
+    mutatePart,
+    onError,
+    processOrder,
     onEditPart,
     editingPart,
     partFormModal,

@@ -9,7 +9,7 @@ import {
   UseDisclosureProps,
 } from '@nextui-org/modal';
 import { useTranslations } from 'next-intl';
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { PrimaryDivider } from '../../../ui/divider';
 import { Button } from '@nextui-org/button';
 import { BiMinus, BiPlus } from 'react-icons/bi';
@@ -30,7 +30,7 @@ export const PartModal = ({
   initialData,
   onCloseWithChanges,
 }: UseDisclosureProps & {
-  onSubmit: (data: PartData) => void;
+  onSubmit: SubmitHandler<PartData>;
   initialData?: PartData;
   onCloseWithChanges?: () => void;
 }) => {

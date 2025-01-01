@@ -582,7 +582,12 @@ paths:
           in: query
           schema:
             type: integer
-          example: '50'
+          example: '10'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -700,7 +705,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /brands/Alfa_Romeo/models:
+  /brands/{brandId}/models:
     get:
       tags:
         - Brand Models
@@ -718,6 +723,22 @@ paths:
             type: string
           description: 'accepts: ar, en'
           example: ar
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: brandId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: Alfa_Romeo
       responses:
         '200':
           description: Successful response
@@ -5186,17 +5207,6 @@ paths:
       summary: most_rated_providers
       security:
         - bearerAuth: []
-      parameters:
-        - name: page
-          in: query
-          schema:
-            type: integer
-          example: '1'
-        - name: paginate
-          in: query
-          schema:
-            type: integer
-          example: '20'
       responses:
         '200':
           description: Successful response
