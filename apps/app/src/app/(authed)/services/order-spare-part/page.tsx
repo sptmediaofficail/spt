@@ -30,7 +30,10 @@ const OrderSparePartPage = () => {
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={form.handleSubmit(processOrder, onError)}>
+      <form
+        className={'h-full'}
+        onSubmit={form.handleSubmit(processOrder, onError)}
+      >
         <UnsavedChangesModal
           {...unSavedChangesModal}
           onConfirm={closeUnSavedChangesModalAndReset}

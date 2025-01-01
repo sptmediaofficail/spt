@@ -13,12 +13,9 @@ export const useOrderForm = () => {
   const t = useTranslations();
 
   const validation = z.object({
-    vin_serial: z
-      .string()
-      .length(17, {
-        message: t('vin_serial_validation'),
-      })
-      .or(z.string().optional()),
+    vin_serial: z.string().length(17, {
+      message: t('vin_serial_validation'),
+    }),
     parts: z.array(z.any()).nonempty(),
     address: z.string().min(5, {
       message: t('address_validation'),

@@ -1,8 +1,8 @@
 import { FormOrderParts } from '../types';
-import { useEffect, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { Steps, useSteps } from 'react-step-builder';
 import { useTranslations } from 'next-intl';
-import { useFormContext, useFormState } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import { ChassisInfo } from '../chassis-info';
 import { CarInfo } from '../car-info';
 import { PartsList } from '../parts-list';
@@ -27,29 +27,13 @@ export const StepsComponent = ({
   const t = useTranslations();
   const form = useFormContext<FormOrderParts>();
 
-  const { errors, dirtyFields } = useFormState<FormOrderParts>(form.formState);
-
-  form.watch(['year', 'brand', 'model', 'parts']);
-
-  const isCarInfoValid =
-    dirtyFields.year &&
-    !errors.year &&
-    dirtyFields.brand &&
-    !errors.brand &&
-    dirtyFields.model &&
-    !errors.model;
-  const isPartsListValid = form.getValues().parts.length > 0;
-
-  useEffect(() => {
-    // get current step and run it's validation
-    console.log({ current, isValid: steps[current - 1].validation });
-    setIsThisStepValid(steps[current - 1].validation);
-  }, [form.getValues(), current]);
-
-  let steps = [
+  let steps: {
+    component: ReactNode;
+    fields: (keyof FormOrderParts)[];
+  }[] = [
     {
       component: <ChassisInfo />,
-      validation: !!(!errors.vin_serial && dirtyFields.vin_serial),
+      fields: ['vin_serial'],
     },
     {
       component: (
@@ -58,18 +42,32 @@ export const StepsComponent = ({
           <PartsList onAddPart={onOpen} onEditPart={onEditPart} />
         </div>
       ),
-      validation: !!(isCarInfoValid && isPartsListValid),
+      fields: ['year', 'brand', 'model', 'parts'],
     },
     {
       component: <MapDate />,
-      validation:
-        !errors.address && dirtyFields.address && !errors.delivery_date,
+      fields: ['delivery_date', 'address', 'longitude', 'latitude'],
     },
     {
       component: <OrderReview />,
-      validation: true,
+      fields: ['is_agent', 'receive_offers'],
     },
   ];
+
+  // useEffect(() => {
+  //   console.log('current', steps[current - 1].fields);
+  //   form.trigger(steps[current - 1].fields).then((isValid) => {
+  //     console.log('isValid', isValid);
+  //     setIsThisStepValid(isValid);
+  //   });
+  // }, [current, steps]);
+
+  const goNext = () => {
+    form.trigger(steps[current - 1].fields).then((isValid) => {
+      if (isValid) next();
+      else console.log('form is not valid', form.formState.errors);
+    });
+  };
 
   if (startWithCarInfo) {
     steps = steps.filter((_, index) => index !== 0);
@@ -98,7 +96,7 @@ export const StepsComponent = ({
         {hasNext ? (
           <PrimaryButton
             isDisabled={!isThisStepValid}
-            onPress={next}
+            onPress={goNext}
             type={'button'}
             text={t('next')}
             className={'w-auto'}
