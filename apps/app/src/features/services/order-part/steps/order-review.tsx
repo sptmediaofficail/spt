@@ -13,7 +13,10 @@ export const OrderReview = () => {
   const form = useFormContext<FormOrderParts>();
   const t = useTranslations();
 
-  form.watch(['is_agent']);
+  // Watch the switches values
+  const isDelivery = form.watch('is_delivery');
+  const isAgent = form.watch('is_agent');
+  const receiveOffers = form.watch('only_my_city');
 
   return (
     <div className="flex flex-col gap-6 h-full">
@@ -66,8 +69,9 @@ export const OrderReview = () => {
             <label>{t('order_with_delivery_and_shipping')}</label>
             <Switch
               {...form.register('is_delivery')}
-              defaultSelected
-              aria-label="Do you want delivery?"
+              aria-label="Do you want delivery and shipping?"
+              checked={!!isDelivery}
+              onChange={(e) => form.setValue('is_delivery', e.target.checked)}
             />
           </div>
           <div className="flex justify-between w-full">
@@ -75,25 +79,28 @@ export const OrderReview = () => {
             <Switch
               {...form.register('is_agent')}
               aria-label="Is it an agent order?"
+              checked={!!isAgent}
+              onChange={(e) => form.setValue('is_agent', e.target.checked)}
             />
           </div>
           <div className="flex justify-between w-full">
-            <label>{t('receive_offers')}</label>
+            <label>{t('only_my_city')}</label>
             <Switch
-              {...form.register('receive_offers')}
+              {...form.register('only_my_city')}
               aria-label="Do you want to receive offers?"
+              checked={!!receiveOffers}
+              onChange={(e) => form.setValue('only_my_city', e.target.checked)}
             />
           </div>
         </div>
 
-        {form.getValues().is_agent && (
+        {!!isAgent && (
           <AnimatedDev>
             <Input
               {...form.register('agent_code')}
               label={t('agent_code')}
               labelPlacement="outside"
               placeholder={t('enter_agent_code')}
-              disabled={!form.getValues().is_agent}
               isRequired
               variant="bordered"
               isClearable={false}

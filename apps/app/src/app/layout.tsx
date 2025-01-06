@@ -7,6 +7,7 @@ import {
 } from 'next-intl/server';
 import { I18nProvider, UIProvider } from './providers';
 import { ReactNode } from 'react';
+import { Toaster } from 'react-hot-toast';
 // import Navbar from '../features/navbar/navbar';
 // import Sidenav from '../features/sidenav/sidenav';
 
@@ -34,6 +35,7 @@ export default async function RootLayout({
         />
         <UIProvider locale={locale}>
           <I18nProvider messages={messages} locale={locale}>
+            <Toaster />
             {/*<Navbar />*/}
             {/*<div className="hidden md:block">*/}
             {/*  <Sidenav />*/}

@@ -1,5 +1,4 @@
 'use client';
-
 import {
   Modal,
   ModalBody,
@@ -155,9 +154,11 @@ export const PartModal = ({
               )}
             />
             <Textarea
+              isRequired
               label={t('notes')}
               labelPlacement="outside"
               placeholder={t('enter_notes')}
+              errorMessage={t('field_required')}
               variant="bordered"
               {...register('notes')}
             />

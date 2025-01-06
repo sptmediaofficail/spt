@@ -17,10 +17,14 @@ export const StepsComponent = ({
   onOpen,
   onEditPart,
   startWithCarInfo = false,
+  onSubmit,
+  isPending,
 }: {
   onOpen: () => void;
   onEditPart: (part: FormOrderParts['parts'][number], index: number) => void;
   startWithCarInfo?: boolean;
+  onSubmit: () => void;
+  isPending?: boolean;
 }) => {
   const [isThisStepValid, setIsThisStepValid] = useState(false);
   const { next, prev, hasNext, hasPrev, current, total } = useSteps();
@@ -50,7 +54,7 @@ export const StepsComponent = ({
     },
     {
       component: <OrderReview />,
-      fields: ['is_agent', 'receive_offers', 'agent_code', 'is_delivery'],
+      fields: ['is_agent', 'only_my_city', 'agent_code', 'is_delivery'],
     },
   ];
 
@@ -104,7 +108,8 @@ export const StepsComponent = ({
         ) : (
           <PrimaryButton
             isDisabled={!isThisStepValid}
-            type={'submit'}
+            isLoading={isPending}
+            onPress={onSubmit}
             text={t('confirm')}
             className={'w-auto'}
           />

@@ -1,5 +1,4 @@
 'use client';
-
 import { H1 } from '../../../../ui/typography';
 import { PrimaryDivider } from '../../../../ui/divider';
 import { Tab, Tabs } from '@nextui-org/tabs';
@@ -26,24 +25,23 @@ const OrderSparePartPage = () => {
     closeUnSavedChangesModalAndReset,
     processOrder,
     onError,
+    isPending,
   } = useOrderForm();
 
   return (
     <FormProvider {...form}>
-      <form
-        className={'h-full'}
-        onSubmit={form.handleSubmit(processOrder, onError)}
-      >
-        <UnsavedChangesModal
-          {...unSavedChangesModal}
-          onConfirm={closeUnSavedChangesModalAndReset}
-        />
-        <PartModal
-          {...partFormModal}
-          onSubmit={mutatePart}
-          onCloseWithChanges={unSavedChangesModal.onOpen}
-          initialData={editingPart?.part}
-        />
+      <UnsavedChangesModal
+        {...unSavedChangesModal}
+        onConfirm={closeUnSavedChangesModalAndReset}
+      />
+      <PartModal
+        {...partFormModal}
+        onSubmit={mutatePart}
+        onCloseWithChanges={unSavedChangesModal.onOpen}
+        initialData={editingPart?.part}
+      />
+
+      <div className={'h-full'}>
         <div className="w-full p-4 flex flex-col gap-4 h-full">
           <H1>{'order_spare_part'}</H1>
           <PrimaryDivider />
@@ -51,7 +49,6 @@ const OrderSparePartPage = () => {
             <div className={'absolute top-[42px] right-0 w-full'}>
               <Divider className="bg-gray-100 mx-auto h-[2px] w-[89%]" />
             </div>
-
             <Tabs
               fullWidth
               variant="underlined"
@@ -66,6 +63,8 @@ const OrderSparePartPage = () => {
                   <StepsComponent
                     onOpen={partFormModal.onOpen}
                     onEditPart={onEditPart}
+                    onSubmit={processOrder}
+                    isPending={isPending}
                   />
                 </StepsProvider>
               </Tab>
@@ -75,13 +74,15 @@ const OrderSparePartPage = () => {
                     onOpen={partFormModal.onOpen}
                     onEditPart={onEditPart}
                     startWithCarInfo={true}
+                    onSubmit={processOrder}
+                    isPending={isPending}
                   />
                 </StepsProvider>
               </Tab>
             </Tabs>
           </div>
         </div>
-      </form>
+      </div>
     </FormProvider>
   );
 };
