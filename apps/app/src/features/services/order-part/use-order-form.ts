@@ -9,6 +9,7 @@ import { getLocalTimeZone, now, toCalendarDate } from '@internationalized/date';
 import { useOrderSparePartServicePostClientOrderSparePart } from '../../../../../../libs/api-sdk/src/lib/gen2/queries';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import { resolveAfterDelay } from '../../../utils/utils';
 
 export const useOrderForm = () => {
   const partFormModal = useDisclosure();
@@ -100,15 +101,18 @@ export const useOrderForm = () => {
     setEditingPart(null);
     partFormModal.onClose();
   };
-  const useOrderService = useOrderSparePartServicePostClientOrderSparePart({
-    onSuccess: () => router.push('/'),
-  });
+  const useOrderService = useOrderSparePartServicePostClientOrderSparePart();
 
   const processOrder = async () => {
     const data = form.getValues();
     toast.promise(
-      useOrderService.mutateAsync({
-        formData: orderAdapter(data),
+      resolveAfterDelay(
+        useOrderService.mutateAsync({
+          formData: orderAdapter(data),
+        })
+      ).then(() => {
+        form.reset();
+        router.push('/');
       }),
       {
         loading: t('loading'),
