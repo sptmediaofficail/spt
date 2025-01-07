@@ -32,6 +32,7 @@ export const OtpCard = () => {
         value={otp}
         dir={'ltr'}
         className={'mx-auto'}
+        autoFocus
         onValueChange={setOtp}
         onComplete={() => submitOtp(otp)}
         isDisabled={isPending}
