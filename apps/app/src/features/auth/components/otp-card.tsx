@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { PrimaryButton } from '../../../ui/primary-button';
 import { usePreAuthStore } from '../preAuthStore';
@@ -12,10 +12,9 @@ export const OtpCard = () => {
   const { submitOtp, isPending, error } = useSubmitOtp();
   const [otp, setOtp] = useState<string>('');
 
-  const handleOtpComplete = async (otp: string) => {
-    setIsOtpComplete(true);
-    await submitOtp(otp);
-  };
+  useEffect(() => {
+    setIsOtpComplete(otp.length === 4);
+  }, [otp]);
 
   if (!state.recipient) return null;
 
@@ -31,11 +30,10 @@ export const OtpCard = () => {
         variant={'bordered'}
         length={4}
         value={otp}
-        errorMessage={error}
         dir={'ltr'}
         className={'mx-auto'}
         onValueChange={setOtp}
-        onComplete={() => handleOtpComplete(otp)}
+        onComplete={() => submitOtp(otp)}
         isDisabled={isPending}
         size={'lg'}
       />
