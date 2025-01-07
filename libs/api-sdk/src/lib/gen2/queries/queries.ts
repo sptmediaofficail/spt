@@ -108,15 +108,17 @@ export const useBrandModelsServiceGetBrandsByBrandIdModels = <TData = Common.Bra
 /**
 * Get Data
 * @param data The data for the request.
+* @param data.vin
 * @param data.xRequestedWith API
 * @param data.contentLanguage accepts: ar, en
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const useVinServiceGetVinJn8At3Mm3Pw009894 = <TData = Common.VinServiceGetVinJn8At3Mm3Pw009894DefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, xRequestedWith }: {
+export const useVinServiceGetVinByVin = <TData = Common.VinServiceGetVinByVinDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, vin, xRequestedWith }: {
   contentLanguage?: string;
+  vin: string;
   xRequestedWith?: string;
-} = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useQuery<TData, TError>({ queryKey: Common.UseVinServiceGetVinJn8At3Mm3Pw009894KeyFn({ contentLanguage, xRequestedWith }, queryKey), queryFn: () => VinService.getVinJn8At3Mm3Pw009894({ contentLanguage, xRequestedWith }) as TData, ...options });
+}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useQuery<TData, TError>({ queryKey: Common.UseVinServiceGetVinByVinKeyFn({ contentLanguage, vin, xRequestedWith }, queryKey), queryFn: () => VinService.getVinByVin({ contentLanguage, vin, xRequestedWith }) as TData, ...options });
 /**
 * index
 * @param data The data for the request.
@@ -563,14 +565,18 @@ export const useAdminTicketsServiceGetAdminTicketsFd3A3D51755b4FecBa9aA162B21188
 * @param data.xRequestedWith API
 * @param data.contentLanguage accepts: ar, en
 * @param data.statusArray receiving_offer - accepted - completed
+* @param data.paginate
+* @param data.page
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const useClientClientOrdersServiceGetClientOrders = <TData = Common.ClientClientOrdersServiceGetClientOrdersDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, statusArray, xRequestedWith }: {
+export const useClientClientOrdersServiceGetClientOrders = <TData = Common.ClientClientOrdersServiceGetClientOrdersDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, page, paginate, statusArray, xRequestedWith }: {
   contentLanguage?: string;
+  page?: number;
+  paginate?: number;
   statusArray?: string;
   xRequestedWith?: string;
-} = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useQuery<TData, TError>({ queryKey: Common.UseClientClientOrdersServiceGetClientOrdersKeyFn({ contentLanguage, statusArray, xRequestedWith }, queryKey), queryFn: () => ClientClientOrdersService.getClientOrders({ contentLanguage, statusArray, xRequestedWith }) as TData, ...options });
+} = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useQuery<TData, TError>({ queryKey: Common.UseClientClientOrdersServiceGetClientOrdersKeyFn({ contentLanguage, page, paginate, statusArray, xRequestedWith }, queryKey), queryFn: () => ClientClientOrdersService.getClientOrders({ contentLanguage, page, paginate, statusArray, xRequestedWith }) as TData, ...options });
 /**
 * details
 * @param data The data for the request.
@@ -1000,11 +1006,11 @@ export const useAuthenticationServicePostSharedAuthVerifyChangePhone = <TData = 
 */
 export const useOrderSparePartServicePostClientOrderSparePart = <TData = Common.OrderSparePartServicePostClientOrderSparePartMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
   contentLanguage?: string;
-  formData?: { year?: number; brand?: string; model?: string; address?: string; latitude?: number; longitude?: number; is_delivery?: number; delivery_date?: string; 'parts[0][name]'?: string; 'parts[0][quantity]'?: number; 'parts[0][condition_new]'?: number; 'parts[0][condition_used]'?: number; 'parts[0][condition_both]'?: number; 'parts[0][notes]'?: string; 'parts[1][name]'?: string; 'parts[1][quantity]'?: number; 'parts[1][condition_new]'?: number; 'parts[1][condition_used]'?: number; 'parts[1][condition_both]'?: number; 'parts[1][notes]'?: string; agent_code?: number; vin_serial?: string; provider_id?: string; };
+  formData?: { year?: number; brand?: string; model?: string; address?: string; latitude?: number; longitude?: number; is_delivery?: number; delivery_date?: string; 'parts[0][name]'?: string; 'parts[0][quantity]'?: number; 'parts[0][condition_new]'?: number; 'parts[0][condition_used]'?: number; 'parts[0][condition_both]'?: number; 'parts[0][notes]'?: string; 'parts[1][name]'?: string; 'parts[1][quantity]'?: number; 'parts[1][condition_new]'?: number; 'parts[1][condition_used]'?: number; 'parts[1][condition_both]'?: number; 'parts[1][notes]'?: string; agent_code?: number; vin_serial?: string; provider_id?: string; only_my_city?: number; };
   xRequestedWith?: string;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
   contentLanguage?: string;
-  formData?: { year?: number; brand?: string; model?: string; address?: string; latitude?: number; longitude?: number; is_delivery?: number; delivery_date?: string; 'parts[0][name]'?: string; 'parts[0][quantity]'?: number; 'parts[0][condition_new]'?: number; 'parts[0][condition_used]'?: number; 'parts[0][condition_both]'?: number; 'parts[0][notes]'?: string; 'parts[1][name]'?: string; 'parts[1][quantity]'?: number; 'parts[1][condition_new]'?: number; 'parts[1][condition_used]'?: number; 'parts[1][condition_both]'?: number; 'parts[1][notes]'?: string; agent_code?: number; vin_serial?: string; provider_id?: string; };
+  formData?: { year?: number; brand?: string; model?: string; address?: string; latitude?: number; longitude?: number; is_delivery?: number; delivery_date?: string; 'parts[0][name]'?: string; 'parts[0][quantity]'?: number; 'parts[0][condition_new]'?: number; 'parts[0][condition_used]'?: number; 'parts[0][condition_both]'?: number; 'parts[0][notes]'?: string; 'parts[1][name]'?: string; 'parts[1][quantity]'?: number; 'parts[1][condition_new]'?: number; 'parts[1][condition_used]'?: number; 'parts[1][condition_both]'?: number; 'parts[1][notes]'?: string; agent_code?: number; vin_serial?: string; provider_id?: string; only_my_city?: number; };
   xRequestedWith?: string;
 }, TContext>({ mutationFn: ({ contentLanguage, formData, xRequestedWith }) => OrderSparePartService.postClientOrderSparePart({ contentLanguage, formData, xRequestedWith }) as unknown as Promise<TData>, ...options });
 /**

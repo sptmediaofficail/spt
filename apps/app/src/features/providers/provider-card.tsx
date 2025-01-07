@@ -1,12 +1,68 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
-import { Card, CardBody, CardHeader } from '@nextui-org/card';
+import { Card, CardBody, CardHeader, CardProps } from '@nextui-org/card';
 import { Divider } from '@nextui-org/divider';
 import DefaultProviderAvatar from './assets/default-provider-avatar.svg';
 import Image from 'next/image';
 import { TfiLocationPin } from 'react-icons/tfi';
 import { Skeleton } from '@nextui-org/skeleton';
 import { useRouter } from 'next/navigation';
+
+interface DetailedCardProps extends CardProps {
+  avatar?: any;
+  href: string;
+  title: string;
+  description?: string;
+  data: {
+    icon?: ReactNode;
+    label: string;
+    value: string | number;
+  }[];
+}
+
+export const DetailedCard = (props: DetailedCardProps) => {
+  const router = useRouter();
+  return (
+    <Card
+      isHoverable
+      isPressable
+      className="p-4 rounded-xl w-80 lg:w-96 max-w-md shadow-sm border cursor-pointer transition-transform ease-in h-fit"
+      onPress={() => router.push(props.href)}
+      {...props}
+    >
+      <CardHeader className="flex items-center mb-4 p-0 gap-2">
+        <Image
+          src={props.avatar ?? DefaultProviderAvatar}
+          alt="Provider Avatar"
+          width={40}
+          height={40}
+          className={'rounded-full'}
+        />
+        <div className="flex flex-col gap-1">
+          <h2 className="text-md font-bold">{props.title}</h2>
+          {props.description && (
+            <p className="text-xs text-gray-600">{props.description}</p>
+          )}
+        </div>
+      </CardHeader>
+      <Divider />
+      <CardBody className="flex flex-col gap-2 px-0">
+        {props.data.map((item, index) => (
+          <div
+            key={index}
+            className="flex justify-between items-center text-gray-600"
+          >
+            <div className="text-gray-500 flex items-center gap-2">
+              {item.icon && item.icon}
+              <h4>{item.label}</h4>
+            </div>
+            <div className="flex items-center gap-1">{item.value}</div>
+          </div>
+        ))}
+      </CardBody>
+    </Card>
+  );
+};
 
 interface StoreCardProps {
   name: string;

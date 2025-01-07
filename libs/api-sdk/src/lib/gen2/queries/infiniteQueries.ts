@@ -1,7 +1,7 @@
 // generated with @7nohe/openapi-react-query-codegen@1.6.1 
 
 import { InfiniteData, useInfiniteQuery, UseInfiniteQueryOptions } from "@tanstack/react-query";
-import { AdminCitiesService, AdminCityServiceService, AdminCommissionsService, AdminLandingAboutSectionsService, AdminLandingAboutService, AdminLandingGuaranteeRightService, AdminLandingHowHelpService, AdminLandingPartnersService, AdminLandingSiteOfferService, AdminLandingSlidersService, AdminMessageTemplatesService, AdminPagesService, AdminPermissionGroupsService, AdminPlatformReviewsService, AdminProviderProfilesService, AdminProviderSubscriptionPlansService, AdminServicesService, AdminTicketsService, AdminUsersService, BrandModelsService, BrandService, LandingService, PagesService, PlatformReviewsService, SiteOffersService, TicketService } from "../requests/services.gen";
+import { AdminCitiesService, AdminCityServiceService, AdminCommissionsService, AdminLandingAboutSectionsService, AdminLandingAboutService, AdminLandingGuaranteeRightService, AdminLandingHowHelpService, AdminLandingPartnersService, AdminLandingSiteOfferService, AdminLandingSlidersService, AdminMessageTemplatesService, AdminPagesService, AdminPermissionGroupsService, AdminPlatformReviewsService, AdminProviderProfilesService, AdminProviderSubscriptionPlansService, AdminServicesService, AdminTicketsService, AdminUsersService, BrandModelsService, BrandService, ClientClientOrdersService, LandingService, PagesService, PlatformReviewsService, SiteOffersService, TicketService } from "../requests/services.gen";
 import * as Common from "./common";
 /**
 * index
@@ -388,6 +388,27 @@ export const useAdminTicketsServiceGetAdminTicketsFd3A3D51755b4FecBa9aA162B21188
   paginate?: number;
 } = {}, queryKey?: TQueryKey, options?: Omit<UseInfiniteQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useInfiniteQuery({
   queryKey: Common.UseAdminTicketsServiceGetAdminTicketsFd3A3D51755b4FecBa9aA162B21188CeMessagesKeyFn({ paginate }, queryKey), queryFn: ({ pageParam }) => AdminTicketsService.getAdminTicketsFd3A3D51755b4FecBa9aA162B21188CeMessages({ page: pageParam as number, paginate }) as TData, initialPageParam: "1", getNextPageParam: response => (response as {
+    nextPage: number;
+  }).nextPage, ...options
+});
+/**
+* index
+* @param data The data for the request.
+* @param data.xRequestedWith API
+* @param data.contentLanguage accepts: ar, en
+* @param data.statusArray receiving_offer - accepted - completed
+* @param data.paginate
+* @param data.page
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const useClientClientOrdersServiceGetClientOrdersInfinite = <TData = InfiniteData<Common.ClientClientOrdersServiceGetClientOrdersDefaultResponse>, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, paginate, statusArray, xRequestedWith }: {
+  contentLanguage?: string;
+  paginate?: number;
+  statusArray?: string;
+  xRequestedWith?: string;
+} = {}, queryKey?: TQueryKey, options?: Omit<UseInfiniteQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useInfiniteQuery({
+  queryKey: Common.UseClientClientOrdersServiceGetClientOrdersKeyFn({ contentLanguage, paginate, statusArray, xRequestedWith }, queryKey), queryFn: ({ pageParam }) => ClientClientOrdersService.getClientOrders({ contentLanguage, page: pageParam as number, paginate, statusArray, xRequestedWith }) as TData, initialPageParam: "1", getNextPageParam: response => (response as {
     nextPage: number;
   }).nextPage, ...options
 });

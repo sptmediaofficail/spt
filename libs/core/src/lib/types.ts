@@ -12,6 +12,27 @@ export type Offer = {
   deleted_at: any;
 };
 
+export type Order = {
+  id: string;
+  order_no: string;
+  link_code: string;
+  status: string;
+  address: string;
+  quantity: number;
+  offers_count: number;
+  type: string;
+  price: number;
+  tax: number;
+  commission: number;
+  fee: number;
+  city: any;
+  delivery_fee: number;
+  total: number;
+  provider: any;
+  created_at: string;
+  checkout_id: any;
+};
+
 export interface TopRated {
   spare_part_providers: Provider[];
   junkyard_sale_providers: Provider[];

@@ -312,6 +312,7 @@ export type PostClientOrderSparePartData = {
          * optional
          */
         provider_id?: string;
+        only_my_city?: number;
     };
     /**
      * API
@@ -321,18 +322,19 @@ export type PostClientOrderSparePartData = {
 
 export type PostClientOrderSparePartResponse = unknown;
 
-export type GetVinJn8At3Mm3Pw009894Data = {
+export type GetVinByVinData = {
     /**
      * accepts: ar, en
      */
     contentLanguage?: string;
+    vin: string;
     /**
      * API
      */
     xRequestedWith?: string;
 };
 
-export type GetVinJn8At3Mm3Pw009894Response = unknown;
+export type GetVinByVinResponse = unknown;
 
 export type PostChatData = {
     /**
@@ -1610,6 +1612,8 @@ export type GetClientOrdersData = {
      * accepts: ar, en
      */
     contentLanguage?: string;
+    page?: number;
+    paginate?: number;
     /**
      * receiving_offer - accepted - completed
      */
@@ -2220,9 +2224,9 @@ export type $OpenApiTs = {
             };
         };
     };
-    '/vin/JN8AT3MM3PW009894': {
+    '/vin/{vin}': {
         get: {
-            req: GetVinJn8At3Mm3Pw009894Data;
+            req: GetVinByVinData;
             res: {
                 /**
                  * Successful response

@@ -838,6 +838,9 @@ paths:
                   type: string
                   description: optional
                   example: 02b915a7-5a56-4711-8b4a-eb110408a090
+                only_my_city:
+                  type: integer
+                  example: '0'
       security:
         - bearerAuth: []
       parameters:
@@ -858,7 +861,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /vin/JN8AT3MM3PW009894:
+  /vin/{vin}:
     get:
       tags:
         - Vin
@@ -878,6 +881,12 @@ paths:
             type: string
           description: 'accepts: ar, en'
           example: ar
+        - name: vin
+          in: path
+          schema:
+            type: string
+          required: true
+          example: JTHBK1GG3E2131249
       responses:
         '200':
           description: Successful response
@@ -4244,7 +4253,17 @@ paths:
           schema:
             type: string
           description: receiving_offer - accepted - completed
-          example: accepted
+          example: receiving_offer
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response

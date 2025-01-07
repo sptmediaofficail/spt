@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Truncate } from '@re-dev/react-truncate';
 import { Offer } from '@spt/core';
 import DiscountSvg from '../../assets/discount.svg';
-import { formatPrice } from '../../utils/formatPrice';
+import { formatPrice } from '../../utils/formatter';
 import { useTranslations } from 'next-intl';
 import { Skeleton } from '@nextui-org/skeleton';
 import { cn } from '@nextui-org/theme';

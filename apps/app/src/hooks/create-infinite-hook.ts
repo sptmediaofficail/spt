@@ -1,25 +1,27 @@
-type InfiniteHookParams<TData, TQueryKey extends string> = {
-  serviceFunction: (
-    params: { paginate: number | undefined },
-    queryKey: TQueryKey[],
-    config: {
-      getNextPageParam: (lastPage) => string | null;
-      initialPageParam: number;
-    }
-  ) => TData;
+type ServerFunction<T> = (
+  params: { paginate: number | undefined },
+  queryKey: string[],
+  config: {
+    getNextPageParam: (lastPage) => string | null;
+    initialPageParam: number;
+  }
+) => T;
+
+type InfiniteHookParams<T> = {
+  serviceFunction: ServerFunction<T>;
   initialPageSize?: number;
   subsequentPageSize?: number;
-  queryKey: TQueryKey[];
+  queryKey: string[];
   additionalParams?: { [key: string]: any };
 };
 
-export function createInfiniteHook<TData, TItem, TQueryKey extends string>({
+export function createInfiniteHook<Record, T>({
   serviceFunction,
   initialPageSize = 20,
   subsequentPageSize = 10,
   queryKey,
   additionalParams = {},
-}: InfiniteHookParams<TData, TQueryKey>) {
+}: InfiniteHookParams<T>) {
   return () => {
     const props = serviceFunction(
       {
@@ -44,7 +46,7 @@ export function createInfiniteHook<TData, TItem, TQueryKey extends string>({
 
     return {
       ...props,
-      items: allItems as TItem[],
+      items: allItems as Record[],
       pageSize:
         allItems.length > initialPageSize
           ? subsequentPageSize

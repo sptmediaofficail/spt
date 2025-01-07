@@ -108,15 +108,17 @@ export const prefetchUseBrandModelsServiceGetBrandsByBrandIdModels = (queryClien
 /**
 * Get Data
 * @param data The data for the request.
+* @param data.vin
 * @param data.xRequestedWith API
 * @param data.contentLanguage accepts: ar, en
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const prefetchUseVinServiceGetVinJn8At3Mm3Pw009894 = (queryClient: QueryClient, { contentLanguage, xRequestedWith }: {
+export const prefetchUseVinServiceGetVinByVin = (queryClient: QueryClient, { contentLanguage, vin, xRequestedWith }: {
   contentLanguage?: string;
+  vin: string;
   xRequestedWith?: string;
-} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseVinServiceGetVinJn8At3Mm3Pw009894KeyFn({ contentLanguage, xRequestedWith }), queryFn: () => VinService.getVinJn8At3Mm3Pw009894({ contentLanguage, xRequestedWith }) });
+}) => queryClient.prefetchQuery({ queryKey: Common.UseVinServiceGetVinByVinKeyFn({ contentLanguage, vin, xRequestedWith }), queryFn: () => VinService.getVinByVin({ contentLanguage, vin, xRequestedWith }) });
 /**
 * index
 * @param data The data for the request.
@@ -563,14 +565,18 @@ export const prefetchUseAdminTicketsServiceGetAdminTicketsFd3A3D51755b4FecBa9aA1
 * @param data.xRequestedWith API
 * @param data.contentLanguage accepts: ar, en
 * @param data.statusArray receiving_offer - accepted - completed
+* @param data.paginate
+* @param data.page
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const prefetchUseClientClientOrdersServiceGetClientOrders = (queryClient: QueryClient, { contentLanguage, statusArray, xRequestedWith }: {
+export const prefetchUseClientClientOrdersServiceGetClientOrders = (queryClient: QueryClient, { contentLanguage, page, paginate, statusArray, xRequestedWith }: {
   contentLanguage?: string;
+  page?: number;
+  paginate?: number;
   statusArray?: string;
   xRequestedWith?: string;
-} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseClientClientOrdersServiceGetClientOrdersKeyFn({ contentLanguage, statusArray, xRequestedWith }), queryFn: () => ClientClientOrdersService.getClientOrders({ contentLanguage, statusArray, xRequestedWith }) });
+} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseClientClientOrdersServiceGetClientOrdersKeyFn({ contentLanguage, page, paginate, statusArray, xRequestedWith }), queryFn: () => ClientClientOrdersService.getClientOrders({ contentLanguage, page, paginate, statusArray, xRequestedWith }) });
 /**
 * details
 * @param data The data for the request.

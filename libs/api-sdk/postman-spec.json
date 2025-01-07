@@ -4,7 +4,7 @@
     "name": "SPT",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "34119647",
-    "_collection_link": "https://spt111.postman.co/workspace/c47f8fc9-96b9-4cec-a811-9463a82363eb/collection/34119647-ac2327cb-ee79-4043-81a4-1ed4523ffdac?action=share&source=collection_link&creator=34119647"
+    "_collection_link": "https://spt111.postman.co/workspace/SPT~c47f8fc9-96b9-4cec-a811-9463a82363eb/collection/34119647-ac2327cb-ee79-4043-81a4-1ed4523ffdac?action=share&source=collection_link&creator=34119647"
   },
   "item": [
     {
@@ -1380,6 +1380,11 @@
                   "description": "optional",
                   "type": "text",
                   "disabled": true
+                },
+                {
+                  "key": "only_my_city",
+                  "value": "0",
+                  "type": "text"
                 }
               ]
             },
@@ -1437,13 +1442,19 @@
               "formdata": []
             },
             "url": {
-              "raw": "{{local}}/vin/JN8AT3MM3PW009894",
+              "raw": "{{local}}/vin/:vin",
               "host": [
                 "{{local}}"
               ],
               "path": [
                 "vin",
-                "JN8AT3MM3PW009894"
+                ":vin"
+              ],
+              "variable": [
+                {
+                  "key": "vin",
+                  "value": "JTHBK1GG3E2131249"
+                }
               ]
             }
           },
@@ -8038,7 +8049,7 @@
                   "formdata": []
                 },
                 "url": {
-                  "raw": "{{local}}/client/orders?status[]=accepted",
+                  "raw": "{{local}}/client/orders?status[]=receiving_offer&paginate=10&page=1",
                   "host": [
                     "{{local}}"
                   ],
@@ -8049,7 +8060,7 @@
                   "query": [
                     {
                       "key": "status[]",
-                      "value": "accepted",
+                      "value": "receiving_offer",
                       "description": "receiving_offer - accepted - completed"
                     },
                     {
@@ -8059,8 +8070,7 @@
                     },
                     {
                       "key": "paginate",
-                      "value": "10",
-                      "disabled": true
+                      "value": "10"
                     },
                     {
                       "key": "lat",
@@ -8071,6 +8081,10 @@
                       "key": "lng",
                       "value": "26.231213",
                       "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
                     }
                   ]
                 }

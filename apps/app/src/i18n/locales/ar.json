@@ -130,8 +130,10 @@
   "confirm": "تأكيد",
   "pickup": "تحديد مكان الاستلام",
   "address_details": "تفاصيل العنوان",
+  "address": "الموقع",
   "enter_address_details": "ادخل تفاصيل العنوان",
   "pickup_date_time": "تاريخ و وقت الاستلام",
+  "date": "التاريخ",
   "loading": "جاري التحميل ...",
   "detecting_location": "جاري تحديد موقعك ...",
   "order_with_delivery_and_shipping": "الطلب مع التوصيل والشحن ؟",
@@ -139,5 +141,10 @@
   "only_my_city": "استقبال العروض من متاجر كافة المدن ؟",
   "agent_code": "كود المندوب",
   "enter_agent_code": "ادخل كود المندوب",
-  "order_successful": "تم الطلب بنجاح"
+  "order_successful": "تم الطلب بنجاح",
+  "orders": "طلباتي",
+  "accepted": "الحالية",
+  "receiving_offer":"عروض طلباتي",
+  "completed": "المنتهية",
+  "spare_part_order": "طلب قطع غيار"
 }

@@ -60,13 +60,14 @@ export const UseBrandModelsServiceGetBrandsByBrandIdModelsKeyFn = ({ brandId, co
   paginate?: number;
   xRequestedWith?: string;
 }, queryKey?: Array<unknown>) => [useBrandModelsServiceGetBrandsByBrandIdModelsKey, ...(queryKey ?? [{ brandId, contentLanguage, page, paginate, xRequestedWith }])];
-export type VinServiceGetVinJn8At3Mm3Pw009894DefaultResponse = Awaited<ReturnType<typeof VinService.getVinJn8At3Mm3Pw009894>>;
-export type VinServiceGetVinJn8At3Mm3Pw009894QueryResult<TData = VinServiceGetVinJn8At3Mm3Pw009894DefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
-export const useVinServiceGetVinJn8At3Mm3Pw009894Key = "VinServiceGetVinJn8At3Mm3Pw009894";
-export const UseVinServiceGetVinJn8At3Mm3Pw009894KeyFn = ({ contentLanguage, xRequestedWith }: {
+export type VinServiceGetVinByVinDefaultResponse = Awaited<ReturnType<typeof VinService.getVinByVin>>;
+export type VinServiceGetVinByVinQueryResult<TData = VinServiceGetVinByVinDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useVinServiceGetVinByVinKey = "VinServiceGetVinByVin";
+export const UseVinServiceGetVinByVinKeyFn = ({ contentLanguage, vin, xRequestedWith }: {
   contentLanguage?: string;
+  vin: string;
   xRequestedWith?: string;
-} = {}, queryKey?: Array<unknown>) => [useVinServiceGetVinJn8At3Mm3Pw009894Key, ...(queryKey ?? [{ contentLanguage, xRequestedWith }])];
+}, queryKey?: Array<unknown>) => [useVinServiceGetVinByVinKey, ...(queryKey ?? [{ contentLanguage, vin, xRequestedWith }])];
 export type TicketServiceGetTicketsDefaultResponse = Awaited<ReturnType<typeof TicketService.getTickets>>;
 export type TicketServiceGetTicketsQueryResult<TData = TicketServiceGetTicketsDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const useTicketServiceGetTicketsKey = "TicketServiceGetTickets";
@@ -328,11 +329,13 @@ export const UseAdminTicketsServiceGetAdminTicketsFd3A3D51755b4FecBa9aA162B21188
 export type ClientClientOrdersServiceGetClientOrdersDefaultResponse = Awaited<ReturnType<typeof ClientClientOrdersService.getClientOrders>>;
 export type ClientClientOrdersServiceGetClientOrdersQueryResult<TData = ClientClientOrdersServiceGetClientOrdersDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const useClientClientOrdersServiceGetClientOrdersKey = "ClientClientOrdersServiceGetClientOrders";
-export const UseClientClientOrdersServiceGetClientOrdersKeyFn = ({ contentLanguage, statusArray, xRequestedWith }: {
+export const UseClientClientOrdersServiceGetClientOrdersKeyFn = ({ contentLanguage, page, paginate, statusArray, xRequestedWith }: {
   contentLanguage?: string;
+  page?: number;
+  paginate?: number;
   statusArray?: string;
   xRequestedWith?: string;
-} = {}, queryKey?: Array<unknown>) => [useClientClientOrdersServiceGetClientOrdersKey, ...(queryKey ?? [{ contentLanguage, statusArray, xRequestedWith }])];
+} = {}, queryKey?: Array<unknown>) => [useClientClientOrdersServiceGetClientOrdersKey, ...(queryKey ?? [{ contentLanguage, page, paginate, statusArray, xRequestedWith }])];
 export type ClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224DefaultResponse = Awaited<ReturnType<typeof ClientClientOrdersService.getClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224>>;
 export type ClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224QueryResult<TData = ClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224DefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const useClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224Key = "ClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224";

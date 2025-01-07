@@ -4,13 +4,8 @@ import { useSiteOffersServiceGetSiteOffers } from '../../../../../libs/api-sdk/s
 import { useSiteOffersServiceGetSiteOffersInfinite } from '../../../../../libs/api-sdk/src/lib/gen2/queries/infiniteQueries';
 import { createInfiniteHook } from '../../hooks/create-infinite-hook';
 
-interface Pagination {
-  page: number;
-  paginate: number;
-}
-
 export const useOffers = () => {
-  const [pagination, setPagination] = useState<Pagination>({
+  const [pagination, setPagination] = useState({
     page: 1,
     paginate: 10,
   });
@@ -37,5 +32,4 @@ export const useOffers = () => {
 export const useOffersInfinity = createInfiniteHook({
   serviceFunction: useSiteOffersServiceGetSiteOffersInfinite,
   queryKey: ['offers.infinite'],
-  additionalParams: { contentLanguage: 'ar' },
 });
