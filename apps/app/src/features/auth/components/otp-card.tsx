@@ -2,14 +2,15 @@
 import { useTranslations } from 'next-intl';
 import { PrimaryButton } from '../../../ui/primary-button';
 import { usePreAuthStore } from '../preAuthStore';
-import { OtpInput } from './otp-input';
 import { useSubmitOtp } from '../login/use-submit-otp';
+import { InputOtp } from '@nextui-org/input-otp';
 
 export const OtpCard = () => {
   const t = useTranslations();
   const { state } = usePreAuthStore();
   const [isOtpComplete, setIsOtpComplete] = useState<boolean>(false);
   const { submitOtp, isPending, error } = useSubmitOtp();
+  const [otp, setOtp] = useState<string>('');
 
   const handleOtpComplete = async (otp: string) => {
     setIsOtpComplete(true);
@@ -24,12 +25,25 @@ export const OtpCard = () => {
         {t('label.otp')}
       </h2>
 
-      <OtpInput boxCount={4} onOtpComplete={handleOtpComplete} />
+      {/*<OtpInput boxCount={4} onOtpComplete={handleOtpComplete} />*/}
+      <InputOtp
+        width={'full'}
+        variant={'bordered'}
+        length={4}
+        value={otp}
+        errorMessage={error}
+        dir={'ltr'}
+        className={'mx-auto'}
+        onValueChange={setOtp}
+        onComplete={() => handleOtpComplete(otp)}
+        isDisabled={isPending}
+        size={'lg'}
+      />
 
       <PrimaryButton
         className="mt-6 w-full disabled:opacity-50 disabled:cursor-not-allowed"
         text={t('button.confirm')}
-        onPress={() => {}}
+        onPress={() => submitOtp(otp)}
         isLoading={isPending}
         isDisabled={!isOtpComplete}
       />
