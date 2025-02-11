@@ -4,7 +4,7 @@ import {
   InputProps,
   Textarea as NextTextarea,
   TextAreaProps,
-} from '@nextui-org/input';
+} from "@heroui/input";
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (props, ref) => {

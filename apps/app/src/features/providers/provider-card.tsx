@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
-import { Card, CardBody, CardHeader, CardProps } from '@nextui-org/card';
-import { Divider } from '@nextui-org/divider';
+import { Card, CardBody, CardHeader, CardProps } from "@heroui/card";
+import { Divider } from "@heroui/divider";
 import DefaultProviderAvatar from './assets/default-provider-avatar.svg';
 import Image from 'next/image';
 import { TfiLocationPin } from 'react-icons/tfi';
-import { Skeleton } from '@nextui-org/skeleton';
+import { Skeleton } from "@heroui/skeleton";
 import { useRouter } from 'next/navigation';
 
 interface DetailedCardProps extends CardProps {

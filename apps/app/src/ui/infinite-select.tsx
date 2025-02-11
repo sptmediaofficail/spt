@@ -1,6 +1,6 @@
 import React from 'react';
-import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
-import { Select, SelectProps } from '@nextui-org/select';
+import { useInfiniteScroll } from "@heroui/use-infinite-scroll";
+import { Select, SelectProps } from "@heroui/select";
 
 export function InfiniteSelect(
   props: SelectProps & {

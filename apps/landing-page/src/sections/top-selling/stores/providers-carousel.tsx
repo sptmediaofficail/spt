@@ -1,6 +1,6 @@
 'use client';
 import ReactStars from 'react-stars';
-import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/card';
+import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
 import Image from 'next/image';
 import { SecondButton } from '../../../components/second-button';
 import { Swiper, SwiperSlide } from 'swiper/react';

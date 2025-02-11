@@ -7,7 +7,7 @@ import StatMask from '../assets/svg/stat-mask.svg';
 import HeroImg from '../assets/images/hero.png';
 import { Section } from '../components/section';
 import { sptClient } from '../service/spt-client/spt-client';
-import { cn } from '@nextui-org/theme';
+import { cn } from "@heroui/theme";
 import HeroLine from '../assets/svg/hero-line.svg';
 import HeroBg from '../assets/svg/hero-bg.svg';
 

@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl';
 import { PrimaryButton } from '../../../ui/primary-button';
 import { usePreAuthStore } from '../preAuthStore';
 import { useSubmitOtp } from '../login/use-submit-otp';
-import { InputOtp } from '@nextui-org/input-otp';
+import { InputOtp } from "@heroui/input-otp";
 
 export const OtpCard = () => {
   const t = useTranslations();

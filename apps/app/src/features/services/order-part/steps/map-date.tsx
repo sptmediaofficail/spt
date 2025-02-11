@@ -1,7 +1,7 @@
 import { GoogleMap } from '../../../providers/map';
 import { Textarea } from '../../../../ui/input';
 import { Controller, useFormContext } from 'react-hook-form';
-import { DatePicker } from '@nextui-org/date-picker';
+import { DatePicker } from "@heroui/date-picker";
 import { FormOrderParts } from '../types';
 import { useTranslations } from 'next-intl';
 

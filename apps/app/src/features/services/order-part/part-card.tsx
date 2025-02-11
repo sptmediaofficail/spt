@@ -1,6 +1,6 @@
 import { PartData } from './types';
 import { useTranslations } from 'next-intl';
-import { Card, CardBody, CardHeader } from '@nextui-org/card';
+import { Card, CardBody, CardHeader } from "@heroui/card";
 import { PrimaryDivider } from '../../../ui/divider';
 import React from 'react';
 import QuantityIcon from './assets/quantity-icon.svg';
@@ -8,7 +8,7 @@ import StatusIcon from './assets/status-icon.svg';
 import Image from 'next/image';
 import EditIcon from './assets/edit-icon.svg';
 import DeleteIcon from './assets/delete-icon.svg';
-import { Button } from '@nextui-org/button';
+import { Button } from "@heroui/button";
 
 export const PartCard = (
   part: PartData & {

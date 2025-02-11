@@ -1,5 +1,5 @@
 import Error from 'next/error';
-import { Card, Divider, Progress } from '@nextui-org/react';
+import { Card, Divider, Progress } from "@heroui/react";
 import { useClientClientOrdersServiceGetClientOrdersById } from '../../../../../libs/api-sdk/src/lib/gen2/queries';
 
 export const ShowOrderPage = ({ orderId }: { orderId: string }) => {

@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import { Card } from '@nextui-org/card';
+import { Card } from "@heroui/card";
 import { Truncate } from '@re-dev/react-truncate';
-import { Skeleton } from '@nextui-org/skeleton';
+import { Skeleton } from "@heroui/skeleton";
 
 export const ReviewCard = ({
   comment,

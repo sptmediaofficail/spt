@@ -1,12 +1,12 @@
-import { Card, CardBody, CardHeader, CardProps } from '@nextui-org/card';
+import { Card, CardBody, CardHeader, CardProps } from "@heroui/card";
 import Image from 'next/image';
 import { Truncate } from '@re-dev/react-truncate';
 import { Offer } from '@spt/core';
 import DiscountSvg from '../../assets/discount.svg';
 import { formatPrice } from '../../utils/formatter';
 import { useTranslations } from 'next-intl';
-import { Skeleton } from '@nextui-org/skeleton';
-import { cn } from '@nextui-org/theme';
+import { Skeleton } from "@heroui/skeleton";
+import { cn } from "@heroui/theme";
 
 export const OfferCard = (props: CardProps & { offer: Offer }) => {
   const { offer } = props;

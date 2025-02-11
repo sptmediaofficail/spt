@@ -7,7 +7,7 @@ import Service1Icon from '../assets/svg/services/service-1-icon.svg';
 import Service2Icon from '../assets/svg/services/service-2-icon.svg';
 import Service2top from '../assets/svg/services/service-2-top.svg';
 import { HTMLProps, useState } from 'react';
-import { cn } from '@nextui-org/theme';
+import { cn } from "@heroui/theme";
 import { SecondButton } from '../components/second-button';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 

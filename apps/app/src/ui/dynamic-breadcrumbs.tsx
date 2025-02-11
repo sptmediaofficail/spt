@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl';
 import {
   BreadcrumbItem,
   Breadcrumbs as NextBreadcrumbs,
-} from '@nextui-org/breadcrumbs';
+} from "@heroui/breadcrumbs";
 import { FaHome } from 'react-icons/fa';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';

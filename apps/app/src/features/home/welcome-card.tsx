@@ -1,4 +1,4 @@
-import { Card, CardBody } from '@nextui-org/card';
+import { Card, CardBody } from "@heroui/card";
 import Image from 'next/image';
 import SptLogo from './assets/s.svg';
 import Symbol from './assets/symbol.svg';

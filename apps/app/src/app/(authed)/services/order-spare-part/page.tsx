@@ -1,7 +1,7 @@
 'use client';
 import { H1 } from '../../../../ui/typography';
 import { PrimaryDivider } from '../../../../ui/divider';
-import { Tab, Tabs } from '@nextui-org/tabs';
+import { Tab, Tabs } from "@heroui/tabs";
 import { useTranslations } from 'next-intl';
 import { FormProvider } from 'react-hook-form';
 import {
@@ -10,7 +10,7 @@ import {
 } from '../../../../features/services/order-part/part-modal';
 import { StepsProvider } from 'react-step-builder';
 import { useOrderForm } from '../../../../features/services/order-part/use-order-form';
-import { Divider } from '@nextui-org/divider';
+import { Divider } from "@heroui/divider";
 import { StepsComponent } from '../../../../features/services/order-part/steps/order-steps';
 
 const OrderSparePartPage = () => {

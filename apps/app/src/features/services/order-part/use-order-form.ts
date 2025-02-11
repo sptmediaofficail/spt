@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { FormOrderParts, PartData } from './types';
 import { useEffect, useState } from 'react';
-import { useDisclosure } from '@nextui-org/modal';
+import { useDisclosure } from "@heroui/modal";
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';

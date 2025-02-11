@@ -1,12 +1,12 @@
 'use client';
 
-import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/breadcrumbs';
+import { BreadcrumbItem, Breadcrumbs } from "@heroui/breadcrumbs";
 import { useTranslations } from 'next-intl';
 import { FaHome } from 'react-icons/fa';
-import { Card, CardBody, CardHeader } from '@nextui-org/card';
+import { Card, CardBody, CardHeader } from "@heroui/card";
 import { useOffersInfinity } from './use-offers';
 import { OfferCard, OfferCardSkeleton } from './offer-card';
-import { Divider } from '@nextui-org/divider';
+import { Divider } from "@heroui/divider";
 import Link from 'next/link';
 import { useIntersectionObserver } from 'usehooks-ts';
 import { Fragment, useEffect, useState } from 'react';

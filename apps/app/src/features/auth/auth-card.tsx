@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { ReactNode } from 'react';
-import { cn } from '@nextui-org/theme';
+import { cn } from "@heroui/theme";
 import {
   Card,
   CardBody,
   CardFooter,
   CardHeader,
   CardProps,
-} from '@nextui-org/card';
+} from "@heroui/card";
 
 type AuthCardProps = CardProps & {
   icon?: ReactNode;

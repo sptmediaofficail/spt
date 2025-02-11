@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
-import { Card } from '@nextui-org/card';
+import { Card } from "@heroui/card";
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 

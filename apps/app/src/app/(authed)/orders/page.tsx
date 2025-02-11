@@ -1,5 +1,5 @@
 ﻿'use client';
-import { Tab, Tabs } from '@nextui-org/tabs';
+import { Tab, Tabs } from "@heroui/tabs";
 import { useTranslations } from 'next-intl';
 import { BsCartCheck } from 'react-icons/bs';
 import {

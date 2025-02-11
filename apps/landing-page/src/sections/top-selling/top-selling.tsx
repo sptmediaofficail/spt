@@ -1,6 +1,6 @@
 'use client';
 import { Section } from '../../components/section';
-import { Tab, Tabs } from '@nextui-org/tabs';
+import { Tab, Tabs } from "@heroui/tabs";
 import { ProvidersCarousel } from './stores/providers-carousel';
 import { TopRated } from '../../service/spt-client/types';
 

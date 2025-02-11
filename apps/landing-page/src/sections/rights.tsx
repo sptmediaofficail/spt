@@ -1,7 +1,7 @@
 import { Right } from '../service/spt-client/types';
 import { Section } from '../components/section';
 import Image from 'next/image';
-import { cn } from '@nextui-org/theme';
+import { cn } from "@heroui/theme";
 import RightWrench from '../assets/svg/right-wrench.svg';
 
 export const RightsSection = ({ rights }: { rights: Right[] }) => {

@@ -6,7 +6,7 @@ import { IoPricetagOutline } from 'react-icons/io5';
 import Background from '../assets/images/offers-bg.jpg';
 import Gear from '../assets/svg/gear.svg';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
-import { cn } from '@nextui-org/theme';
+import { cn } from "@heroui/theme";
 import { Navigation } from 'swiper/modules';
 import { Offer } from '@spt/core';
 

@@ -1,4 +1,4 @@
-import { Card, CardBody, CardHeader } from '@nextui-org/card';
+import { Card, CardBody, CardHeader } from "@heroui/card";
 import Image from 'next/image';
 import EnvatoSvg from './assets/envato.svg';
 import StarSvg from './assets/star.svg';
@@ -9,7 +9,7 @@ import ServicesSvg from './assets/services.svg';
 import YesSvg from './assets/yes.svg';
 import NoSvg from './assets/no.svg';
 import { IProvider } from './types';
-import { Divider } from '@nextui-org/divider';
+import { Divider } from "@heroui/divider";
 import { useTranslations } from 'next-intl';
 import { Breadcrumbs } from '../../ui/breadcrumbs';
 import { PrimaryLink } from '../../ui/primary-button';

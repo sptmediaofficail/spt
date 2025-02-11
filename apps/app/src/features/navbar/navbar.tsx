@@ -2,14 +2,14 @@
 import React, { useState } from 'react';
 import LogoColored from '../../assets/logo-colored.svg';
 import Image from 'next/image';
-import { Input } from '@nextui-org/input';
+import { Input } from "@heroui/input";
 import {
   Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-} from '@nextui-org/dropdown';
-import { Avatar } from '@nextui-org/avatar';
+} from "@heroui/dropdown";
+import { Avatar } from "@heroui/avatar";
 import SearchIcon from './search-icon';
 import {
   Navbar as NextUINavbar,
@@ -18,7 +18,7 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
-} from '@nextui-org/navbar';
+} from "@heroui/navbar";
 import { useTranslations } from 'next-intl';
 import { useUserStore } from '../auth/user-store';
 import { useLogout } from '../auth/login/use-logout';
@@ -38,11 +38,11 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 import NewNotificationSvg from './assets/new-notifications.svg';
 import MenuIcon from './assets/menu-icon.svg';
 import MenuIconOpened from './assets/menu-icon-opened.svg';
-import { Divider } from '@nextui-org/divider';
-import { cn } from '@nextui-org/theme';
+import { Divider } from "@heroui/divider";
+import { cn } from "@heroui/theme";
 import Link from 'next/link';
 import { PrimaryButton } from '../../ui/primary-button';
-import { Card } from '@nextui-org/card';
+import { Card } from "@heroui/card";
 import { usePathname } from 'next/navigation';
 
 const menuItems = [

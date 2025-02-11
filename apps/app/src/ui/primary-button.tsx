@@ -1,6 +1,6 @@
 'use client';
-import { Button, ButtonProps } from '@nextui-org/button';
-import { cn } from '@nextui-org/theme';
+import { Button, ButtonProps } from "@heroui/button";
+import { cn } from "@heroui/theme";
 import Link from 'next/link';
 
 type PrimaryButtonProps = ButtonProps & {

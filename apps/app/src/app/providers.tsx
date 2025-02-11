@@ -1,5 +1,5 @@
 'use client';
-import { NextUIProvider } from '@nextui-org/system';
+import { HeroUIProvider } from "@heroui/system";
 import { ReactNode, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { OpenAPI } from '@spt/api-sdk';
@@ -33,9 +33,9 @@ export const UIProvider = ({
       })
   );
   return (
-    <NextUIProvider navigate={useRouter} locale={locale}>
+    <HeroUIProvider navigate={useRouter} locale={locale}>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 };
 

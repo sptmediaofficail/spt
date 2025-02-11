@@ -1,4 +1,4 @@
-import { cn } from '@nextui-org/theme';
+import { cn } from "@heroui/theme";
 import { ReactNode } from 'react';
 import Image from 'next/image';
 import BGMobile from '../../assets/mobile-auth-background.svg';

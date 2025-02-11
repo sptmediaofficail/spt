@@ -1,5 +1,5 @@
 import { HTMLProps, ReactNode } from 'react';
-import { cn } from '@nextui-org/theme';
+import { cn } from "@heroui/theme";
 
 export const Section = (
   props: HTMLProps<any> & {

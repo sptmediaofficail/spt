@@ -1,5 +1,5 @@
 ﻿import React, { KeyboardEvent, useEffect, useRef, useState } from 'react';
-import { cn } from '@nextui-org/theme';
+import { cn } from "@heroui/theme";
 
 interface OtpInputProps {
   boxCount: number;

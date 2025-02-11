@@ -1,6 +1,6 @@
 import { GoArrowLeft } from 'react-icons/go';
-import { cn } from '@nextui-org/theme';
-import { Link, LinkProps } from '@nextui-org/link';
+import { cn } from "@heroui/theme";
+import { Link, LinkProps } from "@heroui/link";
 
 export function SecondButton(
   props: LinkProps & { text: string; color: string }

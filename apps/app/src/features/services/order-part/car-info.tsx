@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Controller, useFormContext, useWatch } from 'react-hook-form';
-import { Select, SelectItem } from '@nextui-org/select';
+import { Select, SelectItem } from "@heroui/select";
 import { FormOrderParts } from './types';
 import { InfiniteSelect } from '../../../ui/infinite-select';
 import { Brand, useBrandsInfinity } from '../../brands/use-brands';

@@ -6,14 +6,14 @@ import {
   ModalFooter,
   ModalHeader,
   UseDisclosureProps,
-} from '@nextui-org/modal';
+} from "@heroui/modal";
 import { useTranslations } from 'next-intl';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { PrimaryDivider } from '../../../ui/divider';
-import { Button } from '@nextui-org/button';
+import { Button } from "@heroui/button";
 import { BiMinus, BiPlus } from 'react-icons/bi';
-import { Checkbox, CheckboxGroup } from '@nextui-org/checkbox';
-import { Textarea } from '@nextui-org/input';
+import { Checkbox, CheckboxGroup } from "@heroui/checkbox";
+import { Textarea } from "@heroui/input";
 import { PrimaryButton } from '../../../ui/primary-button';
 import { PartData } from './types';
 import { Input } from '../../../ui/input';

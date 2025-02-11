@@ -8,7 +8,7 @@ import AddParts from './assets/add-parts.svg';
 import PlusIcon from './assets/white-plus-icon.svg';
 import PrimaryPlusIcon from './assets/plus-icon.svg';
 import { IoMdInformationCircleOutline } from 'react-icons/io';
-import { useDisclosure } from '@nextui-org/modal';
+import { useDisclosure } from "@heroui/modal";
 import { DeleteModal } from './part-modal';
 import { useState } from 'react';
 

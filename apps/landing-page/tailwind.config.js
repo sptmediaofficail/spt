@@ -1,4 +1,4 @@
-const { nextui } = require('@nextui-org/theme');
+const { heroui } = require("@heroui/theme");
 const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');
 const { join } = require('path');
 const defaultTheme = require('tailwindcss/defaultTheme');
@@ -11,13 +11,13 @@ module.exports = {
       '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
     ),
     ...createGlobPatternsForDependencies(__dirname),
-    '../../node_modules/@nextui-org/theme/dist/components/*.js',
+    "../../node_modules/@heroui/theme/dist/components/*.js",
   ],
   theme: {
     extend: {},
   },
   plugins: [
-    nextui({
+    heroui({
       darkMode: 'class',
       addCommonColors: true,
       themes: {
