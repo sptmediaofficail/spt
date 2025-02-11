@@ -105,7 +105,7 @@ export const useOrderForm = () => {
 
   const processOrder = async () => {
     const data = form.getValues();
-    toast.promise(
+    await toast.promise(
       resolveAfterDelay(
         useOrderService.mutateAsync({
           formData: orderAdapter(data),
