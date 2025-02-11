@@ -522,8 +522,10 @@ export interface paths {
         get: {
             parameters: {
                 query?: {
-                    /** @example 50 */
+                    /** @example 10 */
                     paginate?: number;
+                    /** @example 1 */
+                    page?: number;
                 };
                 header?: {
                     /**
@@ -759,7 +761,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/brands/Alfa_Romeo/models": {
+    "/brands/{brandId}/models": {
         parameters: {
             query?: never;
             header?: never;
@@ -769,7 +771,12 @@ export interface paths {
         /** index */
         get: {
             parameters: {
-                query?: never;
+                query?: {
+                    /** @example 1 */
+                    paginate?: number;
+                    /** @example 1 */
+                    page?: number;
+                };
                 header?: {
                     /**
                      * @description API
@@ -782,7 +789,10 @@ export interface paths {
                      */
                     "Content-Language"?: string;
                 };
-                path?: never;
+                path: {
+                    /** @example Alfa_Romeo */
+                    brandId: string;
+                };
                 cookie?: never;
             };
             requestBody?: never;
@@ -925,6 +935,8 @@ export interface paths {
                          * @example 02b915a7-5a56-4711-8b4a-eb110408a090
                          */
                         provider_id?: string;
+                        /** @example 0 */
+                        only_my_city?: number;
                     };
                 };
             };
@@ -946,7 +958,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/vin/JN8AT3MM3PW009894": {
+    "/vin/{vin}": {
         parameters: {
             query?: never;
             header?: never;
@@ -969,7 +981,10 @@ export interface paths {
                      */
                     "Content-Language"?: string;
                 };
-                path?: never;
+                path: {
+                    /** @example JTHBK1GG3E2131249 */
+                    vin: string;
+                };
                 cookie?: never;
             };
             requestBody?: never;
@@ -2223,6 +2238,97 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/admin/brands": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** index */
+        get: {
+            parameters: {
+                query?: {
+                    /** @example 100 */
+                    paginate?: number;
+                    /** @example 1 */
+                    page?: number;
+                };
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successful response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": unknown;
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/admin/brands/Lamborghini": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** update */
+        put: {
+            parameters: {
+                query?: never;
+                header?: {
+                    /** @example application/json */
+                    "Content-Type"?: string;
+                };
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: {
+                content: {
+                    "application/x-www-form-urlencoded": {
+                        /** @example  lamborghini */
+                        name_en?: string;
+                        /** @example لامبورجيني */
+                        name_ar?: string;
+                        /** @example 1 */
+                        order?: number;
+                    };
+                };
+            };
+            responses: {
+                /** @description Successful response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": unknown;
+                    };
+                };
+            };
+        };
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/admin/provider-profiles": {
         parameters: {
             query?: never;
@@ -3387,6 +3493,10 @@ export interface paths {
                         phone_image?: string;
                         /** Format: binary */
                         web_image?: string;
+                        /** @example osama */
+                        name?: string;
+                        /** @example test */
+                        comment?: string;
                     };
                 };
             };
@@ -3524,7 +3634,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/admin/pages/rights": {
+    "/admin/pages/{type}": {
         parameters: {
             query?: never;
             header?: never;
@@ -3536,7 +3646,13 @@ export interface paths {
             parameters: {
                 query?: never;
                 header?: never;
-                path?: never;
+                path: {
+                    /**
+                     * @description privacy or rights
+                     * @example privacy
+                     */
+                    type: string;
+                };
                 cookie?: never;
             };
             requestBody?: never;
@@ -3644,7 +3760,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/admin/pages/5": {
+    "/admin/pages/3": {
         parameters: {
             query?: never;
             header?: never;
@@ -3705,6 +3821,219 @@ export interface paths {
         trace?: never;
     };
     "/admin/pages/51a7447f-3bfd-4e89-a7f3-1969c8fb9330": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /** delete */
+        delete: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successful response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": unknown;
+                    };
+                };
+            };
+        };
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/admin/terms/{type}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** get terms by type */
+        get: {
+            parameters: {
+                query?: {
+                    /** @example client */
+                    category?: string;
+                };
+                header?: never;
+                path: {
+                    /**
+                     * @description terms or commission
+                     * @example terms
+                     */
+                    type: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successful response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": unknown;
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/admin/terms/terms/paginated": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** get terms by type paginated */
+        get: {
+            parameters: {
+                query?: {
+                    /** @example 1 */
+                    page?: number;
+                    /** @example 10 */
+                    paginate?: number;
+                };
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successful response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": unknown;
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/admin/terms": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** create */
+        post: {
+            parameters: {
+                query?: never;
+                header?: {
+                    /** @example application/json */
+                    Accept?: string;
+                };
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: {
+                content: {
+                    "application/json": Record<string, never>;
+                };
+            };
+            responses: {
+                /** @description Successful response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": unknown;
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/admin/terms/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** update */
+        post: {
+            parameters: {
+                query?: never;
+                header?: {
+                    /** @example application/json */
+                    "Content-Type"?: string;
+                    /** @example application/json */
+                    Accept?: string;
+                };
+                path: {
+                    /** @example 1 */
+                    id: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: {
+                content: {
+                    "*/*": string;
+                };
+            };
+            responses: {
+                /** @description Successful response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": unknown;
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/admin/terms/5": {
         parameters: {
             query?: never;
             header?: never;
@@ -6770,9 +7099,13 @@ export interface paths {
                 query?: {
                     /**
                      * @description receiving_offer - accepted - completed
-                     * @example accepted
+                     * @example receiving_offer
                      */
                     "status[]"?: string;
+                    /** @example 10 */
+                    paginate?: number;
+                    /** @example 1 */
+                    page?: number;
                 };
                 header?: {
                     /**
@@ -6810,7 +7143,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/client/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224": {
+    "/client/orders/{id}": {
         parameters: {
             query?: never;
             header?: never;
@@ -6833,7 +7166,10 @@ export interface paths {
                      */
                     "Content-Language"?: string;
                 };
-                path?: never;
+                path: {
+                    /** @example c5ad5169-f88d-4acc-8d4f-6c985706b224 */
+                    id: string;
+                };
                 cookie?: never;
             };
             requestBody?: never;
@@ -7951,6 +8287,89 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/terms/{type}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** get term by type */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /**
+                     * @description terms or commission
+                     * @example terms
+                     */
+                    type: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successful response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": unknown;
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/terms/commission/paginated": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** get term by type paginated */
+        get: {
+            parameters: {
+                query?: {
+                    /** @example 1 */
+                    page?: number;
+                    /** @example 10 */
+                    paginate?: number;
+                };
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successful response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": unknown;
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/platform-reviews": {
         parameters: {
             query?: never;
@@ -8486,12 +8905,7 @@ export interface paths {
         /** most_rated_providers */
         get: {
             parameters: {
-                query?: {
-                    /** @example 1 */
-                    page?: number;
-                    /** @example 20 */
-                    paginate?: number;
-                };
+                query?: never;
                 header?: never;
                 path?: never;
                 cookie?: never;

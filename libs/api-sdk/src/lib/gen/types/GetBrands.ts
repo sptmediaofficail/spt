@@ -3,6 +3,10 @@ export type GetBrandsQueryParams = {
      * @type integer | undefined
     */
     paginate?: number;
+    /**
+     * @type integer | undefined
+    */
+    page?: number;
 };
 export type GetBrandsHeaderParams = {
     /**

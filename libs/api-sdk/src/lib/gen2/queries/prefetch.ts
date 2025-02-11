@@ -1,7 +1,7 @@
 // generated with @7nohe/openapi-react-query-codegen@1.6.1 
 
 import { type QueryClient } from "@tanstack/react-query";
-import { AdminAdminOrdersService, AdminCitiesService, AdminCityServiceService, AdminCommissionsService, AdminLandingAboutSectionsService, AdminLandingAboutService, AdminLandingDownloadSectionService, AdminLandingGuaranteeRightService, AdminLandingHowHelpService, AdminLandingPartnersService, AdminLandingSiteOfferService, AdminLandingSlidersService, AdminMessagesService, AdminMessageTemplatesService, AdminPagesService, AdminPermissionGroupsService, AdminPermissionsService, AdminPlatformReviewsService, AdminProviderProfilesService, AdminProviderSubscriptionPlansService, AdminServicesService, AdminTicketsService, AdminUsersService, AuthenticationService, BrandModelsService, BrandService, CitiesService, ClientClientOrdersService, ClientServicesService, LandingService, MessagesService, NotificationService, PagesService, PlatformReviewsService, ProviderProviderOrdersService, ProviderProviderProfileService, ProviderProviderSubscriptionService, SettingsService, SiteOffersService, TicketService, VinService } from "../requests/services.gen";
+import { AdminAdminOrdersService, AdminBrandsService, AdminCitiesService, AdminCityServiceService, AdminCommissionsService, AdminLandingAboutSectionsService, AdminLandingAboutService, AdminLandingDownloadSectionService, AdminLandingGuaranteeRightService, AdminLandingHowHelpService, AdminLandingPartnersService, AdminLandingSiteOfferService, AdminLandingSlidersService, AdminMessagesService, AdminMessageTemplatesService, AdminPagesService, AdminPermissionGroupsService, AdminPermissionsService, AdminPlatformReviewsService, AdminProviderProfilesService, AdminProviderSubscriptionPlansService, AdminServicesService, AdminTermsService, AdminTicketsService, AdminUsersService, AuthenticationService, BrandModelsService, BrandService, CitiesService, ClientClientOrdersService, ClientServicesService, LandingService, MessagesService, NotificationService, PagesService, PlatformReviewsService, ProviderProviderOrdersService, ProviderProviderProfileService, ProviderProviderSubscriptionService, SettingsService, SiteOffersService, TermsService, TicketService, VinService } from "../requests/services.gen";
 import * as Common from "./common";
 /**
 * me
@@ -267,6 +267,18 @@ export const prefetchUseAdminCitiesServiceGetAdminCities = (queryClient: QueryCl
 * @returns unknown Successful response
 * @throws ApiError
 */
+export const prefetchUseAdminBrandsServiceGetAdminBrands = (queryClient: QueryClient, { page, paginate }: {
+  page?: number;
+  paginate?: number;
+} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseAdminBrandsServiceGetAdminBrandsKeyFn({ page, paginate }), queryFn: () => AdminBrandsService.getAdminBrands({ page, paginate }) });
+/**
+* index
+* @param data The data for the request.
+* @param data.paginate
+* @param data.page
+* @returns unknown Successful response
+* @throws ApiError
+*/
 export const prefetchUseAdminProviderProfilesServiceGetAdminProviderProfiles = (queryClient: QueryClient, { page, paginate }: {
   page?: number;
   paginate?: number;
@@ -359,10 +371,14 @@ export const prefetchUseAdminPlatformReviewsServiceGetAdminPlatformReviews = (qu
 } = {}) => queryClient.prefetchQuery({ queryKey: Common.UseAdminPlatformReviewsServiceGetAdminPlatformReviewsKeyFn({ page, paginate }), queryFn: () => AdminPlatformReviewsService.getAdminPlatformReviews({ page, paginate }) });
 /**
 * get page by type
+* @param data The data for the request.
+* @param data.type privacy or rights
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const prefetchUseAdminPagesServiceGetAdminPagesRights = (queryClient: QueryClient) => queryClient.prefetchQuery({ queryKey: Common.UseAdminPagesServiceGetAdminPagesRightsKeyFn(), queryFn: () => AdminPagesService.getAdminPagesRights() });
+export const prefetchUseAdminPagesServiceGetAdminPagesByType = (queryClient: QueryClient, { type }: {
+  type: string;
+}) => queryClient.prefetchQuery({ queryKey: Common.UseAdminPagesServiceGetAdminPagesByTypeKeyFn({ type }), queryFn: () => AdminPagesService.getAdminPagesByType({ type }) });
 /**
 * get page by type paginated
 * @param data The data for the request.
@@ -375,6 +391,30 @@ export const prefetchUseAdminPagesServiceGetAdminPagesRightsPaginated = (queryCl
   page?: number;
   paginate?: number;
 } = {}) => queryClient.prefetchQuery({ queryKey: Common.UseAdminPagesServiceGetAdminPagesRightsPaginatedKeyFn({ page, paginate }), queryFn: () => AdminPagesService.getAdminPagesRightsPaginated({ page, paginate }) });
+/**
+* get terms by type
+* @param data The data for the request.
+* @param data.type terms or commission
+* @param data.category
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const prefetchUseAdminTermsServiceGetAdminTermsByType = (queryClient: QueryClient, { category, type }: {
+  category?: string;
+  type: string;
+}) => queryClient.prefetchQuery({ queryKey: Common.UseAdminTermsServiceGetAdminTermsByTypeKeyFn({ category, type }), queryFn: () => AdminTermsService.getAdminTermsByType({ category, type }) });
+/**
+* get terms by type paginated
+* @param data The data for the request.
+* @param data.page
+* @param data.paginate
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const prefetchUseAdminTermsServiceGetAdminTermsTermsPaginated = (queryClient: QueryClient, { page, paginate }: {
+  page?: number;
+  paginate?: number;
+} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseAdminTermsServiceGetAdminTermsTermsPaginatedKeyFn({ page, paginate }), queryFn: () => AdminTermsService.getAdminTermsTermsPaginated({ page, paginate }) });
 /**
 * index
 * @param data The data for the request.
@@ -580,15 +620,17 @@ export const prefetchUseClientClientOrdersServiceGetClientOrders = (queryClient:
 /**
 * details
 * @param data The data for the request.
+* @param data.id
 * @param data.xRequestedWith API
 * @param data.contentLanguage accepts: ar, en
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const prefetchUseClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224 = (queryClient: QueryClient, { contentLanguage, xRequestedWith }: {
+export const prefetchUseClientClientOrdersServiceGetClientOrdersById = (queryClient: QueryClient, { contentLanguage, id, xRequestedWith }: {
   contentLanguage?: string;
+  id: string;
   xRequestedWith?: string;
-} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224KeyFn({ contentLanguage, xRequestedWith }), queryFn: () => ClientClientOrdersService.getClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224({ contentLanguage, xRequestedWith }) });
+}) => queryClient.prefetchQuery({ queryKey: Common.UseClientClientOrdersServiceGetClientOrdersByIdKeyFn({ contentLanguage, id, xRequestedWith }), queryFn: () => ClientClientOrdersService.getClientOrdersById({ contentLanguage, id, xRequestedWith }) });
 /**
 * list
 * @param data The data for the request.
@@ -743,6 +785,28 @@ export const prefetchUsePagesServiceGetPagesRightsPaginated = (queryClient: Quer
   page?: number;
   paginate?: number;
 } = {}) => queryClient.prefetchQuery({ queryKey: Common.UsePagesServiceGetPagesRightsPaginatedKeyFn({ page, paginate }), queryFn: () => PagesService.getPagesRightsPaginated({ page, paginate }) });
+/**
+* get term by type
+* @param data The data for the request.
+* @param data.type terms or commission
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const prefetchUseTermsServiceGetTermsByType = (queryClient: QueryClient, { type }: {
+  type: string;
+}) => queryClient.prefetchQuery({ queryKey: Common.UseTermsServiceGetTermsByTypeKeyFn({ type }), queryFn: () => TermsService.getTermsByType({ type }) });
+/**
+* get term by type paginated
+* @param data The data for the request.
+* @param data.page
+* @param data.paginate
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const prefetchUseTermsServiceGetTermsCommissionPaginated = (queryClient: QueryClient, { page, paginate }: {
+  page?: number;
+  paginate?: number;
+} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseTermsServiceGetTermsCommissionPaginatedKeyFn({ page, paginate }), queryFn: () => TermsService.getTermsCommissionPaginated({ page, paginate }) });
 /**
 * list
 * @param data The data for the request.

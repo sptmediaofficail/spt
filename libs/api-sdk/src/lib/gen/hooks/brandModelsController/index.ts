@@ -1,1 +1,1 @@
-export * from "./useGetBrandsAlfaRomeoModels";
+export * from "./useGetBrandsBrandidModels";

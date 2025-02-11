@@ -1,7 +1,7 @@
 // generated with @7nohe/openapi-react-query-codegen@1.6.1 
 
 import { UseQueryResult } from "@tanstack/react-query";
-import { AdminAdminOrdersService, AdminAuthService, AdminCitiesService, AdminCityServiceService, AdminCommissionsService, AdminCustomNotificationService, AdminLandingAboutSectionsService, AdminLandingAboutService, AdminLandingDownloadSectionService, AdminLandingGuaranteeRightService, AdminLandingHowHelpService, AdminLandingPartnersService, AdminLandingSiteOfferService, AdminLandingSlidersService, AdminMessagesService, AdminMessageTemplatesService, AdminPagesService, AdminPermissionGroupsService, AdminPermissionsService, AdminPlatformReviewsService, AdminProviderProfilesService, AdminProviderSubscriptionPlansService, AdminServicesService, AdminSettingService, AdminTicketsService, AdminUsersService, AuthenticationService, BrandModelsService, BrandService, CallService, ChatService, CitiesService, ClientClientOfferService, ClientClientOrdersService, ClientServicesService, LandingService, MessagesService, NotificationService, OrderSparePartService, PagesService, PlatformReviewsService, ProviderProviderOfferService, ProviderProviderOrdersService, ProviderProviderProfileService, ProviderProviderSubscriptionService, SettingsService, SiteOffersService, TicketService, VinService } from "../requests/services.gen";
+import { AdminAdminOrdersService, AdminAuthService, AdminBrandsService, AdminCitiesService, AdminCityServiceService, AdminCommissionsService, AdminCustomNotificationService, AdminLandingAboutSectionsService, AdminLandingAboutService, AdminLandingDownloadSectionService, AdminLandingGuaranteeRightService, AdminLandingHowHelpService, AdminLandingPartnersService, AdminLandingSiteOfferService, AdminLandingSlidersService, AdminMessagesService, AdminMessageTemplatesService, AdminPagesService, AdminPermissionGroupsService, AdminPermissionsService, AdminPlatformReviewsService, AdminProviderProfilesService, AdminProviderSubscriptionPlansService, AdminServicesService, AdminSettingService, AdminTermsService, AdminTicketsService, AdminUsersService, AuthenticationService, BrandModelsService, BrandService, CallService, ChatService, CitiesService, ClientClientOfferService, ClientClientOrdersService, ClientServicesService, LandingService, MessagesService, NotificationService, OrderSparePartService, PagesService, PlatformReviewsService, ProviderProviderOfferService, ProviderProviderOrdersService, ProviderProviderProfileService, ProviderProviderSubscriptionService, SettingsService, SiteOffersService, TermsService, TicketService, VinService } from "../requests/services.gen";
 export type AuthenticationServiceGetSharedAuthMeDefaultResponse = Awaited<ReturnType<typeof AuthenticationService.getSharedAuthMe>>;
 export type AuthenticationServiceGetSharedAuthMeQueryResult<TData = AuthenticationServiceGetSharedAuthMeDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const useAuthenticationServiceGetSharedAuthMeKey = "AuthenticationServiceGetSharedAuthMe";
@@ -149,6 +149,13 @@ export const UseAdminCitiesServiceGetAdminCitiesKeyFn = ({ page, paginate, searc
   paginate?: number;
   search?: string;
 } = {}, queryKey?: Array<unknown>) => [useAdminCitiesServiceGetAdminCitiesKey, ...(queryKey ?? [{ page, paginate, search }])];
+export type AdminBrandsServiceGetAdminBrandsDefaultResponse = Awaited<ReturnType<typeof AdminBrandsService.getAdminBrands>>;
+export type AdminBrandsServiceGetAdminBrandsQueryResult<TData = AdminBrandsServiceGetAdminBrandsDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useAdminBrandsServiceGetAdminBrandsKey = "AdminBrandsServiceGetAdminBrands";
+export const UseAdminBrandsServiceGetAdminBrandsKeyFn = ({ page, paginate }: {
+  page?: number;
+  paginate?: number;
+} = {}, queryKey?: Array<unknown>) => [useAdminBrandsServiceGetAdminBrandsKey, ...(queryKey ?? [{ page, paginate }])];
 export type AdminProviderProfilesServiceGetAdminProviderProfilesDefaultResponse = Awaited<ReturnType<typeof AdminProviderProfilesService.getAdminProviderProfiles>>;
 export type AdminProviderProfilesServiceGetAdminProviderProfilesQueryResult<TData = AdminProviderProfilesServiceGetAdminProviderProfilesDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const useAdminProviderProfilesServiceGetAdminProviderProfilesKey = "AdminProviderProfilesServiceGetAdminProviderProfiles";
@@ -206,10 +213,12 @@ export const UseAdminPlatformReviewsServiceGetAdminPlatformReviewsKeyFn = ({ pag
   page?: number;
   paginate?: number;
 } = {}, queryKey?: Array<unknown>) => [useAdminPlatformReviewsServiceGetAdminPlatformReviewsKey, ...(queryKey ?? [{ page, paginate }])];
-export type AdminPagesServiceGetAdminPagesRightsDefaultResponse = Awaited<ReturnType<typeof AdminPagesService.getAdminPagesRights>>;
-export type AdminPagesServiceGetAdminPagesRightsQueryResult<TData = AdminPagesServiceGetAdminPagesRightsDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
-export const useAdminPagesServiceGetAdminPagesRightsKey = "AdminPagesServiceGetAdminPagesRights";
-export const UseAdminPagesServiceGetAdminPagesRightsKeyFn = (queryKey?: Array<unknown>) => [useAdminPagesServiceGetAdminPagesRightsKey, ...(queryKey ?? [])];
+export type AdminPagesServiceGetAdminPagesByTypeDefaultResponse = Awaited<ReturnType<typeof AdminPagesService.getAdminPagesByType>>;
+export type AdminPagesServiceGetAdminPagesByTypeQueryResult<TData = AdminPagesServiceGetAdminPagesByTypeDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useAdminPagesServiceGetAdminPagesByTypeKey = "AdminPagesServiceGetAdminPagesByType";
+export const UseAdminPagesServiceGetAdminPagesByTypeKeyFn = ({ type }: {
+  type: string;
+}, queryKey?: Array<unknown>) => [useAdminPagesServiceGetAdminPagesByTypeKey, ...(queryKey ?? [{ type }])];
 export type AdminPagesServiceGetAdminPagesRightsPaginatedDefaultResponse = Awaited<ReturnType<typeof AdminPagesService.getAdminPagesRightsPaginated>>;
 export type AdminPagesServiceGetAdminPagesRightsPaginatedQueryResult<TData = AdminPagesServiceGetAdminPagesRightsPaginatedDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const useAdminPagesServiceGetAdminPagesRightsPaginatedKey = "AdminPagesServiceGetAdminPagesRightsPaginated";
@@ -217,6 +226,20 @@ export const UseAdminPagesServiceGetAdminPagesRightsPaginatedKeyFn = ({ page, pa
   page?: number;
   paginate?: number;
 } = {}, queryKey?: Array<unknown>) => [useAdminPagesServiceGetAdminPagesRightsPaginatedKey, ...(queryKey ?? [{ page, paginate }])];
+export type AdminTermsServiceGetAdminTermsByTypeDefaultResponse = Awaited<ReturnType<typeof AdminTermsService.getAdminTermsByType>>;
+export type AdminTermsServiceGetAdminTermsByTypeQueryResult<TData = AdminTermsServiceGetAdminTermsByTypeDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useAdminTermsServiceGetAdminTermsByTypeKey = "AdminTermsServiceGetAdminTermsByType";
+export const UseAdminTermsServiceGetAdminTermsByTypeKeyFn = ({ category, type }: {
+  category?: string;
+  type: string;
+}, queryKey?: Array<unknown>) => [useAdminTermsServiceGetAdminTermsByTypeKey, ...(queryKey ?? [{ category, type }])];
+export type AdminTermsServiceGetAdminTermsTermsPaginatedDefaultResponse = Awaited<ReturnType<typeof AdminTermsService.getAdminTermsTermsPaginated>>;
+export type AdminTermsServiceGetAdminTermsTermsPaginatedQueryResult<TData = AdminTermsServiceGetAdminTermsTermsPaginatedDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useAdminTermsServiceGetAdminTermsTermsPaginatedKey = "AdminTermsServiceGetAdminTermsTermsPaginated";
+export const UseAdminTermsServiceGetAdminTermsTermsPaginatedKeyFn = ({ page, paginate }: {
+  page?: number;
+  paginate?: number;
+} = {}, queryKey?: Array<unknown>) => [useAdminTermsServiceGetAdminTermsTermsPaginatedKey, ...(queryKey ?? [{ page, paginate }])];
 export type AdminProviderSubscriptionPlansServiceGetAdminProviderSubscriptionPlansDefaultResponse = Awaited<ReturnType<typeof AdminProviderSubscriptionPlansService.getAdminProviderSubscriptionPlans>>;
 export type AdminProviderSubscriptionPlansServiceGetAdminProviderSubscriptionPlansQueryResult<TData = AdminProviderSubscriptionPlansServiceGetAdminProviderSubscriptionPlansDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const useAdminProviderSubscriptionPlansServiceGetAdminProviderSubscriptionPlansKey = "AdminProviderSubscriptionPlansServiceGetAdminProviderSubscriptionPlans";
@@ -336,13 +359,14 @@ export const UseClientClientOrdersServiceGetClientOrdersKeyFn = ({ contentLangua
   statusArray?: string;
   xRequestedWith?: string;
 } = {}, queryKey?: Array<unknown>) => [useClientClientOrdersServiceGetClientOrdersKey, ...(queryKey ?? [{ contentLanguage, page, paginate, statusArray, xRequestedWith }])];
-export type ClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224DefaultResponse = Awaited<ReturnType<typeof ClientClientOrdersService.getClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224>>;
-export type ClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224QueryResult<TData = ClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224DefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
-export const useClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224Key = "ClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224";
-export const UseClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224KeyFn = ({ contentLanguage, xRequestedWith }: {
+export type ClientClientOrdersServiceGetClientOrdersByIdDefaultResponse = Awaited<ReturnType<typeof ClientClientOrdersService.getClientOrdersById>>;
+export type ClientClientOrdersServiceGetClientOrdersByIdQueryResult<TData = ClientClientOrdersServiceGetClientOrdersByIdDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useClientClientOrdersServiceGetClientOrdersByIdKey = "ClientClientOrdersServiceGetClientOrdersById";
+export const UseClientClientOrdersServiceGetClientOrdersByIdKeyFn = ({ contentLanguage, id, xRequestedWith }: {
   contentLanguage?: string;
+  id: string;
   xRequestedWith?: string;
-} = {}, queryKey?: Array<unknown>) => [useClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224Key, ...(queryKey ?? [{ contentLanguage, xRequestedWith }])];
+}, queryKey?: Array<unknown>) => [useClientClientOrdersServiceGetClientOrdersByIdKey, ...(queryKey ?? [{ contentLanguage, id, xRequestedWith }])];
 export type ClientServicesServiceGetClientServicesDefaultResponse = Awaited<ReturnType<typeof ClientServicesService.getClientServices>>;
 export type ClientServicesServiceGetClientServicesQueryResult<TData = ClientServicesServiceGetClientServicesDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const useClientServicesServiceGetClientServicesKey = "ClientServicesServiceGetClientServices";
@@ -432,6 +456,19 @@ export const UsePagesServiceGetPagesRightsPaginatedKeyFn = ({ page, paginate }: 
   page?: number;
   paginate?: number;
 } = {}, queryKey?: Array<unknown>) => [usePagesServiceGetPagesRightsPaginatedKey, ...(queryKey ?? [{ page, paginate }])];
+export type TermsServiceGetTermsByTypeDefaultResponse = Awaited<ReturnType<typeof TermsService.getTermsByType>>;
+export type TermsServiceGetTermsByTypeQueryResult<TData = TermsServiceGetTermsByTypeDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useTermsServiceGetTermsByTypeKey = "TermsServiceGetTermsByType";
+export const UseTermsServiceGetTermsByTypeKeyFn = ({ type }: {
+  type: string;
+}, queryKey?: Array<unknown>) => [useTermsServiceGetTermsByTypeKey, ...(queryKey ?? [{ type }])];
+export type TermsServiceGetTermsCommissionPaginatedDefaultResponse = Awaited<ReturnType<typeof TermsService.getTermsCommissionPaginated>>;
+export type TermsServiceGetTermsCommissionPaginatedQueryResult<TData = TermsServiceGetTermsCommissionPaginatedDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useTermsServiceGetTermsCommissionPaginatedKey = "TermsServiceGetTermsCommissionPaginated";
+export const UseTermsServiceGetTermsCommissionPaginatedKeyFn = ({ page, paginate }: {
+  page?: number;
+  paginate?: number;
+} = {}, queryKey?: Array<unknown>) => [useTermsServiceGetTermsCommissionPaginatedKey, ...(queryKey ?? [{ page, paginate }])];
 export type PlatformReviewsServiceGetPlatformReviewsDefaultResponse = Awaited<ReturnType<typeof PlatformReviewsService.getPlatformReviews>>;
 export type PlatformReviewsServiceGetPlatformReviewsQueryResult<TData = PlatformReviewsServiceGetPlatformReviewsDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const usePlatformReviewsServiceGetPlatformReviewsKey = "PlatformReviewsServiceGetPlatformReviews";
@@ -554,7 +591,9 @@ export type AdminPlatformReviewsServicePostAdminPlatformReviews5MutationResult =
 export type AdminPlatformReviewsServicePostAdminPlatformReviews51A7447f3Bfd4E89A7F31969C8Fb9330StopMutationResult = Awaited<ReturnType<typeof AdminPlatformReviewsService.postAdminPlatformReviews51A7447f3Bfd4E89A7F31969C8Fb9330Stop>>;
 export type AdminPlatformReviewsServicePostAdminPlatformReviews51A7447f3Bfd4E89A7F31969C8Fb9330RestoreMutationResult = Awaited<ReturnType<typeof AdminPlatformReviewsService.postAdminPlatformReviews51A7447f3Bfd4E89A7F31969C8Fb9330Restore>>;
 export type AdminPagesServicePostAdminPagesMutationResult = Awaited<ReturnType<typeof AdminPagesService.postAdminPages>>;
-export type AdminPagesServicePostAdminPages5MutationResult = Awaited<ReturnType<typeof AdminPagesService.postAdminPages5>>;
+export type AdminPagesServicePostAdminPages3MutationResult = Awaited<ReturnType<typeof AdminPagesService.postAdminPages3>>;
+export type AdminTermsServicePostAdminTermsMutationResult = Awaited<ReturnType<typeof AdminTermsService.postAdminTerms>>;
+export type AdminTermsServicePostAdminTermsByIdMutationResult = Awaited<ReturnType<typeof AdminTermsService.postAdminTermsById>>;
 export type AdminProviderSubscriptionPlansServicePostAdminProviderSubscriptionPlansMutationResult = Awaited<ReturnType<typeof AdminProviderSubscriptionPlansService.postAdminProviderSubscriptionPlans>>;
 export type AdminProviderSubscriptionPlansServicePostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704MutationResult = Awaited<ReturnType<typeof AdminProviderSubscriptionPlansService.postAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704>>;
 export type AdminProviderSubscriptionPlansServicePostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704StopMutationResult = Awaited<ReturnType<typeof AdminProviderSubscriptionPlansService.postAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Stop>>;
@@ -613,6 +652,7 @@ export type ProviderProviderOfferServicePostProviderOfferMutationResult = Awaite
 export type MessagesServicePostMessagesSendMutationResult = Awaited<ReturnType<typeof MessagesService.postMessagesSend>>;
 export type AuthenticationServicePutSharedAuthUpdateSettingsMutationResult = Awaited<ReturnType<typeof AuthenticationService.putSharedAuthUpdateSettings>>;
 export type AdminCitiesServicePutAdminCities81A53C0640694120B9Ae6A4314Cd4AdaMutationResult = Awaited<ReturnType<typeof AdminCitiesService.putAdminCities81A53C0640694120B9Ae6A4314Cd4Ada>>;
+export type AdminBrandsServicePutAdminBrandsLamborghiniMutationResult = Awaited<ReturnType<typeof AdminBrandsService.putAdminBrandsLamborghini>>;
 export type AdminUsersServicePutAdminUsersB2Ef1C4f918a4F349D2f97Ce28C2772FMutationResult = Awaited<ReturnType<typeof AdminUsersService.putAdminUsersB2Ef1C4f918a4F349D2f97Ce28C2772F>>;
 export type AdminCommissionsServicePutAdminCommissions51A7447f3Bfd4E89A7F31969C8Fb9330MutationResult = Awaited<ReturnType<typeof AdminCommissionsService.putAdminCommissions51A7447f3Bfd4E89A7F31969C8Fb9330>>;
 export type AdminCityServiceServicePutAdminCityServices13MutationResult = Awaited<ReturnType<typeof AdminCityServiceService.putAdminCityServices13>>;
@@ -623,6 +663,7 @@ export type AdminServicesServiceDeleteAdminServicesB4A072761Baf43B08068C03Fdabf2
 export type AdminCommissionsServiceDeleteAdminCommissions51A7447f3Bfd4E89A7F31969C8Fb9330MutationResult = Awaited<ReturnType<typeof AdminCommissionsService.deleteAdminCommissions51A7447f3Bfd4E89A7F31969C8Fb9330>>;
 export type AdminPlatformReviewsServiceDeleteAdminPlatformReviews51A7447f3Bfd4E89A7F31969C8Fb9330MutationResult = Awaited<ReturnType<typeof AdminPlatformReviewsService.deleteAdminPlatformReviews51A7447f3Bfd4E89A7F31969C8Fb9330>>;
 export type AdminPagesServiceDeleteAdminPages51A7447f3Bfd4E89A7F31969C8Fb9330MutationResult = Awaited<ReturnType<typeof AdminPagesService.deleteAdminPages51A7447f3Bfd4E89A7F31969C8Fb9330>>;
+export type AdminTermsServiceDeleteAdminTerms5MutationResult = Awaited<ReturnType<typeof AdminTermsService.deleteAdminTerms5>>;
 export type AdminProviderSubscriptionPlansServiceDeleteAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704MutationResult = Awaited<ReturnType<typeof AdminProviderSubscriptionPlansService.deleteAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704>>;
 export type AdminPermissionGroupsServiceDeleteAdminPermissionGroups51A7447f3Bfd4E89A7F31969C8Fb9330MutationResult = Awaited<ReturnType<typeof AdminPermissionGroupsService.deleteAdminPermissionGroups51A7447f3Bfd4E89A7F31969C8Fb9330>>;
 export type AdminLandingSlidersServiceDeleteAdminSliders6193D4CdCe8e4B79Ba467E3C086206F3MutationResult = Awaited<ReturnType<typeof AdminLandingSlidersService.deleteAdminSliders6193D4CdCe8e4B79Ba467E3C086206F3>>;

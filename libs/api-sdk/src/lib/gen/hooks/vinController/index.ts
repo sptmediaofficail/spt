@@ -1,1 +1,1 @@
-export * from "./useGetVinJn8at3mm3pw009894";
+export * from "./useGetVinVin";

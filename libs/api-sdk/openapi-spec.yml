@@ -4,7 +4,6 @@ info:
   version: 1.0.0
 servers:
   - url: http://{{local}}
-  - url: http://{{url}}
 components:
   securitySchemes:
     bearerAuth:
@@ -13,6 +12,8 @@ components:
     noauthAuth:
       type: http
       scheme: noauth
+security:
+  - bearerAuth: []
 tags:
   - name: Authentication
   - name: Brand
@@ -29,6 +30,7 @@ tags:
   - name: Admin > Admin Orders
   - name: Admin > Setting
   - name: Admin > Cities
+  - name: Admin > Brands
   - name: Admin > ProviderProfiles
   - name: Admin > Users
   - name: Admin > Message Templates
@@ -36,6 +38,7 @@ tags:
   - name: Admin > Commissions
   - name: Admin > platform-reviews
   - name: Admin > Pages
+  - name: Admin > terms
   - name: Admin > Provider subscription plans
   - name: Admin > cityService
   - name: Admin > Auth
@@ -63,6 +66,7 @@ tags:
   - name: Provider > Provider Orders
   - name: Provider > Provider Offer
   - name: Pages
+  - name: terms
   - name: platform-reviews
   - name: Settings
   - name: Messages
@@ -1626,6 +1630,58 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/brands:
+    get:
+      tags:
+        - Admin > Brands
+      summary: index
+      parameters:
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '100'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/brands/Lamborghini:
+    put:
+      tags:
+        - Admin > Brands
+      summary: update
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name_en:
+                  type: string
+                  example: ' lamborghini'
+                name_ar:
+                  type: string
+                  example: لامبورجيني
+                order:
+                  type: integer
+                  example: '1'
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/provider-profiles:
     get:
       tags:
@@ -2266,6 +2322,12 @@ paths:
                 web_image:
                   type: string
                   format: binary
+                name:
+                  type: string
+                  example: osama
+                comment:
+                  type: string
+                  example: test
       parameters:
         - name: Accept
           in: header
@@ -2319,13 +2381,19 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/pages/rights:
+  /admin/pages/{type}:
     get:
       tags:
         - Admin > Pages
       summary: get page by type
-      security:
-        - bearerAuth: []
+      parameters:
+        - name: type
+          in: path
+          schema:
+            type: string
+          required: true
+          description: privacy or rights
+          example: privacy
       responses:
         '200':
           description: Successful response
@@ -2380,7 +2448,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/pages/5:
+  /admin/pages/3:
     post:
       tags:
         - Admin > Pages
@@ -2425,6 +2493,131 @@ paths:
     delete:
       tags:
         - Admin > Pages
+      summary: delete
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/terms/{type}:
+    get:
+      tags:
+        - Admin > terms
+      summary: get terms by type
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: category
+          in: query
+          schema:
+            type: string
+          example: client
+        - name: type
+          in: path
+          schema:
+            type: string
+          required: true
+          description: terms or commission
+          example: terms
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/terms/terms/paginated:
+    get:
+      tags:
+        - Admin > terms
+      summary: get terms by type paginated
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/terms:
+    post:
+      tags:
+        - Admin > terms
+      summary: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title_ar: test
+                title_en: test
+                content_ar: test
+                content_en: test
+                order: '5'
+                type: terms
+                category: client
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/terms/{id}:
+    post:
+      tags:
+        - Admin > terms
+      summary: update
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\r\n    \"title_ar\": \"test11\",\r\n    \"title_en\":
+                \"test\",\r\n    \"content_ar\": \"test\",\r\n   
+                \"content_en\": \"test\",\r\n    \"order\": \"5\",\r\n   
+                \"type\":\"terms\",  // terms or commission\r\n    \"category\":
+                \"client\"  // client or provider or public\r\n}"
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/terms/5:
+    delete:
+      tags:
+        - Admin > terms
       summary: delete
       responses:
         '200':
@@ -4269,7 +4462,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224:
+  /client/orders/{id}:
     get:
       tags:
         - Client > Client Orders
@@ -4289,6 +4482,12 @@ paths:
             type: string
           description: 'accepts: ar, en'
           example: ar
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: c5ad5169-f88d-4acc-8d4f-6c985706b224
       responses:
         '200':
           description: Successful response
@@ -5001,6 +5200,45 @@ paths:
       tags:
         - Pages
       summary: get page by type paginated
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /terms/{type}:
+    get:
+      tags:
+        - terms
+      summary: get term by type
+      parameters:
+        - name: type
+          in: path
+          schema:
+            type: string
+          required: true
+          description: terms or commission
+          example: terms
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /terms/commission/paginated:
+    get:
+      tags:
+        - terms
+      summary: get term by type paginated
       parameters:
         - name: page
           in: query

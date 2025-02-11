@@ -1,4 +1,4 @@
-export type PostAdminPages5HeaderParams = {
+export type PostAdminPages3HeaderParams = {
     /**
      * @type string | undefined
     */
@@ -11,8 +11,8 @@ export type PostAdminPages5HeaderParams = {
 /**
  * @description Successful response
 */
-export type PostAdminPages5200 = any;
-export type PostAdminPages5MutationRequest = {
+export type PostAdminPages3200 = any;
+export type PostAdminPages3MutationRequest = {
     /**
      * @type string | undefined
     */
@@ -32,9 +32,9 @@ export type PostAdminPages5MutationRequest = {
     */
     image?: Blob;
 };
-export type PostAdminPages5MutationResponse = any;
-export type PostAdminPages5Mutation = {
-    Response: PostAdminPages5MutationResponse;
-    Request: PostAdminPages5MutationRequest;
-    HeaderParams: PostAdminPages5HeaderParams;
+export type PostAdminPages3MutationResponse = any;
+export type PostAdminPages3Mutation = {
+    Response: PostAdminPages3MutationResponse;
+    Request: PostAdminPages3MutationRequest;
+    HeaderParams: PostAdminPages3HeaderParams;
 };

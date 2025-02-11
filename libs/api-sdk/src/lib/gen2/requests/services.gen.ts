@@ -3,7 +3,7 @@
 import type { CancelablePromise } from './core/CancelablePromise';
 import { OpenAPI } from './core/OpenAPI';
 import { request as __request } from './core/request';
-import type { GetSharedAuthMeData, GetSharedAuthMeResponse, PostSharedAuthRegisterData, PostSharedAuthRegisterResponse, PostSharedAuthSendOtpData, PostSharedAuthSendOtpResponse, PostSharedAuthVerifyOtpData, PostSharedAuthVerifyOtpResponse, PostSharedAuthLogoutData, PostSharedAuthLogoutResponse, PostSharedAuthEditProfileData, PostSharedAuthEditProfileResponse, PostSharedAuthChangePhoneData, PostSharedAuthChangePhoneResponse, PostSharedAuthVerifyChangePhoneData, PostSharedAuthVerifyChangePhoneResponse, PutSharedAuthUpdateSettingsData, PutSharedAuthUpdateSettingsResponse, GetBrandsData, GetBrandsResponse, GetSiteOffersData, GetSiteOffersResponse, GetSiteOffersByIdData, GetSiteOffersByIdResponse, GetSiteOffersIdsData, GetSiteOffersIdsResponse, GetCitiesData, GetCitiesResponse, GetBrandsByBrandIdModelsData, GetBrandsByBrandIdModelsResponse, PostClientOrderSparePartData, PostClientOrderSparePartResponse, GetVinByVinData, GetVinByVinResponse, PostChatData, PostChatResponse, PostChatMessageData, PostChatMessageResponse, GetTicketsData, GetTicketsResponse, GetTicketB33C269eB489415E842F65472771A0F3Data, GetTicketB33C269eB489415E842F65472771A0F3Response, PostTicketData, PostTicketResponse, PostTicketMessageData, PostTicketMessageResponse, PostCallMakeData, PostCallMakeResponse, PostCallAcceptData, PostCallAcceptResponse, PostCallRefuseData, PostCallRefuseResponse, PostCallEndData, PostCallEndResponse, GetNotificationIndexData, GetNotificationIndexResponse, GetNotificationUnreadCountData, GetNotificationUnreadCountResponse, PostNotificationMarkAsReadData, PostNotificationMarkAsReadResponse, GetAdminOrdersData, GetAdminOrdersResponse, GetAdminOrders1D9De514C4E149878Eb90909556C7186Data, GetAdminOrders1D9De514C4E149878Eb90909556C7186Response, GetAdminOrders1D9De514C4E149878Eb90909556C7186OffersData, GetAdminOrders1D9De514C4E149878Eb90909556C7186OffersResponse, GetAdminOrders89572A05E77B48Dc8E1B645Fe0C82B6aChatData, GetAdminOrders89572A05E77B48Dc8E1B645Fe0C82B6aChatResponse, GetSettingCallsResponse, GetSettingData, GetSettingResponse, PostAdminSettingData, PostAdminSettingResponse, GetAdminCitiesData, GetAdminCitiesResponse, PostAdminCitiesData, PostAdminCitiesResponse, PutAdminCities81A53C0640694120B9Ae6A4314Cd4AdaData, PutAdminCities81A53C0640694120B9Ae6A4314Cd4AdaResponse, DeleteAdminCitiesB4A072761Baf43B08068C03Fdabf2626Response, PostAdminCities0E3685698D074EfbA367182Dd5E2Db42StopData, PostAdminCities0E3685698D074EfbA367182Dd5E2Db42StopResponse, PostAdminCities0E3685698D074EfbA367182Dd5E2Db42RestoreData, PostAdminCities0E3685698D074EfbA367182Dd5E2Db42RestoreResponse, GetAdminProviderProfilesData, GetAdminProviderProfilesResponse, PostAdminProviderProfilesVerify09D88C1dFd8A424D9E7cA5D2391Cdbd3Data, PostAdminProviderProfilesVerify09D88C1dFd8A424D9E7cA5D2391Cdbd3Response, PostAdminProviderProfilesDecline02B915A75A5647118B4aEb110408A090Data, PostAdminProviderProfilesDecline02B915A75A5647118B4aEb110408A090Response, PostAdminProviderProfilesStop02B915A75A5647118B4aEb110408A090Data, PostAdminProviderProfilesStop02B915A75A5647118B4aEb110408A090Response, PostAdminProviderProfilesRestore02B915A75A5647118B4aEb110408A090Data, PostAdminProviderProfilesRestore02B915A75A5647118B4aEb110408A090Response, GetAdminUsersData, GetAdminUsersResponse, PostAdminUsersData, PostAdminUsersResponse, GetAdminUsers72D5778fB67B4E97B4E2F98F695162A7Data, GetAdminUsers72D5778fB67B4E97B4E2F98F695162A7Response, PutAdminUsersB2Ef1C4F918A4F349D2F97Ce28C2772FData, PutAdminUsersB2Ef1C4F918A4F349D2F97Ce28C2772FResponse, DeleteAdminUsersB4A072761Baf43B08068C03Fdabf2626Response, PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42StopData, PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42StopResponse, PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42RestoreData, PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42RestoreResponse, GetAdminMessageTemplatesData, GetAdminMessageTemplatesResponse, GetAdminMessageTemplates2Data, GetAdminMessageTemplates2Response, PostAdminMessageTemplates5Data, PostAdminMessageTemplates5Response, GetAdminServicesData, GetAdminServicesResponse, PostAdminServicesData, PostAdminServicesResponse, PostAdminServicesB11D171dEec14474A3D26Ef6881023AeData, PostAdminServicesB11D171dEec14474A3D26Ef6881023AeResponse, DeleteAdminServicesB4A072761Baf43B08068C03Fdabf2626Response, PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611StopData, PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611StopResponse, PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreData, PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreResponse, GetAdminCommissionsData, GetAdminCommissionsResponse, PostAdminCommissionsData, PostAdminCommissionsResponse, PutAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Data, PutAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Response, DeleteAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Response, PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611StopData, PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611StopResponse, PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreData, PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreResponse, GetAdminPlatformReviewsData, GetAdminPlatformReviewsResponse, PostAdminPlatformReviewsData, PostAdminPlatformReviewsResponse, PostAdminPlatformReviews5Data, PostAdminPlatformReviews5Response, DeleteAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330Response, PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330StopData, PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330StopResponse, PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330RestoreData, PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330RestoreResponse, GetAdminPagesRightsResponse, GetAdminPagesRightsPaginatedData, GetAdminPagesRightsPaginatedResponse, PostAdminPagesData, PostAdminPagesResponse, PostAdminPages5Data, PostAdminPages5Response, DeleteAdminPages51A7447F3Bfd4E89A7F31969C8Fb9330Response, GetAdminProviderSubscriptionPlansData, GetAdminProviderSubscriptionPlansResponse, PostAdminProviderSubscriptionPlansData, PostAdminProviderSubscriptionPlansResponse, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Data, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Response, DeleteAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Response, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704StopData, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704StopResponse, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704RestoreData, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704RestoreResponse, GetAdminCityServicesData, GetAdminCityServicesResponse, PutAdminCityServices13Data, PutAdminCityServices13Response, PostAdminCityServicesAttachData, PostAdminCityServicesAttachResponse, PostAdminCityServicesDetachData, PostAdminCityServicesDetachResponse, PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42StopData, PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42StopResponse, PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42RestoreData, PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42RestoreResponse, PostAdminAuthLoginData, PostAdminAuthLoginResponse, PostAdminAuthLogoutData, PostAdminAuthLogoutResponse, PostAdminCustomNotificationData, PostAdminCustomNotificationResponse, GetAdminPermissionGroupsData, GetAdminPermissionGroupsResponse, PostAdminPermissionGroupsData, PostAdminPermissionGroupsResponse, GetAdminPermissionGroups8E0Ea4E1B13645AdAa91F4D0B47DcfafResponse, PostAdminPermissionGroupsD814419D755547108E26Efeb66Fc8Fc2Data, PostAdminPermissionGroupsD814419D755547108E26Efeb66Fc8Fc2Response, PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42StopData, PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42StopResponse, PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42RestoreData, PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42RestoreResponse, DeleteAdminPermissionGroups51A7447F3Bfd4E89A7F31969C8Fb9330Response, GetAdminPermissionsResponse, GetAdminMessagesData, GetAdminMessagesResponse, GetAdminMessages8899Eddd256740B6Bcaa85Ed7D53D226Data, GetAdminMessages8899Eddd256740B6Bcaa85Ed7D53D226Response, PostAdminMessagesReply8899Eddd256740B6Bcaa85Ed7D53D226Data, PostAdminMessagesReply8899Eddd256740B6Bcaa85Ed7D53D226Response, PostAdminMessagesDelete6Aa8Ddfc861C4C42B7C406Dbb20627AdData, PostAdminMessagesDelete6Aa8Ddfc861C4C42B7C406Dbb20627AdResponse, GetAdminSlidersData, GetAdminSlidersResponse, PostAdminSlidersData, PostAdminSlidersResponse, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4Data, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4Response, DeleteAdminSliders6193D4CdCe8E4B79Ba467E3C086206F3Response, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4StopData, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4StopResponse, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4RestoreData, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4RestoreResponse, GetAdminHowHelpData, GetAdminHowHelpResponse, PostAdminHowHelpData, PostAdminHowHelpResponse, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdData, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdResponse, DeleteAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdResponse, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdStopData, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdStopResponse, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdRestoreData, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdRestoreResponse, GetAdminAboutSectionsData, GetAdminAboutSectionsResponse, PostAdminAboutSectionsData, PostAdminAboutSectionsResponse, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdData, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdResponse, DeleteAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdResponse, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdStopData, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdStopResponse, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdRestoreData, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdRestoreResponse, GetAdminDownloadSectionResponse, PostAdminDownloadSectionData, PostAdminDownloadSectionResponse, GetAdminAboutData, GetAdminAboutResponse, PostAdminAboutStoreAboutData, PostAdminAboutStoreAboutResponse, PostAdminAboutStoreHowOrderData, PostAdminAboutStoreHowOrderResponse, DeleteAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5Response, PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5StopData, PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5StopResponse, PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5RestoreData, PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5RestoreResponse, GetAdminSiteOffersData, GetAdminSiteOffersResponse, PostAdminSiteOffersData, PostAdminSiteOffersResponse, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Data, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Response, DeleteAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Response, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210StopData, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210StopResponse, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210RestoreData, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210RestoreResponse, GetAdminGuaranteeRightData, GetAdminGuaranteeRightResponse, PostAdminGuaranteeRightData, PostAdminGuaranteeRightResponse, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Data, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Response, DeleteAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Response, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33StopData, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33StopResponse, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33RestoreData, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33RestoreResponse, GetAdminPartnersData, GetAdminPartnersResponse, PostAdminPartnersData, PostAdminPartnersResponse, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Data, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Response, DeleteAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Response, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7StopData, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7StopResponse, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7RestoreData, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7RestoreResponse, GetAdminTicketsData, GetAdminTicketsResponse, GetAdminTicketsFd3A3D51755B4FecBa9aA162B21188CeMessagesData, GetAdminTicketsFd3A3D51755B4FecBa9aA162B21188CeMessagesResponse, PostAdminTicketsSendMessageData, PostAdminTicketsSendMessageResponse, GetClientOrdersData, GetClientOrdersResponse, GetClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224Data, GetClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224Response, PostClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryData, PostClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryResponse, PostClientOrderRateData, PostClientOrderRateResponse, PostClientOffer96Be9E84956A429889Bd9Bd3C58E251eAcceptData, PostClientOffer96Be9E84956A429889Bd9Bd3C58E251eAcceptResponse, GetClientServicesData, GetClientServicesResponse, GetProviderSubscriptionPlansData, GetProviderSubscriptionPlansResponse, PostProviderSubscriptionSubscribeData, PostProviderSubscriptionSubscribeResponse, GetProviderSubscriptionCheckData, GetProviderSubscriptionCheckResponse, GetProviderProfileData, GetProviderProfileResponse, PostProviderProfileData, PostProviderProfileResponse, PutProviderProfileData, PutProviderProfileResponse, GetProviderMeData, GetProviderMeResponse, GetProviderByIdData, GetProviderByIdResponse, GetProviderIdsData, GetProviderIdsResponse, GetProviderSearchData, GetProviderSearchResponse, GetProviderOrdersData, GetProviderOrdersResponse, GetProviderOrders1D9De514C4E149878Eb90909556C7186Data, GetProviderOrders1D9De514C4E149878Eb90909556C7186Response, PostProviderOrderRateData, PostProviderOrderRateResponse, PostProviderOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryData, PostProviderOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryResponse, PostProviderOfferData, PostProviderOfferResponse, GetPagesHowWeHelpResponse, GetPagesRightsPaginatedData, GetPagesRightsPaginatedResponse, GetPlatformReviewsData, GetPlatformReviewsResponse, GetMessagesData, GetMessagesResponse, PostMessagesSendData, PostMessagesSendResponse, GetLandingSlidersResponse, GetLandingServicesResponse, GetLandingSiteOffersResponse, GetLandingPlansResponse, GetLandingHowHelpResponse, GetLandingAboutSectionsResponse, GetLandingDownloadSectionResponse, GetLandingGuaranteeRightsResponse, GetLandingPlatformReviewsResponse, GetLandingPartnersResponse, GetLandingMostRatedProvidersResponse, GetLandingOrdersNumbersResponse, GetLandingContactResponse, GetLandingAboutResponse, GetLandingHowOrderResponse, GetLandingMostRatedProvidersByTypeData, GetLandingMostRatedProvidersByTypeResponse } from './types.gen';
+import type { GetSharedAuthMeData, GetSharedAuthMeResponse, PostSharedAuthRegisterData, PostSharedAuthRegisterResponse, PostSharedAuthSendOtpData, PostSharedAuthSendOtpResponse, PostSharedAuthVerifyOtpData, PostSharedAuthVerifyOtpResponse, PostSharedAuthLogoutData, PostSharedAuthLogoutResponse, PostSharedAuthEditProfileData, PostSharedAuthEditProfileResponse, PostSharedAuthChangePhoneData, PostSharedAuthChangePhoneResponse, PostSharedAuthVerifyChangePhoneData, PostSharedAuthVerifyChangePhoneResponse, PutSharedAuthUpdateSettingsData, PutSharedAuthUpdateSettingsResponse, GetBrandsData, GetBrandsResponse, GetSiteOffersData, GetSiteOffersResponse, GetSiteOffersByIdData, GetSiteOffersByIdResponse, GetSiteOffersIdsData, GetSiteOffersIdsResponse, GetCitiesData, GetCitiesResponse, GetBrandsByBrandIdModelsData, GetBrandsByBrandIdModelsResponse, PostClientOrderSparePartData, PostClientOrderSparePartResponse, GetVinByVinData, GetVinByVinResponse, PostChatData, PostChatResponse, PostChatMessageData, PostChatMessageResponse, GetTicketsData, GetTicketsResponse, GetTicketB33C269eB489415E842F65472771A0F3Data, GetTicketB33C269eB489415E842F65472771A0F3Response, PostTicketData, PostTicketResponse, PostTicketMessageData, PostTicketMessageResponse, PostCallMakeData, PostCallMakeResponse, PostCallAcceptData, PostCallAcceptResponse, PostCallRefuseData, PostCallRefuseResponse, PostCallEndData, PostCallEndResponse, GetNotificationIndexData, GetNotificationIndexResponse, GetNotificationUnreadCountData, GetNotificationUnreadCountResponse, PostNotificationMarkAsReadData, PostNotificationMarkAsReadResponse, GetAdminOrdersData, GetAdminOrdersResponse, GetAdminOrders1D9De514C4E149878Eb90909556C7186Data, GetAdminOrders1D9De514C4E149878Eb90909556C7186Response, GetAdminOrders1D9De514C4E149878Eb90909556C7186OffersData, GetAdminOrders1D9De514C4E149878Eb90909556C7186OffersResponse, GetAdminOrders89572A05E77B48Dc8E1B645Fe0C82B6aChatData, GetAdminOrders89572A05E77B48Dc8E1B645Fe0C82B6aChatResponse, GetSettingCallsResponse, GetSettingData, GetSettingResponse, PostAdminSettingData, PostAdminSettingResponse, GetAdminCitiesData, GetAdminCitiesResponse, PostAdminCitiesData, PostAdminCitiesResponse, PutAdminCities81A53C0640694120B9Ae6A4314Cd4AdaData, PutAdminCities81A53C0640694120B9Ae6A4314Cd4AdaResponse, DeleteAdminCitiesB4A072761Baf43B08068C03Fdabf2626Response, PostAdminCities0E3685698D074EfbA367182Dd5E2Db42StopData, PostAdminCities0E3685698D074EfbA367182Dd5E2Db42StopResponse, PostAdminCities0E3685698D074EfbA367182Dd5E2Db42RestoreData, PostAdminCities0E3685698D074EfbA367182Dd5E2Db42RestoreResponse, GetAdminBrandsData, GetAdminBrandsResponse, PutAdminBrandsLamborghiniData, PutAdminBrandsLamborghiniResponse, GetAdminProviderProfilesData, GetAdminProviderProfilesResponse, PostAdminProviderProfilesVerify09D88C1dFd8A424D9E7cA5D2391Cdbd3Data, PostAdminProviderProfilesVerify09D88C1dFd8A424D9E7cA5D2391Cdbd3Response, PostAdminProviderProfilesDecline02B915A75A5647118B4aEb110408A090Data, PostAdminProviderProfilesDecline02B915A75A5647118B4aEb110408A090Response, PostAdminProviderProfilesStop02B915A75A5647118B4aEb110408A090Data, PostAdminProviderProfilesStop02B915A75A5647118B4aEb110408A090Response, PostAdminProviderProfilesRestore02B915A75A5647118B4aEb110408A090Data, PostAdminProviderProfilesRestore02B915A75A5647118B4aEb110408A090Response, GetAdminUsersData, GetAdminUsersResponse, PostAdminUsersData, PostAdminUsersResponse, GetAdminUsers72D5778fB67B4E97B4E2F98F695162A7Data, GetAdminUsers72D5778fB67B4E97B4E2F98F695162A7Response, PutAdminUsersB2Ef1C4F918A4F349D2F97Ce28C2772FData, PutAdminUsersB2Ef1C4F918A4F349D2F97Ce28C2772FResponse, DeleteAdminUsersB4A072761Baf43B08068C03Fdabf2626Response, PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42StopData, PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42StopResponse, PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42RestoreData, PostAdminUsers0E3685698D074EfbA367182Dd5E2Db42RestoreResponse, GetAdminMessageTemplatesData, GetAdminMessageTemplatesResponse, GetAdminMessageTemplates2Data, GetAdminMessageTemplates2Response, PostAdminMessageTemplates5Data, PostAdminMessageTemplates5Response, GetAdminServicesData, GetAdminServicesResponse, PostAdminServicesData, PostAdminServicesResponse, PostAdminServicesB11D171dEec14474A3D26Ef6881023AeData, PostAdminServicesB11D171dEec14474A3D26Ef6881023AeResponse, DeleteAdminServicesB4A072761Baf43B08068C03Fdabf2626Response, PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611StopData, PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611StopResponse, PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreData, PostAdminServicesD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreResponse, GetAdminCommissionsData, GetAdminCommissionsResponse, PostAdminCommissionsData, PostAdminCommissionsResponse, PutAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Data, PutAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Response, DeleteAdminCommissions51A7447F3Bfd4E89A7F31969C8Fb9330Response, PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611StopData, PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611StopResponse, PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreData, PostAdminCommissionsD48C07F9B8B846D98B3C3Ba8Fcdbe611RestoreResponse, GetAdminPlatformReviewsData, GetAdminPlatformReviewsResponse, PostAdminPlatformReviewsData, PostAdminPlatformReviewsResponse, PostAdminPlatformReviews5Data, PostAdminPlatformReviews5Response, DeleteAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330Response, PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330StopData, PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330StopResponse, PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330RestoreData, PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330RestoreResponse, GetAdminPagesByTypeData, GetAdminPagesByTypeResponse, GetAdminPagesRightsPaginatedData, GetAdminPagesRightsPaginatedResponse, PostAdminPagesData, PostAdminPagesResponse, PostAdminPages3Data, PostAdminPages3Response, DeleteAdminPages51A7447F3Bfd4E89A7F31969C8Fb9330Response, GetAdminTermsByTypeData, GetAdminTermsByTypeResponse, GetAdminTermsTermsPaginatedData, GetAdminTermsTermsPaginatedResponse, PostAdminTermsData, PostAdminTermsResponse, PostAdminTermsByIdData, PostAdminTermsByIdResponse, DeleteAdminTerms5Response, GetAdminProviderSubscriptionPlansData, GetAdminProviderSubscriptionPlansResponse, PostAdminProviderSubscriptionPlansData, PostAdminProviderSubscriptionPlansResponse, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Data, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Response, DeleteAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704Response, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704StopData, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704StopResponse, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704RestoreData, PostAdminProviderSubscriptionPlans945B42FcA2794Ac58C0077E635C87704RestoreResponse, GetAdminCityServicesData, GetAdminCityServicesResponse, PutAdminCityServices13Data, PutAdminCityServices13Response, PostAdminCityServicesAttachData, PostAdminCityServicesAttachResponse, PostAdminCityServicesDetachData, PostAdminCityServicesDetachResponse, PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42StopData, PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42StopResponse, PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42RestoreData, PostAdminCityServices0E3685698D074EfbA367182Dd5E2Db42RestoreResponse, PostAdminAuthLoginData, PostAdminAuthLoginResponse, PostAdminAuthLogoutData, PostAdminAuthLogoutResponse, PostAdminCustomNotificationData, PostAdminCustomNotificationResponse, GetAdminPermissionGroupsData, GetAdminPermissionGroupsResponse, PostAdminPermissionGroupsData, PostAdminPermissionGroupsResponse, GetAdminPermissionGroups8E0Ea4E1B13645AdAa91F4D0B47DcfafResponse, PostAdminPermissionGroupsD814419D755547108E26Efeb66Fc8Fc2Data, PostAdminPermissionGroupsD814419D755547108E26Efeb66Fc8Fc2Response, PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42StopData, PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42StopResponse, PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42RestoreData, PostAdminPermissionGroups0E3685698D074EfbA367182Dd5E2Db42RestoreResponse, DeleteAdminPermissionGroups51A7447F3Bfd4E89A7F31969C8Fb9330Response, GetAdminPermissionsResponse, GetAdminMessagesData, GetAdminMessagesResponse, GetAdminMessages8899Eddd256740B6Bcaa85Ed7D53D226Data, GetAdminMessages8899Eddd256740B6Bcaa85Ed7D53D226Response, PostAdminMessagesReply8899Eddd256740B6Bcaa85Ed7D53D226Data, PostAdminMessagesReply8899Eddd256740B6Bcaa85Ed7D53D226Response, PostAdminMessagesDelete6Aa8Ddfc861C4C42B7C406Dbb20627AdData, PostAdminMessagesDelete6Aa8Ddfc861C4C42B7C406Dbb20627AdResponse, GetAdminSlidersData, GetAdminSlidersResponse, PostAdminSlidersData, PostAdminSlidersResponse, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4Data, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4Response, DeleteAdminSliders6193D4CdCe8E4B79Ba467E3C086206F3Response, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4StopData, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4StopResponse, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4RestoreData, PostAdminSliders726A81EcD9B543Ad946bB77470B071F4RestoreResponse, GetAdminHowHelpData, GetAdminHowHelpResponse, PostAdminHowHelpData, PostAdminHowHelpResponse, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdData, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdResponse, DeleteAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdResponse, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdStopData, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdStopResponse, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdRestoreData, PostAdminHowHelpC0E70442F1914F3cBb317Ca396D574CdRestoreResponse, GetAdminAboutSectionsData, GetAdminAboutSectionsResponse, PostAdminAboutSectionsData, PostAdminAboutSectionsResponse, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdData, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdResponse, DeleteAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdResponse, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdStopData, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdStopResponse, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdRestoreData, PostAdminAboutSectionsC0E70442F1914F3cBb317Ca396D574CdRestoreResponse, GetAdminDownloadSectionResponse, PostAdminDownloadSectionData, PostAdminDownloadSectionResponse, GetAdminAboutData, GetAdminAboutResponse, PostAdminAboutStoreAboutData, PostAdminAboutStoreAboutResponse, PostAdminAboutStoreHowOrderData, PostAdminAboutStoreHowOrderResponse, DeleteAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5Response, PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5StopData, PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5StopResponse, PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5RestoreData, PostAdminAbout7Ad421Cd90754A74B2E1E4298A1Dc2B5RestoreResponse, GetAdminSiteOffersData, GetAdminSiteOffersResponse, PostAdminSiteOffersData, PostAdminSiteOffersResponse, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Data, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Response, DeleteAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210Response, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210StopData, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210StopResponse, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210RestoreData, PostAdminSiteOffersE3Ed5781465B4C16879F981812Fb6210RestoreResponse, GetAdminGuaranteeRightData, GetAdminGuaranteeRightResponse, PostAdminGuaranteeRightData, PostAdminGuaranteeRightResponse, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Data, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Response, DeleteAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33Response, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33StopData, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33StopResponse, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33RestoreData, PostAdminGuaranteeRight716Ae479A4144E1A80A9De253B560D33RestoreResponse, GetAdminPartnersData, GetAdminPartnersResponse, PostAdminPartnersData, PostAdminPartnersResponse, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Data, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Response, DeleteAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7Response, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7StopData, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7StopResponse, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7RestoreData, PostAdminPartners862Cfc1A45634Ac38Bb85F75Eeddd6E7RestoreResponse, GetAdminTicketsData, GetAdminTicketsResponse, GetAdminTicketsFd3A3D51755B4FecBa9aA162B21188CeMessagesData, GetAdminTicketsFd3A3D51755B4FecBa9aA162B21188CeMessagesResponse, PostAdminTicketsSendMessageData, PostAdminTicketsSendMessageResponse, GetClientOrdersData, GetClientOrdersResponse, GetClientOrdersByIdData, GetClientOrdersByIdResponse, PostClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryData, PostClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryResponse, PostClientOrderRateData, PostClientOrderRateResponse, PostClientOffer96Be9E84956A429889Bd9Bd3C58E251eAcceptData, PostClientOffer96Be9E84956A429889Bd9Bd3C58E251eAcceptResponse, GetClientServicesData, GetClientServicesResponse, GetProviderSubscriptionPlansData, GetProviderSubscriptionPlansResponse, PostProviderSubscriptionSubscribeData, PostProviderSubscriptionSubscribeResponse, GetProviderSubscriptionCheckData, GetProviderSubscriptionCheckResponse, GetProviderProfileData, GetProviderProfileResponse, PostProviderProfileData, PostProviderProfileResponse, PutProviderProfileData, PutProviderProfileResponse, GetProviderMeData, GetProviderMeResponse, GetProviderByIdData, GetProviderByIdResponse, GetProviderIdsData, GetProviderIdsResponse, GetProviderSearchData, GetProviderSearchResponse, GetProviderOrdersData, GetProviderOrdersResponse, GetProviderOrders1D9De514C4E149878Eb90909556C7186Data, GetProviderOrders1D9De514C4E149878Eb90909556C7186Response, PostProviderOrderRateData, PostProviderOrderRateResponse, PostProviderOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryData, PostProviderOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryResponse, PostProviderOfferData, PostProviderOfferResponse, GetPagesHowWeHelpResponse, GetPagesRightsPaginatedData, GetPagesRightsPaginatedResponse, GetTermsByTypeData, GetTermsByTypeResponse, GetTermsCommissionPaginatedData, GetTermsCommissionPaginatedResponse, GetPlatformReviewsData, GetPlatformReviewsResponse, GetMessagesData, GetMessagesResponse, PostMessagesSendData, PostMessagesSendResponse, GetLandingSlidersResponse, GetLandingServicesResponse, GetLandingSiteOffersResponse, GetLandingPlansResponse, GetLandingHowHelpResponse, GetLandingAboutSectionsResponse, GetLandingDownloadSectionResponse, GetLandingGuaranteeRightsResponse, GetLandingPlatformReviewsResponse, GetLandingPartnersResponse, GetLandingMostRatedProvidersResponse, GetLandingOrdersNumbersResponse, GetLandingContactResponse, GetLandingAboutResponse, GetLandingHowOrderResponse, GetLandingMostRatedProvidersByTypeData, GetLandingMostRatedProvidersByTypeResponse } from './types.gen';
 
 export class AuthenticationService {
     /**
@@ -960,6 +960,48 @@ export class AdminCitiesService {
     
 }
 
+export class AdminBrandsService {
+    /**
+     * index
+     * @param data The data for the request.
+     * @param data.paginate
+     * @param data.page
+     * @returns unknown Successful response
+     * @throws ApiError
+     */
+    public static getAdminBrands(data: GetAdminBrandsData = {}): CancelablePromise<GetAdminBrandsResponse> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/admin/brands',
+            query: {
+                paginate: data.paginate,
+                page: data.page
+            }
+        });
+    }
+    
+    /**
+     * update
+     * @param data The data for the request.
+     * @param data.contentType
+     * @param data.formData
+     * @returns unknown Successful response
+     * @throws ApiError
+     */
+    public static putAdminBrandsLamborghini(data: PutAdminBrandsLamborghiniData = {}): CancelablePromise<PutAdminBrandsLamborghiniResponse> {
+        return __request(OpenAPI, {
+            method: 'PUT',
+            url: '/admin/brands/Lamborghini',
+            headers: {
+                'Content-Type': data.contentType
+            },
+            formData: data.formData,
+            mediaType: 'application/x-www-form-urlencoded'
+        });
+    }
+    
+}
+
 export class AdminProviderProfilesService {
     /**
      * index
@@ -1573,13 +1615,18 @@ export class AdminPlatformReviewsService {
 export class AdminPagesService {
     /**
      * get page by type
+     * @param data The data for the request.
+     * @param data.type privacy or rights
      * @returns unknown Successful response
      * @throws ApiError
      */
-    public static getAdminPagesRights(): CancelablePromise<GetAdminPagesRightsResponse> {
+    public static getAdminPagesByType(data: GetAdminPagesByTypeData): CancelablePromise<GetAdminPagesByTypeResponse> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/admin/pages/rights'
+            url: '/admin/pages/{type}',
+            path: {
+                type: data.type
+            }
         });
     }
     
@@ -1631,10 +1678,10 @@ export class AdminPagesService {
      * @returns unknown Successful response
      * @throws ApiError
      */
-    public static postAdminPages5(data: PostAdminPages5Data = {}): CancelablePromise<PostAdminPages5Response> {
+    public static postAdminPages3(data: PostAdminPages3Data = {}): CancelablePromise<PostAdminPages3Response> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/admin/pages/5',
+            url: '/admin/pages/3',
             headers: {
                 'Content-Type': data.contentType,
                 Accept: data.accept
@@ -1653,6 +1700,107 @@ export class AdminPagesService {
         return __request(OpenAPI, {
             method: 'DELETE',
             url: '/admin/pages/51a7447f-3bfd-4e89-a7f3-1969c8fb9330'
+        });
+    }
+    
+}
+
+export class AdminTermsService {
+    /**
+     * get terms by type
+     * @param data The data for the request.
+     * @param data.type terms or commission
+     * @param data.category
+     * @returns unknown Successful response
+     * @throws ApiError
+     */
+    public static getAdminTermsByType(data: GetAdminTermsByTypeData): CancelablePromise<GetAdminTermsByTypeResponse> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/admin/terms/{type}',
+            path: {
+                type: data.type
+            },
+            query: {
+                category: data.category
+            }
+        });
+    }
+    
+    /**
+     * get terms by type paginated
+     * @param data The data for the request.
+     * @param data.page
+     * @param data.paginate
+     * @returns unknown Successful response
+     * @throws ApiError
+     */
+    public static getAdminTermsTermsPaginated(data: GetAdminTermsTermsPaginatedData = {}): CancelablePromise<GetAdminTermsTermsPaginatedResponse> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/admin/terms/terms/paginated',
+            query: {
+                page: data.page,
+                paginate: data.paginate
+            }
+        });
+    }
+    
+    /**
+     * create
+     * @param data The data for the request.
+     * @param data.accept
+     * @param data.requestBody
+     * @returns unknown Successful response
+     * @throws ApiError
+     */
+    public static postAdminTerms(data: PostAdminTermsData = {}): CancelablePromise<PostAdminTermsResponse> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/admin/terms',
+            headers: {
+                Accept: data.accept
+            },
+            body: data.requestBody,
+            mediaType: 'application/json'
+        });
+    }
+    
+    /**
+     * update
+     * @param data The data for the request.
+     * @param data.id
+     * @param data.contentType
+     * @param data.accept
+     * @param data.requestBody
+     * @returns unknown Successful response
+     * @throws ApiError
+     */
+    public static postAdminTermsById(data: PostAdminTermsByIdData): CancelablePromise<PostAdminTermsByIdResponse> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/admin/terms/{id}',
+            path: {
+                id: data.id
+            },
+            headers: {
+                'Content-Type': data.contentType,
+                Accept: data.accept
+            },
+            body: data.requestBody,
+            mediaType: '*/*'
+        });
+    }
+    
+    /**
+     * delete
+     * @returns unknown Successful response
+     * @throws ApiError
+     */
+    public static deleteAdminTerms5(): CancelablePromise<DeleteAdminTerms5Response> {
+        return __request(OpenAPI, {
+            method: 'DELETE',
+            url: '/admin/terms/5'
         });
     }
     
@@ -3017,15 +3165,19 @@ export class ClientClientOrdersService {
     /**
      * details
      * @param data The data for the request.
+     * @param data.id
      * @param data.xRequestedWith API
      * @param data.contentLanguage accepts: ar, en
      * @returns unknown Successful response
      * @throws ApiError
      */
-    public static getClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224(data: GetClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224Data = {}): CancelablePromise<GetClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224Response> {
+    public static getClientOrdersById(data: GetClientOrdersByIdData): CancelablePromise<GetClientOrdersByIdResponse> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/client/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224',
+            url: '/client/orders/{id}',
+            path: {
+                id: data.id
+            },
             headers: {
                 'X-Requested-With': data.xRequestedWith,
                 'Content-Language': data.contentLanguage
@@ -3490,6 +3642,45 @@ export class PagesService {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/pages/rights/paginated',
+            query: {
+                page: data.page,
+                paginate: data.paginate
+            }
+        });
+    }
+    
+}
+
+export class TermsService {
+    /**
+     * get term by type
+     * @param data The data for the request.
+     * @param data.type terms or commission
+     * @returns unknown Successful response
+     * @throws ApiError
+     */
+    public static getTermsByType(data: GetTermsByTypeData): CancelablePromise<GetTermsByTypeResponse> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/terms/{type}',
+            path: {
+                type: data.type
+            }
+        });
+    }
+    
+    /**
+     * get term by type paginated
+     * @param data The data for the request.
+     * @param data.page
+     * @param data.paginate
+     * @returns unknown Successful response
+     * @throws ApiError
+     */
+    public static getTermsCommissionPaginated(data: GetTermsCommissionPaginatedData = {}): CancelablePromise<GetTermsCommissionPaginatedResponse> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/terms/commission/paginated',
             query: {
                 page: data.page,
                 paginate: data.paginate

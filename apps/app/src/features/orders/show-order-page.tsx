@@ -7,8 +7,6 @@ export const ShowOrderPage = ({ orderId }: { orderId: string }) => {
   const [isTopRatedLoading, setIsTopRatedLoading] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
-  useClie;
-
   if (isLoading || isTopRatedLoading) {
     return 'Loading...';
   }

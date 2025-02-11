@@ -1,7 +1,7 @@
 // generated with @7nohe/openapi-react-query-codegen@1.6.1 
 
 import { UseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
-import { AdminAdminOrdersService, AdminCitiesService, AdminCityServiceService, AdminCommissionsService, AdminLandingAboutSectionsService, AdminLandingAboutService, AdminLandingDownloadSectionService, AdminLandingGuaranteeRightService, AdminLandingHowHelpService, AdminLandingPartnersService, AdminLandingSiteOfferService, AdminLandingSlidersService, AdminMessagesService, AdminMessageTemplatesService, AdminPagesService, AdminPermissionGroupsService, AdminPermissionsService, AdminPlatformReviewsService, AdminProviderProfilesService, AdminProviderSubscriptionPlansService, AdminServicesService, AdminTicketsService, AdminUsersService, AuthenticationService, BrandModelsService, BrandService, CitiesService, ClientClientOrdersService, ClientServicesService, LandingService, MessagesService, NotificationService, PagesService, PlatformReviewsService, ProviderProviderOrdersService, ProviderProviderProfileService, ProviderProviderSubscriptionService, SettingsService, SiteOffersService, TicketService, VinService } from "../requests/services.gen";
+import { AdminAdminOrdersService, AdminBrandsService, AdminCitiesService, AdminCityServiceService, AdminCommissionsService, AdminLandingAboutSectionsService, AdminLandingAboutService, AdminLandingDownloadSectionService, AdminLandingGuaranteeRightService, AdminLandingHowHelpService, AdminLandingPartnersService, AdminLandingSiteOfferService, AdminLandingSlidersService, AdminMessagesService, AdminMessageTemplatesService, AdminPagesService, AdminPermissionGroupsService, AdminPermissionsService, AdminPlatformReviewsService, AdminProviderProfilesService, AdminProviderSubscriptionPlansService, AdminServicesService, AdminTermsService, AdminTicketsService, AdminUsersService, AuthenticationService, BrandModelsService, BrandService, CitiesService, ClientClientOrdersService, ClientServicesService, LandingService, MessagesService, NotificationService, PagesService, PlatformReviewsService, ProviderProviderOrdersService, ProviderProviderProfileService, ProviderProviderSubscriptionService, SettingsService, SiteOffersService, TermsService, TicketService, VinService } from "../requests/services.gen";
 import * as Common from "./common";
 /**
 * me
@@ -267,6 +267,18 @@ export const useAdminCitiesServiceGetAdminCitiesSuspense = <TData = Common.Admin
 * @returns unknown Successful response
 * @throws ApiError
 */
+export const useAdminBrandsServiceGetAdminBrandsSuspense = <TData = Common.AdminBrandsServiceGetAdminBrandsDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ page, paginate }: {
+  page?: number;
+  paginate?: number;
+} = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useSuspenseQuery<TData, TError>({ queryKey: Common.UseAdminBrandsServiceGetAdminBrandsKeyFn({ page, paginate }, queryKey), queryFn: () => AdminBrandsService.getAdminBrands({ page, paginate }) as TData, ...options });
+/**
+* index
+* @param data The data for the request.
+* @param data.paginate
+* @param data.page
+* @returns unknown Successful response
+* @throws ApiError
+*/
 export const useAdminProviderProfilesServiceGetAdminProviderProfilesSuspense = <TData = Common.AdminProviderProfilesServiceGetAdminProviderProfilesDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ page, paginate }: {
   page?: number;
   paginate?: number;
@@ -359,10 +371,14 @@ export const useAdminPlatformReviewsServiceGetAdminPlatformReviewsSuspense = <TD
 } = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useSuspenseQuery<TData, TError>({ queryKey: Common.UseAdminPlatformReviewsServiceGetAdminPlatformReviewsKeyFn({ page, paginate }, queryKey), queryFn: () => AdminPlatformReviewsService.getAdminPlatformReviews({ page, paginate }) as TData, ...options });
 /**
 * get page by type
+* @param data The data for the request.
+* @param data.type privacy or rights
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const useAdminPagesServiceGetAdminPagesRightsSuspense = <TData = Common.AdminPagesServiceGetAdminPagesRightsDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>(queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useSuspenseQuery<TData, TError>({ queryKey: Common.UseAdminPagesServiceGetAdminPagesRightsKeyFn(queryKey), queryFn: () => AdminPagesService.getAdminPagesRights() as TData, ...options });
+export const useAdminPagesServiceGetAdminPagesByTypeSuspense = <TData = Common.AdminPagesServiceGetAdminPagesByTypeDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ type }: {
+  type: string;
+}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useSuspenseQuery<TData, TError>({ queryKey: Common.UseAdminPagesServiceGetAdminPagesByTypeKeyFn({ type }, queryKey), queryFn: () => AdminPagesService.getAdminPagesByType({ type }) as TData, ...options });
 /**
 * get page by type paginated
 * @param data The data for the request.
@@ -375,6 +391,30 @@ export const useAdminPagesServiceGetAdminPagesRightsPaginatedSuspense = <TData =
   page?: number;
   paginate?: number;
 } = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useSuspenseQuery<TData, TError>({ queryKey: Common.UseAdminPagesServiceGetAdminPagesRightsPaginatedKeyFn({ page, paginate }, queryKey), queryFn: () => AdminPagesService.getAdminPagesRightsPaginated({ page, paginate }) as TData, ...options });
+/**
+* get terms by type
+* @param data The data for the request.
+* @param data.type terms or commission
+* @param data.category
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const useAdminTermsServiceGetAdminTermsByTypeSuspense = <TData = Common.AdminTermsServiceGetAdminTermsByTypeDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ category, type }: {
+  category?: string;
+  type: string;
+}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useSuspenseQuery<TData, TError>({ queryKey: Common.UseAdminTermsServiceGetAdminTermsByTypeKeyFn({ category, type }, queryKey), queryFn: () => AdminTermsService.getAdminTermsByType({ category, type }) as TData, ...options });
+/**
+* get terms by type paginated
+* @param data The data for the request.
+* @param data.page
+* @param data.paginate
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const useAdminTermsServiceGetAdminTermsTermsPaginatedSuspense = <TData = Common.AdminTermsServiceGetAdminTermsTermsPaginatedDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ page, paginate }: {
+  page?: number;
+  paginate?: number;
+} = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useSuspenseQuery<TData, TError>({ queryKey: Common.UseAdminTermsServiceGetAdminTermsTermsPaginatedKeyFn({ page, paginate }, queryKey), queryFn: () => AdminTermsService.getAdminTermsTermsPaginated({ page, paginate }) as TData, ...options });
 /**
 * index
 * @param data The data for the request.
@@ -580,15 +620,17 @@ export const useClientClientOrdersServiceGetClientOrdersSuspense = <TData = Comm
 /**
 * details
 * @param data The data for the request.
+* @param data.id
 * @param data.xRequestedWith API
 * @param data.contentLanguage accepts: ar, en
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const useClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224Suspense = <TData = Common.ClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224DefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, xRequestedWith }: {
+export const useClientClientOrdersServiceGetClientOrdersByIdSuspense = <TData = Common.ClientClientOrdersServiceGetClientOrdersByIdDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, id, xRequestedWith }: {
   contentLanguage?: string;
+  id: string;
   xRequestedWith?: string;
-} = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useSuspenseQuery<TData, TError>({ queryKey: Common.UseClientClientOrdersServiceGetClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224KeyFn({ contentLanguage, xRequestedWith }, queryKey), queryFn: () => ClientClientOrdersService.getClientOrdersC5Ad5169F88d4Acc8D4f6C985706B224({ contentLanguage, xRequestedWith }) as TData, ...options });
+}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useSuspenseQuery<TData, TError>({ queryKey: Common.UseClientClientOrdersServiceGetClientOrdersByIdKeyFn({ contentLanguage, id, xRequestedWith }, queryKey), queryFn: () => ClientClientOrdersService.getClientOrdersById({ contentLanguage, id, xRequestedWith }) as TData, ...options });
 /**
 * list
 * @param data The data for the request.
@@ -743,6 +785,28 @@ export const usePagesServiceGetPagesRightsPaginatedSuspense = <TData = Common.Pa
   page?: number;
   paginate?: number;
 } = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useSuspenseQuery<TData, TError>({ queryKey: Common.UsePagesServiceGetPagesRightsPaginatedKeyFn({ page, paginate }, queryKey), queryFn: () => PagesService.getPagesRightsPaginated({ page, paginate }) as TData, ...options });
+/**
+* get term by type
+* @param data The data for the request.
+* @param data.type terms or commission
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const useTermsServiceGetTermsByTypeSuspense = <TData = Common.TermsServiceGetTermsByTypeDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ type }: {
+  type: string;
+}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useSuspenseQuery<TData, TError>({ queryKey: Common.UseTermsServiceGetTermsByTypeKeyFn({ type }, queryKey), queryFn: () => TermsService.getTermsByType({ type }) as TData, ...options });
+/**
+* get term by type paginated
+* @param data The data for the request.
+* @param data.page
+* @param data.paginate
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const useTermsServiceGetTermsCommissionPaginatedSuspense = <TData = Common.TermsServiceGetTermsCommissionPaginatedDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ page, paginate }: {
+  page?: number;
+  paginate?: number;
+} = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useSuspenseQuery<TData, TError>({ queryKey: Common.UseTermsServiceGetTermsCommissionPaginatedKeyFn({ page, paginate }, queryKey), queryFn: () => TermsService.getTermsCommissionPaginated({ page, paginate }) as TData, ...options });
 /**
 * list
 * @param data The data for the request.

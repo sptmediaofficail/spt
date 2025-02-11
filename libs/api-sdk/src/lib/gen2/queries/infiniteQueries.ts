@@ -1,7 +1,7 @@
 // generated with @7nohe/openapi-react-query-codegen@1.6.1 
 
 import { InfiniteData, useInfiniteQuery, UseInfiniteQueryOptions } from "@tanstack/react-query";
-import { AdminCitiesService, AdminCityServiceService, AdminCommissionsService, AdminLandingAboutSectionsService, AdminLandingAboutService, AdminLandingGuaranteeRightService, AdminLandingHowHelpService, AdminLandingPartnersService, AdminLandingSiteOfferService, AdminLandingSlidersService, AdminMessageTemplatesService, AdminPagesService, AdminPermissionGroupsService, AdminPlatformReviewsService, AdminProviderProfilesService, AdminProviderSubscriptionPlansService, AdminServicesService, AdminTicketsService, AdminUsersService, BrandModelsService, BrandService, ClientClientOrdersService, LandingService, PagesService, PlatformReviewsService, SiteOffersService, TicketService } from "../requests/services.gen";
+import { AdminBrandsService, AdminCitiesService, AdminCityServiceService, AdminCommissionsService, AdminLandingAboutSectionsService, AdminLandingAboutService, AdminLandingGuaranteeRightService, AdminLandingHowHelpService, AdminLandingPartnersService, AdminLandingSiteOfferService, AdminLandingSlidersService, AdminMessageTemplatesService, AdminPagesService, AdminPermissionGroupsService, AdminPlatformReviewsService, AdminProviderProfilesService, AdminProviderSubscriptionPlansService, AdminServicesService, AdminTermsService, AdminTicketsService, AdminUsersService, BrandModelsService, BrandService, ClientClientOrdersService, LandingService, PagesService, PlatformReviewsService, SiteOffersService, TermsService, TicketService } from "../requests/services.gen";
 import * as Common from "./common";
 /**
 * index
@@ -95,6 +95,21 @@ export const useAdminCitiesServiceGetAdminCitiesInfinite = <TData = InfiniteData
   search?: string;
 } = {}, queryKey?: TQueryKey, options?: Omit<UseInfiniteQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useInfiniteQuery({
   queryKey: Common.UseAdminCitiesServiceGetAdminCitiesKeyFn({ paginate, search }, queryKey), queryFn: ({ pageParam }) => AdminCitiesService.getAdminCities({ page: pageParam as number, paginate, search }) as TData, initialPageParam: "1", getNextPageParam: response => (response as {
+    nextPage: number;
+  }).nextPage, ...options
+});
+/**
+* index
+* @param data The data for the request.
+* @param data.paginate
+* @param data.page
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const useAdminBrandsServiceGetAdminBrandsInfinite = <TData = InfiniteData<Common.AdminBrandsServiceGetAdminBrandsDefaultResponse>, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ paginate }: {
+  paginate?: number;
+} = {}, queryKey?: TQueryKey, options?: Omit<UseInfiniteQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useInfiniteQuery({
+  queryKey: Common.UseAdminBrandsServiceGetAdminBrandsKeyFn({ paginate }, queryKey), queryFn: ({ pageParam }) => AdminBrandsService.getAdminBrands({ page: pageParam as number, paginate }) as TData, initialPageParam: "1", getNextPageParam: response => (response as {
     nextPage: number;
   }).nextPage, ...options
 });
@@ -206,6 +221,21 @@ export const useAdminPagesServiceGetAdminPagesRightsPaginatedInfinite = <TData =
   paginate?: number;
 } = {}, queryKey?: TQueryKey, options?: Omit<UseInfiniteQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useInfiniteQuery({
   queryKey: Common.UseAdminPagesServiceGetAdminPagesRightsPaginatedKeyFn({ paginate }, queryKey), queryFn: ({ pageParam }) => AdminPagesService.getAdminPagesRightsPaginated({ page: pageParam as number, paginate }) as TData, initialPageParam: "1", getNextPageParam: response => (response as {
+    nextPage: number;
+  }).nextPage, ...options
+});
+/**
+* get terms by type paginated
+* @param data The data for the request.
+* @param data.page
+* @param data.paginate
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const useAdminTermsServiceGetAdminTermsTermsPaginatedInfinite = <TData = InfiniteData<Common.AdminTermsServiceGetAdminTermsTermsPaginatedDefaultResponse>, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ paginate }: {
+  paginate?: number;
+} = {}, queryKey?: TQueryKey, options?: Omit<UseInfiniteQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useInfiniteQuery({
+  queryKey: Common.UseAdminTermsServiceGetAdminTermsTermsPaginatedKeyFn({ paginate }, queryKey), queryFn: ({ pageParam }) => AdminTermsService.getAdminTermsTermsPaginated({ page: pageParam as number, paginate }) as TData, initialPageParam: "1", getNextPageParam: response => (response as {
     nextPage: number;
   }).nextPage, ...options
 });
@@ -424,6 +454,21 @@ export const usePagesServiceGetPagesRightsPaginatedInfinite = <TData = InfiniteD
   paginate?: number;
 } = {}, queryKey?: TQueryKey, options?: Omit<UseInfiniteQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useInfiniteQuery({
   queryKey: Common.UsePagesServiceGetPagesRightsPaginatedKeyFn({ paginate }, queryKey), queryFn: ({ pageParam }) => PagesService.getPagesRightsPaginated({ page: pageParam as number, paginate }) as TData, initialPageParam: "1", getNextPageParam: response => (response as {
+    nextPage: number;
+  }).nextPage, ...options
+});
+/**
+* get term by type paginated
+* @param data The data for the request.
+* @param data.page
+* @param data.paginate
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const useTermsServiceGetTermsCommissionPaginatedInfinite = <TData = InfiniteData<Common.TermsServiceGetTermsCommissionPaginatedDefaultResponse>, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ paginate }: {
+  paginate?: number;
+} = {}, queryKey?: TQueryKey, options?: Omit<UseInfiniteQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useInfiniteQuery({
+  queryKey: Common.UseTermsServiceGetTermsCommissionPaginatedKeyFn({ paginate }, queryKey), queryFn: ({ pageParam }) => TermsService.getTermsCommissionPaginated({ page: pageParam as number, paginate }) as TData, initialPageParam: "1", getNextPageParam: response => (response as {
     nextPage: number;
   }).nextPage, ...options
 });

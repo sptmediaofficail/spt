@@ -684,6 +684,24 @@ export type PostAdminCities0E3685698D074EfbA367182Dd5E2Db42RestoreData = {
 
 export type PostAdminCities0E3685698D074EfbA367182Dd5E2Db42RestoreResponse = unknown;
 
+export type GetAdminBrandsData = {
+    page?: number;
+    paginate?: number;
+};
+
+export type GetAdminBrandsResponse = unknown;
+
+export type PutAdminBrandsLamborghiniData = {
+    contentType?: string;
+    formData?: {
+        name_en?: string;
+        name_ar?: string;
+        order?: number;
+    };
+};
+
+export type PutAdminBrandsLamborghiniResponse = unknown;
+
 export type GetAdminProviderProfilesData = {
     page?: number;
     paginate?: number;
@@ -914,6 +932,8 @@ export type PostAdminPlatformReviews5Data = {
     formData?: {
         phone_image?: (Blob | File);
         web_image?: (Blob | File);
+        name?: string;
+        comment?: string;
     };
 };
 
@@ -937,7 +957,14 @@ export type PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330RestoreData 
 
 export type PostAdminPlatformReviews51A7447F3Bfd4E89A7F31969C8Fb9330RestoreResponse = unknown;
 
-export type GetAdminPagesRightsResponse = unknown;
+export type GetAdminPagesByTypeData = {
+    /**
+     * privacy or rights
+     */
+    type: string;
+};
+
+export type GetAdminPagesByTypeResponse = unknown;
 
 export type GetAdminPagesRightsPaginatedData = {
     page?: number;
@@ -955,7 +982,7 @@ export type PostAdminPagesData = {
 
 export type PostAdminPagesResponse = unknown;
 
-export type PostAdminPages5Data = {
+export type PostAdminPages3Data = {
     accept?: string;
     contentType?: string;
     formData?: {
@@ -972,9 +999,46 @@ export type PostAdminPages5Data = {
     };
 };
 
-export type PostAdminPages5Response = unknown;
+export type PostAdminPages3Response = unknown;
 
 export type DeleteAdminPages51A7447F3Bfd4E89A7F31969C8Fb9330Response = unknown;
+
+export type GetAdminTermsByTypeData = {
+    category?: string;
+    /**
+     * terms or commission
+     */
+    type: string;
+};
+
+export type GetAdminTermsByTypeResponse = unknown;
+
+export type GetAdminTermsTermsPaginatedData = {
+    page?: number;
+    paginate?: number;
+};
+
+export type GetAdminTermsTermsPaginatedResponse = unknown;
+
+export type PostAdminTermsData = {
+    accept?: string;
+    requestBody?: {
+        [key: string]: unknown;
+    };
+};
+
+export type PostAdminTermsResponse = unknown;
+
+export type PostAdminTermsByIdData = {
+    accept?: string;
+    contentType?: string;
+    id: number;
+    requestBody?: string;
+};
+
+export type PostAdminTermsByIdResponse = unknown;
+
+export type DeleteAdminTerms5Response = unknown;
 
 export type GetAdminProviderSubscriptionPlansData = {
     page?: number;
@@ -1626,18 +1690,19 @@ export type GetClientOrdersData = {
 
 export type GetClientOrdersResponse = unknown;
 
-export type GetClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224Data = {
+export type GetClientOrdersByIdData = {
     /**
      * accepts: ar, en
      */
     contentLanguage?: string;
+    id: string;
     /**
      * API
      */
     xRequestedWith?: string;
 };
 
-export type GetClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224Response = unknown;
+export type GetClientOrdersByIdResponse = unknown;
 
 export type PostClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryData = {
     /**
@@ -1975,6 +2040,22 @@ export type GetPagesRightsPaginatedData = {
 };
 
 export type GetPagesRightsPaginatedResponse = unknown;
+
+export type GetTermsByTypeData = {
+    /**
+     * terms or commission
+     */
+    type: string;
+};
+
+export type GetTermsByTypeResponse = unknown;
+
+export type GetTermsCommissionPaginatedData = {
+    page?: number;
+    paginate?: number;
+};
+
+export type GetTermsCommissionPaginatedResponse = unknown;
 
 export type GetPlatformReviewsData = {
     page?: number;
@@ -2517,6 +2598,28 @@ export type $OpenApiTs = {
             };
         };
     };
+    '/admin/brands': {
+        get: {
+            req: GetAdminBrandsData;
+            res: {
+                /**
+                 * Successful response
+                 */
+                200: unknown;
+            };
+        };
+    };
+    '/admin/brands/Lamborghini': {
+        put: {
+            req: PutAdminBrandsLamborghiniData;
+            res: {
+                /**
+                 * Successful response
+                 */
+                200: unknown;
+            };
+        };
+    };
     '/admin/provider-profiles': {
         get: {
             req: GetAdminProviderProfilesData;
@@ -2866,8 +2969,9 @@ export type $OpenApiTs = {
             };
         };
     };
-    '/admin/pages/rights': {
+    '/admin/pages/{type}': {
         get: {
+            req: GetAdminPagesByTypeData;
             res: {
                 /**
                  * Successful response
@@ -2898,9 +3002,9 @@ export type $OpenApiTs = {
             };
         };
     };
-    '/admin/pages/5': {
+    '/admin/pages/3': {
         post: {
-            req: PostAdminPages5Data;
+            req: PostAdminPages3Data;
             res: {
                 /**
                  * Successful response
@@ -2910,6 +3014,60 @@ export type $OpenApiTs = {
         };
     };
     '/admin/pages/51a7447f-3bfd-4e89-a7f3-1969c8fb9330': {
+        delete: {
+            res: {
+                /**
+                 * Successful response
+                 */
+                200: unknown;
+            };
+        };
+    };
+    '/admin/terms/{type}': {
+        get: {
+            req: GetAdminTermsByTypeData;
+            res: {
+                /**
+                 * Successful response
+                 */
+                200: unknown;
+            };
+        };
+    };
+    '/admin/terms/terms/paginated': {
+        get: {
+            req: GetAdminTermsTermsPaginatedData;
+            res: {
+                /**
+                 * Successful response
+                 */
+                200: unknown;
+            };
+        };
+    };
+    '/admin/terms': {
+        post: {
+            req: PostAdminTermsData;
+            res: {
+                /**
+                 * Successful response
+                 */
+                200: unknown;
+            };
+        };
+    };
+    '/admin/terms/{id}': {
+        post: {
+            req: PostAdminTermsByIdData;
+            res: {
+                /**
+                 * Successful response
+                 */
+                200: unknown;
+            };
+        };
+    };
+    '/admin/terms/5': {
         delete: {
             res: {
                 /**
@@ -3702,9 +3860,9 @@ export type $OpenApiTs = {
             };
         };
     };
-    '/client/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224': {
+    '/client/orders/{id}': {
         get: {
-            req: GetClientOrdersC5Ad5169F88D4Acc8D4F6C985706B224Data;
+            req: GetClientOrdersByIdData;
             res: {
                 /**
                  * Successful response
@@ -3931,6 +4089,28 @@ export type $OpenApiTs = {
     '/pages/rights/paginated': {
         get: {
             req: GetPagesRightsPaginatedData;
+            res: {
+                /**
+                 * Successful response
+                 */
+                200: unknown;
+            };
+        };
+    };
+    '/terms/{type}': {
+        get: {
+            req: GetTermsByTypeData;
+            res: {
+                /**
+                 * Successful response
+                 */
+                200: unknown;
+            };
+        };
+    };
+    '/terms/commission/paginated': {
+        get: {
+            req: GetTermsCommissionPaginatedData;
             res: {
                 /**
                  * Successful response

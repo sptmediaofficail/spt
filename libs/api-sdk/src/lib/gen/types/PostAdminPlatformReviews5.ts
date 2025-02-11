@@ -17,6 +17,14 @@ export type PostAdminPlatformReviews5MutationRequest = {
      * @type string | undefined, binary
     */
     web_image?: Blob;
+    /**
+     * @type string | undefined
+    */
+    name?: string;
+    /**
+     * @type string | undefined
+    */
+    comment?: string;
 };
 export type PostAdminPlatformReviews5MutationResponse = any;
 export type PostAdminPlatformReviews5Mutation = {

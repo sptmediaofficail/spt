@@ -55,16 +55,16 @@ export const operations = {
         "path": "/cities",
         "method": "get"
     },
-    "get_brands-alfa-romeo-models": {
-        "path": "/brands/Alfa_Romeo/models",
+    "get_brands-brandid-models": {
+        "path": "/brands/:brandId/models",
         "method": "get"
     },
     "post_client-order-spare-part": {
         "path": "/client/order_spare_part",
         "method": "post"
     },
-    "get_vin-jn8at3mm3pw009894": {
-        "path": "/vin/JN8AT3MM3PW009894",
+    "get_vin-vin": {
+        "path": "/vin/:vin",
         "method": "get"
     },
     "post_chat": {
@@ -166,6 +166,14 @@ export const operations = {
     "post_admin-cities-0e368569-8d07-4efb-a367-182dd5e2db42-restore": {
         "path": "/admin/cities/0e368569-8d07-4efb-a367-182dd5e2db42/restore",
         "method": "post"
+    },
+    "get_admin-brands": {
+        "path": "/admin/brands",
+        "method": "get"
+    },
+    "put_admin-brands-lamborghini": {
+        "path": "/admin/brands/Lamborghini",
+        "method": "put"
     },
     "get_admin-provider-profiles": {
         "path": "/admin/provider-profiles",
@@ -299,8 +307,8 @@ export const operations = {
         "path": "/admin/platform-reviews/51a7447f-3bfd-4e89-a7f3-1969c8fb9330/restore",
         "method": "post"
     },
-    "get_admin-pages-rights": {
-        "path": "/admin/pages/rights",
+    "get_admin-pages-type": {
+        "path": "/admin/pages/:type",
         "method": "get"
     },
     "get_admin-pages-rights-paginated": {
@@ -311,12 +319,32 @@ export const operations = {
         "path": "/admin/pages",
         "method": "post"
     },
-    "post_admin-pages-5": {
-        "path": "/admin/pages/5",
+    "post_admin-pages-3": {
+        "path": "/admin/pages/3",
         "method": "post"
     },
     "delete_admin-pages-51a7447f-3bfd-4e89-a7f3-1969c8fb9330": {
         "path": "/admin/pages/51a7447f-3bfd-4e89-a7f3-1969c8fb9330",
+        "method": "delete"
+    },
+    "get_admin-terms-type": {
+        "path": "/admin/terms/:type",
+        "method": "get"
+    },
+    "get_admin-terms-terms-paginated": {
+        "path": "/admin/terms/terms/paginated",
+        "method": "get"
+    },
+    "post_admin-terms": {
+        "path": "/admin/terms",
+        "method": "post"
+    },
+    "post_admin-terms-id": {
+        "path": "/admin/terms/:id",
+        "method": "post"
+    },
+    "delete_admin-terms-5": {
+        "path": "/admin/terms/5",
         "method": "delete"
     },
     "get_admin-provider-subscription-plans": {
@@ -619,8 +647,8 @@ export const operations = {
         "path": "/client/orders",
         "method": "get"
     },
-    "get_client-orders-c5ad5169-f88d-4acc-8d4f-6c985706b224": {
-        "path": "/client/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224",
+    "get_client-orders-id": {
+        "path": "/client/orders/:id",
         "method": "get"
     },
     "post_client-orders-c5ad5169-f88d-4acc-8d4f-6c985706b224-confirm-delivery": {
@@ -705,6 +733,14 @@ export const operations = {
     },
     "get_pages-rights-paginated": {
         "path": "/pages/rights/paginated",
+        "method": "get"
+    },
+    "get_terms-type": {
+        "path": "/terms/:type",
+        "method": "get"
+    },
+    "get_terms-commission-paginated": {
+        "path": "/terms/commission/paginated",
         "method": "get"
     },
     "get_platform-reviews": {

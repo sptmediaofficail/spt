@@ -121,6 +121,10 @@ export type PostClientOrderSparePartMutationRequest = {
      * @type string | undefined
     */
     provider_id?: string;
+    /**
+     * @type integer | undefined
+    */
+    only_my_city?: number;
 };
 export type PostClientOrderSparePartMutationResponse = any;
 export type PostClientOrderSparePartMutation = {
