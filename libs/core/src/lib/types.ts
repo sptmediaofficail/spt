@@ -12,7 +12,7 @@ export type Offer = {
   deleted_at: any;
 };
 
-export type Order = {
+export type IOrder = {
   id: string;
   order_no: string;
   link_code: string;

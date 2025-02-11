@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { createInfiniteHook } from '../../hooks/create-infinite-hook';
 import { useClientClientOrdersServiceGetClientOrders } from '../../../../../libs/api-sdk/src/lib/gen2/queries';
 import { useClientClientOrdersServiceGetClientOrdersInfinite } from '../../../../../libs/api-sdk/src/lib/gen2/queries/infiniteQueries';
-import { Order } from '@spt/core';
+import { IOrder } from '@spt/core';
 
 export enum OrderStatus {
   accepted = 'accepted',
@@ -30,7 +30,7 @@ export const useOrders = () => {
 
   return {
     ...props,
-    orders: orders as Order[],
+    orders: orders as IOrder[],
     setPagination,
   };
 };
@@ -74,7 +74,7 @@ export const useOrdersInfinity = ({
   status: 'receiving_offer' | 'accepted' | 'completed';
 }) =>
   createInfiniteHook<
-    Order,
+    IOrder,
     ReturnType<typeof useClientClientOrdersServiceGetClientOrdersInfinite>
   >({
     serviceFunction: useClientClientOrdersServiceGetClientOrdersInfinite,
