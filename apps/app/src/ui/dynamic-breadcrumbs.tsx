@@ -11,7 +11,13 @@ import { usePathname } from 'next/navigation';
 export const DynamicBreadcrumbs = () => {
   const t = useTranslations();
   const pathname = usePathname();
-  const pathSegments = pathname.split('/').filter(Boolean);
+  const pathSegments = pathname
+    .split('/')
+    .filter(Boolean)
+    .filter((segment) => {
+      // filter path segments that has numbers
+      return !/\d/.test(segment);
+    });
 
   const breadcrumbLabels: Record<string, string> = {
     providers: t('home.providers'),
