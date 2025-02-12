@@ -89,7 +89,7 @@ const OrderDetails = ({ orderDetails }: { orderDetails: OrderDetails }) => {
       icon: FaTruck,
     },
     {
-      label: t('order_spare_part_part_name'),
+      label: t('part_name'),
       value: orderDetails.details.name,
       icon: FaBox,
     },

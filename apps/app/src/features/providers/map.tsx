@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
-import { Card } from "@heroui/card";
+import { Card } from '@heroui/card';
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 
@@ -9,10 +9,12 @@ function EagerGoogleMap({
   position,
   onDragEnd,
   onInit,
+  height = '10rem',
 }: {
   position?: { lat: number; lng: number };
   onDragEnd?: (e: google.maps.MapMouseEvent) => void;
   onInit?: ({ lat, lng }: { lat: number; lng: number }) => void;
+  height?: string;
 }) {
   const [currentPosition, setCurrentPosition] = useState<{
     lat: number;
@@ -55,7 +57,7 @@ function EagerGoogleMap({
   }
 
   return (
-    <Card className="min-h-[10rem] w-full lg:min-h-[10rem] h-full">
+    <Card className={`min-h-[${height}] w-full lg:min-h-[${height}] h-full`}>
       <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
         <Map
           defaultCenter={currentPosition}

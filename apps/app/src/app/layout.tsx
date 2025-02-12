@@ -1,4 +1,5 @@
 import './global.css';
+import 'react-phone-input-2/lib/style.css';
 import { layoutMetadata, shubakFont } from '@spt/common';
 import {
   getLocale,

@@ -1,3 +1,5 @@
-export default function CreateStorePage() {
-  return <div>Create Store Page</div>;
+import { CreateStorePage } from '../../../../features/account/create-store-page';
+
+export default function Page() {
+  return <CreateStorePage />;
 }

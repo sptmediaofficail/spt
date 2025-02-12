@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl';
 import {
   BreadcrumbItem,
   Breadcrumbs as NextBreadcrumbs,
-} from "@heroui/breadcrumbs";
+} from '@heroui/breadcrumbs';
 import { FaHome } from 'react-icons/fa';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -26,6 +26,7 @@ export const DynamicBreadcrumbs = () => {
     car_dismantling: t('home.car_dismantling_providers'),
     services: t('sidenav.services'),
     'order-spare-part': t('sidenav.order_spare_part'),
+    'create-store': t('sidenav.create_store'),
   };
 
   return (

@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Controller, useFormContext, useWatch } from 'react-hook-form';
-import { Select, SelectItem } from "@heroui/select";
+import { Select, SelectItem } from '@heroui/select';
 import { FormOrderParts } from './types';
 import { InfiniteSelect } from '../../../ui/infinite-select';
 import { Brand, useBrandsInfinity } from '../../brands/use-brands';
@@ -79,7 +79,7 @@ const FormSelect = ({
   );
 };
 
-const BrandSelector = () => {
+export const BrandSelector = () => {
   const t = useTranslations();
   const form = useFormContext<FormOrderParts>();
   const brandsInfinityHooks = useBrandsInfinity();

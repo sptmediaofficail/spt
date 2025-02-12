@@ -1,4 +1,4 @@
-import { DynamicBreadcrumbs } from '../../../ui/dynamic-breadcrumbs';
+import { DynamicBreadcrumbs } from '../../../../ui/dynamic-breadcrumbs';
 import { ReactNode } from 'react';
 
 const ServicesLayout = ({ children }: { children: ReactNode }) => {

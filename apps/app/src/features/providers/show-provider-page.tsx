@@ -15,6 +15,7 @@ import { Breadcrumbs } from '../../ui/breadcrumbs';
 import { PrimaryLink } from '../../ui/primary-button';
 import { GoogleMap } from './map';
 import { getProviderData } from './use-providers';
+import { Switch } from '@heroui/switch';
 
 export const ShowProviderPage = async ({ id }: { id: string }) => {
   const provider = await getProviderData(id);
@@ -176,30 +177,43 @@ const Detail = ({
   );
 };
 
-const ProviderFAQ = ({ provider }: { provider: IProvider }) => {
+export const ProviderFAQ = ({
+  provider,
+  form,
+}: {
+  provider?: IProvider;
+  form?: any;
+}) => {
   const t = useTranslations('ProviderFAQ');
 
   const FAQ = [
     {
       icon: AddressSvg,
       label: t('q1'),
-      value: provider.is_delivery_available,
+      value: provider?.is_delivery_available || false,
+      name: 'is_delivery_available',
     },
     {
       icon: ServicesSvg,
       label: t('q2'),
-      value: provider.is_voice_call_available,
+      value: provider?.is_voice_call_available || false,
+      name: 'is_voice_call_available',
     },
     {
       icon: OrdersSvg,
       label: t('q3'),
-      value: provider.is_video_call_available,
+      value: provider?.is_video_call_available || false,
+      name: 'is_video_call_available',
     },
   ];
 
   return (
-    <div className={'flex flex-col lg:flex-row gap-4 justify-between'}>
-      {FAQ.map(({ icon, label, value }, index) => (
+    <div
+      className={`flex flex-col ${
+        !form && 'lg:flex-row'
+      } gap-4 justify-between`}
+    >
+      {FAQ.map(({ icon, label, value, name }, index) => (
         <div key={label} className={'flex flex-col gap-2'}>
           <div className={'flex items-center justify-between lg:gap-4'}>
             <div className={'flex items-center gap-3'}>
@@ -207,7 +221,13 @@ const ProviderFAQ = ({ provider }: { provider: IProvider }) => {
               <p className={'text-gray-700'}>{label}</p>
             </div>
             <p className={'text-gray-700 font-semibold'}>
-              {value ? (
+              {form ? (
+                <Switch
+                  {...form.register(name)}
+                  checked={value}
+                  onChange={(e) => form.setValue(name, e.target.checked)}
+                />
+              ) : value ? (
                 <Image src={YesSvg} alt="Yes" className={'h-6 w-6'} />
               ) : (
                 <Image src={NoSvg} alt="No" className={'h-6 w-6'} />
@@ -219,7 +239,9 @@ const ProviderFAQ = ({ provider }: { provider: IProvider }) => {
               style={{
                 borderStyle: 'dashed',
               }}
-              className="my-2 bg-gray-100 bg-transparent lg:border-transparent"
+              className={`my-2 bg-gray-100 bg-transparent ${
+                !form && 'lg:border-transparent'
+              }`}
             />
           )}
         </div>

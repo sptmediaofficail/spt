@@ -39,3 +39,37 @@ export const SAPhoneInput = () => {
     />
   );
 };
+
+export const NewSAPhoneInput = () => {
+  const [isDirty, setIsDirty] = useState(false);
+  return (
+    <PhoneInput
+      isValid={(value, country) => {
+        if (!isDirty) return true;
+        const saRegex = /^(966)([503649187])([0-9]{8})$/;
+        return 'sa' && saRegex.test(value);
+      }}
+      disableDropdown={true}
+      disableCountryGuess={true}
+      country={'sa'}
+      onChange={(value) => {
+        setIsDirty(true);
+      }}
+      inputStyle={{
+        width: '100%',
+        height: '100%',
+        padding: '0.5rem',
+        paddingLeft: '2.3rem',
+        borderRadius: '0.5rem',
+        border: '1px solid #eaeaea',
+      }}
+      buttonStyle={{
+        backgroundColor: 'transparent',
+        border: '1px solid #eaeaea',
+        borderRightStyle: 'none',
+        borderStyle: 'none',
+        paddingInline: '0.5rem',
+      }}
+    />
+  );
+};
