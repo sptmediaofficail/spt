@@ -56,7 +56,11 @@
     "search": "بحث ...",
     "edit_profile": "تعديل الملف الشخصي",
     "order_spare_part": "طلب قطعة غيار",
-    "sell_junk_car": "بيع سيارة تشاليح"
+    "sell_junk_car": "بيع سيارة تشاليح",
+    "create_store": "انشاء متجر",
+    "my_store": "متجري",
+    "my_profile": "ملفي الشخصي",
+    "manage_account": "إدارة الحساب"
   },
   "cards": {
     "welcome": {

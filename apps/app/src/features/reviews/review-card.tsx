@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import { Card } from "@heroui/card";
+import { Card } from '@heroui/card';
 import { Truncate } from '@re-dev/react-truncate';
-import { Skeleton } from "@heroui/skeleton";
+import { Skeleton } from '@heroui/skeleton';
 
 export const ReviewCard = ({
   comment,
@@ -14,7 +14,7 @@ export const ReviewCard = ({
 }) => (
   <Card
     isHoverable
-    className="p-4 rounded-xl w-80 lg:w-96 max-w-md shadow-sm border cursor-pointer transition-transform ease-in flex flex-row gap-4 text-right"
+    className="p-4 rounded-xl w-80 lg:w-96 max-w-md shadow-sm border cursor-pointer transition-transform ease-in flex flex-row gap-4 text-right h-28"
   >
     <Image
       src={avatar}
@@ -33,7 +33,7 @@ export const ReviewCard = ({
 );
 
 export const ReviewCardSkeleton = () => (
-  <Card className="w-80 lg:w-96 shadow-sm border h-fit">
+  <Card className="w-80 lg:w-96 shadow-sm border h-28">
     <div className="p-4 animate-pulse flex flex-row gap-4">
       <Skeleton className={'w-12 h-12 bg-gray-200 rounded-full'} />
       <div className={'flex flex-col w-full gap-4'}>

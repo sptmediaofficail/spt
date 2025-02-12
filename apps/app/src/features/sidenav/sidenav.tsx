@@ -1,5 +1,4 @@
 'use client';
-
 import React from 'react';
 import {
   Menu,
@@ -50,9 +49,18 @@ const menuConfig = [
     href: '/wallet',
   },
   {
-    label: 'profile',
+    label: 'manage_account',
     icon: <FaUserCircle />,
-    href: '/profile',
+    submenu: [
+      {
+        label: 'my_profile',
+        href: '/my-profile',
+      },
+      {
+        label: 'create_store',
+        href: '/create-store',
+      },
+    ],
   },
 ];
 
