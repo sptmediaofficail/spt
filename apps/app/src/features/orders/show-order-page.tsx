@@ -132,8 +132,8 @@ const OrderDetails = ({ orderDetails }: { orderDetails: OrderDetails }) => {
                 border-gray-200
               `}
           >
-            <div className="flex items-center justify-center w-10 h-10 bg-babyBlue rounded-full">
-              {<detail.icon className="text-primary" />}
+            <div className="flex items-center justify-center p-2 bg-babyBlue rounded-full">
+              {<detail.icon className="text-primary w-5 h-5" />}
             </div>
 
             <div className="flex flex-col">
