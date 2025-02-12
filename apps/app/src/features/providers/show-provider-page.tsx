@@ -1,4 +1,4 @@
-import { Card, CardBody, CardHeader } from "@heroui/card";
+import { Card, CardBody, CardHeader } from '@heroui/card';
 import Image from 'next/image';
 import EnvatoSvg from './assets/envato.svg';
 import StarSvg from './assets/star.svg';
@@ -9,7 +9,7 @@ import ServicesSvg from './assets/services.svg';
 import YesSvg from './assets/yes.svg';
 import NoSvg from './assets/no.svg';
 import { IProvider } from './types';
-import { Divider } from "@heroui/divider";
+import { Divider } from '@heroui/divider';
 import { useTranslations } from 'next-intl';
 import { Breadcrumbs } from '../../ui/breadcrumbs';
 import { PrimaryLink } from '../../ui/primary-button';
@@ -152,7 +152,7 @@ const Detail = ({
       <div className={'gap-3 hidden lg:flex'}>
         <div
           className={
-            'w-8 h-8 relative bg-[#f1fbfb] p-1.5 rounded-full flex items-center self-center'
+            'w-8 h-8 relative bg-babyBlue p-1.5 rounded-full flex items-center self-center'
           }
         >
           <Image src={icon} alt="Address" className={'h-6 w-6'} />

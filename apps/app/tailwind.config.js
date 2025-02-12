@@ -1,4 +1,4 @@
-const { heroui } = require("@heroui/theme");
+const { heroui } = require('@heroui/theme');
 const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');
 const { join } = require('path');
 const defaultTheme = require('tailwindcss/defaultTheme');
@@ -11,7 +11,7 @@ module.exports = {
       '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
     ),
     ...createGlobPatternsForDependencies(__dirname),
-    "../../node_modules/@heroui/theme/dist/components/*.js",
+    '../../node_modules/@heroui/theme/dist/components/*.js',
   ],
   theme: {
     extend: {},
@@ -29,6 +29,9 @@ module.exports = {
             },
             accent: {
               DEFAULT: '#05B5B4',
+            },
+            babyBlue: {
+              DEFAULT: '#f1fbfb',
             },
             secondary: '#F3F5F7',
             secondaryText: '#596780',

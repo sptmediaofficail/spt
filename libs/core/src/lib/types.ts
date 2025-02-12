@@ -12,7 +12,7 @@ export type Offer = {
   deleted_at: any;
 };
 
-export type IOrder = {
+export type Order = {
   id: string;
   order_no: string;
   link_code: string;
@@ -61,3 +61,55 @@ export type Provider = {
   deleted_at: any;
   permission_group_id: any;
 };
+
+export interface OrderDetails {
+  id: string;
+  order_no: string;
+  link_code: string;
+  vin_serial: any;
+  status: string;
+  address: string;
+  type: string;
+  price: number;
+  tax: number;
+  commission: number;
+  fee: number;
+  delivery_fee: number;
+  total: number;
+  is_reviewed: boolean;
+  created_at: string;
+  checkout_id: any;
+  is_paid: boolean;
+  details: Details;
+  offers: Offer[];
+  images: string[];
+  provider: any;
+}
+
+export interface Details {
+  id: string;
+  address: string;
+  location: Location;
+  year: string;
+  brand: any;
+  model: Model;
+  name: string;
+  quantity: number;
+  condition_new: boolean;
+  condition_used: boolean;
+  condition_both: boolean;
+  notes: string;
+  is_delivery: boolean;
+  delivery_date: string;
+  agent_code: any;
+}
+
+export interface Location {
+  lat: number;
+  lng: number;
+}
+
+export interface Model {
+  id: string;
+  name: string;
+}

@@ -1,5 +1,5 @@
 import { DetailedCard } from '../providers/provider-card';
-import { IOrder } from '@spt/core';
+import { Order } from '@spt/core';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import LocationSvg from '../../assets/location.svg';
@@ -7,7 +7,7 @@ import QuantitySvg from '../../assets/quantity.svg';
 import CalenderSvg from '../../assets/calender.svg';
 import { formatDate } from '../../utils/formatter';
 
-export const OrderCard = (order: IOrder) => {
+export const OrderCard = (order: Order) => {
   const t = useTranslations();
 
   return (
