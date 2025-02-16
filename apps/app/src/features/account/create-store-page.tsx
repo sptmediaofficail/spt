@@ -217,7 +217,7 @@ export const CreateStorePage = () => {
           {...form.register('branches')}
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
           <Controller
             name="services"
             control={form.control}
@@ -287,7 +287,7 @@ export const CreateStorePage = () => {
 
         {/* accept terms and conditions */}
         <div className="flex justify-between gap-2 w-full mt-4">
-          <div className="flex gap-4 w-full mt-4">
+          <div className="flex flex-col lg:flex-row gap-4 w-full mt-4">
             <Checkbox
               {...form.register('only_my_city', {
                 value: '1',
@@ -313,10 +313,16 @@ export const CreateStorePage = () => {
           <PrimaryButton
             text={t('create_store')}
             isLoading={form.formState.isSubmitting}
-            className="w-auto"
+            className="w-auto hidden lg:block"
             type="submit"
           />
         </div>
+        <PrimaryButton
+          text={t('create_store')}
+          isLoading={form.formState.isSubmitting}
+          className="w-auto lg:hidden"
+          type="submit"
+        />
       </form>
     </FormProvider>
   );
