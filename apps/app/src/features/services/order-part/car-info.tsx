@@ -79,7 +79,13 @@ const FormSelect = ({
   );
 };
 
-export const BrandSelector = () => {
+export const BrandSelector = ({
+  multiple = false,
+  selectedKeys,
+}: {
+  multiple?: boolean;
+  selectedKeys?: string[];
+}) => {
   const t = useTranslations();
   const form = useFormContext<FormOrderParts>();
   const brandsInfinityHooks = useBrandsInfinity();
@@ -105,7 +111,6 @@ export const BrandSelector = () => {
           variant="bordered"
           className="w-full rounded-none"
           placeholder={t('select_brand')}
-          selectedKeys={[form.watch('brand')]}
           {...field}
         >
           {items.map((item) => (

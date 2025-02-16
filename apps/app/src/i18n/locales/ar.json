@@ -195,5 +195,8 @@
   "towing": "قطر السيارات",
   "maintenance": "الصيانة",
   "select_service": "اختر الخدمة",
-  "accept_terms": "اوافق علي الشروط والأحكام"
+  "accept_terms": "اوافق علي الشروط والأحكام",
+  "bank_account": "رقم الحساب البنكي",
+  "bank_name": "اسم البنك",
+  "bank_username": "اسم صاحب الحساب البنكي"
 }

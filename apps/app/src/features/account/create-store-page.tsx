@@ -9,10 +9,10 @@ import PhoneInput from 'react-phone-input-2';
 import { GoogleMap } from '../providers/map';
 import { Select, SelectItem } from '@heroui/select';
 import React from 'react';
-import { BrandSelector } from '../services/order-part/car-info';
 import { ProviderFAQ } from '../providers/show-provider-page';
 import { Checkbox } from '@heroui/checkbox';
 import { PrimaryButton } from '../../ui/primary-button';
+import { BrandSelector } from '../services/order-part/car-info';
 
 export const CreateStorePage = () => {
   const t = useTranslations();
@@ -33,10 +33,6 @@ export const CreateStorePage = () => {
   const services = ['spare_parts', 'towing', 'maintenance'];
 
   const onSubmit = async (data) => {
-    console.log(data);
-
-    alert(JSON.stringify(data, null, 2));
-
     await mutateAsync({
       formData: {
         name: data.store_name,
@@ -48,6 +44,10 @@ export const CreateStorePage = () => {
         is_delivery_available: data.is_delivery_available ? 1 : 0,
         is_video_call_available: data.is_video_call_available ? 1 : 0,
         is_voice_call_available: data.is_voice_call_available ? 1 : 0,
+
+        'spare_part_brands[]': data.brand.split(','),
+        mobile: `+${data.mobile}`,
+        phone: `+${data.phone}`,
       },
     });
   };
@@ -83,12 +83,49 @@ export const CreateStorePage = () => {
             {...form.register('store_manager_name', { required: true })}
           />
 
+          <Input
+            isRequired
+            label={t('bank_name')}
+            labelPlacement="outside"
+            placeholder={t('enter', { field: t('bank_name') })}
+            variant="bordered"
+            errorMessage={t('field_required')}
+            {...form.register('bank_name', { required: true })}
+          />
+          <Input
+            isRequired
+            label={t('bank_username')}
+            labelPlacement="outside"
+            placeholder={t('enter', { field: t('bank_username') })}
+            variant="bordered"
+            errorMessage={t('field_required')}
+            {...form.register('bank_username', { required: true })}
+          />
+          <Input
+            isRequired
+            label={t('bank_account')}
+            labelPlacement="outside"
+            placeholder={t('enter', { field: t('bank_account') })}
+            variant="bordered"
+            errorMessage={t('field_required')}
+            {...form.register('bank_account', { required: true })}
+          />
+          <Input
+            isRequired
+            label={t('iban')}
+            labelPlacement="outside"
+            placeholder={t('enter', { field: t('iban') })}
+            variant="bordered"
+            errorMessage={t('field_required')}
+            {...form.register('iban', { required: true })}
+          />
+
           {phoneInputs.map((input) => (
             <div key={input} className="flex flex-col gap-3">
               <label className="text-sm text-primary">{t(input)}</label>
               <Controller
                 control={form.control}
-                name="phone"
+                name={input}
                 render={({ field }) => (
                   <div dir={'ltr'}>
                     <PhoneInput
@@ -189,7 +226,7 @@ export const CreateStorePage = () => {
               </Select>
             )}
           />
-          <BrandSelector />
+          <BrandSelector selectedKeys={form.watch('brand')} />
         </div>
         <div className={'mt-2'}>
           <ProviderFAQ form={form} />
@@ -197,14 +234,21 @@ export const CreateStorePage = () => {
 
         {/* accept terms and conditions */}
         <div className="flex justify-between gap-2 w-full mt-4">
-          <Checkbox
-            {...form.register('terms_and_conditions_accepted', {
-              required: true,
-            })}
-            color="primary"
-          >
-            {t('accept_terms')}
-          </Checkbox>
+          <div className="flex gap-4 w-full mt-4">
+            <Checkbox {...form.register('only_my_city')} color="primary">
+              {t('only_my_city')}
+            </Checkbox>
+            <Checkbox
+              {...form.register('terms_and_conditions_accepted', {
+                required: true,
+              })}
+              required={true}
+              color="primary"
+            >
+              {t('accept_terms')}
+            </Checkbox>
+          </div>
+
           <PrimaryButton
             text={t('create_store')}
             isLoading={form.formState.isSubmitting}

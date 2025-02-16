@@ -1,6 +1,6 @@
 import React from 'react';
-import { useInfiniteScroll } from "@heroui/use-infinite-scroll";
-import { Select, SelectProps } from "@heroui/select";
+import { useInfiniteScroll } from '@heroui/use-infinite-scroll';
+import { Select, SelectProps } from '@heroui/select';
 
 export function InfiniteSelect(
   props: SelectProps & {
@@ -24,7 +24,7 @@ export function InfiniteSelect(
     <Select
       isLoading={isFetchingNextPage}
       scrollRef={scrollerRef}
-      selectionMode="single"
+      selectionMode="multiple"
       onOpenChange={setIsOpen}
       {...props}
     >
