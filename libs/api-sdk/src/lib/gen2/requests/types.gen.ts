@@ -1850,6 +1850,14 @@ export type PostProviderProfileData = {
          * new,used,both
          */
         part_condition?: string;
+        bank_username?: string;
+        bank_name?: string;
+        bank_account?: number;
+        iban?: number;
+        /**
+         * boolean
+         */
+        only_my_city?: number;
     };
     /**
      * API

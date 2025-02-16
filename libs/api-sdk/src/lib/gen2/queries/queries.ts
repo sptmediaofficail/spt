@@ -2354,11 +2354,11 @@ export const useProviderProviderSubscriptionServicePostProviderSubscriptionSubsc
 */
 export const useProviderProviderProfileServicePostProviderProfile = <TData = Common.ProviderProviderProfileServicePostProviderProfileMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
   contentLanguage?: string;
-  formData?: { name?: string; owner_name?: string; mobile?: number; phone?: number; latitude?: number; longitude?: number; address?: string; branches?: string; services?: string; 'spare_part_brands[]'?: string; is_delivery_available?: number; is_video_call_available?: number; is_voice_call_available?: number; terms_and_conditions_accepted?: number; part_condition?: string; };
+  formData?: { name?: string; owner_name?: string; mobile?: number; phone?: number; latitude?: number; longitude?: number; address?: string; branches?: string; services?: string; 'spare_part_brands[]'?: string; is_delivery_available?: number; is_video_call_available?: number; is_voice_call_available?: number; terms_and_conditions_accepted?: number; part_condition?: string; bank_username?: string; bank_name?: string; bank_account?: number; iban?: number; only_my_city?: number; };
   xRequestedWith?: string;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
   contentLanguage?: string;
-  formData?: { name?: string; owner_name?: string; mobile?: number; phone?: number; latitude?: number; longitude?: number; address?: string; branches?: string; services?: string; 'spare_part_brands[]'?: string; is_delivery_available?: number; is_video_call_available?: number; is_voice_call_available?: number; terms_and_conditions_accepted?: number; part_condition?: string; };
+  formData?: { name?: string; owner_name?: string; mobile?: number; phone?: number; latitude?: number; longitude?: number; address?: string; branches?: string; services?: string; 'spare_part_brands[]'?: string; is_delivery_available?: number; is_video_call_available?: number; is_voice_call_available?: number; terms_and_conditions_accepted?: number; part_condition?: string; bank_username?: string; bank_name?: string; bank_account?: number; iban?: number; only_my_city?: number; };
   xRequestedWith?: string;
 }, TContext>({ mutationFn: ({ contentLanguage, formData, xRequestedWith }) => ProviderProviderProfileService.postProviderProfile({ contentLanguage, formData, xRequestedWith }) as unknown as Promise<TData>, ...options });
 /**

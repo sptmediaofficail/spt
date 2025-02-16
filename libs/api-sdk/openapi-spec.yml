@@ -4487,7 +4487,7 @@ paths:
           schema:
             type: string
           required: true
-          example: c5ad5169-f88d-4acc-8d4f-6c985706b224
+          example: 55e3f8d3-f22f-4559-8637-5037869614a3
       responses:
         '200':
           description: Successful response
@@ -4792,6 +4792,22 @@ paths:
                   type: string
                   description: new,used,both
                   example: both
+                bank_username:
+                  type: string
+                  example: osama
+                bank_name:
+                  type: string
+                  example: ALHARG
+                bank_account:
+                  type: integer
+                  example: '123654123654654'
+                iban:
+                  type: integer
+                  example: '12365465465465465'
+                only_my_city:
+                  type: integer
+                  description: boolean
+                  example: '1'
       security:
         - bearerAuth: []
       parameters:
