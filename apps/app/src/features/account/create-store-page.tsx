@@ -13,11 +13,14 @@ import { ProviderFAQ } from '../providers/show-provider-page';
 import { Checkbox } from '@heroui/checkbox';
 import { PrimaryButton } from '../../ui/primary-button';
 import { BrandSelector } from '../services/order-part/car-info';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 export const CreateStorePage = () => {
   const t = useTranslations();
-  const { mutateAsync } =
-    useProviderProviderProfileServicePostProviderProfile();
+  const { mutateAsync } = useProviderProviderProfileServicePostProviderProfile(
+    {}
+  );
   const form = useForm();
   const setLocation = ({
     lat,
@@ -32,24 +35,40 @@ export const CreateStorePage = () => {
 
   const services = ['spare_parts', 'towing', 'maintenance'];
 
+  const router = useRouter();
   const onSubmit = async (data) => {
-    await mutateAsync({
-      formData: {
-        name: data.store_name,
-        owner_name: data.store_manager_name,
-        ...data,
-        terms_and_conditions_accepted: data.terms_and_conditions_accepted
-          ? 1
-          : 0,
-        is_delivery_available: data.is_delivery_available ? 1 : 0,
-        is_video_call_available: data.is_video_call_available ? 1 : 0,
-        is_voice_call_available: data.is_voice_call_available ? 1 : 0,
+    try {
+      await mutateAsync(
+        {
+          contentLanguage: 'ar',
+          formData: {
+            name: data.store_name,
+            owner_name: data.store_manager_name,
+            ...data,
+            terms_and_conditions_accepted: data.terms_and_conditions_accepted
+              ? 1
+              : 0,
+            is_delivery_available: data.is_delivery_available ? 1 : 0,
+            is_video_call_available: data.is_video_call_available ? 1 : 0,
+            is_voice_call_available: data.is_voice_call_available ? 1 : 0,
+            only_my_city: data.only_my_city ? 1 : 0,
 
-        'spare_part_brands[]': data.brand.split(','),
-        mobile: `+${data.mobile}`,
-        phone: `+${data.phone}`,
-      },
-    });
+            'spare_part_brands[]': data.brand.split(','),
+            mobile: `+${data.mobile}`,
+            phone: `+${data.phone}`,
+          },
+        },
+        {
+          onSuccess: () => {
+            toast.success(t('store_created'));
+            form.reset();
+            router.push('/');
+          },
+        }
+      );
+    } catch (error) {
+      toast.error(error.body.message);
+    }
   };
 
   const phoneInputs = ['phone', 'mobile'];
@@ -133,7 +152,7 @@ export const CreateStorePage = () => {
                         const isDirty = form.getFieldState(input).isDirty;
                         if (!isDirty) return true;
 
-                        const saRegex = /^(966)([503649187])([0-9]{8})$/;
+                        const saRegex = /^(966|968)([503649187])([0-9]{8})$/;
                         return 'sa' && saRegex.test(value);
                       }}
                       disableDropdown={true}
@@ -177,7 +196,7 @@ export const CreateStorePage = () => {
           <label className="text-sm text-primary" htmlFor="address">
             {t('address')}
           </label>
-          <div className="w-full h-full flex-1 bg-gray-200 rounded-xl flex items-center justify-center overflow-hidden shadow-sm animate-appearance-in">
+          <div className="w-full h-full min-h-48 flex-1 bg-gray-200 rounded-xl flex items-center justify-center overflow-hidden shadow-sm animate-appearance-in">
             <GoogleMap
               onInit={setLocation}
               onDragEnd={(e) =>
@@ -227,6 +246,40 @@ export const CreateStorePage = () => {
             )}
           />
           <BrandSelector selectedKeys={form.watch('brand')} />
+
+          {form.watch('services') === 'spare_parts' && (
+            <Controller
+              name="part_condition"
+              control={form.control}
+              rules={{ required: t('field_required') }}
+              render={({ field }) => (
+                <Select
+                  label={t('part_condition')}
+                  labelPlacement="outside"
+                  isRequired
+                  classNames={{
+                    trigger: 'rounded-lg shadow-sm border border-gray-300',
+                    label: 'after:text-[#05b5b4] after:px-1',
+                  }}
+                  color="primary"
+                  variant="bordered"
+                  className="w-full rounded-none col-span-2"
+                  placeholder={t('part_condition')}
+                  {...field}
+                >
+                  <SelectItem key={'new'} value={'new'}>
+                    {t('new')}
+                  </SelectItem>
+                  <SelectItem key={'used'} value={'used'}>
+                    {t('used')}
+                  </SelectItem>
+                  <SelectItem key={'both'} value={'both'}>
+                    {t('both_new_and_used')}
+                  </SelectItem>
+                </Select>
+              )}
+            />
+          )}
         </div>
         <div className={'mt-2'}>
           <ProviderFAQ form={form} />
@@ -235,14 +288,22 @@ export const CreateStorePage = () => {
         {/* accept terms and conditions */}
         <div className="flex justify-between gap-2 w-full mt-4">
           <div className="flex gap-4 w-full mt-4">
-            <Checkbox {...form.register('only_my_city')} color="primary">
+            <Checkbox
+              {...form.register('only_my_city', {
+                value: '1',
+                valueAsNumber: true,
+              })}
+              defaultChecked
+              color="primary"
+            >
               {t('only_my_city')}
             </Checkbox>
             <Checkbox
               {...form.register('terms_and_conditions_accepted', {
-                required: true,
+                value: '1',
+                valueAsNumber: true,
               })}
-              required={true}
+              defaultChecked
               color="primary"
             >
               {t('accept_terms')}
