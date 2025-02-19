@@ -1,7 +1,7 @@
 import { Right } from '../service/spt-client/types';
 import { Section } from '../components/section';
 import Image from 'next/image';
-import { cn } from "@heroui/theme";
+import { cn } from '@heroui/theme';
 import RightWrench from '../assets/svg/right-wrench.svg';
 
 export const RightsSection = ({ rights }: { rights: Right[] }) => {
@@ -11,7 +11,7 @@ export const RightsSection = ({ rights }: { rights: Right[] }) => {
       id={'rights'}
       title={'كيف نضمن حقوقك'}
       heading={'كيف نضمن حقوقك في SPT بكل احترافية'}
-      description="نحرص على ضمان حقوقك من خلال تطبيق إجراءات أمان متقدمة، توفير سياسات خصوصية شفافة، وتقديم دعم فني متواصل، مما يضمن حماية بياناتك الشخصية، وضمان الشفافية في استخدام المعلومات"
+      description="نحرص على ضمان حقوقك من خلال تطبيق إجراءات أمان متقدمة وفق التالي:"
       className="max-w-full"
     >
       <Image
@@ -22,9 +22,9 @@ export const RightsSection = ({ rights }: { rights: Right[] }) => {
         height={70}
       />
       <div className="mt-16">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {rights.map((right, index) => (
-            <RightCard key={index} right={right} flip={index % 2 === 0} />
+            <RightCard key={index} right={right} flip={true} />
           ))}
         </div>
       </div>

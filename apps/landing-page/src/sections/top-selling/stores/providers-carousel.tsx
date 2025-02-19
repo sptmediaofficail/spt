@@ -1,6 +1,6 @@
 'use client';
 import ReactStars from 'react-stars';
-import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
+import { Card, CardBody, CardFooter, CardHeader } from '@heroui/card';
 import Image from 'next/image';
 import { SecondButton } from '../../../components/second-button';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -25,12 +25,7 @@ export const ProvidersCarousel = ({ providers }: { providers: Provider[] }) => {
     >
       {providers.map((provider) => (
         <SwiperSlide className={'py-6 !w-auto'} key={provider.id}>
-          <ShopCard
-            logo={provider.avatar ?? '/partners/BMW.png'}
-            shopName={provider.name}
-            description={'lorem ipsum dolor sit amet'}
-            rating={provider.rating}
-          />
+          <ShopCard {...provider} />
         </SwiperSlide>
       ))}
 
@@ -39,17 +34,7 @@ export const ProvidersCarousel = ({ providers }: { providers: Provider[] }) => {
   );
 };
 
-const ShopCard = ({
-  logo,
-  shopName,
-  description,
-  rating,
-}: {
-  logo: string;
-  shopName: string;
-  description: string;
-  rating: number;
-}) => {
+const ShopCard = (provider: Provider) => {
   const renderStars = (rating: number) => {
     return (
       <ReactStars
@@ -66,17 +51,21 @@ const ShopCard = ({
     <Card isHoverable className="w-[240px]">
       <CardHeader>
         <div className="relative p-8 m-auto">
-          <Image src={logo} alt="Shop Logo" fill={true} />
+          <Image
+            src={provider.avatar ?? '/partners/BMW.png'}
+            alt="Shop Logo"
+            fill={true}
+          />
         </div>
       </CardHeader>
       <CardBody className="flex flex-col gap-1 text-center">
-        <h3 className="text-lg font-semibold">{shopName}</h3>
-        <div className="mx-auto">{renderStars(rating)}</div>
-        <p className="text-sm text-secondaryText">{description}</p>
+        <h3 className="text-lg font-semibold">{provider.name}</h3>
+        <div className="mx-auto">{renderStars(provider.rating)}</div>
       </CardBody>
       <CardFooter>
         <div className="mx-auto">
           <SecondButton
+            href={`https://services.spt.sa/providers/${provider.id}`}
             className={'text-xs'}
             text={'طلب الخدمه'}
             color={'primary'}

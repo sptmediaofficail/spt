@@ -7,7 +7,7 @@ import StatMask from '../assets/svg/stat-mask.svg';
 import HeroImg from '../assets/images/hero.png';
 import { Section } from '../components/section';
 import { sptClient } from '../service/spt-client/spt-client';
-import { cn } from "@heroui/theme";
+import { cn } from '@heroui/theme';
 import HeroLine from '../assets/svg/hero-line.svg';
 import HeroBg from '../assets/svg/hero-bg.svg';
 
@@ -35,7 +35,7 @@ const MainSection = () => {
     () => ({
       title: 'اطلب قطع غيار سيارتك بكل سهولة مع',
       description:
-        'مرحبا بك في SPT وجهتك المثالية لتجعل العثور على قطع غيار السيارات التي تحتاجها بسرعة وكفاءة سواء كنت تبحث عن قطع أصلية، مستعملة أو مستهلكة أخيرا، كل ما يلزم لتلبية احتياجات سيارتك.',
+        'مرحبًا بك في SPT، وجهتك المثالية للعثور على قطع غيار السيارات بسرعة وسهولة. سواء كنت تبحث عن قطع أصلية أو مستعملة، نوفر لك كل ما تحتاجه لتلبية احتياجات سيارتك من قطع الغيار.',
     }),
     []
   );

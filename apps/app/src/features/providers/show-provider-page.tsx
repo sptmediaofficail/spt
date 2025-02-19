@@ -21,7 +21,7 @@ export const ShowProviderPage = async ({ id }: { id: string }) => {
   const provider = await getProviderData(id);
 
   if (!provider) {
-    return <div>Provider data could not be fetched.</div>;
+    return <div>Provider not found</div>;
   }
 
   return (

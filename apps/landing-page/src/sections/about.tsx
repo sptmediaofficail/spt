@@ -6,19 +6,22 @@ import Image from 'next/image';
 
 const helps = [
   {
-    icon: <FiAward size={40} className="text-white" />, // Updated to use React Icon
-    title: 'تشكيله واسعه من قطع الغيار',
-    description: 'توفير قطع غيار أصلية وعالية الجودة من مصادر موثوقة ومعتمدة.',
+    icon: <FiAward size={44} className="text-white" />, // Updated to use React Icon
+    title: 'سجل طلبك',
+    description:
+      'قم بانشاء طلب قطع غيار واضف تفاصيل البيانات واحصل على عروض المتاجر المتخصصة في دقائق محدودة.',
   },
   {
-    icon: <FiHeadphones size={40} className="text-white" />, // Updated to use React Icon
-    title: 'دعم فني متخصص',
-    description: 'فريق دعم فني متخصص يقدم لك الدعم الفني اللازم.',
+    icon: <FiHeadphones size={44} className="text-white" />, // Updated to use React Icon
+    title: 'اختر العرض المناسب',
+    description:
+      'قارن عروض المتاجر وتصفح ملفاتهم وتقيماتهم وأعمالهم، تفاوض معهم عبر المحادثة الفورية واختر الأفضل لتنفيذ طلبك.',
   },
   {
-    icon: <FiTruck size={40} className="text-white" />, // Updated to use React Icon
-    title: 'اسعار مناسبة',
-    description: 'توصيل سريع للقطع الغيار إلى موقعك.',
+    icon: <FiTruck size={44} className="text-white" />, // Updated to use React Icon
+    title: 'استلم طلبك',
+    description:
+      'سيعمل المتجر الذي اخترته على طلبك ويتابع معك حتى حصولك على طلبك المتفق عليه وتسليمه.',
   },
 ];
 
@@ -28,8 +31,8 @@ export const AboutSection = () => {
       id={'about'}
       position={'center'}
       title={'عن SPT'}
-      heading={'سهلة وبسيطة وبأسعار معقولة'}
-      description="في عالم قطع غيار السيارات، نعلم أن العثور على المكان المثالي للشراء هو أمر بالغ الأهمية. هنا في SPT، نقدم لك مجموعة من الأسباب التي تجعلنا خيارك الأول للعثور على قطع غيار سيارتك بكل سهولة وراحة"
+      heading={'هي منصة إلكترونية متكاملة تشمل تطبيق جوال وموقع الكتروني'}
+      description="وجهتك المثالية للعثور على قطع غيار السيارات بسرعة وسهولة. سواء كنت تبحث عن قطع أصلية أو مستعملة، نوفر لك كل ما تحتاجه لتلبية احتياجات سيارتك بكل راحة."
     >
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 mt-8 lg:mt-0 place-items-center">
         <div className="col-span-1">

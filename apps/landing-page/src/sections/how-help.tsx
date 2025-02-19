@@ -1,28 +1,51 @@
 import { Section } from '../components/section';
-import { FiAward, FiDollarSign, FiHeadphones, FiTruck } from 'react-icons/fi';
 import Image from 'next/image';
 import CarImage from '../assets/svg/car.svg';
+import {
+  FaBalanceScale,
+  FaRocket,
+  FaShieldAlt,
+  FaStore,
+  FaTools,
+} from 'react-icons/fa';
+import { FiDollarSign } from 'react-icons/fi';
 
 const helps = [
   {
-    icon: <FiAward size={40} className="text-white" />, // Updated to use React Icon
-    title: 'جودة عالية',
-    description: 'توفير قطع غيار أصلية وعالية الجودة من مصادر موثوقة ومعتمدة.',
+    icon: <FaRocket size={44} className="text-white" />, // Updated to use React Icon
+    title: 'أنجز طلبك بسرعة وسهولة',
+    description:
+      'انشر طلبك واترك مهمة تنفيذه لأفضل المتاجر المتخصصة والموثوقة.',
   },
   {
-    icon: <FiHeadphones size={40} className="text-white" />, // Updated to use React Icon
-    title: 'دعم فني متخصص',
-    description: 'فريق دعم فني متخصص يقدم لك الدعم الفني اللازم.',
+    icon: <FaStore size={44} className="text-white" />, // Updated to use React Icon
+    title: 'اختر افضل المتاجر',
+    description:
+      'تصفح ملفات المتاجر واطلع على انشطتهم وتقييمات العملاء واختر الأنسب.',
   },
   {
-    icon: <FiTruck size={40} className="text-white" />, // Updated to use React Icon
-    title: 'تسليم سريع',
-    description: 'توصيل سريع للقطع الغيار إلى موقعك.',
+    icon: <FiDollarSign size={44} className="text-white" />, // Updated to use React Icon
+    title: 'نفذ طلبك بتكلفة اقل',
+    description:
+      'حدد ميزانية العرض المناسب لطلبك واختر من بين المتاجر للعمل على إنجازه.',
   },
   {
-    icon: <FiDollarSign size={40} className="text-white" />, // Updated to use React Icon
-    title: 'توفير تكاليف',
-    description: 'توفير تكاليف الصيانة والتشغيل بشكل ملحوظ.',
+    icon: <FaShieldAlt size={44} className="text-white" />, // Updated to use React Icon
+    title: 'ادفع بأريحية وأمان',
+    description:
+      'ادفع قيمة الطلب عبر وسائل دفع آمنة مع ضمان كامل لحقوقك المالية في SPT.',
+  },
+  {
+    icon: <FaTools size={44} className="text-white" />, // Updated to use React Icon
+    title: 'غطي احتياجاتك من قطع غيار لسيارتك',
+    description:
+      'اختر المتاجر المناسبة في مجال قطع غيار السيارات ومن مختلف البلدان لتنفيذ طلباتك التي تحتاجها.',
+  },
+  {
+    icon: <FaBalanceScale size={44} className="text-white" />, // Updated to use React Icon
+    title: 'اضمن حقوقك',
+    description:
+      'احفظ حقوقك بشكل كامل حيث يقوم موقع SPT بدور الوسيط بينك وبين متاجر قطع غيار السيارات.',
   },
 ];
 
@@ -38,7 +61,6 @@ export const HowHelpSection = ({
       id={'how-help'}
       title="كيف يساعدك SPT"
       heading="مفتاحك لتحقيق الكفاءة والتوفير"
-      description="اكتشف كيف يمكن SPT أن تحول مشاريعك من خلال توفير قطع عالية الجودة، دعم فني متخصص، وتسليم سريع، مما يساعدك على تحقيق كفاءة تشغيلية مثلى وتقليل التكاليف التشغيلية بشكل ملحوظ."
     >
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 mt-8 place-items-center">
         <Image
@@ -77,7 +99,7 @@ export const HowHelpCard = ({
       <div className="flex items-center justify-center bg-primary text-white rounded-xl p-3">
         {icon}
       </div>
-      <div className="flex gap-4 flex-col max-w-sm">
+      <div className="flex gap-2 flex-col max-w-sm">
         <h4 className="text-2xl font-bold">{title}</h4>
         <p className="text-md text-secondaryText">{description}</p>
       </div>

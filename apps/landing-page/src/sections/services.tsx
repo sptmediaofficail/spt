@@ -7,7 +7,7 @@ import Service1Icon from '../assets/svg/services/service-1-icon.svg';
 import Service2Icon from '../assets/svg/services/service-2-icon.svg';
 import Service2top from '../assets/svg/services/service-2-top.svg';
 import { HTMLProps, useState } from 'react';
-import { cn } from "@heroui/theme";
+import { cn } from '@heroui/theme';
 import { SecondButton } from '../components/second-button';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
@@ -21,6 +21,7 @@ const data = [
     bg: Service1Bg,
     // bgClassNames: 'scale-105 -left-10',
     image: Service2Bg,
+    href: 'https://services.spt.sa/services/order-spare-part',
   },
   {
     id: 2,
@@ -31,6 +32,7 @@ const data = [
     bg: Service2top,
     bgClassNames: '-left-20',
     image: Service2Bg,
+    href: 'https://services.spt.sa/services/sell-junk-car',
   },
 ];
 
@@ -51,6 +53,7 @@ export const ServicesSection = () => {
             theme={openedCard === service.id ? 'light' : 'dark'}
             onClick={() => setOpenedCard(service.id)}
             isOpened={openedCard === service.id}
+            href={service.href}
           />
         ))}
       </div>
@@ -69,6 +72,7 @@ export const ServiceCard = (
     theme: 'light' | 'dark';
     isOpened?: boolean;
     onClick?: () => void;
+    href?: string;
   }
 ) => {
   const { title, description, icon, bg, image, isOpened } = props;
@@ -125,6 +129,7 @@ export const ServiceCard = (
           color={props.theme === 'light' ? 'primary' : 'secondary'}
           className="font-semibold text-lg tracking-wide w-fit"
           text={'اطلب الآن'}
+          href={props.href}
         />
       </div>
     </div>
