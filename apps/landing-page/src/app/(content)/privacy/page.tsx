@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "@heroui/link";
+import { Link } from '@heroui/link';
 
 export default function PrivacyPage() {
   return (

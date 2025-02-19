@@ -60,6 +60,7 @@ export type Provider = {
   has_ability_to_vocally_contact_with_client: boolean;
   deleted_at: any;
   permission_group_id: any;
+  provider_id: string;
 };
 
 export interface OrderDetails {

@@ -65,7 +65,7 @@ const ShopCard = (provider: Provider) => {
       <CardFooter>
         <div className="mx-auto">
           <SecondButton
-            href={`https://services.spt.sa/providers/${provider.id}`}
+            href={`https://services.spt.sa/providers/${provider.provider_id}`}
             className={'text-xs'}
             text={'طلب الخدمه'}
             color={'primary'}

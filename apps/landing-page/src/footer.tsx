@@ -21,10 +21,10 @@ export const Footer = () => {
     {
       title: 'عن SPT',
       links: [
-        { label: 'حول المنصة', href: '#' },
-        { label: 'السياسيات و الاستراتيجيات', href: '#' },
-        { label: 'الاخبار', href: '#' },
-        { label: 'خدمه العملاء', href: '#' },
+        { label: 'حول المنصة', href: '/about-spt' },
+        { label: 'الشروط والاحكام', href: '/terms' },
+        { label: 'الرسوم والعمولات', href: '/commission' },
+        { label: 'سياسه الخصوصيه', href: '/privacy' },
       ],
     },
   ];
@@ -39,7 +39,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="text-white mt-16 relative bg-[#001E5F] p-8 lg:p-10">
+    <footer className="text-white relative bg-[#001E5F] p-8 lg:p-10">
       <Image
         src={FooterBg}
         alt="Footer Background"

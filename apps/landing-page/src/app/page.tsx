@@ -34,7 +34,9 @@ export default async function Index() {
       <HowHelpSection />
       <RightsSection rights={rights} />
       <DownloadSection downloadData={downloadData} />
-      <Footer />
+      <div className={'mt-16'}>
+        <Footer />
+      </div>
     </>
   );
 }

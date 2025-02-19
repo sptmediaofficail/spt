@@ -55,3 +55,17 @@ export type Right = {
   description_en: string;
   deleted_at: any;
 };
+
+export interface Content {
+  id: number;
+  title: string;
+  title_ar: string;
+  title_en: string;
+  content: string;
+  content_ar: string;
+  content_en: string;
+  image: string;
+  video: any;
+  type: string;
+  order: number;
+}

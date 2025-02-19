@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState } from 'react';
 import {
   Navbar as NextUiNavbar,
@@ -8,22 +7,22 @@ import {
   NavbarItem,
   NavbarMenu,
   NavbarMenuToggle,
-} from "@heroui/navbar";
-import { Button } from "@heroui/button";
-import { Link } from "@heroui/link";
+} from '@heroui/navbar';
+import { Button } from '@heroui/button';
+import { Link } from '@heroui/link';
 import Image from 'next/image';
 import Logo from './assets/svg/logo.svg';
 
-const loginLink = 'https://spt-three.vercel.app/login';
-const registerLink = 'https://spt-three.vercel.app/register';
+const loginLink = 'https://services.spt.sa/login';
+const registerLink = 'https://services.spt.sa/register';
 
 const navbarItems = [
-  { label: 'الرئيسية', href: '#', isActive: true },
-  { label: 'الشركاء', href: '#partners', isActive: false },
-  { label: 'خدماتنا', href: '#services', isActive: false },
-  { label: 'العروض', href: '#offers', isActive: false },
-  { label: 'عن SPT', href: '#about', isActive: false },
-  { label: 'كيف تضمن حقوقك', href: '#rights', isActive: false },
+  { label: 'الرئيسية', href: '/', isActive: true },
+  { label: 'الشركاء', href: '/#partners', isActive: false },
+  { label: 'خدماتنا', href: '/#services', isActive: false },
+  { label: 'العروض', href: '/#offers', isActive: false },
+  { label: 'عن SPT', href: '/#about', isActive: false },
+  { label: 'كيف تضمن حقوقك', href: '/#rights', isActive: false },
 ];
 
 export const Navbar = () => {
@@ -67,6 +66,7 @@ export const Navbar = () => {
             as={Link}
             className="rounded-full text-white"
             color="primary"
+            target={'_blank'}
             href={registerLink}
             variant="solid"
           >
@@ -78,6 +78,7 @@ export const Navbar = () => {
           <Button
             className="rounded-full text-primary border-primary border-1"
             as={Link}
+            target={'_blank'}
             href={loginLink}
             variant="bordered"
           >

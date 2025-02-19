@@ -1,8 +1,20 @@
-import { DownloadData, HowOrderData, Partner, Right, Stats } from './types';
+import {
+  Content,
+  DownloadData,
+  HowOrderData,
+  Partner,
+  Right,
+  Stats,
+} from './types';
 import { Offer, TopRated } from '@spt/core';
 
 export class SptClient {
   private baseURL = 'https://api.spt.sa/api/v1';
+
+  get about() {
+    const url = `${this.baseURL}/how_we_help`;
+    return this.fetch(url);
+  }
 
   async fetch(
     url: string,
@@ -64,6 +76,18 @@ export class SptClient {
     const url = `${this.baseURL}/landing/guarantee_rights`;
     const response = await this.fetch(url);
     return response.data.data as Right[];
+  }
+
+  async getPage(slug: string) {
+    const url = `${this.baseURL}/pages/${slug}`;
+    const response = await this.fetch(url);
+    return response.data as Content;
+  }
+
+  async getTerms(slug: string) {
+    const url = `${this.baseURL}/terms/${slug}`;
+    const response = await this.fetch(url);
+    return response.data as Content[];
   }
 }
 
