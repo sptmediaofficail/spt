@@ -11,11 +11,8 @@ enum transcations {
   public = 'العامة',
 }
 
-export const TermsAccordions = ({
-  sections,
-}: {
-  sections: (Content & { category: string })[];
-}) => {
+export const TermsAccordions = ({ sections }: { sections: Content[] }) => {
+  // @ts-ignore
   const categories = new Set(sections.map((section) => section.category));
   return (
     <Tabs color="primary" aria-label="Tabs" className={'mt-10'}>
@@ -25,6 +22,7 @@ export const TermsAccordions = ({
           <div className={'mt-6'}>
             <Accordion>
               {sections
+                // @ts-ignore
                 .filter((section) => section.category === tab)
                 .map((section, index) => (
                   <AccordionItem key={index} title={section.title}>
