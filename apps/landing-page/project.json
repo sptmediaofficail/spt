@@ -17,6 +17,14 @@
           "dev": false
         }
       }
+    },
+    "start": {
+      "executor": "@nx/next:server",
+      "options": {
+        "buildTarget": "landing-page:build",
+        "dev": false,
+        "root": "apps/landing-page"
+      }
     }
   }
 }
