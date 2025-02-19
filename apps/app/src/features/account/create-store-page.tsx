@@ -152,7 +152,7 @@ export const CreateStorePage = () => {
                         const isDirty = form.getFieldState(input).isDirty;
                         if (!isDirty) return true;
 
-                        const saRegex = /^(966|968)([503649187])([0-9]{8})$/;
+                        const saRegex = /^(966|01)([503649187])([0-9]{8})$/;
                         return 'sa' && saRegex.test(value);
                       }}
                       disableDropdown={true}

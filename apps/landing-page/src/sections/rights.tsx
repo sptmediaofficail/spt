@@ -10,8 +10,8 @@ export const RightsSection = ({ rights }: { rights: Right[] }) => {
       position="center"
       id={'rights'}
       title={'كيف نضمن حقوقك'}
-      heading={'كيف نضمن حقوقك في SPT بكل احترافية'}
-      description="نحرص على ضمان حقوقك من خلال تطبيق إجراءات أمان متقدمة وفق التالي:"
+      heading={'نضمن حقوقك بإجراءات أمان متقدمة'}
+      // description="نحرص على ضمان حقوقك من خلال تطبيق إجراءات أمان متقدمة وفق التالي:"
       className="max-w-full"
     >
       <Image
@@ -40,16 +40,7 @@ export const RightCard = ({ right, flip }: { right: Right; flip: boolean }) => {
         'flex flex-col items-center gap-4 max-w-xs mx-auto'
       )}
     >
-      <Image
-        className={cn(
-          'shadow-xl rounded-t-full lg:rounded-t-none lg:rounded-b-none',
-          flip ? 'lg:rounded-t-full' : 'lg:rounded-b-full'
-        )}
-        src={right.image}
-        alt={right.title}
-        width={100}
-        height={100}
-      />
+      <Image src={right.image} alt={right.title} width={100} height={100} />
       <div
         className={cn(
           'flex gap-4 flex-col',
