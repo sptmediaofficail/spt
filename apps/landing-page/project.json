@@ -23,7 +23,8 @@
       "options": {
         "buildTarget": "landing-page:build",
         "dev": false,
-        "root": "apps/landing-page"
+        "root": "apps/landing-page",
+        "port": 3000
       }
     }
   }
