@@ -24,7 +24,7 @@ export const Footer = () => {
         { label: 'حول المنصة', href: '/about-spt' },
         { label: 'الشروط والاحكام', href: '/terms' },
         { label: 'الرسوم والعمولات', href: '/commission' },
-        { label: 'سياسه الخصوصيه', href: '/privacy' },
+        { label: 'سياسه الخصوصيه', href: '/privacy-policy' },
       ],
     },
   ];
