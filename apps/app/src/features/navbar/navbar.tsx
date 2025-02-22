@@ -2,14 +2,14 @@
 import React, { useState } from 'react';
 import LogoColored from '../../assets/logo-colored.svg';
 import Image from 'next/image';
-import { Input } from "@heroui/input";
+import { Input } from '@heroui/input';
 import {
   Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-} from "@heroui/dropdown";
-import { Avatar } from "@heroui/avatar";
+} from '@heroui/dropdown';
+import { Avatar } from '@heroui/avatar';
 import SearchIcon from './search-icon';
 import {
   Navbar as NextUINavbar,
@@ -18,11 +18,10 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
-} from "@heroui/navbar";
+} from '@heroui/navbar';
 import { useTranslations } from 'next-intl';
 import { useUserStore } from '../auth/user-store';
 import { useLogout } from '../auth/login/use-logout';
-
 import {
   FaClipboardList,
   FaFacebook,
@@ -38,11 +37,11 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 import NewNotificationSvg from './assets/new-notifications.svg';
 import MenuIcon from './assets/menu-icon.svg';
 import MenuIconOpened from './assets/menu-icon-opened.svg';
-import { Divider } from "@heroui/divider";
-import { cn } from "@heroui/theme";
+import { Divider } from '@heroui/divider';
+import { cn } from '@heroui/theme';
 import Link from 'next/link';
 import { PrimaryButton } from '../../ui/primary-button';
-import { Card } from "@heroui/card";
+import { Card } from '@heroui/card';
 import { usePathname } from 'next/navigation';
 
 const menuItems = [
@@ -63,8 +62,8 @@ const menuItems = [
     icon: <FaWallet />,
   },
   {
-    label: 'profile',
-    href: '/profile',
+    label: 'create_store',
+    href: '/create-store',
     icon: <FaUserCircle />,
   },
 ];
@@ -180,7 +179,12 @@ export default function Navbar() {
       </NavbarContent>
 
       {/* Mobile Menu */}
-      <NavbarMenu className="px-4 py-0 bg-white border border-t border-gray-100 md:hidden flex flex-col justify-between">
+      <NavbarMenu
+        style={{
+          display: isMenuOpen ? 'block' : 'none',
+        }}
+        className="px-4 py-0 bg-white border border-t border-gray-100 md:hidden flex flex-col justify-between"
+      >
         <div>
           <Card className="p-4 w-full rounded-xl shadow-sm border flex flex-row gap-4 mt-4">
             {user?.avatar ? (
@@ -204,7 +208,11 @@ export default function Navbar() {
 
           {menuItems.map((item) => (
             <>
-              <NavbarMenuItem className={`py-4`} key={item.href}>
+              <NavbarMenuItem
+                onClick={() => setIsMenuOpen(false)}
+                className={`py-4`}
+                key={item.href}
+              >
                 <Link
                   href={item.href}
                   color="foreground"
