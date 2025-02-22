@@ -8,7 +8,7 @@ import { useProviderProviderProfileServicePostProviderProfile } from '../../../.
 import PhoneInput from 'react-phone-input-2';
 import { GoogleMap } from '../providers/map';
 import { Select, SelectItem } from '@heroui/select';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ProviderFAQ } from '../providers/show-provider-page';
 import { Checkbox } from '@heroui/checkbox';
 import { PrimaryButton } from '../../ui/primary-button';
@@ -72,6 +72,12 @@ export const CreateStorePage = () => {
   };
 
   const phoneInputs = ['phone', 'mobile'];
+
+  useEffect(() => {
+    // get ref of mobile input and change default value to +01
+  }, []);
+
+  const phoneRef = useRef();
 
   return (
     <FormProvider {...form}>
@@ -145,6 +151,7 @@ export const CreateStorePage = () => {
               <Controller
                 control={form.control}
                 name={input}
+                defaultValue={input === 'mobile' ? '+966' : '+01'}
                 render={({ field }) => (
                   <div dir={'ltr'}>
                     <PhoneInput
@@ -158,6 +165,7 @@ export const CreateStorePage = () => {
                       disableDropdown={true}
                       disableCountryGuess={true}
                       country={'sa'}
+                      countryCodeEditable={true}
                       inputStyle={{
                         width: '100%',
                         height: '100%',
