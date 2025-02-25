@@ -144,7 +144,6 @@ export const CreateStorePage = () => {
             errorMessage={t('field_required')}
             {...form.register('iban', { required: true })}
           />
-
           {phoneInputs.map((input) => (
             <div key={input} className="flex flex-col gap-3">
               <label className="text-sm text-primary">{t(input)}</label>
