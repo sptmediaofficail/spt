@@ -9,10 +9,11 @@ import {
   NavbarMenuToggle,
 } from '@heroui/navbar';
 import { Button } from '@heroui/button';
-import { Link } from '@heroui/link';
 import Image from 'next/image';
 import Logo from './assets/svg/logo.svg';
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'; // Icon for menu toggle
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import { Link } from '@heroui/link';
+
 const loginLink = 'https://services.spt.sa/login';
 const registerLink = 'https://services.spt.sa/register';
 
@@ -95,20 +96,14 @@ export const Navbar = () => {
       </NavbarContent>
 
       {/* Mobile Menu */}
-      <NavbarMenu
-        className={`md:hidden absolute top-[7rem] w-full bg-white shadow-lg transition-all duration-300 transform ${
-          isMenuOpen ? 'translate-y-0' : '-translate-y-full'
-        }`}
-        aria-hidden={!isMenuOpen} // Hide from screen readers when closed
-        role="menu"
-      >
+      <NavbarMenu onClick={() => setIsMenuOpen(false)}>
         {navbarItems.map((item, index) => (
           <NavbarItem key={index} isActive={item.isActive}>
             <Link
               href={item.href}
               color={item.isActive ? 'primary' : 'foreground'}
               className="block p-4 text-lg text-gray-700 hover:bg-gray-100 rounded-md transition-all"
-              onClick={() => setIsMenuOpen(false)} // Close menu on item click
+              onPress={() => setIsMenuOpen(false)}
             >
               {item.label}
             </Link>
