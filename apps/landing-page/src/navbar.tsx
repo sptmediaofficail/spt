@@ -5,14 +5,15 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  NavbarMenu,
-  NavbarMenuToggle,
 } from '@heroui/navbar';
 import { Button } from '@heroui/button';
 import Image from 'next/image';
 import Logo from './assets/svg/logo.svg';
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { Link } from '@heroui/link';
+import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
+import { LuMenu } from 'react-icons/lu';
+import { IoMdClose } from 'react-icons/io';
 
 const loginLink = 'https://services.spt.sa/login';
 const registerLink = 'https://services.spt.sa/register';
@@ -28,6 +29,11 @@ const navbarItems = [
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const handlePress = (href: string) => {
+    setIsMenuOpen(false);
+    router.push(href);
+  };
 
   return (
     <NextUiNavbar
@@ -41,13 +47,24 @@ export const Navbar = () => {
         justify="start"
         className="flex flex-row-reverse justify-between items-center p-2"
       >
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-          className="md:hidden text-primary text-3xl"
-          onClick={() => setIsMenuOpen(!isMenuOpen)} // Toggle the mobile menu
+        {/*<NavbarMenuToggle*/}
+        {/*  aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}*/}
+        {/*  className="md:hidden text-primary text-3xl"*/}
+        {/*  onClick={() => setIsMenuOpen(!isMenuOpen)} // Toggle the mobile menu*/}
+        {/*>*/}
+        {/*  {isMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}*/}
+        {/*</NavbarMenuToggle>*/}
+
+        <Button
+          className={`md:hidden text-primary text-3xl p-0 min-w-0`}
+          variant="light"
+          disableAnimation={true}
+          disableRipple={true}
+          onPress={() => setIsMenuOpen(!isMenuOpen)}
         >
-          {isMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
-        </NavbarMenuToggle>
+          {isMenuOpen ? <IoMdClose /> : <LuMenu />}
+        </Button>
+
         <NavbarBrand as={Link} href="/">
           <Image src={Logo} alt="Logo" className="w-[86px] md:w-[120px]" />
         </NavbarBrand>
@@ -95,34 +112,32 @@ export const Navbar = () => {
         </NavbarItem>
       </NavbarContent>
 
-      {/* Mobile Menu */}
-      <NavbarMenu onClick={() => setIsMenuOpen(false)}>
-        {navbarItems.map((item, index) => (
-          <NavbarItem key={index} isActive={item.isActive}>
+      {/* Mobile Dropdown Menu */}
+      {isMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="absolute top-20 left-0 w-full bg-white shadow-lg z-50 flex flex-col p-4 border-t bg-white"
+        >
+          {navbarItems.map((item, index) => (
             <Link
-              href={item.href}
-              color={item.isActive ? 'primary' : 'foreground'}
+              key={index}
               className="block p-4 text-lg text-gray-700 hover:bg-gray-100 rounded-md transition-all"
-              onPress={() => setIsMenuOpen(false)}
+              onPress={() => handlePress(item.href)}
             >
               {item.label}
             </Link>
-          </NavbarItem>
-        ))}
+          ))}
 
-        {/* Authentication Buttons (Mobile) */}
-        <NavbarItem>
+          {/* Mobile Authentication Buttons */}
           <Button
             as={Link}
             className="rounded-full text-white bg-primary py-2 px-4 w-full mt-4"
-            color="primary"
             href={registerLink}
-            variant="solid"
           >
             انشاء حساب
           </Button>
-        </NavbarItem>
-        <NavbarItem>
           <Button
             as={Link}
             className="rounded-full text-primary border-primary border-2 py-2 px-4 w-full mt-4"
@@ -131,8 +146,8 @@ export const Navbar = () => {
           >
             تسجيل الدخول
           </Button>
-        </NavbarItem>
-      </NavbarMenu>
+        </motion.div>
+      )}
     </NextUiNavbar>
   );
 };
