@@ -31,7 +31,7 @@ export const AboutSection = () => {
       id={'about'}
       position={'center'}
       title={'عن SPT'}
-      heading={'هي منصة إلكترونية متكاملة تشمل تطبيق جوال وموقع الكتروني'}
+      heading={'SPT منصة الكترونية متكاملة (تطبيق جوال وموقع الكتروني)'}
       description="وجهتك المثالية للعثور على قطع غيار السيارات بسرعة وسهولة. سواء كنت تبحث عن قطع أصلية أو مستعملة، نوفر لك كل ما تحتاجه لتلبية احتياجات سيارتك بكل راحة."
     >
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 mt-8 lg:mt-0 place-items-center">

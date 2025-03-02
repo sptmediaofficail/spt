@@ -27,7 +27,7 @@ const data = [
     id: 2,
     title: 'بيع سيارات تشليح',
     description:
-      'هل تبحث عن قطع غيار موثوقة وبأسعار مناسبة لسيارتك؟ مع تطبيق SPT، يمكنك الآن العثور على كل ما تحتاجه لتصليح وصيانة سيارتك بلمسة واحدة!',
+      'عندك سيارة تالفة وتبغى تبيعها للتشاليح مباشرة وباسعار مناسبة ؟ مع spt يمكنك العثور على تحتاجه بلمسة واحدة.',
     icon: Service2Icon,
     bg: Service2top,
     bgClassNames: '-left-20',
@@ -128,7 +128,7 @@ export const ServiceCard = (
         <SecondButton
           color={props.theme === 'light' ? 'primary' : 'secondary'}
           className="font-semibold text-lg tracking-wide w-fit"
-          text={'اطلب الآن'}
+          text={'اطلب الخدمة'}
           href={props.href}
         />
       </div>
