@@ -199,5 +199,6 @@
   "bank_account": "رقم الحساب البنكي",
   "bank_name": "اسم البنك",
   "bank_username": "اسم صاحب الحساب البنكي",
-  "both_new_and_used": "جديد وتشاليح"
+  "both_new_and_used": "جديد وتشاليح",
+  "accept_offer": "قبول العرض"
 }

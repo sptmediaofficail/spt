@@ -15,6 +15,7 @@ import {
   FaTruck,
 } from 'react-icons/fa';
 import { formatDate } from '../../utils/formatter';
+import { OrderOffersSection } from '../offers/order-offers-section';
 
 export const ShowOrderPage = ({ orderId }: { orderId: string }) => {
   const t = useTranslations();
@@ -124,29 +125,37 @@ const OrderDetails = ({ orderDetails }: { orderDetails: OrderDetails }) => {
   ];
 
   return (
-    <div className="grid lg:grid-cols-3 grid-cols-2 gap-y-4">
-      {details.map((detail, index) => {
-        return (
-          <div
-            key={detail.label}
-            className={`
+    <div className="flex flex-col gap-4">
+      <div className="grid lg:grid-cols-3 grid-cols-2 gap-y-4">
+        {details.map((detail, index) => {
+          return (
+            <div
+              key={detail.label}
+              className={`
                 flex items-center gap-4 p-4 border-spacing-y-[21px]
                 ${index >= 2 ? 'lg:border-0 border-gray-100 border-t' : ''}
                 ${index >= 3 ? 'border-gray-100 lg:border-t' : ''}
                 border-gray-200
               `}
-          >
-            <div className="flex items-center justify-center p-2 bg-babyBlue rounded-full">
-              {<detail.icon className="text-primary w-5 h-5" />}
-            </div>
+            >
+              <div className="flex items-center justify-center p-2 bg-babyBlue rounded-full">
+                {<detail.icon className="text-primary w-5 h-5" />}
+              </div>
 
-            <div className="flex flex-col">
-              <span className="text-sm text-gray-500">{detail.label}</span>
-              <span className="text-gray-800 font-medium">{detail.value}</span>
+              <div className="flex flex-col">
+                <span className="text-sm text-gray-500">{detail.label}</span>
+                <span className="text-gray-800 font-medium">
+                  {detail.value}
+                </span>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
+      <h2 className="text-lg font-semibold text-primary">
+        {t('home.offers')} ({orderDetails.offers.length})
+      </h2>
+      <OrderOffersSection {...orderDetails} />
     </div>
   );
 };

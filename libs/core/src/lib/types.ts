@@ -1,4 +1,4 @@
-export type Offer = {
+export type IPromotion = {
   id: string;
   image: string;
   title: string;
@@ -63,6 +63,26 @@ export type Provider = {
   provider_id: string;
 };
 
+export interface IOffer {
+  id: string;
+  provider_id: string;
+  provider_profile_id: string;
+  provider_profile_name: string;
+  status: string;
+  price: number;
+  delivery_fee: number;
+  commission: number;
+  fee: number;
+  tax: number;
+  total: number;
+  is_new: number;
+  name: string;
+  rate: number;
+  address: string;
+  avatar: any;
+  created_at: string;
+}
+
 export interface OrderDetails {
   id: string;
   order_no: string;
@@ -82,7 +102,7 @@ export interface OrderDetails {
   checkout_id: any;
   is_paid: boolean;
   details: Details;
-  offers: Offer[];
+  offers: IOffer[];
   images: string[];
   provider: any;
 }

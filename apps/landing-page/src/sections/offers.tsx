@@ -6,11 +6,11 @@ import { IoPricetagOutline } from 'react-icons/io5';
 import Background from '../assets/images/offers-bg.jpg';
 import Gear from '../assets/svg/gear.svg';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
-import { cn } from "@heroui/theme";
+import { cn } from '@heroui/theme';
 import { Navigation } from 'swiper/modules';
-import { Offer } from '@spt/core';
+import { IPromotion } from '@spt/core';
 
-export const OffersSection = ({ offers }: { offers: Offer[] }) => {
+export const OffersSection = ({ offers }: { offers: IPromotion[] }) => {
   return (
     <Section
       id={'offers'}
@@ -57,7 +57,7 @@ export const OffersSection = ({ offers }: { offers: Offer[] }) => {
   );
 };
 
-const OfferCard = ({ offer }: { offer: Offer }) => {
+const OfferCard = ({ offer }: { offer: IPromotion }) => {
   return (
     <div className="bg-primary text-white rounded-xl shadow-lg flex flex-col md:flex-row p-6 md:p-24 relative overflow-hidden">
       <Image className={'opacity-60'} src={Background} alt="Background" fill />
@@ -93,7 +93,7 @@ const OfferCard = ({ offer }: { offer: Offer }) => {
       <div className="w-1/3 flex justify-center items-center">
         <Image
           src={offer.image}
-          alt="Offer Image"
+          alt="IPromotion Image"
           width={1000}
           height={1000}
           className="absolute rounded-lg top-0 left-0 opacity-80 rounded-r-full w-1/3 h-full"

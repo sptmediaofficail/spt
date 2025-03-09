@@ -1,6 +1,6 @@
-import { Offer } from '@spt/core';
+import { IPromotion } from '@spt/core';
 
-export const mockedPromotions: Offer[] = [
+export const mockedPromotions: IPromotion[] = [
   {
     id: '1',
     image: 'https://picsum.photos/400/300',

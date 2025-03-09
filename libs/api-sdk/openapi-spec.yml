@@ -52,19 +52,19 @@ tags:
   - name: Admin > Landing > About Sections
   - name: Admin > Landing > Download Section
   - name: Admin > Landing > About
-  - name: Admin > Landing > Site Offer
+  - name: Admin > Landing > Site IPromotion
   - name: Admin > Landing > Guarantee Right
   - name: Admin > Landing > Partners
   - name: Admin > Tickets
   - name: Client
   - name: Client > Client Orders
-  - name: Client > Client Offer
+  - name: Client > Client IPromotion
   - name: Client > Services
   - name: Provider
   - name: Provider > Provider Subscription
   - name: Provider > Provider profile
   - name: Provider > Provider Orders
-  - name: Provider > Provider Offer
+  - name: Provider > Provider IPromotion
   - name: Pages
   - name: terms
   - name: platform-reviews
@@ -1870,7 +1870,7 @@ paths:
               example: >-
                 "{\r\n    \"name\": \"mohamed\",\r\n    \"phone\":
                 \"+966585858589\",\r\n    \"email\":
-                \"mohamed@example.com\",\r\n    \"password\": \"secret\",\r\n   
+                \"mohamed@example.com\",\r\n    \"password\": \"secret\",\r\n
                 \"permission_group_id\":
                 \"6f118b5d-e6bc-4018-8fa4-6a6b42825eea\"\r\n}"
       parameters:
@@ -2197,8 +2197,8 @@ paths:
               type: string
               example: >-
                 "{\r\n    \"service_id\":
-                \"07f2ba24-d6a6-41d8-aa4f-16f4a5ab4091\",\r\n   
-                \"for_plateform\": \"1\",\r\n    \"on_plateform\": \"2\",\r\n   
+                \"07f2ba24-d6a6-41d8-aa4f-16f4a5ab4091\",\r\n
+                \"for_plateform\": \"1\",\r\n    \"on_plateform\": \"2\",\r\n
                 \"type\":\"MERCHANT\"\r\n}"
       parameters:
         - name: Content-Type
@@ -2588,8 +2588,8 @@ paths:
               type: string
               example: >-
                 "{\r\n    \"title_ar\": \"test11\",\r\n    \"title_en\":
-                \"test\",\r\n    \"content_ar\": \"test\",\r\n   
-                \"content_en\": \"test\",\r\n    \"order\": \"5\",\r\n   
+                \"test\",\r\n    \"content_ar\": \"test\",\r\n
+                \"content_en\": \"test\",\r\n    \"order\": \"5\",\r\n
                 \"type\":\"terms\",  // terms or commission\r\n    \"category\":
                 \"client\"  // client or provider or public\r\n}"
       parameters:
@@ -3922,7 +3922,7 @@ paths:
   /admin/site_offers:
     get:
       tags:
-        - Admin > Landing > Site Offer
+        - Admin > Landing > Site IPromotion
       summary: list
       security:
         - bearerAuth: []
@@ -3944,7 +3944,7 @@ paths:
             application/json: {}
     post:
       tags:
-        - Admin > Landing > Site Offer
+        - Admin > Landing > Site IPromotion
       summary: create
       requestBody:
         content:
@@ -3989,7 +3989,7 @@ paths:
   /admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210:
     post:
       tags:
-        - Admin > Landing > Site Offer
+        - Admin > Landing > Site IPromotion
       summary: update
       requestBody:
         content:
@@ -4033,7 +4033,7 @@ paths:
             application/json: {}
     delete:
       tags:
-        - Admin > Landing > Site Offer
+        - Admin > Landing > Site IPromotion
       summary: delete
       security:
         - bearerAuth: []
@@ -4045,7 +4045,7 @@ paths:
   /admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210/stop:
     post:
       tags:
-        - Admin > Landing > Site Offer
+        - Admin > Landing > Site IPromotion
       summary: stop
       requestBody:
         content:
@@ -4063,7 +4063,7 @@ paths:
   /admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210/restore:
     post:
       tags:
-        - Admin > Landing > Site Offer
+        - Admin > Landing > Site IPromotion
       summary: restore
       requestBody:
         content:
@@ -4569,7 +4569,7 @@ paths:
   /client/offer/96be9e84-956a-4298-89bd-9bd3c58e251e/accept:
     post:
       tags:
-        - Client > Client Offer
+        - Client > Client IPromotion
       summary: Accept
       requestBody:
         content:
@@ -5164,7 +5164,7 @@ paths:
   /provider/offer:
     post:
       tags:
-        - Provider > Provider Offer
+        - Provider > Provider IPromotion
       summary: store
       requestBody:
         content:

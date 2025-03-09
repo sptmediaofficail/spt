@@ -6,7 +6,7 @@ import {
   Right,
   Stats,
 } from './types';
-import { Offer, TopRated } from '@spt/core';
+import { IPromotion, TopRated } from '@spt/core';
 
 export class SptClient {
   private baseURL = 'https://api.spt.sa/api/v1';
@@ -57,7 +57,7 @@ export class SptClient {
   async getOffers() {
     const url = `${this.baseURL}/landing/site_offers`;
     const response = await this.fetch(url);
-    return response.data.data as Offer[];
+    return response.data.data as IPromotion[];
   }
 
   async getDownloadData() {

@@ -1,4 +1,4 @@
-import { Offer } from '@spt/core';
+import { IPromotion } from '@spt/core';
 import { useEffect, useState } from 'react';
 import { useSiteOffersServiceGetSiteOffers } from '../../../../../libs/api-sdk/src/lib/gen2/queries';
 import { useSiteOffersServiceGetSiteOffersInfinite } from '../../../../../libs/api-sdk/src/lib/gen2/queries/infiniteQueries';
@@ -24,7 +24,7 @@ export const usePromotions = () => {
 
   return {
     ...props,
-    offers: offers as Offer[], // casting to Offer[]
+    offers: offers as IPromotion[], // casting to IPromotion[]
     setPagination,
   };
 };
