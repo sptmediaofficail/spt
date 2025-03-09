@@ -73,7 +73,7 @@ export default function Page() {
               {items &&
                 items.map((order) => <OrderCard key={order.id} {...order} />)}
               <div ref={ref} className="w-full h-1" />
-              {isFetchingNextPage && 'yes'}
+              {isFetchingNextPage && <div>Loading...</div>}
             </div>
           </Tab>
         ))}

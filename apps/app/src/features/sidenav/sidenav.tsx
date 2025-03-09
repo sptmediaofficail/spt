@@ -44,6 +44,11 @@ const menuConfig = [
     href: '/orders',
   },
   {
+    label: 'store',
+    icon: <FaClipboardList />,
+    href: '/store',
+  },
+  {
     label: 'wallet',
     icon: <FaWallet />,
     href: '/wallet',

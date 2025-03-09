@@ -28,6 +28,7 @@ export const DynamicBreadcrumbs = () => {
     'order-spare-part': t('sidenav.order_spare_part'),
     'create-store': t('sidenav.create_store'),
     'sell-junk-car': t('sidenav.sell_junk_car'),
+    store: t('sidenav.store'),
   };
 
   return (

@@ -43,6 +43,7 @@
   },
   "sidenav": {
     "home": "الرئيسية",
+    "store": "متجري",
     "services": "الخدمات",
     "orders": "طلباتي",
     "wallet": "محفظتي",
@@ -200,5 +201,14 @@
   "bank_name": "اسم البنك",
   "bank_username": "اسم صاحب الحساب البنكي",
   "both_new_and_used": "جديد وتشاليح",
-  "accept_offer": "قبول العرض"
+  "accept_offer": "قبول العرض",
+
+  "store": {
+    "orders": {
+      "finished": "المنتهية",
+      "can_submit": "الطبات الجديدة",
+      "already_submit": "الطلبات الحالية",
+      "accepted": "عروضي"
+    }
+  }
 }
