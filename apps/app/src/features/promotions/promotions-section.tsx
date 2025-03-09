@@ -1,17 +1,16 @@
 'use client';
-
 import * as React from 'react';
 import { SwiperSlide } from 'swiper/react';
 import { useTranslations } from 'next-intl';
 import { Carousel } from '@spt/common';
-import { OfferCard, OfferCardSkeleton } from './offer-card';
+import { OfferCardSkeleton, PromotionCard } from './promotion-card';
 import { HomeSection } from '../home/home-section';
-import { useOffers } from './use-offers';
+import { usePromotions } from './use-promotions';
 import { useRouter } from 'next/navigation';
 
-export const OffersSection = () => {
+export const PromotionsSection = () => {
   const t = useTranslations('home');
-  const { offers, isLoading, isError } = useOffers();
+  const { offers, isLoading, isError } = usePromotions();
   const router = useRouter();
   const onMoreClick = () => router.push('/offers');
 
@@ -34,7 +33,7 @@ export const OffersSection = () => {
                     '!w-auto mb-14 !overflow-visible mr-4 lg:m-1 lg:mb-14 lg:mr-0'
                   }
                 >
-                  <OfferCard offer={offer} />
+                  <PromotionCard offer={offer} />
                 </SwiperSlide>
               ))}
             </Carousel>

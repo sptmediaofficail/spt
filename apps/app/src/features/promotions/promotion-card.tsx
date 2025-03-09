@@ -1,14 +1,14 @@
-import { Card, CardBody, CardHeader, CardProps } from "@heroui/card";
+import { Card, CardBody, CardHeader, CardProps } from '@heroui/card';
 import Image from 'next/image';
 import { Truncate } from '@re-dev/react-truncate';
 import { Offer } from '@spt/core';
 import DiscountSvg from '../../assets/discount.svg';
 import { formatPrice } from '../../utils/formatter';
 import { useTranslations } from 'next-intl';
-import { Skeleton } from "@heroui/skeleton";
-import { cn } from "@heroui/theme";
+import { Skeleton } from '@heroui/skeleton';
+import { cn } from '@heroui/theme';
 
-export const OfferCard = (props: CardProps & { offer: Offer }) => {
+export const PromotionCard = (props: CardProps & { offer: Offer }) => {
   const { offer } = props;
   const t = useTranslations('common');
   const discount = Math.floor(

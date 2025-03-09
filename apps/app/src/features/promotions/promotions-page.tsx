@@ -1,17 +1,16 @@
 'use client';
-
-import { BreadcrumbItem, Breadcrumbs } from "@heroui/breadcrumbs";
+import { BreadcrumbItem, Breadcrumbs } from '@heroui/breadcrumbs';
 import { useTranslations } from 'next-intl';
 import { FaHome } from 'react-icons/fa';
-import { Card, CardBody, CardHeader } from "@heroui/card";
-import { useOffersInfinity } from './use-offers';
-import { OfferCard, OfferCardSkeleton } from './offer-card';
-import { Divider } from "@heroui/divider";
+import { Card, CardBody, CardHeader } from '@heroui/card';
+import { useOffersInfinity } from './use-promotions';
+import { OfferCardSkeleton, PromotionCard } from './promotion-card';
+import { Divider } from '@heroui/divider';
 import Link from 'next/link';
 import { useIntersectionObserver } from 'usehooks-ts';
 import { Fragment, useEffect, useState } from 'react';
 
-export const OffersPage = () => {
+export const PromotionsPage = () => {
   const t = useTranslations('home');
   const {
     data,
@@ -54,7 +53,7 @@ export const OffersPage = () => {
               {data.pages.map((page, i) => (
                 <Fragment key={i}>
                   {page.data.data.map((offer) => (
-                    <OfferCard key={offer.id} offer={offer} />
+                    <PromotionCard key={offer.id} offer={offer} />
                   ))}
                 </Fragment>
               ))}
@@ -83,7 +82,7 @@ const OffersBreadcrumbs = () => {
       <Breadcrumbs>
         <BreadcrumbItem className="flex items-center gap-2">
           <FaHome />
-          <Link href="/">{t('sidenav.home')}</Link>
+          <Link href="/apps/app/public">{t('sidenav.home')}</Link>
         </BreadcrumbItem>
         <BreadcrumbItem>
           <Link href="/offers">{t('home.offers')}</Link>
