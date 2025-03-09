@@ -1,7 +1,7 @@
 import Error from 'next/error';
 import { Progress } from '@heroui/react';
 import { useClientClientOrdersServiceGetClientOrdersById } from '../../../../../libs/api-sdk/src/lib/gen2/queries';
-import { OrderDetails } from '@spt/core';
+import { type OrderDetails } from '@spt/core';
 import { H1 } from '../../ui/typography';
 import { PrimaryDivider } from '../../ui/divider';
 import { useTranslations } from 'next-intl';
@@ -20,6 +20,7 @@ export const ShowOrderPage = ({ orderId }: { orderId: string }) => {
   const t = useTranslations();
   const { data, isLoading } = useClientClientOrdersServiceGetClientOrdersById({
     id: orderId,
+    contentLanguage: 'ar',
   });
 
   if (isLoading) return <Progress value={50} />;
@@ -65,12 +66,15 @@ const OrderDetails = ({ orderDetails }: { orderDetails: OrderDetails }) => {
     },
     {
       label: t('order_spare_part_brand'),
-      value: orderDetails.details.brand || t('unknown'),
+      value: orderDetails.details.brand.name || t('unknown'),
       icon: FaCar,
     },
     {
       label: t('order_spare_part_model'),
-      value: orderDetails.details.model.name || orderDetails.details.model.id,
+      value:
+        orderDetails.details.model?.name ||
+        orderDetails.details.model?.id ||
+        t('unknown'),
       icon: FaCar,
     },
     {

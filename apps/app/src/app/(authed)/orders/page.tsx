@@ -1,5 +1,5 @@
 ﻿'use client';
-import { Tab, Tabs } from "@heroui/tabs";
+import { Tab, Tabs } from '@heroui/tabs';
 import { useTranslations } from 'next-intl';
 import { BsCartCheck } from 'react-icons/bs';
 import {
@@ -69,7 +69,7 @@ export default function Page() {
               </div>
             }
           >
-            <div className="flex flex-wrap flex-row gap-6 lg:gap-4 justify-center">
+            <div className="flex flex-wrap gap-6 lg:gap-4 justify-start">
               {items &&
                 items.map((order) => <OrderCard key={order.id} {...order} />)}
               <div ref={ref} className="w-full h-1" />
