@@ -1690,6 +1690,19 @@ export type GetClientOrdersData = {
 
 export type GetClientOrdersResponse = unknown;
 
+export type GetClientOrdersIndexStatisticsData = {
+    /**
+     * accepts: ar, en
+     */
+    contentLanguage?: string;
+    /**
+     * API
+     */
+    xRequestedWith?: string;
+};
+
+export type GetClientOrdersIndexStatisticsResponse = unknown;
+
 export type GetClientOrdersByIdData = {
     /**
      * accepts: ar, en
@@ -1838,7 +1851,7 @@ export type PostProviderProfileData = {
         address?: string;
         branches?: string;
         /**
-         * spare_parts or towing or maintenance
+         * spare_parts or junkyard_sale
          */
         services?: string;
         'spare_part_brands[]'?: string;
@@ -1963,6 +1976,8 @@ export type GetProviderOrdersData = {
      * accepts: ar, en
      */
     contentLanguage?: string;
+    page?: number;
+    paginate?: number;
     /**
      * can_submit - already_submit - accepted - finished
      */
@@ -1975,7 +1990,7 @@ export type GetProviderOrdersData = {
 
 export type GetProviderOrdersResponse = unknown;
 
-export type GetProviderOrders1D9De514C4E149878Eb90909556C7186Data = {
+export type GetProviderOrdersIndexStatisticsData = {
     /**
      * accepts: ar, en
      */
@@ -1986,7 +2001,21 @@ export type GetProviderOrders1D9De514C4E149878Eb90909556C7186Data = {
     xRequestedWith?: string;
 };
 
-export type GetProviderOrders1D9De514C4E149878Eb90909556C7186Response = unknown;
+export type GetProviderOrdersIndexStatisticsResponse = unknown;
+
+export type GetProviderOrdersByIdData = {
+    /**
+     * accepts: ar, en
+     */
+    contentLanguage?: string;
+    id: string;
+    /**
+     * API
+     */
+    xRequestedWith?: string;
+};
+
+export type GetProviderOrdersByIdResponse = unknown;
 
 export type PostProviderOrderRateData = {
     /**
@@ -2006,7 +2035,7 @@ export type PostProviderOrderRateData = {
 
 export type PostProviderOrderRateResponse = unknown;
 
-export type PostProviderOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryData = {
+export type PostProviderOrdersByIdConfirmDeliveryData = {
     /**
      * accepts: ar, en
      */
@@ -2014,13 +2043,14 @@ export type PostProviderOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryDat
     formData?: {
         [key: string]: unknown;
     };
+    id: string;
     /**
      * API
      */
     xRequestedWith?: string;
 };
 
-export type PostProviderOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryResponse = unknown;
+export type PostProviderOrdersByIdConfirmDeliveryResponse = unknown;
 
 export type PostProviderOfferData = {
     /**
@@ -2040,7 +2070,11 @@ export type PostProviderOfferData = {
 
 export type PostProviderOfferResponse = unknown;
 
-export type GetPagesHowWeHelpResponse = unknown;
+export type GetPagesByTypeData = {
+    type: string;
+};
+
+export type GetPagesByTypeResponse = unknown;
 
 export type GetPagesRightsPaginatedData = {
     page?: number;
@@ -3868,6 +3902,17 @@ export type $OpenApiTs = {
             };
         };
     };
+    '/client/orders/indexStatistics': {
+        get: {
+            req: GetClientOrdersIndexStatisticsData;
+            res: {
+                /**
+                 * Successful response
+                 */
+                200: unknown;
+            };
+        };
+    };
     '/client/orders/{id}': {
         get: {
             req: GetClientOrdersByIdData;
@@ -4040,9 +4085,20 @@ export type $OpenApiTs = {
             };
         };
     };
-    '/provider/orders/1d9de514-c4e1-4987-8eb9-0909556c7186': {
+    '/provider/orders/indexStatistics': {
         get: {
-            req: GetProviderOrders1D9De514C4E149878Eb90909556C7186Data;
+            req: GetProviderOrdersIndexStatisticsData;
+            res: {
+                /**
+                 * Successful response
+                 */
+                200: unknown;
+            };
+        };
+    };
+    '/provider/orders/{id}': {
+        get: {
+            req: GetProviderOrdersByIdData;
             res: {
                 /**
                  * Successful response
@@ -4062,9 +4118,9 @@ export type $OpenApiTs = {
             };
         };
     };
-    '/provider/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224/confirm-delivery': {
+    '/provider/orders/{id}/confirm-delivery': {
         post: {
-            req: PostProviderOrdersC5Ad5169F88D4Acc8D4F6C985706B224ConfirmDeliveryData;
+            req: PostProviderOrdersByIdConfirmDeliveryData;
             res: {
                 /**
                  * Successful response
@@ -4084,8 +4140,9 @@ export type $OpenApiTs = {
             };
         };
     };
-    '/pages/how_we_help': {
+    '/pages/{type}': {
         get: {
+            req: GetPagesByTypeData;
             res: {
                 /**
                  * Successful response

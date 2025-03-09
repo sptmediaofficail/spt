@@ -48,7 +48,7 @@ export type PostProviderProfileMutationRequest = {
     */
     branches?: string;
     /**
-     * @description spare_parts or towing or maintenance
+     * @description spare_parts or junkyard_sale
      * @type string | undefined
     */
     services?: string;
@@ -77,6 +77,27 @@ export type PostProviderProfileMutationRequest = {
      * @type string | undefined
     */
     part_condition?: string;
+    /**
+     * @type string | undefined
+    */
+    bank_username?: string;
+    /**
+     * @type string | undefined
+    */
+    bank_name?: string;
+    /**
+     * @type integer | undefined
+    */
+    bank_account?: number;
+    /**
+     * @type integer | undefined
+    */
+    iban?: number;
+    /**
+     * @description boolean
+     * @type integer | undefined
+    */
+    only_my_city?: number;
 };
 export type PostProviderProfileMutationResponse = any;
 export type PostProviderProfileMutation = {

@@ -618,6 +618,18 @@ export const prefetchUseClientClientOrdersServiceGetClientOrders = (queryClient:
   xRequestedWith?: string;
 } = {}) => queryClient.prefetchQuery({ queryKey: Common.UseClientClientOrdersServiceGetClientOrdersKeyFn({ contentLanguage, page, paginate, statusArray, xRequestedWith }), queryFn: () => ClientClientOrdersService.getClientOrders({ contentLanguage, page, paginate, statusArray, xRequestedWith }) });
 /**
+* indexStatistics
+* @param data The data for the request.
+* @param data.xRequestedWith API
+* @param data.contentLanguage accepts: ar, en
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const prefetchUseClientClientOrdersServiceGetClientOrdersIndexStatistics = (queryClient: QueryClient, { contentLanguage, xRequestedWith }: {
+  contentLanguage?: string;
+  xRequestedWith?: string;
+} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseClientClientOrdersServiceGetClientOrdersIndexStatisticsKeyFn({ contentLanguage, xRequestedWith }), queryFn: () => ClientClientOrdersService.getClientOrdersIndexStatistics({ contentLanguage, xRequestedWith }) });
+/**
 * details
 * @param data The data for the request.
 * @param data.id
@@ -747,32 +759,54 @@ export const prefetchUseProviderProviderProfileServiceGetProviderSearch = (query
 * @param data.xRequestedWith API
 * @param data.contentLanguage accepts: ar, en
 * @param data.status can_submit - already_submit - accepted - finished
+* @param data.paginate
+* @param data.page
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const prefetchUseProviderProviderOrdersServiceGetProviderOrders = (queryClient: QueryClient, { contentLanguage, status, xRequestedWith }: {
+export const prefetchUseProviderProviderOrdersServiceGetProviderOrders = (queryClient: QueryClient, { contentLanguage, page, paginate, status, xRequestedWith }: {
   contentLanguage?: string;
+  page?: number;
+  paginate?: number;
   status?: string;
   xRequestedWith?: string;
-} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseProviderProviderOrdersServiceGetProviderOrdersKeyFn({ contentLanguage, status, xRequestedWith }), queryFn: () => ProviderProviderOrdersService.getProviderOrders({ contentLanguage, status, xRequestedWith }) });
+} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseProviderProviderOrdersServiceGetProviderOrdersKeyFn({ contentLanguage, page, paginate, status, xRequestedWith }), queryFn: () => ProviderProviderOrdersService.getProviderOrders({ contentLanguage, page, paginate, status, xRequestedWith }) });
 /**
-* details
+* indexStatistics
 * @param data The data for the request.
 * @param data.xRequestedWith API
 * @param data.contentLanguage accepts: ar, en
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const prefetchUseProviderProviderOrdersServiceGetProviderOrders1D9De514C4E149878Eb90909556C7186 = (queryClient: QueryClient, { contentLanguage, xRequestedWith }: {
+export const prefetchUseProviderProviderOrdersServiceGetProviderOrdersIndexStatistics = (queryClient: QueryClient, { contentLanguage, xRequestedWith }: {
   contentLanguage?: string;
   xRequestedWith?: string;
-} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseProviderProviderOrdersServiceGetProviderOrders1D9De514C4E149878Eb90909556C7186KeyFn({ contentLanguage, xRequestedWith }), queryFn: () => ProviderProviderOrdersService.getProviderOrders1D9De514C4E149878Eb90909556C7186({ contentLanguage, xRequestedWith }) });
+} = {}) => queryClient.prefetchQuery({ queryKey: Common.UseProviderProviderOrdersServiceGetProviderOrdersIndexStatisticsKeyFn({ contentLanguage, xRequestedWith }), queryFn: () => ProviderProviderOrdersService.getProviderOrdersIndexStatistics({ contentLanguage, xRequestedWith }) });
 /**
-* get page by type
+* details
+* @param data The data for the request.
+* @param data.id
+* @param data.xRequestedWith API
+* @param data.contentLanguage accepts: ar, en
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const prefetchUsePagesServiceGetPagesHowWeHelp = (queryClient: QueryClient) => queryClient.prefetchQuery({ queryKey: Common.UsePagesServiceGetPagesHowWeHelpKeyFn(), queryFn: () => PagesService.getPagesHowWeHelp() });
+export const prefetchUseProviderProviderOrdersServiceGetProviderOrdersById = (queryClient: QueryClient, { contentLanguage, id, xRequestedWith }: {
+  contentLanguage?: string;
+  id: string;
+  xRequestedWith?: string;
+}) => queryClient.prefetchQuery({ queryKey: Common.UseProviderProviderOrdersServiceGetProviderOrdersByIdKeyFn({ contentLanguage, id, xRequestedWith }), queryFn: () => ProviderProviderOrdersService.getProviderOrdersById({ contentLanguage, id, xRequestedWith }) });
+/**
+* get page by type
+* @param data The data for the request.
+* @param data.type
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const prefetchUsePagesServiceGetPagesByType = (queryClient: QueryClient, { type }: {
+  type: string;
+}) => queryClient.prefetchQuery({ queryKey: Common.UsePagesServiceGetPagesByTypeKeyFn({ type }), queryFn: () => PagesService.getPagesByType({ type }) });
 /**
 * get page by type paginated
 * @param data The data for the request.

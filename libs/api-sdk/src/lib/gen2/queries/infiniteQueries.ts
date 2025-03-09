@@ -1,7 +1,7 @@
 // generated with @7nohe/openapi-react-query-codegen@1.6.1 
 
 import { InfiniteData, useInfiniteQuery, UseInfiniteQueryOptions } from "@tanstack/react-query";
-import { AdminBrandsService, AdminCitiesService, AdminCityServiceService, AdminCommissionsService, AdminLandingAboutSectionsService, AdminLandingAboutService, AdminLandingGuaranteeRightService, AdminLandingHowHelpService, AdminLandingPartnersService, AdminLandingSiteOfferService, AdminLandingSlidersService, AdminMessageTemplatesService, AdminPagesService, AdminPermissionGroupsService, AdminPlatformReviewsService, AdminProviderProfilesService, AdminProviderSubscriptionPlansService, AdminServicesService, AdminTermsService, AdminTicketsService, AdminUsersService, BrandModelsService, BrandService, ClientClientOrdersService, LandingService, PagesService, PlatformReviewsService, SiteOffersService, TermsService, TicketService } from "../requests/services.gen";
+import { AdminBrandsService, AdminCitiesService, AdminCityServiceService, AdminCommissionsService, AdminLandingAboutSectionsService, AdminLandingAboutService, AdminLandingGuaranteeRightService, AdminLandingHowHelpService, AdminLandingPartnersService, AdminLandingSiteOfferService, AdminLandingSlidersService, AdminMessageTemplatesService, AdminPagesService, AdminPermissionGroupsService, AdminPlatformReviewsService, AdminProviderProfilesService, AdminProviderSubscriptionPlansService, AdminServicesService, AdminTermsService, AdminTicketsService, AdminUsersService, BrandModelsService, BrandService, ClientClientOrdersService, LandingService, PagesService, PlatformReviewsService, ProviderProviderOrdersService, SiteOffersService, TermsService, TicketService } from "../requests/services.gen";
 import * as Common from "./common";
 /**
 * index
@@ -439,6 +439,27 @@ export const useClientClientOrdersServiceGetClientOrdersInfinite = <TData = Infi
   xRequestedWith?: string;
 } = {}, queryKey?: TQueryKey, options?: Omit<UseInfiniteQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useInfiniteQuery({
   queryKey: Common.UseClientClientOrdersServiceGetClientOrdersKeyFn({ contentLanguage, paginate, statusArray, xRequestedWith }, queryKey), queryFn: ({ pageParam }) => ClientClientOrdersService.getClientOrders({ contentLanguage, page: pageParam as number, paginate, statusArray, xRequestedWith }) as TData, initialPageParam: "1", getNextPageParam: response => (response as {
+    nextPage: number;
+  }).nextPage, ...options
+});
+/**
+* index
+* @param data The data for the request.
+* @param data.xRequestedWith API
+* @param data.contentLanguage accepts: ar, en
+* @param data.status can_submit - already_submit - accepted - finished
+* @param data.paginate
+* @param data.page
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const useProviderProviderOrdersServiceGetProviderOrdersInfinite = <TData = InfiniteData<Common.ProviderProviderOrdersServiceGetProviderOrdersDefaultResponse>, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, paginate, status, xRequestedWith }: {
+  contentLanguage?: string;
+  paginate?: number;
+  status?: string;
+  xRequestedWith?: string;
+} = {}, queryKey?: TQueryKey, options?: Omit<UseInfiniteQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useInfiniteQuery({
+  queryKey: Common.UseProviderProviderOrdersServiceGetProviderOrdersKeyFn({ contentLanguage, paginate, status, xRequestedWith }, queryKey), queryFn: ({ pageParam }) => ProviderProviderOrdersService.getProviderOrders({ contentLanguage, page: pageParam as number, paginate, status, xRequestedWith }) as TData, initialPageParam: "1", getNextPageParam: response => (response as {
     nextPage: number;
   }).nextPage, ...options
 });

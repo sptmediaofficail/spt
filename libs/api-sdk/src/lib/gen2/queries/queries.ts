@@ -618,6 +618,18 @@ export const useClientClientOrdersServiceGetClientOrders = <TData = Common.Clien
   xRequestedWith?: string;
 } = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useQuery<TData, TError>({ queryKey: Common.UseClientClientOrdersServiceGetClientOrdersKeyFn({ contentLanguage, page, paginate, statusArray, xRequestedWith }, queryKey), queryFn: () => ClientClientOrdersService.getClientOrders({ contentLanguage, page, paginate, statusArray, xRequestedWith }) as TData, ...options });
 /**
+* indexStatistics
+* @param data The data for the request.
+* @param data.xRequestedWith API
+* @param data.contentLanguage accepts: ar, en
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const useClientClientOrdersServiceGetClientOrdersIndexStatistics = <TData = Common.ClientClientOrdersServiceGetClientOrdersIndexStatisticsDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, xRequestedWith }: {
+  contentLanguage?: string;
+  xRequestedWith?: string;
+} = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useQuery<TData, TError>({ queryKey: Common.UseClientClientOrdersServiceGetClientOrdersIndexStatisticsKeyFn({ contentLanguage, xRequestedWith }, queryKey), queryFn: () => ClientClientOrdersService.getClientOrdersIndexStatistics({ contentLanguage, xRequestedWith }) as TData, ...options });
+/**
 * details
 * @param data The data for the request.
 * @param data.id
@@ -747,32 +759,54 @@ export const useProviderProviderProfileServiceGetProviderSearch = <TData = Commo
 * @param data.xRequestedWith API
 * @param data.contentLanguage accepts: ar, en
 * @param data.status can_submit - already_submit - accepted - finished
+* @param data.paginate
+* @param data.page
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const useProviderProviderOrdersServiceGetProviderOrders = <TData = Common.ProviderProviderOrdersServiceGetProviderOrdersDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, status, xRequestedWith }: {
+export const useProviderProviderOrdersServiceGetProviderOrders = <TData = Common.ProviderProviderOrdersServiceGetProviderOrdersDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, page, paginate, status, xRequestedWith }: {
   contentLanguage?: string;
+  page?: number;
+  paginate?: number;
   status?: string;
   xRequestedWith?: string;
-} = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useQuery<TData, TError>({ queryKey: Common.UseProviderProviderOrdersServiceGetProviderOrdersKeyFn({ contentLanguage, status, xRequestedWith }, queryKey), queryFn: () => ProviderProviderOrdersService.getProviderOrders({ contentLanguage, status, xRequestedWith }) as TData, ...options });
+} = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useQuery<TData, TError>({ queryKey: Common.UseProviderProviderOrdersServiceGetProviderOrdersKeyFn({ contentLanguage, page, paginate, status, xRequestedWith }, queryKey), queryFn: () => ProviderProviderOrdersService.getProviderOrders({ contentLanguage, page, paginate, status, xRequestedWith }) as TData, ...options });
 /**
-* details
+* indexStatistics
 * @param data The data for the request.
 * @param data.xRequestedWith API
 * @param data.contentLanguage accepts: ar, en
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const useProviderProviderOrdersServiceGetProviderOrders1D9De514C4E149878Eb90909556C7186 = <TData = Common.ProviderProviderOrdersServiceGetProviderOrders1D9De514C4E149878Eb90909556C7186DefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, xRequestedWith }: {
+export const useProviderProviderOrdersServiceGetProviderOrdersIndexStatistics = <TData = Common.ProviderProviderOrdersServiceGetProviderOrdersIndexStatisticsDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, xRequestedWith }: {
   contentLanguage?: string;
   xRequestedWith?: string;
-} = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useQuery<TData, TError>({ queryKey: Common.UseProviderProviderOrdersServiceGetProviderOrders1D9De514C4E149878Eb90909556C7186KeyFn({ contentLanguage, xRequestedWith }, queryKey), queryFn: () => ProviderProviderOrdersService.getProviderOrders1D9De514C4E149878Eb90909556C7186({ contentLanguage, xRequestedWith }) as TData, ...options });
+} = {}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useQuery<TData, TError>({ queryKey: Common.UseProviderProviderOrdersServiceGetProviderOrdersIndexStatisticsKeyFn({ contentLanguage, xRequestedWith }, queryKey), queryFn: () => ProviderProviderOrdersService.getProviderOrdersIndexStatistics({ contentLanguage, xRequestedWith }) as TData, ...options });
 /**
-* get page by type
+* details
+* @param data The data for the request.
+* @param data.id
+* @param data.xRequestedWith API
+* @param data.contentLanguage accepts: ar, en
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const usePagesServiceGetPagesHowWeHelp = <TData = Common.PagesServiceGetPagesHowWeHelpDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>(queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useQuery<TData, TError>({ queryKey: Common.UsePagesServiceGetPagesHowWeHelpKeyFn(queryKey), queryFn: () => PagesService.getPagesHowWeHelp() as TData, ...options });
+export const useProviderProviderOrdersServiceGetProviderOrdersById = <TData = Common.ProviderProviderOrdersServiceGetProviderOrdersByIdDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ contentLanguage, id, xRequestedWith }: {
+  contentLanguage?: string;
+  id: string;
+  xRequestedWith?: string;
+}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useQuery<TData, TError>({ queryKey: Common.UseProviderProviderOrdersServiceGetProviderOrdersByIdKeyFn({ contentLanguage, id, xRequestedWith }, queryKey), queryFn: () => ProviderProviderOrdersService.getProviderOrdersById({ contentLanguage, id, xRequestedWith }) as TData, ...options });
+/**
+* get page by type
+* @param data The data for the request.
+* @param data.type
+* @returns unknown Successful response
+* @throws ApiError
+*/
+export const usePagesServiceGetPagesByType = <TData = Common.PagesServiceGetPagesByTypeDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ type }: {
+  type: string;
+}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn">) => useQuery<TData, TError>({ queryKey: Common.UsePagesServiceGetPagesByTypeKeyFn({ type }, queryKey), queryFn: () => PagesService.getPagesByType({ type }) as TData, ...options });
 /**
 * get page by type paginated
 * @param data The data for the request.
@@ -2382,21 +2416,24 @@ export const useProviderProviderOrdersServicePostProviderOrderRate = <TData = Co
 /**
 * confirm delivery
 * @param data The data for the request.
+* @param data.id
 * @param data.xRequestedWith API
 * @param data.contentLanguage accepts: ar, en
 * @param data.formData
 * @returns unknown Successful response
 * @throws ApiError
 */
-export const useProviderProviderOrdersServicePostProviderOrdersC5Ad5169F88d4Acc8D4f6C985706B224ConfirmDelivery = <TData = Common.ProviderProviderOrdersServicePostProviderOrdersC5Ad5169F88d4Acc8D4f6C985706B224ConfirmDeliveryMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useProviderProviderOrdersServicePostProviderOrdersByIdConfirmDelivery = <TData = Common.ProviderProviderOrdersServicePostProviderOrdersByIdConfirmDeliveryMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
   contentLanguage?: string;
   formData?: { [key: string]: unknown; };
+  id: string;
   xRequestedWith?: string;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
   contentLanguage?: string;
   formData?: { [key: string]: unknown; };
+  id: string;
   xRequestedWith?: string;
-}, TContext>({ mutationFn: ({ contentLanguage, formData, xRequestedWith }) => ProviderProviderOrdersService.postProviderOrdersC5Ad5169F88d4Acc8D4f6C985706B224ConfirmDelivery({ contentLanguage, formData, xRequestedWith }) as unknown as Promise<TData>, ...options });
+}, TContext>({ mutationFn: ({ contentLanguage, formData, id, xRequestedWith }) => ProviderProviderOrdersService.postProviderOrdersByIdConfirmDelivery({ contentLanguage, formData, id, xRequestedWith }) as unknown as Promise<TData>, ...options });
 /**
 * store
 * @param data The data for the request.

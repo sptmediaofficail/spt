@@ -4,6 +4,14 @@ export type GetProviderOrdersQueryParams = {
      * @type string | undefined
     */
     status?: string;
+    /**
+     * @type integer | undefined
+    */
+    paginate?: number;
+    /**
+     * @type integer | undefined
+    */
+    page?: number;
 };
 export type GetProviderOrdersHeaderParams = {
     /**

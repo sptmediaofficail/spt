@@ -52,19 +52,19 @@ tags:
   - name: Admin > Landing > About Sections
   - name: Admin > Landing > Download Section
   - name: Admin > Landing > About
-  - name: Admin > Landing > Site IPromotion
+  - name: Admin > Landing > Site Offer
   - name: Admin > Landing > Guarantee Right
   - name: Admin > Landing > Partners
   - name: Admin > Tickets
   - name: Client
   - name: Client > Client Orders
-  - name: Client > Client IPromotion
+  - name: Client > Client Offer
   - name: Client > Services
   - name: Provider
   - name: Provider > Provider Subscription
   - name: Provider > Provider profile
   - name: Provider > Provider Orders
-  - name: Provider > Provider IPromotion
+  - name: Provider > Provider Offer
   - name: Pages
   - name: terms
   - name: platform-reviews
@@ -1870,7 +1870,7 @@ paths:
               example: >-
                 "{\r\n    \"name\": \"mohamed\",\r\n    \"phone\":
                 \"+966585858589\",\r\n    \"email\":
-                \"mohamed@example.com\",\r\n    \"password\": \"secret\",\r\n
+                \"mohamed@example.com\",\r\n    \"password\": \"secret\",\r\n   
                 \"permission_group_id\":
                 \"6f118b5d-e6bc-4018-8fa4-6a6b42825eea\"\r\n}"
       parameters:
@@ -2197,8 +2197,8 @@ paths:
               type: string
               example: >-
                 "{\r\n    \"service_id\":
-                \"07f2ba24-d6a6-41d8-aa4f-16f4a5ab4091\",\r\n
-                \"for_plateform\": \"1\",\r\n    \"on_plateform\": \"2\",\r\n
+                \"07f2ba24-d6a6-41d8-aa4f-16f4a5ab4091\",\r\n   
+                \"for_plateform\": \"1\",\r\n    \"on_plateform\": \"2\",\r\n   
                 \"type\":\"MERCHANT\"\r\n}"
       parameters:
         - name: Content-Type
@@ -2588,8 +2588,8 @@ paths:
               type: string
               example: >-
                 "{\r\n    \"title_ar\": \"test11\",\r\n    \"title_en\":
-                \"test\",\r\n    \"content_ar\": \"test\",\r\n
-                \"content_en\": \"test\",\r\n    \"order\": \"5\",\r\n
+                \"test\",\r\n    \"content_ar\": \"test\",\r\n   
+                \"content_en\": \"test\",\r\n    \"order\": \"5\",\r\n   
                 \"type\":\"terms\",  // terms or commission\r\n    \"category\":
                 \"client\"  // client or provider or public\r\n}"
       parameters:
@@ -3922,7 +3922,7 @@ paths:
   /admin/site_offers:
     get:
       tags:
-        - Admin > Landing > Site IPromotion
+        - Admin > Landing > Site Offer
       summary: list
       security:
         - bearerAuth: []
@@ -3944,7 +3944,7 @@ paths:
             application/json: {}
     post:
       tags:
-        - Admin > Landing > Site IPromotion
+        - Admin > Landing > Site Offer
       summary: create
       requestBody:
         content:
@@ -3989,7 +3989,7 @@ paths:
   /admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210:
     post:
       tags:
-        - Admin > Landing > Site IPromotion
+        - Admin > Landing > Site Offer
       summary: update
       requestBody:
         content:
@@ -4033,7 +4033,7 @@ paths:
             application/json: {}
     delete:
       tags:
-        - Admin > Landing > Site IPromotion
+        - Admin > Landing > Site Offer
       summary: delete
       security:
         - bearerAuth: []
@@ -4045,7 +4045,7 @@ paths:
   /admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210/stop:
     post:
       tags:
-        - Admin > Landing > Site IPromotion
+        - Admin > Landing > Site Offer
       summary: stop
       requestBody:
         content:
@@ -4063,7 +4063,7 @@ paths:
   /admin/site_offers/e3ed5781-465b-4c16-879f-981812fb6210/restore:
     post:
       tags:
-        - Admin > Landing > Site IPromotion
+        - Admin > Landing > Site Offer
       summary: restore
       requestBody:
         content:
@@ -4462,6 +4462,31 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /client/orders/indexStatistics:
+    get:
+      tags:
+        - Client > Client Orders
+      summary: indexStatistics
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /client/orders/{id}:
     get:
       tags:
@@ -4569,7 +4594,7 @@ paths:
   /client/offer/96be9e84-956a-4298-89bd-9bd3c58e251e/accept:
     post:
       tags:
-        - Client > Client IPromotion
+        - Client > Client Offer
       summary: Accept
       requestBody:
         content:
@@ -4771,7 +4796,7 @@ paths:
                   example: 'test branch '
                 services:
                   type: string
-                  description: spare_parts or towing or maintenance
+                  description: spare_parts or junkyard_sale
                   example: spare_parts
                 spare_part_brands[]:
                   type: string
@@ -5061,12 +5086,47 @@ paths:
             type: string
           description: can_submit - already_submit - accepted - finished
           example: can_submit
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '2'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /provider/orders/1d9de514-c4e1-4987-8eb9-0909556c7186:
+  /provider/orders/indexStatistics:
+    get:
+      tags:
+        - Provider > Provider Orders
+      summary: indexStatistics
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-Requested-With
+          in: header
+          schema:
+            type: string
+          description: API
+          example: XMLHttpRequest
+        - name: Content-Language
+          in: header
+          schema:
+            type: string
+          description: 'accepts: ar, en'
+          example: ar
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /provider/orders/{id}:
     get:
       tags:
         - Provider > Provider Orders
@@ -5086,6 +5146,12 @@ paths:
             type: string
           description: 'accepts: ar, en'
           example: ar
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 1d9de514-c4e1-4987-8eb9-0909556c7186
       responses:
         '200':
           description: Successful response
@@ -5131,7 +5197,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /provider/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224/confirm-delivery:
+  /provider/orders/{id}/confirm-delivery:
     post:
       tags:
         - Provider > Provider Orders
@@ -5156,6 +5222,12 @@ paths:
             type: string
           description: 'accepts: ar, en'
           example: ar
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: c5ad5169-f88d-4acc-8d4f-6c985706b224
       responses:
         '200':
           description: Successful response
@@ -5164,7 +5236,7 @@ paths:
   /provider/offer:
     post:
       tags:
-        - Provider > Provider IPromotion
+        - Provider > Provider Offer
       summary: store
       requestBody:
         content:
@@ -5201,11 +5273,20 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /pages/how_we_help:
+  /pages/{type}:
     get:
       tags:
         - Pages
       summary: get page by type
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: type
+          in: path
+          schema:
+            type: string
+          required: true
+          example: about
       responses:
         '200':
           description: Successful response

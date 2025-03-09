@@ -647,6 +647,10 @@ export const operations = {
         "path": "/client/orders",
         "method": "get"
     },
+    "get_client-orders-indexstatistics": {
+        "path": "/client/orders/indexStatistics",
+        "method": "get"
+    },
     "get_client-orders-id": {
         "path": "/client/orders/:id",
         "method": "get"
@@ -711,24 +715,28 @@ export const operations = {
         "path": "/provider/orders",
         "method": "get"
     },
-    "get_provider-orders-1d9de514-c4e1-4987-8eb9-0909556c7186": {
-        "path": "/provider/orders/1d9de514-c4e1-4987-8eb9-0909556c7186",
+    "get_provider-orders-indexstatistics": {
+        "path": "/provider/orders/indexStatistics",
+        "method": "get"
+    },
+    "get_provider-orders-id": {
+        "path": "/provider/orders/:id",
         "method": "get"
     },
     "post_provider-order-rate": {
         "path": "/provider/order/rate",
         "method": "post"
     },
-    "post_provider-orders-c5ad5169-f88d-4acc-8d4f-6c985706b224-confirm-delivery": {
-        "path": "/provider/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224/confirm-delivery",
+    "post_provider-orders-id-confirm-delivery": {
+        "path": "/provider/orders/:id/confirm-delivery",
         "method": "post"
     },
     "post_provider-offer": {
         "path": "/provider/offer",
         "method": "post"
     },
-    "get_pages-how-we-help": {
-        "path": "/pages/how_we_help",
+    "get_pages-type": {
+        "path": "/pages/:type",
         "method": "get"
     },
     "get_pages-rights-paginated": {

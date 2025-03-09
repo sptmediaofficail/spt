@@ -7143,6 +7143,53 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/client/orders/indexStatistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** indexStatistics */
+        get: {
+            parameters: {
+                query?: never;
+                header?: {
+                    /**
+                     * @description API
+                     * @example XMLHttpRequest
+                     */
+                    "X-Requested-With"?: string;
+                    /**
+                     * @description accepts: ar, en
+                     * @example ar
+                     */
+                    "Content-Language"?: string;
+                };
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successful response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": unknown;
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/client/orders/{id}": {
         parameters: {
             query?: never;
@@ -7167,7 +7214,7 @@ export interface paths {
                     "Content-Language"?: string;
                 };
                 path: {
-                    /** @example c5ad5169-f88d-4acc-8d4f-6c985706b224 */
+                    /** @example 55e3f8d3-f22f-4559-8637-5037869614a3 */
                     id: string;
                 };
                 cookie?: never;
@@ -7698,7 +7745,7 @@ export interface paths {
                         /** @example test branch  */
                         branches?: string;
                         /**
-                         * @description spare_parts or towing or maintenance
+                         * @description spare_parts or junkyard_sale
                          * @example spare_parts
                          */
                         services?: string;
@@ -7717,6 +7764,19 @@ export interface paths {
                          * @example both
                          */
                         part_condition?: string;
+                        /** @example osama */
+                        bank_username?: string;
+                        /** @example ALHARG */
+                        bank_name?: string;
+                        /** @example 123654123654654 */
+                        bank_account?: number;
+                        /** @example 12365465465465465 */
+                        iban?: number;
+                        /**
+                         * @description boolean
+                         * @example 1
+                         */
+                        only_my_city?: number;
                     };
                 };
             };
@@ -7959,6 +8019,10 @@ export interface paths {
                      * @example can_submit
                      */
                     status?: string;
+                    /** @example 1 */
+                    paginate?: number;
+                    /** @example 2 */
+                    page?: number;
                 };
                 header?: {
                     /**
@@ -7996,7 +8060,54 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/provider/orders/1d9de514-c4e1-4987-8eb9-0909556c7186": {
+    "/provider/orders/indexStatistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** indexStatistics */
+        get: {
+            parameters: {
+                query?: never;
+                header?: {
+                    /**
+                     * @description API
+                     * @example XMLHttpRequest
+                     */
+                    "X-Requested-With"?: string;
+                    /**
+                     * @description accepts: ar, en
+                     * @example ar
+                     */
+                    "Content-Language"?: string;
+                };
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successful response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": unknown;
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/provider/orders/{id}": {
         parameters: {
             query?: never;
             header?: never;
@@ -8019,7 +8130,10 @@ export interface paths {
                      */
                     "Content-Language"?: string;
                 };
-                path?: never;
+                path: {
+                    /** @example 1d9de514-c4e1-4987-8eb9-0909556c7186 */
+                    id: string;
+                };
                 cookie?: never;
             };
             requestBody?: never;
@@ -8101,7 +8215,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/provider/orders/c5ad5169-f88d-4acc-8d4f-6c985706b224/confirm-delivery": {
+    "/provider/orders/{id}/confirm-delivery": {
         parameters: {
             query?: never;
             header?: never;
@@ -8126,7 +8240,10 @@ export interface paths {
                      */
                     "Content-Language"?: string;
                 };
-                path?: never;
+                path: {
+                    /** @example c5ad5169-f88d-4acc-8d4f-6c985706b224 */
+                    id: string;
+                };
                 cookie?: never;
             };
             requestBody?: {
@@ -8210,7 +8327,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/pages/how_we_help": {
+    "/pages/{type}": {
         parameters: {
             query?: never;
             header?: never;
@@ -8222,7 +8339,10 @@ export interface paths {
             parameters: {
                 query?: never;
                 header?: never;
-                path?: never;
+                path: {
+                    /** @example about */
+                    type: string;
+                };
                 cookie?: never;
             };
             requestBody?: never;

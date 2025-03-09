@@ -359,6 +359,13 @@ export const UseClientClientOrdersServiceGetClientOrdersKeyFn = ({ contentLangua
   statusArray?: string;
   xRequestedWith?: string;
 } = {}, queryKey?: Array<unknown>) => [useClientClientOrdersServiceGetClientOrdersKey, ...(queryKey ?? [{ contentLanguage, page, paginate, statusArray, xRequestedWith }])];
+export type ClientClientOrdersServiceGetClientOrdersIndexStatisticsDefaultResponse = Awaited<ReturnType<typeof ClientClientOrdersService.getClientOrdersIndexStatistics>>;
+export type ClientClientOrdersServiceGetClientOrdersIndexStatisticsQueryResult<TData = ClientClientOrdersServiceGetClientOrdersIndexStatisticsDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useClientClientOrdersServiceGetClientOrdersIndexStatisticsKey = "ClientClientOrdersServiceGetClientOrdersIndexStatistics";
+export const UseClientClientOrdersServiceGetClientOrdersIndexStatisticsKeyFn = ({ contentLanguage, xRequestedWith }: {
+  contentLanguage?: string;
+  xRequestedWith?: string;
+} = {}, queryKey?: Array<unknown>) => [useClientClientOrdersServiceGetClientOrdersIndexStatisticsKey, ...(queryKey ?? [{ contentLanguage, xRequestedWith }])];
 export type ClientClientOrdersServiceGetClientOrdersByIdDefaultResponse = Awaited<ReturnType<typeof ClientClientOrdersService.getClientOrdersById>>;
 export type ClientClientOrdersServiceGetClientOrdersByIdQueryResult<TData = ClientClientOrdersServiceGetClientOrdersByIdDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const useClientClientOrdersServiceGetClientOrdersByIdKey = "ClientClientOrdersServiceGetClientOrdersById";
@@ -433,22 +440,34 @@ export const UseProviderProviderProfileServiceGetProviderSearchKeyFn = ({ conten
 export type ProviderProviderOrdersServiceGetProviderOrdersDefaultResponse = Awaited<ReturnType<typeof ProviderProviderOrdersService.getProviderOrders>>;
 export type ProviderProviderOrdersServiceGetProviderOrdersQueryResult<TData = ProviderProviderOrdersServiceGetProviderOrdersDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const useProviderProviderOrdersServiceGetProviderOrdersKey = "ProviderProviderOrdersServiceGetProviderOrders";
-export const UseProviderProviderOrdersServiceGetProviderOrdersKeyFn = ({ contentLanguage, status, xRequestedWith }: {
+export const UseProviderProviderOrdersServiceGetProviderOrdersKeyFn = ({ contentLanguage, page, paginate, status, xRequestedWith }: {
   contentLanguage?: string;
+  page?: number;
+  paginate?: number;
   status?: string;
   xRequestedWith?: string;
-} = {}, queryKey?: Array<unknown>) => [useProviderProviderOrdersServiceGetProviderOrdersKey, ...(queryKey ?? [{ contentLanguage, status, xRequestedWith }])];
-export type ProviderProviderOrdersServiceGetProviderOrders1D9De514C4E149878Eb90909556C7186DefaultResponse = Awaited<ReturnType<typeof ProviderProviderOrdersService.getProviderOrders1D9De514C4E149878Eb90909556C7186>>;
-export type ProviderProviderOrdersServiceGetProviderOrders1D9De514C4E149878Eb90909556C7186QueryResult<TData = ProviderProviderOrdersServiceGetProviderOrders1D9De514C4E149878Eb90909556C7186DefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
-export const useProviderProviderOrdersServiceGetProviderOrders1D9De514C4E149878Eb90909556C7186Key = "ProviderProviderOrdersServiceGetProviderOrders1D9De514C4E149878Eb90909556C7186";
-export const UseProviderProviderOrdersServiceGetProviderOrders1D9De514C4E149878Eb90909556C7186KeyFn = ({ contentLanguage, xRequestedWith }: {
+} = {}, queryKey?: Array<unknown>) => [useProviderProviderOrdersServiceGetProviderOrdersKey, ...(queryKey ?? [{ contentLanguage, page, paginate, status, xRequestedWith }])];
+export type ProviderProviderOrdersServiceGetProviderOrdersIndexStatisticsDefaultResponse = Awaited<ReturnType<typeof ProviderProviderOrdersService.getProviderOrdersIndexStatistics>>;
+export type ProviderProviderOrdersServiceGetProviderOrdersIndexStatisticsQueryResult<TData = ProviderProviderOrdersServiceGetProviderOrdersIndexStatisticsDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useProviderProviderOrdersServiceGetProviderOrdersIndexStatisticsKey = "ProviderProviderOrdersServiceGetProviderOrdersIndexStatistics";
+export const UseProviderProviderOrdersServiceGetProviderOrdersIndexStatisticsKeyFn = ({ contentLanguage, xRequestedWith }: {
   contentLanguage?: string;
   xRequestedWith?: string;
-} = {}, queryKey?: Array<unknown>) => [useProviderProviderOrdersServiceGetProviderOrders1D9De514C4E149878Eb90909556C7186Key, ...(queryKey ?? [{ contentLanguage, xRequestedWith }])];
-export type PagesServiceGetPagesHowWeHelpDefaultResponse = Awaited<ReturnType<typeof PagesService.getPagesHowWeHelp>>;
-export type PagesServiceGetPagesHowWeHelpQueryResult<TData = PagesServiceGetPagesHowWeHelpDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
-export const usePagesServiceGetPagesHowWeHelpKey = "PagesServiceGetPagesHowWeHelp";
-export const UsePagesServiceGetPagesHowWeHelpKeyFn = (queryKey?: Array<unknown>) => [usePagesServiceGetPagesHowWeHelpKey, ...(queryKey ?? [])];
+} = {}, queryKey?: Array<unknown>) => [useProviderProviderOrdersServiceGetProviderOrdersIndexStatisticsKey, ...(queryKey ?? [{ contentLanguage, xRequestedWith }])];
+export type ProviderProviderOrdersServiceGetProviderOrdersByIdDefaultResponse = Awaited<ReturnType<typeof ProviderProviderOrdersService.getProviderOrdersById>>;
+export type ProviderProviderOrdersServiceGetProviderOrdersByIdQueryResult<TData = ProviderProviderOrdersServiceGetProviderOrdersByIdDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useProviderProviderOrdersServiceGetProviderOrdersByIdKey = "ProviderProviderOrdersServiceGetProviderOrdersById";
+export const UseProviderProviderOrdersServiceGetProviderOrdersByIdKeyFn = ({ contentLanguage, id, xRequestedWith }: {
+  contentLanguage?: string;
+  id: string;
+  xRequestedWith?: string;
+}, queryKey?: Array<unknown>) => [useProviderProviderOrdersServiceGetProviderOrdersByIdKey, ...(queryKey ?? [{ contentLanguage, id, xRequestedWith }])];
+export type PagesServiceGetPagesByTypeDefaultResponse = Awaited<ReturnType<typeof PagesService.getPagesByType>>;
+export type PagesServiceGetPagesByTypeQueryResult<TData = PagesServiceGetPagesByTypeDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const usePagesServiceGetPagesByTypeKey = "PagesServiceGetPagesByType";
+export const UsePagesServiceGetPagesByTypeKeyFn = ({ type }: {
+  type: string;
+}, queryKey?: Array<unknown>) => [usePagesServiceGetPagesByTypeKey, ...(queryKey ?? [{ type }])];
 export type PagesServiceGetPagesRightsPaginatedDefaultResponse = Awaited<ReturnType<typeof PagesService.getPagesRightsPaginated>>;
 export type PagesServiceGetPagesRightsPaginatedQueryResult<TData = PagesServiceGetPagesRightsPaginatedDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const usePagesServiceGetPagesRightsPaginatedKey = "PagesServiceGetPagesRightsPaginated";
@@ -647,7 +666,7 @@ export type ClientClientOfferServicePostClientOffer96Be9E84956a429889Bd9Bd3C58E2
 export type ProviderProviderSubscriptionServicePostProviderSubscriptionSubscribeMutationResult = Awaited<ReturnType<typeof ProviderProviderSubscriptionService.postProviderSubscriptionSubscribe>>;
 export type ProviderProviderProfileServicePostProviderProfileMutationResult = Awaited<ReturnType<typeof ProviderProviderProfileService.postProviderProfile>>;
 export type ProviderProviderOrdersServicePostProviderOrderRateMutationResult = Awaited<ReturnType<typeof ProviderProviderOrdersService.postProviderOrderRate>>;
-export type ProviderProviderOrdersServicePostProviderOrdersC5Ad5169F88d4Acc8D4f6C985706B224ConfirmDeliveryMutationResult = Awaited<ReturnType<typeof ProviderProviderOrdersService.postProviderOrdersC5Ad5169F88d4Acc8D4f6C985706B224ConfirmDelivery>>;
+export type ProviderProviderOrdersServicePostProviderOrdersByIdConfirmDeliveryMutationResult = Awaited<ReturnType<typeof ProviderProviderOrdersService.postProviderOrdersByIdConfirmDelivery>>;
 export type ProviderProviderOfferServicePostProviderOfferMutationResult = Awaited<ReturnType<typeof ProviderProviderOfferService.postProviderOffer>>;
 export type MessagesServicePostMessagesSendMutationResult = Awaited<ReturnType<typeof MessagesService.postMessagesSend>>;
 export type AuthenticationServicePutSharedAuthUpdateSettingsMutationResult = Awaited<ReturnType<typeof AuthenticationService.putSharedAuthUpdateSettings>>;
