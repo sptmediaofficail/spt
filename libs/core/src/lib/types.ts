@@ -105,6 +105,7 @@ export interface OrderDetails {
   offers: IOffer[];
   images: string[];
   provider: any;
+  is_my_order: boolean;
 }
 
 export interface Details {

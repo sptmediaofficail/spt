@@ -210,5 +210,16 @@
       "already_submit": "الطلبات الحالية",
       "accepted": "عروضي"
     }
-  }
+  },
+  "send_offer": "قدم عرضك",
+  "send_offer_modal": "تقديم العرض",
+  "edit_offer_modal": "تعديل العرض",
+  "sending_offer": "جاري ارسال العرض ...",
+  "contact {name}": "تواصل مع {name}",
+  "the_store": "المتجر",
+  "we_are_working_on_this_feature": "نعمل علي هذه الخاصيه",
+  "delivery_fee": "رسوم التوصيل",
+  "price": "السعر",
+  "offer_sent": "تم ارسال العرض",
+  "offer_failed": "فشل ارسال العرض"
 }

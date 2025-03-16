@@ -16,6 +16,21 @@ import {
 } from 'react-icons/fa';
 import { formatDate } from '../../utils/formatter';
 import { OrderOffersSection } from '../offers/order-offers-section';
+import { PrimaryButton } from '../../ui/primary-button';
+import { AiOutlineMessage } from 'react-icons/ai';
+import toast from 'react-hot-toast';
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+  UseDisclosureProps,
+} from '@heroui/modal';
+import { Input } from '../../ui/input';
+import { Button } from '@heroui/button';
+import { SendOfferPayload, useSendOffer } from './use-send-offer';
 
 export const ShowOrderPage = ({ orderId }: { orderId: string }) => {
   const t = useTranslations();
@@ -58,6 +73,7 @@ export const ShowOrderPage = ({ orderId }: { orderId: string }) => {
 };
 
 const OrderDetails = ({ orderDetails }: { orderDetails: OrderDetails }) => {
+  const makeOfferDialog = useDisclosure();
   const t = useTranslations();
   const details = [
     {
@@ -67,7 +83,7 @@ const OrderDetails = ({ orderDetails }: { orderDetails: OrderDetails }) => {
     },
     {
       label: t('order_spare_part_brand'),
-      value: orderDetails.details.brand.name || t('unknown'),
+      value: orderDetails.details?.brand?.name || t('unknown'),
       icon: FaCar,
     },
     {
@@ -152,10 +168,113 @@ const OrderDetails = ({ orderDetails }: { orderDetails: OrderDetails }) => {
           );
         })}
       </div>
-      <h2 className="text-lg font-semibold text-primary">
-        {t('home.offers')} ({orderDetails.offers.length})
-      </h2>
-      <OrderOffersSection {...orderDetails} />
+      <SubmitOfferSection {...makeOfferDialog} {...orderDetails} />
     </div>
+  );
+};
+
+const SubmitOfferSection = (props: UseDisclosureProps & OrderDetails) => {
+  const { isPending, sendOffer, isEdit, form } = useSendOffer(props);
+  const t = useTranslations();
+
+  const closeModal = () => {
+    props.onClose?.();
+    form.reset();
+  };
+
+  const onSubmit = async (data: SendOfferPayload) => {
+    sendOffer(data).then(closeModal);
+  };
+  return (
+    <>
+      {props.is_my_order ? (
+        <>
+          <h2 className="text-lg font-semibold text-primary">
+            {t('home.offers')} ({props.offers.length})
+          </h2>
+          <OrderOffersSection {...props} />
+        </>
+      ) : (
+        <div className="flex gap-4 w-1/3 self-end mt-24">
+          <PrimaryButton
+            onPress={props.onOpen}
+            size={'lg'}
+            text={isEdit ? t('edit_offer_modal') : t('send_offer')}
+          />
+          <PrimaryButton
+            onPress={() => {
+              toast(t('we_are_working_on_this_feature'));
+            }}
+            startContent={<AiOutlineMessage className="text-primary w-5 h-5" />}
+            size={'lg'}
+            variant={'bordered'}
+            text={t(t('contact {name}', { name: t('the_store') }))}
+          />
+        </div>
+      )}
+      <Modal
+        isOpen={props.isOpen}
+        // onClose={form.formState.isDirty ? onCloseWithChanges : onClose}
+        onClose={closeModal}
+        placement="center"
+        size="xl"
+        hideCloseButton
+        classNames={{ base: 'mx-4' }}
+      >
+        <ModalContent>
+          <form onSubmit={form.handleSubmit(onSubmit)}>
+            <ModalHeader>
+              <h2 className="text-lg font-semibold text-center">
+                {isEdit ? t('edit_offer_modal') : t('send_offer_modal')}
+              </h2>
+            </ModalHeader>
+            <div className="mx-4 mb-2">
+              <PrimaryDivider />
+            </div>
+            <ModalBody className="flex flex-col gap-4">
+              <Input
+                isRequired
+                type={'number'}
+                label={t('price')}
+                labelPlacement="outside"
+                placeholder={t('enter', { field: t('price') })}
+                variant="bordered"
+                errorMessage={t('field_required')}
+                {...form.register('price')}
+              />
+              <Input
+                isRequired
+                type={'number'}
+                label={t('delivery_fee')}
+                labelPlacement="outside"
+                placeholder={t('enter', { field: t('delivery_fee') })}
+                variant="bordered"
+                errorMessage={t('field_required')}
+                {...form.register('delivery_fee')}
+              />
+            </ModalBody>
+            <ModalFooter>
+              <div className="flex w-full gap-4 justify-end">
+                <PrimaryButton
+                  text={isEdit ? t('save') : t('add')}
+                  type="submit"
+                  isDisabled={isPending}
+                  isLoading={isPending}
+                  className="w-fit px-8"
+                />
+                <Button
+                  onPress={props.onClose}
+                  isDisabled={isPending}
+                  variant="bordered"
+                  className="rounded-lg px-8"
+                >
+                  {t('cancel')}
+                </Button>
+              </div>
+            </ModalFooter>
+          </form>
+        </ModalContent>
+      </Modal>
+    </>
   );
 };
