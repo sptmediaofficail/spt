@@ -195,11 +195,22 @@ const SubmitOfferSection = (props: UseDisclosureProps & OrderDetails) => {
           <OrderOffersSection {...props} />
         </>
       ) : (
-        <div className="flex gap-4 w-1/3 self-end mt-24">
+        <div className="flex gap-4 lg:w-1/3 w-full self-end mt-8 lg:mt-24">
           <PrimaryButton
             onPress={props.onOpen}
             size={'lg'}
             text={isEdit ? t('edit_offer_modal') : t('send_offer')}
+            className={'w-3/4 lg:w-1/2'}
+          />
+          <PrimaryButton
+            onPress={() => {
+              toast(t('we_are_working_on_this_feature'));
+            }}
+            // startContent={<AiOutlineMessage className="text-primary w-5 h-5" />}
+            size={'lg'}
+            variant={'bordered'}
+            text={t('contact {name}', { name: t('the_store') })}
+            className={'hidden lg:block w-1/2'}
           />
           <PrimaryButton
             onPress={() => {
@@ -208,7 +219,8 @@ const SubmitOfferSection = (props: UseDisclosureProps & OrderDetails) => {
             startContent={<AiOutlineMessage className="text-primary w-5 h-5" />}
             size={'lg'}
             variant={'bordered'}
-            text={t(t('contact {name}', { name: t('the_store') }))}
+            text={''}
+            className={'w-1/4 lg:w-1/2 lg:hidden'}
           />
         </div>
       )}
