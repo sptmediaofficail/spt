@@ -131,7 +131,7 @@ const ModelSelector = () => {
 
   const modelsInfinityHooks = useModelsInfinity({ brandId })();
   const items = modelsInfinityHooks.items as Model[];
-
+  const selectedModel = form.watch('model');
   return (
     <Controller
       name="model"
@@ -154,7 +154,7 @@ const ModelSelector = () => {
           variant="bordered"
           className="w-full rounded-none"
           placeholder={t('select_model')}
-          selectedKeys={[form.watch('model')]}
+          selectedKeys={selectedModel ? [selectedModel] : []}
           {...field}
         >
           {items.map((item) => (
