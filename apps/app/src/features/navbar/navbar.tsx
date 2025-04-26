@@ -133,7 +133,12 @@ export default function Navbar() {
       {/* Right Side: User Avatar and Mobile Menu Toggle */}
       <NavbarContent justify="end" className="flex-1 flex items-center">
         <button className="w-9 h-9 rounded-full transform hover:scale-105 shadow-sm duration-100">
-          <Image src={NewNotificationSvg} alt="Notification" layout={'fixed'} />
+          <Image
+            src={NewNotificationSvg}
+            alt="Notification"
+            width={36}
+            height={36}
+          />
         </button>
 
         {/* User Avatar Dropdown */}
@@ -168,9 +173,14 @@ export default function Navbar() {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           icon={
             isMenuOpen ? (
-              <Image src={MenuIconOpened} alt={'Close menu'} />
+              <Image
+                src={MenuIconOpened}
+                alt={'Close menu'}
+                width={36}
+                height={36}
+              />
             ) : (
-              <Image src={MenuIcon} alt={'Open menu'} />
+              <Image src={MenuIcon} alt={'Open menu'} width={36} height={36} />
             )
           }
           className="md:hidden h-9 w-9"

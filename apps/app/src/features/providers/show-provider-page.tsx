@@ -108,7 +108,13 @@ const ProviderDetailsCard = ({ provider }: { provider: IProvider }) => {
               <p className={'text-gray-500 text-sm font-bold'}>
                 {provider.rate}
               </p>
-              <Image src={StarSvg} alt="Star" className={'h-3.5 w-3.5'} />
+              <Image
+                src={StarSvg}
+                alt="Star"
+                width={14}
+                height={14}
+                className={'h-3.5 w-3.5'}
+              />
             </div>
           </div>
         </div>
@@ -156,7 +162,13 @@ const Detail = ({
             'w-8 h-8 relative bg-babyBlue p-1.5 rounded-full flex items-center self-center'
           }
         >
-          <Image src={icon} alt="Address" className={'h-6 w-6'} />
+          <Image
+            src={icon}
+            alt="Address"
+            width={24}
+            height={24}
+            className={'h-6 w-6'}
+          />
         </div>
 
         <div className={'flex flex-col gap-1 items-start'}>
@@ -168,7 +180,13 @@ const Detail = ({
       {/* Mobile */}
       <div className={'flex justify-between gap-3 lg:hidden'}>
         <div className={'flex items-center gap-3'}>
-          <Image src={icon} alt={label} className={'h-6 w-6'} />
+          <Image
+            src={icon}
+            alt={label}
+            width={24}
+            height={24}
+            className={'h-6 w-6'}
+          />
           <p className={'text-gray-700'}>{label}</p>
         </div>
         <p className={'text-gray-700 font-semibold'}>{value}</p>
@@ -217,7 +235,13 @@ export const ProviderFAQ = ({
         <div key={label} className={'flex flex-col gap-2'}>
           <div className={'flex items-center justify-between lg:gap-4'}>
             <div className={'flex items-center gap-3'}>
-              <Image src={icon} alt="Address" className={'h-6 w-6'} />
+              <Image
+                src={icon}
+                alt="Address"
+                width={24}
+                height={24}
+                className={'h-6 w-6'}
+              />
               <p className={'text-gray-700'}>{label}</p>
             </div>
             <p className={'text-gray-700 font-semibold'}>
@@ -228,9 +252,21 @@ export const ProviderFAQ = ({
                   onChange={(e) => form.setValue(name, e.target.checked)}
                 />
               ) : value ? (
-                <Image src={YesSvg} alt="Yes" className={'h-6 w-6'} />
+                <Image
+                  src={YesSvg}
+                  alt="Yes"
+                  width={24}
+                  height={24}
+                  className={'h-6 w-6'}
+                />
               ) : (
-                <Image src={NoSvg} alt="No" className={'h-6 w-6'} />
+                <Image
+                  src={NoSvg}
+                  alt="No"
+                  width={24}
+                  height={24}
+                  className={'h-6 w-6'}
+                />
               )}
             </p>
           </div>
