@@ -5,10 +5,12 @@ import { usePreAuthStore } from './preAuthStore';
 
 export const SAPhoneInput = () => {
   const [isDirty, setIsDirty] = useState(false);
-  const { state, setState } = usePreAuthStore();
+  // const { state, setState } = usePreAuthStore();
+  const [phone, setPhone] = useState<string | null>(null);
+
   return (
     <PhoneInput
-      value={state.recipient}
+      value={phone}
       isValid={(value, country) => {
         if (!isDirty) return true;
         const saRegex = /^(966)([503649187])([0-9]{8})$/;
@@ -19,7 +21,7 @@ export const SAPhoneInput = () => {
       country={'sa'}
       onChange={(value) => {
         setIsDirty(true);
-        setState({ recipient: value });
+        setPhone(value);
       }}
       inputStyle={{
         width: '100%',
