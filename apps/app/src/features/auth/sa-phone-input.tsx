@@ -5,7 +5,7 @@ import { usePreAuthStore } from './preAuthStore';
 
 export const SAPhoneInput = () => {
   const [isDirty, setIsDirty] = useState(false);
-  // const { state, setState } = usePreAuthStore();
+  const { setState } = usePreAuthStore();
   const [phone, setPhone] = useState<string | null>(null);
 
   return (
@@ -22,6 +22,7 @@ export const SAPhoneInput = () => {
       onChange={(value) => {
         setIsDirty(true);
         setPhone(value);
+        setState({ recipient: value });
       }}
       inputStyle={{
         width: '100%',
