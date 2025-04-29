@@ -56,11 +56,11 @@ const menuItems = [
     href: '/orders',
     icon: <FaClipboardList />,
   },
-  {
-    label: 'wallet',
-    href: '/wallet',
-    icon: <FaWallet />,
-  },
+  // {
+  //   label: 'wallet',
+  //   href: '/wallet',
+  //   icon: <FaWallet />,
+  // },
   {
     label: 'create_store',
     href: '/create-store',
