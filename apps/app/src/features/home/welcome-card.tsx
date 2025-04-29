@@ -1,4 +1,4 @@
-import { Card, CardBody } from "@heroui/card";
+import { Card, CardBody } from '@heroui/card';
 import Image from 'next/image';
 import SptLogo from './assets/s.svg';
 import Symbol from './assets/symbol.svg';
@@ -16,11 +16,15 @@ export const WelcomeCard = () => {
         <Image
           src={SptLogo}
           alt="SPT Logo"
+          width={100}
+          height={192}
           className={'absolute left-0 h-48 py-1'}
         />
         <Image
           src={Symbol}
           alt="Symbol"
+          width={192}
+          height={256}
           className={
             'opacity-0 lg:opacity-100 absolute h-64 w-48 right-0 top-0'
           }

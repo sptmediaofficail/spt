@@ -65,5 +65,12 @@
   "home": {
     "offers": "Offers",
     "more": "More"
+  },
+  "payment": {
+    "title": "Payment Details",
+    "description": "Please enter your payment information",
+    "success": "Payment successful",
+    "failed": "Payment failed",
+    "error": "An error occurred while processing your payment"
   }
 }

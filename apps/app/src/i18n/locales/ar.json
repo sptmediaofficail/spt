@@ -167,7 +167,7 @@
   "order_successful": "تم الطلب بنجاح",
   "orders": "طلباتي",
   "accepted": "الحالية",
-  "receiving_offer":"عروض طلباتي",
+  "receiving_offer": "عروض طلباتي",
   "completed": "المنتهية",
   "spare_part_order": "طلب قطع غيار",
   "create_store": "انشاء متجر",
@@ -221,5 +221,12 @@
   "delivery_fee": "رسوم التوصيل",
   "price": "السعر",
   "offer_sent": "تم ارسال العرض",
-  "offer_failed": "فشل ارسال العرض"
+  "offer_failed": "فشل ارسال العرض",
+  "payment": {
+    "title": "تفاصيل الدفع",
+    "description": "الرجاء إدخال معلومات الدفع",
+    "success": "تم الدفع بنجاح",
+    "failed": "فشل الدفع",
+    "error": "حدث خطأ أثناء معالجة الدفع"
+  }
 }
