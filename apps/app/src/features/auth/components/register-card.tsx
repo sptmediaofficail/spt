@@ -3,12 +3,13 @@ import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { useAuthenticationServicePostSharedAuthRegister } from '../../../../../../libs/api-sdk/src/lib/gen2/queries';
 import { useRouter } from 'next/navigation';
-import { Input } from "@heroui/input";
+import { Input } from '@heroui/input';
 import { AiOutlineUser } from 'react-icons/ai';
-import { Autocomplete, AutocompleteItem } from "@heroui/autocomplete";
+import { Autocomplete, AutocompleteItem } from '@heroui/autocomplete';
 import { LiaCitySolid } from 'react-icons/lia';
 import { usePreAuthStore } from '../preAuthStore';
 import { UseCities } from '../../../hooks/use-cities';
+import { SAPhoneInput } from '../sa-phone-input';
 
 export function RegisterCard(props: { text: string }) {
   const t = useTranslations();
@@ -85,6 +86,10 @@ export function RegisterCard(props: { text: string }) {
           </AutocompleteItem>
         )}
       </Autocomplete>
+      <div className="flex flex-col gap-3">
+        <label className="text-sm self-start">{t('label.phone')}</label>
+        <SAPhoneInput />
+      </div>
       <PrimaryButton isLoading={isPending} text={props.text} onPress={submit} />
     </div>
   );
