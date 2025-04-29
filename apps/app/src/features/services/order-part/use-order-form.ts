@@ -1,7 +1,8 @@
+/* eslint-disable @nx/enforce-module-boundaries */
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { FormOrderParts, PartData } from './types';
 import { useEffect, useState } from 'react';
-import { useDisclosure } from "@heroui/modal";
+import { useDisclosure } from '@heroui/modal';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
@@ -17,12 +18,12 @@ export const useOrderForm = () => {
   const t = useTranslations();
   const router = useRouter();
   const validation = z.object({
-    vin_serial: z
-      .string()
+    // vin_serial: z
+      // .string()
       // .length(17, {
       //   message: t('vin_serial_validation'),
       // })
-      .optional(),
+      // .optional(),
     parts: z.array(z.any()).nonempty(),
     address: z.string().min(5, {
       message: t('address_validation'),
@@ -122,7 +123,7 @@ export const useOrderForm = () => {
     );
   };
 
-  const onError = (error) => {
+  const onError = (error: unknown) => {
     console.error('Form error', error);
   };
 
