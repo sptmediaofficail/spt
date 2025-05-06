@@ -8,15 +8,22 @@ export function InfiniteSelect(
     fetchNextPage: () => void;
     isFetchingNextPage: boolean;
     isEnabled?: boolean;
+    selectionMode?: 'single' | 'multiple'; // Add dynamic selection mode
   }
 ) {
   const [isOpen, setIsOpen] = React.useState(false);
-  const { hasNextPage, fetchNextPage, isFetchingNextPage } = props;
+  const {
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+    selectionMode = 'single', // Default to 'single' if not provided
+    ...restProps
+  } = props;
 
   const [, scrollerRef] = useInfiniteScroll({
     hasMore: hasNextPage,
     isEnabled: isOpen,
-    shouldUseLoader: false, // We don't want to show the loader at the bottom of the list
+    shouldUseLoader: false,
     onLoadMore: fetchNextPage,
   });
 
@@ -24,9 +31,9 @@ export function InfiniteSelect(
     <Select
       isLoading={isFetchingNextPage}
       scrollRef={scrollerRef}
-      selectionMode="multiple"
+      selectionMode={selectionMode}
       onOpenChange={setIsOpen}
-      {...props}
+      {...restProps}
     >
       {props.children}
     </Select>

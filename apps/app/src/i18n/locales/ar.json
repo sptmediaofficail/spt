@@ -222,6 +222,7 @@
   "price": "السعر",
   "offer_sent": "تم ارسال العرض",
   "offer_failed": "فشل ارسال العرض",
+  "invalid_chassis_number": "رقم الشاسيه غير صحيح",
   "payment": {
     "title": "تفاصيل الدفع",
     "description": "الرجاء إدخال معلومات الدفع",

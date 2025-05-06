@@ -6,10 +6,21 @@ import ChassisImage from './assets/chassis.svg';
 import { IconText } from '../../../ui/typography';
 import { IoMdInformationCircleOutline } from 'react-icons/io';
 import { FormOrderParts } from './types';
+import { useEffect, useState } from 'react';
 
 export const ChassisInfo = () => {
   const t = useTranslations();
   const form = useFormContext<FormOrderParts>();
+  const [showError, setShowError] = useState(false);
+  const value = form.getValues().vin_serial;
+  useEffect(() => {
+    if (value && !value.match(/^[A-HJ-NPR-Z0-9]{17}$/)) {
+      setShowError(true);
+    }
+    if (!value || value.match(/^[A-HJ-NPR-Z0-9]{17}$/)) {
+      setShowError(false);
+    }
+  }, [value]);
 
   return (
     <div className={'flex flex-col justify-between lg:flex-row gap-8'}>
@@ -23,7 +34,11 @@ export const ChassisInfo = () => {
           // errorMessage={t('chassis_validation')}
           {...form.register('vin_serial')}
         />
-
+        {showError && (
+          <div className="mt-2 text-sm text-red-500">
+            {t('invalid_chassis_number')}
+          </div>
+        )}
         <div className={'mt-4'}>
           <IconText
             icon={<IoMdInformationCircleOutline className={'w-12 h-6'} />}

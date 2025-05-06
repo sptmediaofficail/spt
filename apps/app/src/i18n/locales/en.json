@@ -72,5 +72,6 @@
     "success": "Payment successful",
     "failed": "Payment failed",
     "error": "An error occurred while processing your payment"
-  }
+  },
+  "invalid_chassis_number": "Invalid chassis number"
 }

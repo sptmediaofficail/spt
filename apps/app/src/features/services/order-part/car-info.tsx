@@ -96,8 +96,12 @@ export const BrandSelector = ({
       name="brand"
       control={form.control}
       rules={{ required: t('field_required') }}
-      render={({ field }) => (
+      render={({ field: { value, onChange, name } }) => (
         <InfiniteSelect
+          name={name}
+          value={value}
+          onChange={onChange}
+          selectionMode="single"
           items={items}
           {...brandsInfinityHooks}
           label={t('select_brand')}
@@ -111,7 +115,6 @@ export const BrandSelector = ({
           variant="bordered"
           className="w-full rounded-none"
           placeholder={t('select_brand')}
-          {...field}
         >
           {items.map((item) => (
             <SelectItem key={item.id} value={item.id}>
@@ -141,6 +144,7 @@ const ModelSelector = () => {
       render={({ field }) => (
         <InfiniteSelect
           isDisabled={!brandId}
+          selectionMode="single"
           items={items}
           {...modelsInfinityHooks}
           label={t('select_model')}

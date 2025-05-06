@@ -48,19 +48,19 @@ const menuConfig = [
     icon: <FaClipboardList />,
     href: '/store',
   },
-  {
-    label: 'wallet',
-    icon: <FaWallet />,
-    href: '/wallet',
-  },
+  // {
+  //   label: 'wallet',
+  //   icon: <FaWallet />,
+  //   href: '/wallet',
+  // },
   {
     label: 'manage_account',
     icon: <FaUserCircle />,
     submenu: [
-      {
-        label: 'my_profile',
-        href: '/my-profile',
-      },
+      // {
+      //   label: 'my_profile',
+      //   href: '/my-profile',
+      // },
       {
         label: 'create_store',
         href: '/create-store',
