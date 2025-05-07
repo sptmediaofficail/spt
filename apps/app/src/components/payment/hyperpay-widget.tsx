@@ -29,6 +29,7 @@ export const HyperPayWidget: React.FC<HyperPayWidgetProps> = ({
 }) => {
   const formRef = useRef<HTMLFormElement>(null);
   const t = useTranslations();
+  console.log('orderId', orderId);
 
   useEffect(() => {
     // Store form reference at the start of effect

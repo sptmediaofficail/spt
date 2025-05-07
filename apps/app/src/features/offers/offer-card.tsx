@@ -13,7 +13,11 @@ import { hyperpayConfig } from '../../config/hyperpay';
 import toast from 'react-hot-toast';
 import { PaymentDialog } from '../../components/payment/payment-dialog';
 
-export const OfferCard = (props: IOffer) => {
+interface OfferCardProps extends IOffer {
+  orderId: string;
+}
+
+export const OfferCard = (props: OfferCardProps) => {
   const t = useTranslations();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -44,8 +48,6 @@ export const OfferCard = (props: IOffer) => {
       setIsLoading(false);
     }
   };
-
-
 
   const handlePaymentError = (error: unknown) => {
     console.error('Payment Error in OfferCard:', {
@@ -114,7 +116,7 @@ export const OfferCard = (props: IOffer) => {
           onClose={() => setShowPaymentDialog(false)}
           checkoutId={checkoutId}
           ndc={ndc}
-          orderId={props.id}
+          orderId={props.orderId}
           onError={handlePaymentError}
         />
       )}
