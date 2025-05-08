@@ -206,7 +206,7 @@ const SubmitOfferSection = (props: UseDisclosureProps & OrderDetails) => {
             onPress={() => {
               toast(t('we_are_working_on_this_feature'));
             }}
-            // startContent={<AiOutlineMessage className="text-primary w-5 h-5" />}
+            startContent={<AiOutlineMessage className="text-primary w-5 h-5" />}
             size={'lg'}
             variant={'bordered'}
             text={t('contact {name}', { name: t('the_store') })}
