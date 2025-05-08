@@ -106,6 +106,7 @@ export interface OrderDetails {
   images: string[];
   provider: any;
   is_my_order: boolean;
+  code_sent_at: string | null;
 }
 
 export interface Details {

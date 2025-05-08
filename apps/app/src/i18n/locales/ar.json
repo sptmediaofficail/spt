@@ -16,7 +16,8 @@
     "card": {
       "title": "تأكيد رمز التحقق",
       "description": "سيتم إرسال رمز التحقق علي"
-    }
+    },
+    "confirm_delivery_instruction": "من فضلك ادخل الكود الذي تم إرساله إلى جوالك لتأكيد إنهاء الطلب"
   },
   "button": {
     "send": "ارسال",
@@ -28,7 +29,8 @@
     "phone": "رقم الجوال",
     "name": "الاسم",
     "city": "المدينه",
-    "otp": "رمز التحقق"
+    "otp": "رمز التحقق",
+    "end_order": "إنهاء الطلب"
   },
   "placeholder": {
     "email": "ادخل البريد الإلكتروني",
@@ -202,6 +204,13 @@
   "bank_username": "اسم صاحب الحساب البنكي",
   "both_new_and_used": "جديد وتشاليح",
   "accept_offer": "قبول العرض",
+  "offer_details": "تفاصيل العرض",
+  "price": "السعر",
+  "delivery_fee": "رسوم التوصيل",
+  "commission": "العمولة",
+  "fee": "الرسوم",
+
+  "continue_to_payment": "المتابعة للدفع",
 
   "store": {
     "orders": {
@@ -217,11 +226,20 @@
   "sending_offer": "جاري ارسال العرض ...",
   "contact {name}": "تواصل مع {name}",
   "the_store": "المتجر",
+  "the_client": "العميل",
   "we_are_working_on_this_feature": "نعمل علي هذه الخاصيه",
-  "delivery_fee": "رسوم التوصيل",
-  "price": "السعر",
   "offer_sent": "تم ارسال العرض",
   "offer_failed": "فشل ارسال العرض",
+  "failed_to_update_order": "فشل تحديث حالة الطلب",
+  "success": "تم بنجاح",
+  "order_shipping_status": "حالة الشحن",
+  "shipping_status": {
+    "pending": "قيد الانتظار",
+    "processing": "قيد المعالجة",
+    "shipped": "تم الشحن",
+    "delivered": "تم التوصيل",
+    "cancelled": "ملغي"
+  },
   "invalid_chassis_number": "رقم الشاسيه غير صحيح",
   "payment": {
     "title": "تفاصيل الدفع",
@@ -229,5 +247,26 @@
     "success": "تم الدفع بنجاح",
     "failed": "فشل الدفع",
     "error": "حدث خطأ أثناء معالجة الدفع"
-  }
+  },
+  "confirm_delivery": "تأكيد التوصيل",
+  "order_details": "تفاصيل الطلب",
+  "order_number": "رقم الطلب",
+  "order_date": "تاريخ الطلب",
+  "order_status": "حالة الطلب",
+  "order_total": "إجمالي الطلب",
+  "order_items": "المنتجات",
+  "shipping_address": "عنوان الشحن",
+  "payment_method": "طريقة الدفع",
+  "payment_status": "حالة الدفع",
+  "payment_successful": "تم الدفع بنجاح",
+  "payment_pending": "قيد الانتظار",
+  "payment_failed": "فشل الدفع",
+  "order_summary": "ملخص الطلب",
+  "subtotal": "المجموع الفرعي",
+  "shipping_fee": "رسوم الشحن",
+  "tax": "الضريبة",
+  "total": "الإجمالي",
+  "ready_for_shipping": "جاهز التجهيز والتوصيل",
+  "delivered": "تم التوصيل",
+  "delivery_confirmed": "تم تأكيد التوصيل"
 }
