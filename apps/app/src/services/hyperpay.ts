@@ -21,7 +21,7 @@ export class HyperPayService {
     this.config = config;
     this.baseUrl = config.testMode
       ? 'https://eu-test.oppwa.com/v1/checkouts'
-      : 'https://eu-prod.oppwa.com/v1/checkouts';
+      : 'https://oppwa.com/v1/checkouts';
     this.widgetUrl = config.testMode
       ? 'https://test.oppwa.com/v1/paymentWidgets.js'
       : 'https://oppwa.com/v1/paymentWidgets.js';
