@@ -38,7 +38,9 @@ export const HyperPayWidget: React.FC<HyperPayWidgetProps> = ({
     // Load HyperPay script
     const script = document.createElement('script');
     script.src = `${
-      hyperpayConfig.testMode ? 'https://test.oppwa.com' : 'https://oppwa.com'
+      // hyperpayConfig.testMode ?
+      'https://test.oppwa.com'
+      // :       'https://oppwa.com'
     }/v1/paymentWidgets.js?checkoutId=${checkoutId}`;
     script.async = true;
     document.body.appendChild(script);
