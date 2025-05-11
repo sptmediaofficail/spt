@@ -40,6 +40,7 @@ export class HyperPayService {
           amount: amount.toFixed(2),
           currency,
           paymentType: 'DB',
+          entityType: 'ecom',
         },
         {
           headers: {
