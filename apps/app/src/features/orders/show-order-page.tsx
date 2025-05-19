@@ -467,9 +467,11 @@ const SubmitOfferSection = (
                 errorMessage={t('field_required')}
                 {...form.register('delivery_fee')}
               />
+
+              <p className="text-[13px] text-red-500">{t('commission_message')}</p>
             </ModalBody>
             <ModalFooter>
-              <div className="flex w-full gap-4 justify-end">
+              <div className="flex w-full gap-4 justify-end ">
                 <PrimaryButton
                   text={isEdit ? t('save') : t('add')}
                   type="submit"

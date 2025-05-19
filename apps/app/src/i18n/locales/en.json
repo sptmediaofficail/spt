@@ -117,5 +117,6 @@
   "we_are_working_on_this_feature": "We are working on this feature",
   "ready_for_shipping": "Ready for Shipping",
   "delivered": "Delivered",
-  "delivery_confirmed": "Delivery Confirmed"
+  "delivery_confirmed": "Delivery Confirmed",
+  "commission_message": "We feel that a fee of 5 riyals will be deducted from the order value for transferring to a non-Central Bank"
 }
