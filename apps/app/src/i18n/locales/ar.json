@@ -270,5 +270,6 @@
   "delivered": "تم التوصيل",
   "delivery_confirmed": "تم تأكيد التوصيل",
   "commission_message": "نشعركم بأنه سوف يتم خصم مبلغ ٥ ريال من قيمة الطلب كرسوم تحويل لغير البنك الاهلي المركزي",
-  "the_price_includes_tax": "السعر شامل الضريبة"
+  "the_price_includes_tax": "السعر شامل الضريبة",
+  "pay_now": "الدفع الآن"
 }

@@ -25,6 +25,7 @@ import { endpoints } from '../../utils/endpoints';
 
 interface OfferCardProps extends IOffer {
   orderId: string;
+  is_paid?: boolean;
 }
 
 const OfferDetailsDialog = ({
@@ -56,8 +57,11 @@ const OfferDetailsDialog = ({
               </span>
               <span className="font-medium">
                 {formatPrice(
-                  offer.price  + offer.fee + offer.tax + offer.bank_fee + offer.commission
-
+                  offer.price +
+                    offer.fee +
+                    offer.tax +
+                    offer.bank_fee +
+                    offer.commission
                 )}
               </span>
             </div>
@@ -143,10 +147,12 @@ export const OfferCard = (props: OfferCardProps) => {
       setIsLoading(true);
       setShowDetailsDialog(false);
 
-      // First update the order status
-      const orderUpdated = await updateOrderStatus();
-      if (!orderUpdated) {
-        return;
+      // Only update order status if it's not already accepted
+      if (props.status !== 'ACCEPTED') {
+        const orderUpdated = await updateOrderStatus();
+        if (!orderUpdated) {
+          return;
+        }
       }
 
       // Then proceed with payment
@@ -234,6 +240,15 @@ export const OfferCard = (props: OfferCardProps) => {
               variant={'bordered'}
               text={isLoading ? t('processing') : t('accept_offer')}
               onClick={handleAcceptOffer}
+              disabled={isLoading}
+            />
+          )}
+          {props.status === 'ACCEPTED' && !props.is_paid && (
+            <PrimaryButton
+              className="hover:bg-primary hover:text-white w-fit mr-auto"
+              variant={'bordered'}
+              text={isLoading ? t('processing') : t('pay_now')}
+              onClick={handleContinueToPayment}
               disabled={isLoading}
             />
           )}

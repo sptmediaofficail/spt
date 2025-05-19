@@ -468,7 +468,9 @@ const SubmitOfferSection = (
                 {...form.register('delivery_fee')}
               />
 
-              <p className="text-[13px] text-red-500">{t('commission_message')}</p>
+              <p className="text-[13px] text-red-500">
+                {t('commission_message')}
+              </p>
             </ModalBody>
             <ModalFooter>
               <div className="flex w-full gap-4 justify-end ">
