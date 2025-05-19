@@ -118,5 +118,6 @@
   "ready_for_shipping": "Ready for Shipping",
   "delivered": "Delivered",
   "delivery_confirmed": "Delivery Confirmed",
-  "commission_message": "We feel that a fee of 5 riyals will be deducted from the order value for transferring to a non-Central Bank"
+  "commission_message": "We feel that a fee of 5 riyals will be deducted from the order value for transferring to a non-Central Bank",
+  "the_price_includes_tax": "The price includes tax"
 }

@@ -74,6 +74,7 @@ export interface IOffer {
   commission: number;
   fee: number;
   tax: number;
+  bank_fee: number;
   total: number;
   is_new: number;
   name: string;

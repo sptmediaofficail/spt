@@ -51,8 +51,15 @@ const OfferDetailsDialog = ({
         <ModalBody>
           <div className="flex flex-col gap-4">
             <div className="flex justify-between">
-              <span className="text-gray-600">{t('price')}</span>
-              <span className="font-medium">{formatPrice(offer.price)}</span>
+              <span className="text-gray-600">
+                {t('the_price_includes_tax')}
+              </span>
+              <span className="font-medium">
+                {formatPrice(
+                  offer.price  + offer.fee + offer.tax + offer.bank_fee + offer.commission
+
+                )}
+              </span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">{t('delivery_fee')}</span>
@@ -60,20 +67,7 @@ const OfferDetailsDialog = ({
                 {formatPrice(offer.delivery_fee)}
               </span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">{t('commission')}</span>
-              <span className="font-medium">
-                {formatPrice(offer.commission)}
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">{t('fee')}</span>
-              <span className="font-medium">{formatPrice(offer.fee)}</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">{t('tax')}</span>
-              <span className="font-medium">{formatPrice(offer.tax)}</span>
-            </div>
+
             <div className="border-t pt-2 flex justify-between">
               <span className="text-gray-800 font-semibold">{t('total')}</span>
               <span className="text-primary font-semibold">
