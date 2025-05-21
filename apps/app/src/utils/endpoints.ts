@@ -6,6 +6,7 @@ export const endpoints = {
       acceptOffer: (offerId: string) => `/client/offer/${offerId}/accept`,
       confirmDelivery: (orderId: string) =>
         `/client/orders/${orderId}/confirm-delivery`,
+      cancel: `/client/orders/cancel`,
     },
   },
   provider: {

@@ -49,6 +49,7 @@ export const ShowOrderPage = ({ orderId }: { orderId: string }) => {
     contentLanguage: 'ar',
   });
   const [orderStatus, setOrderStatus] = useState<string>('');
+  const router = useRouter();
 
   // Set initial orderStatus when data is loaded
   useEffect(() => {
@@ -57,18 +58,40 @@ export const ShowOrderPage = ({ orderId }: { orderId: string }) => {
     }
   }, [data]);
 
+  const handleCancelOrder = async () => {
+    try {
+      await axiosInstance.post(endpoints.client.orders.cancel, {
+        order_id: orderId,
+      });
+      toast.success(t('order_cancelled_successfully'));
+      router.push('/orders');
+    } catch (error) {
+      toast.error(t(error?.message || 'failed_to_cancel_order'));
+    }
+  };
+
   if (isLoading) return <Progress value={50} />;
   if (!data) return <Error statusCode={404} title="Order not found" />;
 
   // @ts-expect-error data is not null
   const orderDetails = data.data as OrderDetails;
-  console.log(orderDetails);
 
   return (
     <div className="w-full p-4 flex flex-col gap-4 h-full">
-      <h2 className="text-2xl font-semibold text-primary">
-        {t('order_spare_part_details')}
-      </h2>
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-semibold text-primary">
+          {t('order_spare_part_details')}
+        </h2>
+        {orderDetails.is_my_order &&
+          orderDetails.status === 'receiving_offer' && (
+            <PrimaryButton
+              onPress={handleCancelOrder}
+              variant={'bordered'}
+              text={t('cancel_order')}
+              className="text-red-500 border-red-500 hover:bg-red-50 w-fit"
+            />
+          )}
+      </div>
       <PrimaryDivider />
 
       {orderDetails?.is_paid === true &&

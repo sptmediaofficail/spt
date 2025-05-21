@@ -120,5 +120,8 @@
   "delivery_confirmed": "Delivery Confirmed",
   "commission_message": "We feel that a fee of 5 riyals will be deducted from the order value for transferring to a non-Central Bank",
   "the_price_includes_tax": "The price includes tax",
-  "pay_now": "Pay Now"
+  "pay_now": "Pay Now",
+  "cancel_order": "Cancel Order",
+  "order_cancelled_successfully": "Order cancelled successfully",
+  "failed_to_cancel_order": "Failed to cancel order"
 }
